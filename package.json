@@ -1,0 +1,106 @@
+{
+  "name": "Murmuration",
+  "productName": "Murmuration",
+  "description": "Idea Management",
+  "version": "1.0.0",
+  "engines": {
+    "npm": "6.1.0",
+    "node": "10.6.0"
+  },
+  "main": "./public/start-electron.js",
+  "private": true,
+  "homepage": "./",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "camelize": "^1.0.0",
+    "canvasjs": "^1.8.3",
+    "chart.js": "^2.7.3",
+    "classnames": "^2.2.6",
+    "concurrently": "^6.1.0",
+    "cross-env": "^5.2.0",
+    "dateformat": "^3.0.3",
+    "electron-is-dev": "^2.0.0",
+    "file-saver": "^2.0.5",
+    "flux": "^3.1.3",
+    "fuzzy": "^0.1.3",
+    "fuzzy-search": "^2.1.0",
+    "heroku-ssl-redirect": "0.0.4",
+    "i18next": "^19.4.5",
+    "i18next-browser-languagedetector": "^4.1.1",
+    "lodash.find": "^4.6.0",
+    "material-design-icons": "^3.0.1",
+    "moment": "^2.24.0",
+    "node-abi": "^2.26.0",
+    "node-sass": "^4.11.0",
+    "objects-to-csv": "^1.3.6",
+    "pandoc": "^0.2.0",
+    "parse": "^2.4.0",
+    "react": "^16.6.3",
+    "react-big-calendar": "^0.20.3",
+    "react-chartjs-2": "^2.10.0",
+    "react-charts": "^2.0.0-beta.6",
+    "react-dom": "^16.6.3",
+    "react-dropzone": "^8.0.1",
+    "react-ga": "^2.5.6",
+    "react-i18next": "^11.4.0",
+    "react-minimal-pie-chart": "^6.0.1",
+    "react-native-radio-form": "^1.1.0",
+    "react-native-simple-radio-button": "^2.7.4",
+    "react-native-svg-charts": "^5.3.0",
+    "react-quill": "^1.3.3",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.0.0",
+    "react-select": "^3.0.8",
+    "react-table": "^6.8.6",
+    "react-tagsinput": "^3.19.0",
+    "shards-react": "^1.0.3",
+    "shortid": "^2.2.14",
+    "wait-on": "^5.3.0",
+    "xlsx": "^0.17.0"
+  },
+  "config": {
+    "npmRebuild": false,
+    "forge": {
+      "packagerConfig": {
+        "icon": "src/assets/icon"
+      }
+    }
+  },
+  "scripts": {
+    "dev": "react-scripts start",
+    "start": "node server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron-dev": "electron .",
+    "electron-package": "electron-builder -c.extraMetadata.main=build/start-electron.js",
+    "make-mac": "electron-forge make --platform darwin",
+    "make-windows": "electron-builder --win --x64 -c.extraMetadata.main=build/start-electron.js",
+    "make-linux": "electron-forge make --platform linux",
+    "preelectron-package": "npm run build"
+  },
+  "build": {
+    "appId": "com.murmuration",
+    "npmRebuild": false,
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "electron": "^12.0.10",
+    "electron-builder": "^22.10.5"
+  }
+}

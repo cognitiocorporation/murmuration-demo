@@ -1,0 +1,147 @@
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { withRouter } from 'react-router'
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import {
+  Form,
+  FormGroup,
+  FormInput,
+  Button
+} from "shards-react";
+import Parse from 'parse';
+
+class LoginFormContainer extends Component {
+  constructor(props) {
+    super(props);
+
+    var currentUser = Parse.User.current();
+    
+    this.state = {
+      email: '',
+      password:'',
+      redirectToReffer: false
+    }
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
+  }
+
+  componentDidMount() {
+    var currentUser = Parse.User.current();
+    var redToReffer;
+
+    if (currentUser) {
+      redToReffer = true;
+    } else {
+      redToReffer = false;
+    }
+
+    this.setState({
+      redirectToReffer: redToReffer
+    });
+  }
+
+  emailChangeHandler = event => {
+    this.setState({
+      email: event.target.value
+    });
+  }
+
+  passwordChangeHandler = event => {
+    this.setState({
+      password: event.target.value
+    });
+  }
+
+  async handleFormSubmit() {
+    // Form submission logic
+    try {
+      const user = await Parse.User.logIn(String(this.state.email), String(this.state.password));
+      // Hooray! Lets use the app now.
+      
+      this.redToReffer = true;
+      this.setState(() => ({
+        redirectToReffer: this.redToReffer
+      }))
+      
+    } catch (error) {
+      // Show the error message somewhere and let the user try again.
+      alert("Error: " + error.code + " " + error.message);
+    }
+  }
+
+  onKeyDown(e) {
+    if (e.key === 'Enter') {
+      this.handleFormSubmit();
+    }
+  }
+  
+  render() {
+
+    const { redirectToReffer } = this.state
+    var handleAuth =   this.props.handleAuth;
+    if (redirectToReffer === true) {  
+      handleAuth()
+      return (
+        <Redirect to="/"/>
+      )
+    }
+
+    return (
+      <Form>
+        <FormGroup>
+          <label htmlFor="loginInputEmail">User ID</label>
+          <FormInput
+            type="email"
+            name="email"
+            id="loginInputEmail"
+            value={this.state.email}
+            onChange={this.emailChangeHandler}
+            placeholder="Enter email"
+            autoComplete="email"
+            onKeyDown={this.onKeyDown}
+          />
+        </FormGroup>
+        <FormGroup>
+          <label htmlFor="loginInputPassword">Password</label>
+          <FormInput
+            type="password"
+            name="password"
+            id="loginInputPassword"
+            value={this.state.password}
+            onChange={this.passwordChangeHandler}
+            id="loginInputPassword"
+            placeholder="Password"
+            autoComplete="current-password"
+            onKeyDown={this.onKeyDown}
+          />
+        </FormGroup>
+        <Button onClick={this.handleFormSubmit}
+          pill
+          theme="accent"
+          className="d-table mx-auto"
+          type="button">
+          Access Account
+        </Button>
+      </Form>
+    );
+  }
+}
+
+const Input = (props) => {
+  return (  
+<div className="form-group">
+  <label htmlFor={props.name} className="form-label">{props.title}</label>
+  <input
+    className="form-input"
+    id={props.name}
+    name={props.name}
+    type={props.type}
+    value={props.value}
+    onChange={props.handleChange}
+    placeholder={props.placeholder} 
+  />
+</div>
+)
+}
+
+export default withRouter(LoginFormContainer);

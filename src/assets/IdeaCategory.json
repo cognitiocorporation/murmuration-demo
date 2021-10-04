@@ -1,0 +1,87 @@
+{
+"results" : [
+
+  {
+    "objectId": "7PW0QkYVbS",
+    "itemName": "Accion Inmediata",
+    "createdAt": "2020-07-20T17:21:39.969Z",
+    "updatedAt": "2021-03-11T18:22:43.493Z",
+    "show": true,
+    "itemNameTrans": {
+      "en": "Immediate Action",
+      "es": "Acción Inmediata"
+    },
+    "extra": false,
+    "icon": "ClockImage",
+    "color": "#DDB153"
+  },
+  {
+    "objectId": "3yny1QCIay",
+    "itemName": "Productividad",
+    "createdAt": "2020-07-20T17:23:23.408Z",
+    "updatedAt": "2021-03-11T18:22:42.421Z",
+    "show": true,
+    "itemNameTrans": {
+      "en": "Productivity",
+      "es": "Productividad"
+    },
+    "extra": false,
+    "icon": "ChartImage",
+    "color": "#7FA86F"
+  },
+  {
+    "objectId": "YD86MdsqeT",
+    "itemName": "Calidad",
+    "createdAt": "2020-07-20T17:23:39.818Z",
+    "updatedAt": "2021-05-07T10:28:37.318Z",
+    "show": true,
+    "itemNameTrans": {
+      "en": "Quality and Compliance",
+      "es": "Calidad y Cumplimiento"
+    },
+    "extra": false,
+    "icon": "ShieldImage",
+    "color": "#3A7BBB"
+  },
+  {
+    "objectId": "GVnOTySGrI",
+    "itemName": "Cost Competitiveness",
+    "createdAt": "2021-03-11T17:37:50.520Z",
+    "updatedAt": "2021-05-07T10:27:17.135Z",
+    "itemNameTrans": {
+      "en": "Cost Competitiveness",
+      "es": "Costo"
+    },
+    "show": true,
+    "extra": true,
+    "icon": "DollarImage",
+    "color": "#7B0828"
+  },
+  {
+    "objectId": "kUUXVtRnCY",
+    "itemNameTrans": {
+      "en": "EHS and Compliance",
+      "es": "EHS y Cumplimiento"
+    },
+    "createdAt": "2021-05-07T10:27:41.227Z",
+    "updatedAt": "2021-05-12T20:37:47.860Z",
+    "extra": true,
+    "icon": "",
+    "show": true,
+    "itemName": "EHS y Cumplimiento"
+  },
+  {
+    "objectId": "xw1TwvbnKz",
+    "itemName": "Best Place to Work",
+    "createdAt": "2021-05-27T15:12:03.196Z",
+    "updatedAt": "2021-05-27T15:13:36.049Z",
+    "itemNameTrans": {
+      "en": "Best Place to Work",
+      "es": "Best Place to Work"
+    },
+    "extra": true,
+    "show": true,
+    "icon": "TeamImage"
+  }
+]
+}

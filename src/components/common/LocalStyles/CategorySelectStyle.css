@@ -1,0 +1,19 @@
+.square {
+    padding-bottom: 5%;
+    padding-top: 10%;
+    border-radius: 50%;
+  }
+  .orange {background-color: orange;}
+  .orangered {background-color: orangered;}
+  .gold {background-color: gold;}
+  .darkorange {background-color: darkorange;}
+  .deselected {background-color: white;}
+
+  .v-center {
+    margin-top: auto;
+    margin-bottom: auto;
+ }
+
+
+
+  .murmuration-blue {background-color: #3679bc;}

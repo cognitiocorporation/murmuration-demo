@@ -1,0 +1,213 @@
+{
+"results" : [
+
+  {
+    "objectId": "ZRFCbTqKGQ",
+    "questionTrans": {
+      "en": "Does this idea simplify a process or a document? (e.g. documentation error reduction, reduce process steps)",
+      "es": "¿Simplifica un documento o proceso? ( por ejemplo: reduce errores de documentación, elimina pasos redundantes)"
+    },
+    "required": false,
+    "question": "Does this idea simplify a process or a document?",
+    "category": "Calidad",
+    "createdAt": "2021-05-07T10:21:06.885Z",
+    "updatedAt": "2021-05-26T22:03:38.894Z",
+    "field": false
+  },
+  {
+    "objectId": "8iJ7q1H81B",
+    "questionTrans": {
+      "en": "Does this idea help to align current process practices with a procedure?",
+      "es": "¿Ayuda a alinear el procedimiento o proceso con las prácticas actuales?"
+    },
+    "required": false,
+    "question": "Does this idea help to align current process practices with a procedure?",
+    "category": "Calidad",
+    "createdAt": "2021-05-07T10:21:37.334Z",
+    "updatedAt": "2021-05-26T21:48:34.565Z",
+    "field": false
+  },
+  {
+    "objectId": "Q7fvKHNVUk",
+    "questionTrans": {
+      "en": "Does this idea help to prevent defects, regulatory issues, product recall or customer complaints?",
+      "es": "¿Ayuda a prevenir a corregir defectos, situaciones regulatorias, o situaciones en el mercado como recogido de producto, quejas de clientes?"
+    },
+    "required": false,
+    "question": "Does this idea help to prevent defects, regulatory issues, product recall or customer complaints?",
+    "category": "Calidad",
+    "createdAt": "2021-05-07T10:21:56.929Z",
+    "updatedAt": "2021-05-26T21:48:33.681Z",
+    "field": false
+  },
+  {
+    "objectId": "x7cDV8PE0Z",
+    "questionTrans": {
+      "en": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+      "es": "¿Ayuda esta idea a simplificar un proceso reduciendo la cantidad de pasos y eliminando tareas que no añaden valor? \n"
+    },
+    "required": false,
+    "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+    "category": "Productividad",
+    "createdAt": "2021-05-07T10:23:10.953Z",
+    "updatedAt": "2021-05-26T21:48:32.984Z",
+    "field": false
+  },
+  {
+    "objectId": "6OeH4AEsHs",
+    "questionTrans": {
+      "en": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+      "es": "¿Ayuda esta idea a reducir los tiempos de ejecución sin sacrificar la calidad? ¿Por cuánto?\n"
+    },
+    "required": false,
+    "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+    "category": "Productividad",
+    "createdAt": "2021-05-07T10:23:27.350Z",
+    "updatedAt": "2021-05-07T10:35:30.094Z",
+    "field": true
+  },
+  {
+    "objectId": "YRoMuTFPCD",
+    "questionTrans": {
+      "en": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+      "es": "¿Ayuda esta idea a alcanzar los proyectos estratégicos de Baxter Guayama dentro del tiempo establecido?"
+    },
+    "required": false,
+    "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+    "category": "Productividad",
+    "createdAt": "2021-05-07T10:23:48.845Z",
+    "updatedAt": "2021-05-26T21:48:32.173Z",
+    "field": false
+  },
+  {
+    "objectId": "qQlHUQAxKb",
+    "questionTrans": {
+      "en": "Does this idea help to improve %OEE?",
+      "es": "¿Ayuda esta idea a mejorar el OEE?"
+    },
+    "required": false,
+    "question": "Does this idea help to improve %OEE? How much?",
+    "category": "Productividad",
+    "createdAt": "2021-05-07T10:24:06.728Z",
+    "updatedAt": "2021-05-21T11:32:02.742Z",
+    "field": false
+  },
+  {
+    "objectId": "kwyCwyrKuh",
+    "questionTrans": {
+      "en": "Does this idea help to reduce costs and comply with site cost reduction initiatives? ",
+      "es": "¿Ayuda esta idea reducir los costos y cumplir con la meta de reducciones de costo?"
+    },
+    "required": false,
+    "question": "Does this idea help to reduce costs and comply with site cost reduction initiatives? ",
+    "category": "Cost Competitiveness",
+    "createdAt": "2021-05-07T10:24:25.920Z",
+    "updatedAt": "2021-05-26T21:48:30.974Z",
+    "field": false
+  },
+  {
+    "objectId": "y6sHFE54zQ",
+    "questionTrans": {
+      "en": "Does this idea help to reduce materials inventory levels? How much? ",
+      "es": "¿Ayuda esta idea a reducir los inventarios de materiales? ¿Por cuánto?"
+    },
+    "required": false,
+    "question": "Does this idea help to reduce materials inventory levels? How much? ",
+    "category": "Cost Competitiveness",
+    "createdAt": "2021-05-07T10:24:38.961Z",
+    "updatedAt": "2021-05-07T10:34:43.674Z",
+    "field": true
+  },
+  {
+    "objectId": "dk7yNDkBzz",
+    "questionTrans": {
+      "en": "Does this idea help in developing a positive workplace environment?",
+      "es": "Ayuda a crear un ambiente positivo de trabajo"
+    },
+    "required": false,
+    "question": "Does this idea help in developing a positive workplace environment?",
+    "category": "Best Place to Work",
+    "createdAt": "2021-05-07T10:25:01.972Z",
+    "updatedAt": "2021-05-26T21:48:29.982Z",
+    "field": false
+  },
+  {
+    "objectId": "K80t0Xbidy",
+    "questionTrans": {
+      "en": "Does this idea help in developing new skills and competencies?",
+      "es": "Ayuda a desarrollar nuevas destrezas y conocimiento"
+    },
+    "required": false,
+    "question": "Does this idea help in developing new skills and competencies?",
+    "category": "Best Place to Work",
+    "createdAt": "2021-05-07T10:25:41.426Z",
+    "updatedAt": "2021-05-26T21:48:29.353Z",
+    "field": false
+  },
+  {
+    "objectId": "QhcQ80zd9J",
+    "questionTrans": {
+      "en": "Does this idea enhance the knowledge and accountability on the Environment Management System and Programs? (e.g. ISO 14001)\n",
+      "es": "¿Ayuda esta idea a mejorar el conocimiento y responsabilidad en el manejo ambiental y sus programas? (eg. ISO 14001)\n"
+    },
+    "required": false,
+    "question": "Does this idea enhance the knowledge and accountability on the Environment Management System and Programs? (e.g. ISO 14001)\n",
+    "category": "EHS y Cumplimiento",
+    "createdAt": "2021-05-07T10:30:27.232Z",
+    "updatedAt": "2021-05-26T21:48:28.627Z",
+    "field": false
+  },
+  {
+    "objectId": "BLLG9UtMdu",
+    "questionTrans": {
+      "en": "Does this idea help to reduce  Energy and Water Consumption and/or minimize Waste? How much? \n",
+      "es": "¿Ayuda esta idea a reducir el consumo de agua, energía y desperdicios?  \n¿Por cuánto?"
+    },
+    "required": false,
+    "question": "Does this idea help to reduce  Energy and Water Consumption and/or minimize Waste? How much? \n",
+    "category": "EHS y Cumplimiento",
+    "createdAt": "2021-05-07T10:30:52.099Z",
+    "updatedAt": "2021-05-07T10:33:56.960Z",
+    "field": true
+  },
+  {
+    "objectId": "VW7F3sEpz5",
+    "questionTrans": {
+      "en": "Does this idea foster employee EHSS accountability and an interdependent EHSS culture?",
+      "es": "¿Promueve esta idea la cultura de EHSS y la responsabilidad individual y de grupo en los comportamientos correctos? "
+    },
+    "required": false,
+    "question": "Does this idea foster employee EHSS accountability and an interdependent EHSS culture?",
+    "category": "EHS y Cumplimiento",
+    "createdAt": "2021-05-07T10:31:07.637Z",
+    "updatedAt": "2021-05-26T21:48:27.733Z",
+    "field": false
+  },
+  {
+    "objectId": "J5qEjFP68F",
+    "questionTrans": {
+      "en": "my question",
+      "es": "mi pregunta"
+    },
+    "required": false,
+    "question": "my question",
+    "category": "Todas",
+    "field": true,
+    "createdAt": "2021-05-14T01:17:17.495Z",
+    "updatedAt": "2021-05-14T01:24:47.863Z"
+  },
+  {
+    "objectId": "s4HHvDkRDk",
+    "questionTrans": {
+      "en": "By how much does this idea help to improve %OEE? (Increase %)",
+      "es": "¿Por cuánto ayuda esta idea a mejorar el OEE? (% de Mejora)"
+    },
+    "createdAt": "2021-05-21T11:32:58.096Z",
+    "updatedAt": "2021-05-21T11:35:01.944Z",
+    "question": "By how much does this idea help to improve %OEE?",
+    "field": true,
+    "category": "Productividad",
+    "required": false
+  }
+]
+}

@@ -1,0 +1,161 @@
+{
+"results" : [
+
+  {
+    "objectId": "eiNjHe5cTU",
+    "question": "¿Test?",
+    "createdAt": "2020-08-06T19:04:19.410Z",
+    "updatedAt": "2021-03-11T19:39:00.039Z",
+    "ideaType": "innovacion",
+    "filter": "innovacion",
+    "questionTrans": {
+      "en": "Is this IDEA an innovation?",
+      "es": "¿Es una IDEA de innovación?"
+    },
+    "field": false
+  },
+  {
+    "objectId": "g5WPiE8Vf7",
+    "question": "¿Problema?",
+    "createdAt": "2020-08-06T19:33:23.007Z",
+    "updatedAt": "2021-03-11T19:53:25.246Z",
+    "ideaType": "solucion",
+    "filter": "solucion",
+    "questionTrans": {
+      "en": "What problem are you trying to solve or issue to improve?",
+      "es": "¿Qué problema estamos tratando de solucionar o situación tratando de mejorar?"
+    },
+    "field": true
+  },
+  {
+    "objectId": "ddMl4LKkHB",
+    "question": "¿Problema?",
+    "createdAt": "2020-08-06T20:38:19.085Z",
+    "updatedAt": "2021-03-11T19:53:28.049Z",
+    "filter": "solucion\n",
+    "ideaType": "solucion",
+    "questionTrans": {
+      "en": "What is happening?",
+      "es": "¿Qué está ocurriendo?"
+    },
+    "field": true
+  },
+  {
+    "objectId": "hEwwMMlqtB",
+    "question": "¿Problema?",
+    "createdAt": "2020-08-06T20:38:58.950Z",
+    "updatedAt": "2021-03-11T19:53:29.478Z",
+    "ideaType": "solucion",
+    "filter": "solucion",
+    "questionTrans": {
+      "en": "Where is it happening?",
+      "es": "¿Dónde está ocurriendo?"
+    },
+    "field": true
+  },
+  {
+    "objectId": "OayzxRYeiW",
+    "ideaType": "solucion",
+    "createdAt": "2020-08-06T20:39:30.816Z",
+    "updatedAt": "2021-03-11T19:53:34.102Z",
+    "filter": "solucion",
+    "questionTrans": {
+      "en": "What is its frequency? (Use numbers)",
+      "es": "¿Con qué frecuencia está ocurriendo?"
+    },
+    "question": "¿Problema?",
+    "field": true
+  },
+  {
+    "objectId": "HqPGjfXw5x",
+    "ideaType": "solucion",
+    "createdAt": "2020-08-06T20:40:03.742Z",
+    "updatedAt": "2021-03-11T19:53:35.141Z",
+    "filter": "solucion",
+    "questionTrans": {
+      "en": "What is the symptom? (What is observed)",
+      "es": "¿Cuál es el síntoma o dolor de cabeza?"
+    },
+    "question": "¿Problema?",
+    "field": true
+  },
+  {
+    "objectId": "9obpm2yazl",
+    "ideaType": "solucion",
+    "createdAt": "2020-08-06T20:41:21.728Z",
+    "updatedAt": "2021-03-11T19:53:36.503Z",
+    "filter": "solucion",
+    "questionTrans": {
+      "en": "Which metric is being impacted?",
+      "es": "¿Qué métrica está siendo afectada?"
+    },
+    "question": "¿Problema?",
+    "field": true
+  },
+  {
+    "objectId": "uFsvT6A8IG",
+    "ideaType": "solucion",
+    "createdAt": "2020-08-06T20:42:08.167Z",
+    "updatedAt": "2021-03-11T19:53:37.784Z",
+    "filter": "solucion",
+    "questionTrans": {
+      "en": "How does it deviate from normal conditions?",
+      "es": "¿Cómo se diferencia de las condiciones normales?"
+    },
+    "question": "¿Problema?",
+    "field": true
+  },
+  {
+    "objectId": "Df30NQnqX3",
+    "ideaType": "innovacion",
+    "createdAt": "2020-08-06T20:54:24.152Z",
+    "updatedAt": "2021-03-11T19:53:39.155Z",
+    "filter": "innovacion",
+    "questionTrans": {
+      "en": "Is this IDEA aligned to the business strategy?",
+      "es": "¿Esta alineada a la estrategia de negocios?"
+    },
+    "question": "¿Test?",
+    "field": false
+  },
+  {
+    "objectId": "o4C8pMvwrw",
+    "ideaType": "innovacion",
+    "createdAt": "2020-08-06T20:54:52.556Z",
+    "updatedAt": "2021-03-11T19:44:06.440Z",
+    "filter": "innovacion",
+    "questionTrans": {
+      "en": "What resources are needed to implement this IDEA?",
+      "es": "¿Qué recursos son necesarios para implementar esta IDEA?"
+    },
+    "question": "¿Test?",
+    "field": true
+  },
+  {
+    "objectId": "VvuL5twimt",
+    "ideaType": "innovacion",
+    "createdAt": "2020-08-06T20:55:18.158Z",
+    "updatedAt": "2021-03-11T19:53:42.026Z",
+    "filter": "innovacion",
+    "questionTrans": {
+      "en": "How much time will it take to implement it?",
+      "es": "¿Cuánto tiempo tomara implementarla?"
+    },
+    "question": "¿Test?",
+    "field": true
+  },
+  {
+    "objectId": "b5Quw3Ca9i",
+    "question": "¿Since when is it happening?",
+    "createdAt": "2021-03-11T19:37:50.598Z",
+    "updatedAt": "2021-03-11T19:52:53.966Z",
+    "ideaType": "solucion",
+    "filter": "solucion",
+    "questionTrans": {
+      "en": "Since when is it happening?",
+      "es": "¿Desde cuando ocurre?"
+    },
+    "field": true
+  }
+]
+}
