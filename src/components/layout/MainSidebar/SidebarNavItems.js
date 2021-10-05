@@ -103,7 +103,8 @@ class SidebarNavItems extends React.Component {
                     id="main-logo"
                     className="d-inline-block align-top mr-1 ml-3"
                     style={{ maxWidth: "120px" }}
-                    src= {require("../../../images/logo_murmuration.png")}
+                    // src= {require("../../../images/logo_murmuration.png")}
+                    src={'https://goswiftmedia.com/wp-content/uploads/2021/10/logo_murmuration.png'}
                     alt="Murmuration"
                   />
           </a>

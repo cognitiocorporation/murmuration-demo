@@ -35,8 +35,8 @@ class SidebarMainNavbar extends React.Component {
               <img
                 id="main-logo"
                 className="d-inline-block align-top mr-1"
-                style={{ maxWidth: "120px" }}
-                src={'https://goswiftmedia.com/wp-content/uploads/2021/04/Untitled-design-1.png'}//"https://seeklogo.com/images/B/Bacardi-logo-DD0961793C-seeklogo.com.png"//"https://6erxg60qvo1qvjha44jrgpan-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/Teva_logo.svg_.png"//{require("../../../images/shards-dashboards-logo.svg")}
+                style={{ maxWidth: "160px" }}
+                src={'https://goswiftmedia.com/wp-content/uploads/2021/10/1.png'}//"https://seeklogo.com/images/B/Bacardi-logo-DD0961793C-seeklogo.com.png"//"https://6erxg60qvo1qvjha44jrgpan-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/Teva_logo.svg_.png"//{require("../../../images/shards-dashboards-logo.svg")}
                 alt="Shards Dashboard"
               />
               {/* {!hideLogoText && (

@@ -30,28 +30,16 @@ class Login extends Component {
               <img
                     id="main-logo"
                     className="d-inline-block align-top"
-                    style={{ maxWidth: "80%", maxHeight: '60px', marginBottom: '20px', alignSelf: 'center', marginLeft: 'auto', marginRight: 'auto' }}
-                    src= {'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Baxter.svg/1200px-Baxter.svg.png'}
-                    alt="Baxter"
+                    style={{ maxWidth: "90%", maxHeight: '90px', marginBottom: '20px', alignSelf: 'center', marginLeft: 'auto', marginRight: 'auto' }}
+                    src= {'https://goswiftmedia.com/wp-content/uploads/2021/10/1.png'}
+                    alt="Johnson & Johnson"
                 />
             </Row>
             <Card>
               <CardBody>
                 {/* Logo */}
                 {/* <h3 className="text-center mb-4">Murmuration</h3> */}
-                <div className="d-table m-auto">
-                <img
-                  id="main-logo"
-                  className="d-inline-block align-top"
-                  style={{ maxWidth: "100%", maxHeight: '100px', marginBottom: '20px' }}
-                  src= {'https://goswiftmedia.com/wp-content/uploads/2021/04/BAXTER_LOGO_MURMURATION.001.jpeg'}
-                  alt="Baxter"
-                />
-              
-                {/* <span className="d-none d-md-inline ml-1">
-                  Murmuration
-                </span> */}
-              </div>
+                
                 {/* Title */}
                 <h5 className="auth-form__title text-center mb-4">
                   Access Your Account
@@ -78,7 +66,8 @@ class Login extends Component {
                     id="main-logo"
                     className="d-inline-block align-top mr-1 ml-3"
                     style={{ maxWidth: "140px" }}
-                    src= {require("../images/logo_murmuration.png")}
+                    // src= {require("../images/logo_murmuration.png")}
+                    src={'https://goswiftmedia.com/wp-content/uploads/2021/10/logo_murmuration.png'}
                     alt="Shards Dashboard"
                   />
           </a>
