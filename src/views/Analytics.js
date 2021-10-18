@@ -590,20 +590,22 @@ class Analytics extends React.Component {
       </Card>
           {/* <Chart data={data} axes={axes} /> */}
       </Col>
+
+      {/* Problem starts below here */}
         
-       <Col lg="12" sm="6" className="mb-4">
-       <Card>
-      <CardBody>
-        <CardTitle>{t('IDEAS_BY_DEPARTMENT')}</CardTitle>
-        {this.state.showIdeasByDeptChart &&<MyChart height={80} data={this.state.ideaByDepartmentData}></MyChart>}
-      </CardBody>
-      <CardFooter>
+       {/* <Col lg="12" sm="6" className="mb-4"> */}
+       {/* <Card> */}
+      {/* <CardBody> */}
+        {/* <CardTitle>{t('IDEAS_BY_DEPARTMENT')}</CardTitle> */}
+        {/* {this.state.showIdeasByDeptChart &&<MyChart height={80} data={this.state.ideaByDepartmentData}></MyChart>} */}
+      {/* </CardBody>
+      <CardFooter> */}
         {/* <Button>{t('DOWNLOAD_DATA')} &rarr;</Button>
         <ExportCSV csvData={this.state.progressByCategoryData} fileName={'demo'} /> */}
-        </CardFooter>
-    </Card>
+        {/* </CardFooter>
+    </Card> */}
         {/* <Chart data={data} axes={axes} /> */}
-      </Col>
+      {/* </Col>
 
       <Col lg="12" sm="6" className="mb-4">
        <Card>
@@ -611,40 +613,40 @@ class Analytics extends React.Component {
         <CardTitle>{t('PROGRESS_BY_CATEGORY')}</CardTitle>
         {this.state.showProgressByCatChart &&<ProgressPerCategoryChart data={this.state.progressByCategoryData}></ProgressPerCategoryChart>}
       </CardBody>
-      <CardFooter>
+      <CardFooter> */}
         {/* <Button>{t('DOWNLOAD_DATA')} &rarr;</Button> */}
-        </CardFooter>
-    </Card>
+        {/* </CardFooter>
+    </Card> */}
         {/* <Chart data={data} axes={axes} /> */}
-      </Col>
+      {/* </Col> */}
 
       {/* Earnings */}
-      <Col lg="12" sm="6" className="mb-4">
+      {/* <Col lg="12" sm="6" className="mb-4">
        <Card>
-      <CardBody>
-        <CardTitle>{t('EXPECTED_EARNINGS_BY_CATEGORY')}</CardTitle>
+      <CardBody> */}
+        {/* <CardTitle>{t('EXPECTED_EARNINGS_BY_CATEGORY')}</CardTitle>
         {this.state.showChart && <ProgressPerCategoryChart data={this.state.returnsByCategoryData}></ProgressPerCategoryChart>}
       </CardBody>
-      <CardFooter>
+      <CardFooter> */}
         {/* <Button>{t('DOWNLOAD_DATA')} &rarr;</Button> */}
-        </CardFooter>
-    </Card>
+        {/* </CardFooter>
+    </Card> */}
         {/* <Chart data={data} axes={axes} /> */}
-      </Col>
+      {/* </Col> */}
 
       {/* Actual Earnings */}
-      <Col lg="12" sm="6" className="mb-4">
+      {/* <Col lg="12" sm="6" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('ACTUAL_EARNINGS_BY_CATEGORY')}</CardTitle>
         <ProgressPerCategoryChart style={{height: "30px"}} data={this.state.actualReturnsByCategoryData}></ProgressPerCategoryChart>
       </CardBody>
-      <CardFooter>
+      <CardFooter> */}
         {/* <Button>{t('DOWNLOAD_DATA')} &rarr;</Button> */}
-        </CardFooter>
-    </Card>
+        {/* </CardFooter>
+    </Card> */}
         {/* <Chart data={data} axes={axes} /> */}
-      </Col>
+      {/* </Col> */}
     </Row>
     
   </Container>
