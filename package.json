@@ -4,8 +4,8 @@
   "description": "Idea Management",
   "version": "1.0.0",
   "engines": {
-    "npm": "6.1.0",
-    "node": "10.6.0"
+    "npm": "7.24.1",
+    "node": "12.18.2"
   },
   "main": "./public/start-electron.js",
   "private": true,
