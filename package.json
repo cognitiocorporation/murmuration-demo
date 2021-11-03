@@ -3,10 +3,6 @@
   "productName": "Murmuration",
   "description": "Idea Management",
   "version": "1.0.0",
-  "engines": {
-    "npm": "7.24.1",
-    "node": "12.18.2"
-  },
   "main": "./public/start-electron.js",
   "private": true,
   "homepage": "./",
