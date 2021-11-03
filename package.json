@@ -5,6 +5,10 @@
   "version": "1.0.0",
   "main": "./public/start-electron.js",
   "private": true,
+  "engines": {
+    "npm": "6.1.0",
+    "node": "10.6.0"
+  },
   "homepage": "./",
   "dependencies": {
     "@svgr/webpack": "^5.5.0",

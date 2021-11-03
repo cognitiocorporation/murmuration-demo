@@ -613,7 +613,7 @@ class Analytics extends React.Component {
           {/* <Chart data={data} axes={axes} /> */}
       </Col>
         
-       {/* <Col lg="6" sm="12" className="mb-4">
+       <Col lg="6" sm="12" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('IDEAS_BY_DEPARTMENT')}</CardTitle>
@@ -623,9 +623,9 @@ class Analytics extends React.Component {
         </CardFooter>
     </Card>
         
-      </Col> */}
+      </Col>
 
-      {/* <Col lg="6" sm="12" className="mb-4">
+      <Col lg="6" sm="12" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('PROGRESS_BY_CATEGORY')}</CardTitle>
@@ -636,10 +636,10 @@ class Analytics extends React.Component {
         </CardFooter>
     </Card>
         
-      </Col> */}
+      </Col>
 
       {/* Earnings */}
-      {/* <Col lg="6" sm="12" className="mb-4">
+      <Col lg="6" sm="12" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('EXPECTED_EARNINGS_BY_CATEGORY')}</CardTitle>
@@ -650,10 +650,10 @@ class Analytics extends React.Component {
         </CardFooter>
     </Card>
        
-      </Col> */}
+      </Col>
 
       {/* Actual Earnings */}
-      {/* <Col lg="6" sm="12" className="mb-4">
+      <Col lg="6" sm="12" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('ACTUAL_EARNINGS_BY_CATEGORY')}</CardTitle>
@@ -664,7 +664,7 @@ class Analytics extends React.Component {
         </CardFooter>
     </Card>
         
-      </Col> */}
+      </Col>
     </Row>
     
   </Container>
