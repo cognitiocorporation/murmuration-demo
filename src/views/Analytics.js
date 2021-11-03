@@ -108,10 +108,7 @@ const MyChart = (props) => {
         height: '300px'
       }}
     >
-       <Chart style={{
-        width: '400px',
-        height: '300px'
-      }} data={props.data} series={series} axes={axes} tooltip/>
+       <Chart data={props.data} series={series} axes={axes} tooltip/>
     </div>
     
   )
@@ -164,7 +161,15 @@ const ProgressPerCategoryChart = (props) => {
   const barChart = (
     // A react-chart hyper-responsively and continuusly fills the available
     // space of its parent element automatically
-    <Chart style={{maxHeight: "200px", width: '100%'}} initialWidth={100} data={props.data} series={series} axes={axes} tooltip />
+    <div
+      style={{
+        width: '400px',
+        height: '300px'
+      }}
+    >
+      <Chart initialWidth={100} data={props.data} series={series} axes={axes} tooltip />
+    </div>
+   
   )
 
   return barChart
@@ -206,7 +211,7 @@ function IdeasPendingEvaluationPerDeptChart() {
     <div
       style={{
         maxWidth: '400px',
-        height: '100px'
+        height: '300px'
       }}
     >
       <Chart data={data} initialWidth={100} series={series} axes={axes} tooltip style={{width: '100%'}}/>
@@ -587,11 +592,19 @@ class Analytics extends React.Component {
         </Col>
         ))}
 
-      <Col lg="6" sm="6" className="mb-4">
+      <Col lg="6" sm="12" className="mb-4">
         <Card>
         <CardBody>
           <CardTitle>{t('IDEAS_BY_PROGRESS')}</CardTitle>
-          <Pie data={{labels: labels, datasets: datasets}} height={80} options={{ maintainAspectRatio: true }} />
+          <div
+            style={{
+              width: '400px',
+              height: '300px'
+            }}
+          >
+             <Pie data={{labels: labels, datasets: datasets}}  options={{ maintainAspectRatio: true }} />
+          </div>
+         
         </CardBody>
         <CardFooter>
           {/* <Button>{t('DOWNLOAD_DATA')} &rarr;</Button> */}
@@ -600,7 +613,7 @@ class Analytics extends React.Component {
           {/* <Chart data={data} axes={axes} /> */}
       </Col>
         
-       {/* <Col lg="6" sm="6" className="mb-4">
+       <Col lg="6" sm="12" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('IDEAS_BY_DEPARTMENT')}</CardTitle>
@@ -610,9 +623,9 @@ class Analytics extends React.Component {
         </CardFooter>
     </Card>
         
-      </Col> */}
+      </Col>
 
-      {/* <Col lg="12" sm="6" className="mb-4">
+      <Col lg="6" sm="12" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('PROGRESS_BY_CATEGORY')}</CardTitle>
@@ -623,10 +636,10 @@ class Analytics extends React.Component {
         </CardFooter>
     </Card>
         
-      </Col> */}
+      </Col>
 
       {/* Earnings */}
-      {/* <Col lg="12" sm="6" className="mb-4">
+      <Col lg="6" sm="12" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('EXPECTED_EARNINGS_BY_CATEGORY')}</CardTitle>
@@ -637,10 +650,10 @@ class Analytics extends React.Component {
         </CardFooter>
     </Card>
        
-      </Col> */}
+      </Col>
 
       {/* Actual Earnings */}
-      {/* <Col lg="12" sm="6" className="mb-4">
+      {/* <Col lg="6" sm="12" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('ACTUAL_EARNINGS_BY_CATEGORY')}</CardTitle>
