@@ -204,7 +204,7 @@ class PropertyManager extends Component {
                   </InputGroup>
                 </ListGroupItem>
                 }
-                { this.props.className == "IdeaCategory" && this.state.data.length < 5 &&
+                { this.props.className == "IdeaCategory" && this.state.data.length < 6 &&
                 <ListGroupItem className="d-flex px-3">
                   <InputGroup className="ml-auto">
                     <FormInput value={this.state.value} onChange={this.handleCatChange} placeholder={t('ENGLISH')} />

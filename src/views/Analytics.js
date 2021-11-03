@@ -102,8 +102,17 @@ const MyChart = (props) => {
   const barChart = (
     // A react-chart hyper-responsively and continuusly fills the available
     // space of its parent element automatically
-    
-      <Chart style={{maxHeight: "200px"}} data={props.data} series={series} axes={axes} tooltip/>
+    <div
+      style={{
+        width: '400px',
+        height: '300px'
+      }}
+    >
+       <Chart style={{
+        width: '400px',
+        height: '300px'
+      }} data={props.data} series={series} axes={axes} tooltip/>
+    </div>
     
   )
 
@@ -155,7 +164,7 @@ const ProgressPerCategoryChart = (props) => {
   const barChart = (
     // A react-chart hyper-responsively and continuusly fills the available
     // space of its parent element automatically
-    <Chart style={{maxHeight: "200px"}} data={props.data} series={series} axes={axes} tooltip />
+    <Chart style={{maxHeight: "200px", width: '100%'}} initialWidth={100} data={props.data} series={series} axes={axes} tooltip />
   )
 
   return barChart
@@ -200,7 +209,7 @@ function IdeasPendingEvaluationPerDeptChart() {
         height: '100px'
       }}
     >
-      <Chart data={data} series={series} axes={axes} tooltip />
+      <Chart data={data} initialWidth={100} series={series} axes={axes} tooltip style={{width: '100%'}}/>
     </div>
   )
 
@@ -578,7 +587,7 @@ class Analytics extends React.Component {
         </Col>
         ))}
 
-      <Col lg="12" sm="6" className="mb-4">
+      <Col lg="6" sm="6" className="mb-4">
         <Card>
         <CardBody>
           <CardTitle>{t('IDEAS_BY_PROGRESS')}</CardTitle>
@@ -590,49 +599,45 @@ class Analytics extends React.Component {
       </Card>
           {/* <Chart data={data} axes={axes} /> */}
       </Col>
-
-      {/* Problem starts below here */}
         
-       {/* <Col lg="12" sm="6" className="mb-4"> */}
-       {/* <Card> */}
-      {/* <CardBody> */}
-        {/* <CardTitle>{t('IDEAS_BY_DEPARTMENT')}</CardTitle> */}
-        {/* {this.state.showIdeasByDeptChart &&<MyChart height={80} data={this.state.ideaByDepartmentData}></MyChart>} */}
-      {/* </CardBody>
-      <CardFooter> */}
-        {/* <Button>{t('DOWNLOAD_DATA')} &rarr;</Button>
-        <ExportCSV csvData={this.state.progressByCategoryData} fileName={'demo'} /> */}
-        {/* </CardFooter>
-    </Card> */}
-        {/* <Chart data={data} axes={axes} /> */}
-      {/* </Col>
+       {/* <Col lg="6" sm="6" className="mb-4">
+       <Card>
+      <CardBody>
+        <CardTitle>{t('IDEAS_BY_DEPARTMENT')}</CardTitle>
+        {this.state.showIdeasByDeptChart &&<MyChart height={80} width={80} initialWidth={80} data={this.state.ideaByDepartmentData}></MyChart>}
+      </CardBody>
+      <CardFooter>
+        </CardFooter>
+    </Card>
+        
+      </Col> */}
 
-      <Col lg="12" sm="6" className="mb-4">
+      {/* <Col lg="12" sm="6" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('PROGRESS_BY_CATEGORY')}</CardTitle>
         {this.state.showProgressByCatChart &&<ProgressPerCategoryChart data={this.state.progressByCategoryData}></ProgressPerCategoryChart>}
       </CardBody>
-      <CardFooter> */}
-        {/* <Button>{t('DOWNLOAD_DATA')} &rarr;</Button> */}
-        {/* </CardFooter>
-    </Card> */}
-        {/* <Chart data={data} axes={axes} /> */}
-      {/* </Col> */}
+      <CardFooter>
+        
+        </CardFooter>
+    </Card>
+        
+      </Col> */}
 
       {/* Earnings */}
       {/* <Col lg="12" sm="6" className="mb-4">
        <Card>
-      <CardBody> */}
-        {/* <CardTitle>{t('EXPECTED_EARNINGS_BY_CATEGORY')}</CardTitle>
+      <CardBody>
+        <CardTitle>{t('EXPECTED_EARNINGS_BY_CATEGORY')}</CardTitle>
         {this.state.showChart && <ProgressPerCategoryChart data={this.state.returnsByCategoryData}></ProgressPerCategoryChart>}
       </CardBody>
-      <CardFooter> */}
-        {/* <Button>{t('DOWNLOAD_DATA')} &rarr;</Button> */}
-        {/* </CardFooter>
-    </Card> */}
-        {/* <Chart data={data} axes={axes} /> */}
-      {/* </Col> */}
+      <CardFooter>
+       
+        </CardFooter>
+    </Card>
+       
+      </Col> */}
 
       {/* Actual Earnings */}
       {/* <Col lg="12" sm="6" className="mb-4">
@@ -641,12 +646,12 @@ class Analytics extends React.Component {
         <CardTitle>{t('ACTUAL_EARNINGS_BY_CATEGORY')}</CardTitle>
         <ProgressPerCategoryChart style={{height: "30px"}} data={this.state.actualReturnsByCategoryData}></ProgressPerCategoryChart>
       </CardBody>
-      <CardFooter> */}
-        {/* <Button>{t('DOWNLOAD_DATA')} &rarr;</Button> */}
-        {/* </CardFooter>
-    </Card> */}
-        {/* <Chart data={data} axes={axes} /> */}
-      {/* </Col> */}
+      <CardFooter>
+       
+        </CardFooter>
+    </Card>
+        
+      </Col> */}
     </Row>
     
   </Container>
