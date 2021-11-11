@@ -9,7 +9,7 @@ import SmallStats from "../components/common/SmallStats";
 import IdeasTable from "../components/common/IdeasTable";
 import GoalsOverview from "../components/analytics/GoalsOverview/GoalsOverview";
 import UserPerformance from "./../components/user-profile/UserPerformance";
-import { Chart } from 'react-charts'
+// import { Chart } from 'react-charts'
 import { Pie } from 'react-chartjs-2'
 // import ReactMinimalPieChart from 'react-minimal-pie-chart';
 import { ObjectsToCsv } from 'objects-to-csv';
