@@ -62,164 +62,164 @@ const goldColor = '#DDB153'
 //   )
 // }
 
-const MyChart = (props) => {
-  console.log('MY PROPS');
-  console.log(props.data);
-  const {t} = props;
-  const data = React.useMemo(
-    () => [
-      {
-        label: 'Completed',
-        data: [['Departamento 1', 25], ['Departamento 2', 45], ['Departamento 3', 5]]
-      },
-      {
-        label: 'In Progress',
-        data: [['Departamento 1', 20], ['Departamento 2', 4], ['Departamento 3', 4]]
-      },
-      {
-        label: 'Submitted',
-        data: [['Departamento 1', 5], ['Departamento 2', 11], ['Departamento 3', 9]]
-      },
-    ],
-    []
-  )
+// const MyChart = (props) => {
+//   console.log('MY PROPS');
+//   console.log(props.data);
+//   const {t} = props;
+//   const data = React.useMemo(
+//     () => [
+//       {
+//         label: 'Completed',
+//         data: [['Departamento 1', 25], ['Departamento 2', 45], ['Departamento 3', 5]]
+//       },
+//       {
+//         label: 'In Progress',
+//         data: [['Departamento 1', 20], ['Departamento 2', 4], ['Departamento 3', 4]]
+//       },
+//       {
+//         label: 'Submitted',
+//         data: [['Departamento 1', 5], ['Departamento 2', 11], ['Departamento 3', 9]]
+//       },
+//     ],
+//     []
+//   )
 
-  const series = React.useMemo(
-    () => ({
-      type: 'bar'
-    }),
-    []
-  )
+//   const series = React.useMemo(
+//     () => ({
+//       type: 'bar'
+//     }),
+//     []
+//   )
 
-  const axes = React.useMemo(
-    () => [
-      { primary: true, type: 'ordinal', position: 'left'},
-      { type: 'linear', stacked:'true', position: 'bottom' },
-    ],
-    []
-  )
+//   const axes = React.useMemo(
+//     () => [
+//       { primary: true, type: 'ordinal', position: 'left'},
+//       { type: 'linear', stacked:'true', position: 'bottom' },
+//     ],
+//     []
+//   )
 
-  const barChart = (
-    // A react-chart hyper-responsively and continuusly fills the available
-    // space of its parent element automatically
-    <div
-      style={{
-        width: '400px',
-        height: '300px'
-      }}
-    >
-       <Chart data={props.data} series={series} axes={axes} tooltip/>
-    </div>
+//   const barChart = (
+//     // A react-chart hyper-responsively and continuusly fills the available
+//     // space of its parent element automatically
+//     <div
+//       style={{
+//         width: '400px',
+//         height: '300px'
+//       }}
+//     >
+//        <Chart data={props.data} series={series} axes={axes} tooltip/>
+//     </div>
     
-  )
+//   )
 
-  return barChart
-}
+//   return barChart
+// }
 
-const ProgressPerCategoryChart = (props) => {
-  const data = React.useMemo(
-    () => [
-      {
-        label: '0%',
-        data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
-      },
-      {
-        label: '25%',
-        data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
-      },
-      {
-        label: '50%',
-        data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
-      },
-      {
-        label: '75%',
-        data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
-      },
-      {
-        label: '100%',
-        data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
-      },
-    ],
-    []
-  )
+// const ProgressPerCategoryChart = (props) => {
+//   const data = React.useMemo(
+//     () => [
+//       {
+//         label: '0%',
+//         data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
+//       },
+//       {
+//         label: '25%',
+//         data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
+//       },
+//       {
+//         label: '50%',
+//         data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
+//       },
+//       {
+//         label: '75%',
+//         data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
+//       },
+//       {
+//         label: '100%',
+//         data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
+//       },
+//     ],
+//     []
+//   )
 
-  const series = React.useMemo(
-    () => ({
-      type: 'bar'
-    }),
-    []
-  )
+//   const series = React.useMemo(
+//     () => ({
+//       type: 'bar'
+//     }),
+//     []
+//   )
 
-  const axes = React.useMemo(
-    () => [
-      { primary: true, type: 'ordinal', position: 'left' },
-      { type: 'linear', stacked:'false', position: 'bottom' }
-    ],
-    []
-  )
+//   const axes = React.useMemo(
+//     () => [
+//       { primary: true, type: 'ordinal', position: 'left' },
+//       { type: 'linear', stacked:'false', position: 'bottom' }
+//     ],
+//     []
+//   )
 
-  const barChart = (
-    // A react-chart hyper-responsively and continuusly fills the available
-    // space of its parent element automatically
-    <div
-      style={{
-        width: '400px',
-        height: '300px'
-      }}
-    >
-      <Chart initialWidth={100} data={props.data} series={series} axes={axes} tooltip />
-    </div>
+//   const barChart = (
+//     // A react-chart hyper-responsively and continuusly fills the available
+//     // space of its parent element automatically
+//     <div
+//       style={{
+//         width: '400px',
+//         height: '300px'
+//       }}
+//     >
+//       <Chart initialWidth={100} data={props.data} series={series} axes={axes} tooltip />
+//     </div>
    
-  )
+//   )
 
-  return barChart
-}
+//   return barChart
+// }
 
-function IdeasPendingEvaluationPerDeptChart() {
-  const data = React.useMemo(
-    () => [
-      {
-        label: 'Ideas Pendientes de Evaluacion',
-        data: [['Departamento 1', 1]]
-      },
-      {
-        label: 'Ideas Pendientes de Evaluacion',
-        data: [['Departamento 2', 2]]
-      },
-    ],
-    []
-  )
+// function IdeasPendingEvaluationPerDeptChart() {
+//   const data = React.useMemo(
+//     () => [
+//       {
+//         label: 'Ideas Pendientes de Evaluacion',
+//         data: [['Departamento 1', 1]]
+//       },
+//       {
+//         label: 'Ideas Pendientes de Evaluacion',
+//         data: [['Departamento 2', 2]]
+//       },
+//     ],
+//     []
+//   )
 
-  const series = React.useMemo(
-    () => ({
-      type: 'bar'
-    }),
-    []
-  )
+//   const series = React.useMemo(
+//     () => ({
+//       type: 'bar'
+//     }),
+//     []
+//   )
 
-  const axes = React.useMemo(
-    () => [
-      { primary: true, type: 'ordinal', position: 'left' },
-      { type: 'linear', stacked:'false', position: 'bottom' }
-    ],
-    []
-  )
+//   const axes = React.useMemo(
+//     () => [
+//       { primary: true, type: 'ordinal', position: 'left' },
+//       { type: 'linear', stacked:'false', position: 'bottom' }
+//     ],
+//     []
+//   )
 
-  const barChart = (
-    // A react-chart hyper-responsively and continuusly fills the available
-    // space of its parent element automatically
-    <div
-      style={{
-        maxWidth: '400px',
-        height: '300px'
-      }}
-    >
-      <Chart data={data} initialWidth={100} series={series} axes={axes} tooltip style={{width: '100%'}}/>
-    </div>
-  )
+//   const barChart = (
+//     // A react-chart hyper-responsively and continuusly fills the available
+//     // space of its parent element automatically
+//     <div
+//       style={{
+//         maxWidth: '400px',
+//         height: '300px'
+//       }}
+//     >
+//       <Chart data={data} initialWidth={100} series={series} axes={axes} tooltip style={{width: '100%'}}/>
+//     </div>
+//   )
 
-  return barChart
-}
+//   return barChart
+// }
 
 class Analytics extends React.Component { 
 
