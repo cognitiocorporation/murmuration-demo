@@ -114,6 +114,7 @@ class ManagementIdeaTable extends React.Component {
         //   })
         // console.log(myResults)
       const evalCriteria = currentUser.get("evaluationCriteria");
+      const allIdeas = evalCriteria.includes('Todas')
       const pmo = currentUser.get("pmo");
 
       //   var filtered = results.filter(
@@ -128,7 +129,7 @@ class ManagementIdeaTable extends React.Component {
       //   console.log(filtered)
         
         if (!pmo) {
-          filtered = filtered.filter(result => result.get('status') != 'Idea Proyecto')
+          filtered = filtered.filter(result => result.get('status') != 'Idea Proyecto' )
           // const secondFilter = filtered.filter(result => evalCriteria.includes(result.get("department")))
           // filtered = secondFilter
         } else {
@@ -142,7 +143,7 @@ class ManagementIdeaTable extends React.Component {
         console.log(filtered)
         this.setState({
             ideas: filtered,//isSuperUser?results:myResultsT,
-            filteredIdeas: isSuperUser?results:filtered//isSuperUser?results:myResultsT,
+            filteredIdeas: isSuperUser || allIdeas ?results:filtered//isSuperUser?results:myResultsT,
         });
     }, (error) => {
       alert('Hubo un error en la busqueda. Favor de tratar luego.');

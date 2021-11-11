@@ -432,6 +432,8 @@ i18next.init({
         // HISTORY
   
         "TRANSACTION_HISTORY": "Transaction History",
+
+        "EVAL_COMMITTEE_MANAGE": "Management",
   
         "TRANSACTION_DESCRIPTION": "Description",
   
@@ -698,7 +700,6 @@ i18next.init({
  
         "EVAL_COMMITTEE_CLASSIFICATION": "Clasificación de la Idea",
 
-        "EVAL_COMMITTEE_MANAGE": "Management",
  
         "EVAL_COMMITTEE_CREATE_BTN": "Crear Comité",
  

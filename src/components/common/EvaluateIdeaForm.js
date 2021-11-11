@@ -462,7 +462,15 @@ class EvaluateIdeaForm extends React.Component {
         var comments = ideaItem.get("comments");
         var newStatus = '';
         var percentage = [25,75];
-        var mayNeedEval = status == 'Proyecto' || 'Otro'?true:false;
+        var mayNeedEval = false 
+        
+        // Verify idea to check if it leaves the evaluation inbox or not
+        if (status == 'Proyecto' || status == 'Otro') {
+          mayNeedEval = true
+        }
+        
+        console.log(status)
+        console.log(mayNeedEval)
 
         switch(status) {
           case "Devuelta":

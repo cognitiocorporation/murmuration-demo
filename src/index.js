@@ -420,6 +420,8 @@ i18next.init({
           "EVAL_COMMITTEE_IDEA_CLASSIFICATION": "Area of Responsibility",
     
           // MANAGE IDEA ENTRANTE
+
+          "EVAL_COMMITTEE_MANAGE": "Management",
     
           "IDEA_MANAGE_FILTERS":"Filters",
     
@@ -719,8 +721,6 @@ i18next.init({
           "EVAL_COMMITTEE_AREA": "Area de Responsabilidad",
    
           "EVAL_COMMITTEE_CLASSIFICATION": "Clasificación de la Idea",
-
-          "EVAL_COMMITTEE_MANAGE": "Management",
    
           "EVAL_COMMITTEE_CREATE_BTN": "Crear Comité",
    

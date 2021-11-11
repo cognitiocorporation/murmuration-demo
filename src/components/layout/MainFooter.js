@@ -37,7 +37,7 @@ MainFooter.propTypes = {
 
 MainFooter.defaultProps = {
   contained: false,
-  copyright: "Copyright © 2020 Murmuration",
+  copyright: "Copyright © 2021 Murmuration",
   menuItems: [
     ],
   linkStyle: {
