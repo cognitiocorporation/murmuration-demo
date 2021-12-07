@@ -97,14 +97,14 @@ class SidebarNavItems extends React.Component {
           <br/>
           <small>powered by</small>
           <br/>
-          <a href="http://www.lasalle-group.com/">
+          <a href="http://www.mymurmuration.com/">
           
             <img
                     id="main-logo"
                     className="d-inline-block align-top mr-1 ml-3"
                     style={{ maxWidth: "120px" }}
                     // src= {require("../../../images/logo_murmuration.png")}
-                    src={'https://goswiftmedia.com/wp-content/uploads/2021/10/logo_murmuration.png'}
+                    src={'http://mymurmuration.theswiftstudio.com/wp-content/uploads/2021/11/Group-18.png'}
                     alt="Murmuration"
                   />
           </a>

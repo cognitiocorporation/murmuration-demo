@@ -28,7 +28,7 @@ const MainNavbar = ({ layout, stickyTop }) => {
                   id="main-logo"
                   className="d-inline-block align-top mr-1 ml-3"
                   style={{ maxWidth: "25px" }}
-                  src= "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Baxter.svg/1498px-Baxter.svg.png"//{require("../../../images/shards-dashboards-logo.svg")}
+                  src= "http://mymurmuration.theswiftstudio.com/wp-content/uploads/2021/11/Group-18.png"//{require("../../../images/shards-dashboards-logo.svg")}
                   alt="Shards Dashboard"
                 />
                 <span className="d-none d-md-inline ml-1">

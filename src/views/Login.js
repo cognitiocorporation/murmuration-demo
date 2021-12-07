@@ -31,7 +31,7 @@ class Login extends Component {
                     id="main-logo"
                     className="d-inline-block align-top"
                     style={{ maxWidth: "90%", maxHeight: '90px', marginBottom: '20px', alignSelf: 'center', marginLeft: 'auto', marginRight: 'auto' }}
-                    src= {'https://goswiftmedia.com/wp-content/uploads/2021/10/1.png'}
+                    src= {'http://mymurmuration.theswiftstudio.com/wp-content/uploads/2021/11/Group-18.png'}
                     alt="Johnson & Johnson"
                 />
             </Row>
@@ -67,7 +67,7 @@ class Login extends Component {
                     className="d-inline-block align-top mr-1 ml-3"
                     style={{ maxWidth: "140px" }}
                     // src= {require("../images/logo_murmuration.png")}
-                    src={'https://goswiftmedia.com/wp-content/uploads/2021/10/logo_murmuration.png'}
+                    src={'http://mymurmuration.theswiftstudio.com/wp-content/uploads/2021/11/Group-18.png'}
                     alt="Shards Dashboard"
                   />
           </a>

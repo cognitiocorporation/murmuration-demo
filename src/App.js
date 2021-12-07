@@ -22,8 +22,8 @@ import { withTranslation } from 'react-i18next';
 Parse.serverURL = 'https://parseapi.back4app.com' //'https://mymurmuration.app/parse';
 
 // App ID
-Parse.initialize("2HhXUK7WLziNFrTIRmNK6yRH2Dh8yZaKzSC5R9iX", "vvDugDploO2NpaknUc0H3c31xmjDneDLivua6VTn"); //App ID, Javascript Key
-Parse.masterKey = 'HnNfJbhjfA3oi1we5JdtgjsgIfOGzUu46OEQ3lyQ' // Master Key
+Parse.initialize("26I3tbyalisB50wd1YmkJh4sP7ZJRFUps38GCjw6", "tLBsUVLxjlCZqNQ9s8iHTa92RGjOciJJ3zppFg3A"); //App ID, Javascript Key
+Parse.masterKey = 'E9Jr21Fe2xdHHwnufVRMaC9tEwxxKGFU5lWdfGDH' // Master Key
 
 var currentUser = Parse.User.current();
 
