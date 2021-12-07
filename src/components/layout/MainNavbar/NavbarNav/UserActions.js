@@ -16,6 +16,7 @@ import { withTranslation } from 'react-i18next';
 import PDF from '../../../../assets/HelpToolkit.pdf';
 
 
+
 class UserActions extends React.Component {
   constructor(props) {
     super(props);
@@ -107,7 +108,7 @@ class UserActions extends React.Component {
         <DropdownToggle caret tag={NavLink} className="text-nowrap px-3">
           <img
             className="user-avatar rounded-circle mr-2"
-            src={require("./../../../../images/avatars/user.png").default}
+            src={require("./../../../../images/avatars/user.png")}
             alt="User Avatar"
           />{" "}
           <span className="d-none d-md-inline-block">{userName}</span>

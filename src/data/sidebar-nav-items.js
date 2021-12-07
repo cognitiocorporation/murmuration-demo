@@ -1205,7 +1205,7 @@ export default function () {
     {
       title: t("MENU_REPORTS"),
       to: '/analytics',
-      roles:['super_user'],
+      roles:['user', 'evaluation', 'verification', 'recognition', 'super_user'],
       htmlBefore: '<i class="material-icons">bar_chart</i>',
       htmlAfter: '',
     },

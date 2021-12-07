@@ -9,7 +9,7 @@ import SmallStats from "../components/common/SmallStats";
 import IdeasTable from "../components/common/IdeasTable";
 import GoalsOverview from "../components/analytics/GoalsOverview/GoalsOverview";
 import UserPerformance from "./../components/user-profile/UserPerformance";
-// import { Chart } from 'react-charts'
+import { Chart } from 'react-charts'
 import { Pie } from 'react-chartjs-2'
 // import ReactMinimalPieChart from 'react-minimal-pie-chart';
 import { ObjectsToCsv } from 'objects-to-csv';
@@ -45,181 +45,181 @@ const goldColor = '#DDB153'
 
 // PieChart
 
-// const PieChart = () => {
-//   const labels = ['Label 1', 'Label 2']
-//   const datasets = [{
-//     data: [2000, 4000],
-//     backgroundColor: ['red', 'blue']
-//   }]
-//   const pie = (
-//     <Pie 
-//     data={{
-//       labels: labels,
-//       datasets: datasets
-//     }}
-//     height='50%'
-//     />
-//   )
-// }
+const PieChart = () => {
+  const labels = ['Label 1', 'Label 2']
+  const datasets = [{
+    data: [2000, 4000],
+    backgroundColor: ['red', 'blue']
+  }]
+  const pie = (
+    <Pie 
+    data={{
+      labels: labels,
+      datasets: datasets
+    }}
+    height='50%'
+    />
+  )
+}
 
-// const MyChart = (props) => {
-//   console.log('MY PROPS');
-//   console.log(props.data);
-//   const {t} = props;
-//   const data = React.useMemo(
-//     () => [
-//       {
-//         label: 'Completed',
-//         data: [['Departamento 1', 25], ['Departamento 2', 45], ['Departamento 3', 5]]
-//       },
-//       {
-//         label: 'In Progress',
-//         data: [['Departamento 1', 20], ['Departamento 2', 4], ['Departamento 3', 4]]
-//       },
-//       {
-//         label: 'Submitted',
-//         data: [['Departamento 1', 5], ['Departamento 2', 11], ['Departamento 3', 9]]
-//       },
-//     ],
-//     []
-//   )
+const MyChart = (props) => {
+  console.log('MY PROPS');
+  console.log(props.data);
+  const {t} = props;
+  const data = React.useMemo(
+    () => [
+      {
+        label: 'Completed',
+        data: [['Departamento 1', 25], ['Departamento 2', 45], ['Departamento 3', 5]]
+      },
+      {
+        label: 'In Progress',
+        data: [['Departamento 1', 20], ['Departamento 2', 4], ['Departamento 3', 4]]
+      },
+      {
+        label: 'Submitted',
+        data: [['Departamento 1', 5], ['Departamento 2', 11], ['Departamento 3', 9]]
+      },
+    ],
+    []
+  )
 
-//   const series = React.useMemo(
-//     () => ({
-//       type: 'bar'
-//     }),
-//     []
-//   )
+  const series = React.useMemo(
+    () => ({
+      type: 'bar'
+    }),
+    []
+  )
 
-//   const axes = React.useMemo(
-//     () => [
-//       { primary: true, type: 'ordinal', position: 'left'},
-//       { type: 'linear', stacked:'true', position: 'bottom' },
-//     ],
-//     []
-//   )
+  const axes = React.useMemo(
+    () => [
+      { primary: true, type: 'ordinal', position: 'left'},
+      { type: 'linear', stacked:'true', position: 'bottom' },
+    ],
+    []
+  )
 
-//   const barChart = (
-//     // A react-chart hyper-responsively and continuusly fills the available
-//     // space of its parent element automatically
-//     <div
-//       style={{
-//         width: '400px',
-//         height: '300px'
-//       }}
-//     >
-//        <Chart data={props.data} series={series} axes={axes} tooltip/>
-//     </div>
+  const barChart = (
+    // A react-chart hyper-responsively and continuusly fills the available
+    // space of its parent element automatically
+    <div
+      style={{
+        width: '400px',
+        height: '300px'
+      }}
+    >
+       <Chart data={props.data} series={series} axes={axes} tooltip/>
+    </div>
     
-//   )
+  )
 
-//   return barChart
-// }
+  return barChart
+}
 
-// const ProgressPerCategoryChart = (props) => {
-//   const data = React.useMemo(
-//     () => [
-//       {
-//         label: '0%',
-//         data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
-//       },
-//       {
-//         label: '25%',
-//         data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
-//       },
-//       {
-//         label: '50%',
-//         data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
-//       },
-//       {
-//         label: '75%',
-//         data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
-//       },
-//       {
-//         label: '100%',
-//         data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
-//       },
-//     ],
-//     []
-//   )
+const ProgressPerCategoryChart = (props) => {
+  const data = React.useMemo(
+    () => [
+      {
+        label: '0%',
+        data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
+      },
+      {
+        label: '25%',
+        data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
+      },
+      {
+        label: '50%',
+        data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
+      },
+      {
+        label: '75%',
+        data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
+      },
+      {
+        label: '100%',
+        data: [['Seguridad', 25], ['Calidad', 45], ['Productividad', 5], ['Accion Inmediata', 5]]
+      },
+    ],
+    []
+  )
 
-//   const series = React.useMemo(
-//     () => ({
-//       type: 'bar'
-//     }),
-//     []
-//   )
+  const series = React.useMemo(
+    () => ({
+      type: 'bar'
+    }),
+    []
+  )
 
-//   const axes = React.useMemo(
-//     () => [
-//       { primary: true, type: 'ordinal', position: 'left' },
-//       { type: 'linear', stacked:'false', position: 'bottom' }
-//     ],
-//     []
-//   )
+  const axes = React.useMemo(
+    () => [
+      { primary: true, type: 'ordinal', position: 'left' },
+      { type: 'linear', stacked:'false', position: 'bottom' }
+    ],
+    []
+  )
 
-//   const barChart = (
-//     // A react-chart hyper-responsively and continuusly fills the available
-//     // space of its parent element automatically
-//     <div
-//       style={{
-//         width: '400px',
-//         height: '300px'
-//       }}
-//     >
-//       <Chart initialWidth={100} data={props.data} series={series} axes={axes} tooltip />
-//     </div>
+  const barChart = (
+    // A react-chart hyper-responsively and continuusly fills the available
+    // space of its parent element automatically
+    <div
+      style={{
+        width: '400px',
+        height: '300px'
+      }}
+    >
+      <Chart initialWidth={100} data={props.data} series={series} axes={axes} tooltip />
+    </div>
    
-//   )
+  )
 
-//   return barChart
-// }
+  return barChart
+}
 
-// function IdeasPendingEvaluationPerDeptChart() {
-//   const data = React.useMemo(
-//     () => [
-//       {
-//         label: 'Ideas Pendientes de Evaluacion',
-//         data: [['Departamento 1', 1]]
-//       },
-//       {
-//         label: 'Ideas Pendientes de Evaluacion',
-//         data: [['Departamento 2', 2]]
-//       },
-//     ],
-//     []
-//   )
+function IdeasPendingEvaluationPerDeptChart() {
+  const data = React.useMemo(
+    () => [
+      {
+        label: 'Ideas Pendientes de Evaluacion',
+        data: [['Departamento 1', 1]]
+      },
+      {
+        label: 'Ideas Pendientes de Evaluacion',
+        data: [['Departamento 2', 2]]
+      },
+    ],
+    []
+  )
 
-//   const series = React.useMemo(
-//     () => ({
-//       type: 'bar'
-//     }),
-//     []
-//   )
+  const series = React.useMemo(
+    () => ({
+      type: 'bar'
+    }),
+    []
+  )
 
-//   const axes = React.useMemo(
-//     () => [
-//       { primary: true, type: 'ordinal', position: 'left' },
-//       { type: 'linear', stacked:'false', position: 'bottom' }
-//     ],
-//     []
-//   )
+  const axes = React.useMemo(
+    () => [
+      { primary: true, type: 'ordinal', position: 'left' },
+      { type: 'linear', stacked:'false', position: 'bottom' }
+    ],
+    []
+  )
 
-//   const barChart = (
-//     // A react-chart hyper-responsively and continuusly fills the available
-//     // space of its parent element automatically
-//     <div
-//       style={{
-//         maxWidth: '400px',
-//         height: '300px'
-//       }}
-//     >
-//       <Chart data={data} initialWidth={100} series={series} axes={axes} tooltip style={{width: '100%'}}/>
-//     </div>
-//   )
+  const barChart = (
+    // A react-chart hyper-responsively and continuusly fills the available
+    // space of its parent element automatically
+    <div
+      style={{
+        maxWidth: '400px',
+        height: '300px'
+      }}
+    >
+      <Chart data={data} initialWidth={100} series={series} axes={axes} tooltip style={{width: '100%'}}/>
+    </div>
+  )
 
-//   return barChart
-// }
+  return barChart
+}
 
 class Analytics extends React.Component { 
 
@@ -613,7 +613,7 @@ class Analytics extends React.Component {
           {/* <Chart data={data} axes={axes} /> */}
       </Col>
         
-       {/* <Col lg="6" sm="12" className="mb-4">
+       <Col lg="6" sm="12" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('IDEAS_BY_DEPARTMENT')}</CardTitle>
@@ -623,9 +623,9 @@ class Analytics extends React.Component {
         </CardFooter>
     </Card>
         
-      </Col> */}
+      </Col>
 
-      {/* <Col lg="6" sm="12" className="mb-4">
+      <Col lg="6" sm="12" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('PROGRESS_BY_CATEGORY')}</CardTitle>
@@ -636,10 +636,10 @@ class Analytics extends React.Component {
         </CardFooter>
     </Card>
         
-      </Col> */}
+      </Col>
 
       {/* Earnings */}
-      {/* <Col lg="6" sm="12" className="mb-4">
+      <Col lg="6" sm="12" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('EXPECTED_EARNINGS_BY_CATEGORY')}</CardTitle>
@@ -650,10 +650,10 @@ class Analytics extends React.Component {
         </CardFooter>
     </Card>
        
-      </Col> */}
+      </Col>
 
       {/* Actual Earnings */}
-      {/* <Col lg="6" sm="12" className="mb-4">
+      <Col lg="6" sm="12" className="mb-4">
        <Card>
       <CardBody>
         <CardTitle>{t('ACTUAL_EARNINGS_BY_CATEGORY')}</CardTitle>
@@ -664,7 +664,7 @@ class Analytics extends React.Component {
         </CardFooter>
     </Card>
         
-      </Col> */}
+      </Col>
     </Row>
     
   </Container>
