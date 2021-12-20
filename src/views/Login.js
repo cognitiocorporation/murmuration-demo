@@ -31,7 +31,7 @@ class Login extends Component {
                     id="main-logo"
                     className="d-inline-block align-top"
                     style={{ maxWidth: "90%", maxHeight: '90px', marginBottom: '20px', alignSelf: 'center', marginLeft: 'auto', marginRight: 'auto' }}
-                    src= {'https://goswiftmedia.com/wp-content/uploads/2021/10/1.png'}
+                    src= {require('../images/1200px-Baxter.png')}
                     alt="Johnson & Johnson"
                 />
             </Row>
@@ -39,7 +39,15 @@ class Login extends Component {
               <CardBody>
                 {/* Logo */}
                 {/* <h3 className="text-center mb-4">Murmuration</h3> */}
-                
+                <Row className="flex-center">
+                  <img
+                      id="main-logo"
+                      className="d-inline-block align-top"
+                      style={{ maxWidth: "90%", maxHeight: '90px', marginBottom: '20px', alignSelf: 'center', marginLeft: 'auto', marginRight: 'auto' }}
+                      src= {require('../images/BAXTER_LOGO_MURMURATION.001.jpeg')}
+                      alt="Johnson & Johnson"
+                  />
+                </Row>
                 {/* Title */}
                 <h5 className="auth-form__title text-center mb-4">
                   Access Your Account
