@@ -686,7 +686,9 @@ class SubmitIdeaForm extends React.Component {
     
       var newItems = [];
       filteredData.forEach((item, idx) => {
-        newItems.push({question:item.get("question"), answer:''});
+        const question = item.get("questionTrans")
+        const validQuestion = question['en']
+        newItems.push({question: validQuestion, answer:''});
       })
 
       this.setState({ filterQAnswers: newItems}, () => {

@@ -106,6 +106,7 @@ i18next.init({
           "RESPONSIBLE_NAME":"Responsible Name",
 
           "CATEGORY_INFORMATION":"Category Information",
+          "SOLUTION_INFORMATION":"Idea Information",
 
           "BASIC_INFORMATION":"Basic Information",
 
@@ -623,6 +624,7 @@ i18next.init({
           "VIEW_FILE":"Ver Archivo",
 
           "CATEGORY_INFORMATION":"Información de Categoría",
+          "SOLUTION_INFORMATION":"Información de Sobre la Idea",
 
           "BASIC_INFORMATION":"Información Básica",
 
