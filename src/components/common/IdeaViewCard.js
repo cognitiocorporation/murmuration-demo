@@ -770,6 +770,25 @@ class IdeaViewCard extends React.Component {
                             </Col>)
                         })}
                         </Row>
+                        {/* Type of Idea Information (Problema o Innovacion) */}
+                        <FormSectionTitle
+                          title={t('SOLUTION_INFORMATION')}
+                          description=""
+                        />
+                        <Row form className="mx-4">
+                        {ideaItem.get("filterAnswer").map((question, index) => {
+                            return(
+                            <Col md="4" className="form-group">
+                                {/* <EvaluationSelect setCategory={(selection) => this.changeStatus(selection)}/> */}
+                                <Row form className="mx-4">
+                                <Col md="9">
+                                <p className="mb-2">{question["question"]}</p>
+                                <p className="mb-2">{question["answer"]}</p>
+                                </Col>
+                                </Row>
+                            </Col>)
+                        })}
+                        </Row>
                         <FormSectionTitle
                         title={t('COMMENTS_IDEA')}
                         description=""

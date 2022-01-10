@@ -106,6 +106,7 @@ i18next.init({
           "RESPONSIBLE_NAME":"Responsible Name",
 
           "CATEGORY_INFORMATION":"Category Information",
+          "SOLUTION_INFORMATION":"Idea Information",
 
           "BASIC_INFORMATION":"Basic Information",
 
@@ -420,8 +421,6 @@ i18next.init({
           "EVAL_COMMITTEE_IDEA_CLASSIFICATION": "Area of Responsibility",
     
           // MANAGE IDEA ENTRANTE
-
-          "EVAL_COMMITTEE_MANAGE": "Management",
     
           "IDEA_MANAGE_FILTERS":"Filters",
     
@@ -625,6 +624,7 @@ i18next.init({
           "VIEW_FILE":"Ver Archivo",
 
           "CATEGORY_INFORMATION":"Información de Categoría",
+          "SOLUTION_INFORMATION":"Información de Sobre la Idea",
 
           "BASIC_INFORMATION":"Información Básica",
 
@@ -721,6 +721,8 @@ i18next.init({
           "EVAL_COMMITTEE_AREA": "Area de Responsabilidad",
    
           "EVAL_COMMITTEE_CLASSIFICATION": "Clasificación de la Idea",
+
+          "EVAL_COMMITTEE_MANAGE": "Management",
    
           "EVAL_COMMITTEE_CREATE_BTN": "Crear Comité",
    
