@@ -22,6 +22,7 @@ import {
 } from "shards-react";
 import Parse from 'parse';
 import moment from 'moment';
+import Select from 'react-select';
 
 import FormSectionTitle from "../edit-user-profile/FormSectionTitle";
 import CustomFileUpload from "../components-overview/CustomFileUpload";
@@ -712,6 +713,18 @@ class IdeaViewCard extends React.Component {
                                   disabled
                                 />
                               </Col>
+                              {/* Team */}
+                              { ideaItem.get("hasTeam") &&
+                              <Col md="3" className="form-group">
+                               <label htmlFor="team">Team: <strong>{ideaItem.get("teamName")}</strong></label>
+                                <Select
+                                    isMulti
+                                    value={ideaItem.get("teamMembers")}
+                                    placeholder='Miembros'
+                                    onChange={() => {}}
+                                    options={[]}
+                                  />
+                              </Col>}
                             </Row>
                           </Col>
                         </Row>
