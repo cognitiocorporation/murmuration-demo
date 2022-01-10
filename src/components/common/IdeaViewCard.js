@@ -20,6 +20,7 @@ import {
   InputGroupText, 
   FormFeedback,
 } from "shards-react";
+import Select from 'react-select';
 import Parse from 'parse';
 import moment from 'moment';
 
