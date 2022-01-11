@@ -142,7 +142,7 @@ class ManagementIdeaTable extends React.Component {
         console.log(pmoIdeas)
         console.log(filtered)
         this.setState({
-            ideas: filtered,//isSuperUser?results:myResultsT,
+            ideas: results,//isSuperUser?results:myResultsT,
             filteredIdeas: isSuperUser || allIdeas ?results:filtered//isSuperUser?results:myResultsT,
         });
     }, (error) => {
@@ -166,9 +166,13 @@ class ManagementIdeaTable extends React.Component {
         return elem.answer == filterQuestion
       })
     });
+    
     console.log(nuevo)
 
     const { ideas, filteredIdeas } = this.state;
+    const allIdeas = filteredIdeas
+    console.log(ideas)
+    console.log(filteredIdeas)
     
     var filteredData;
     if (newCategory !== 'Todas' && newCategory !== '') {
@@ -190,7 +194,7 @@ class ManagementIdeaTable extends React.Component {
       filteredData = ideaType!='todas'?filteredData.filter(item => item.get("ideaType") === ideaType):filteredData;
       console.log('FILTRALO TIPO');
     }
-    
+
     this.setState({
       filteredIdeas: filteredData
     });

@@ -359,6 +359,7 @@ i18next.init({
           "MENU_HISTORY":"History",
 
           "MENU_CATS_DEPTS": "Categories/Departments",
+          "EVAL_COMMITTEE_MANAGE": "Management",
 
           "MENU_USERS": "Users",
 
@@ -624,7 +625,7 @@ i18next.init({
           "VIEW_FILE":"Ver Archivo",
 
           "CATEGORY_INFORMATION":"Información de Categoría",
-          "SOLUTION_INFORMATION":"Información de Sobre la Idea",
+          "SOLUTION_INFORMATION":"Información Sobre la Idea",
 
           "BASIC_INFORMATION":"Información Básica",
 
@@ -721,8 +722,6 @@ i18next.init({
           "EVAL_COMMITTEE_AREA": "Area de Responsabilidad",
    
           "EVAL_COMMITTEE_CLASSIFICATION": "Clasificación de la Idea",
-
-          "EVAL_COMMITTEE_MANAGE": "Management",
    
           "EVAL_COMMITTEE_CREATE_BTN": "Crear Comité",
    
