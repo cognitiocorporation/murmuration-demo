@@ -278,42 +278,19 @@ class CategorySelect extends React.Component {
         return(
             <div className="container">
                 <Row>
-                    {allCats.map((myCategory, index) => { return(
-                        <Col sm="12" lg="3" md="3" style={{backgroundColor: this.getBgColor(index), borderRadius: '20px'}} hidden={!myCategory.get("show")}>
-                        <div className="square"  onClick={(event) => { this.changeSelectedValue(index, myCategory)}} >
-                            {/* <img className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: '#32CD32'}} src={handIcon} /> */}
-                            {/* <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: myCategory.get("color")}}/> */}
-                            {this.getIcon(myCategory.get("icon"), myCategory.get("color"))}
-                            <span><h6 className="text-center" style={{color: titleColor1}}>{t(myCategory.get("itemNameTrans")[storageLanguage])}</h6></span>
-                        </div>
-                        </Col>
-                    )})}
+                    
+                <Col sm="12" lg="12" md="12" style={{borderRadius: '20px'}}>
+                <div className="square" onClick={(event) => { this.changeSelectedValue(0, 'HandImage')}} >
+                    {/* <img className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: '#32CD32'}} src={handIcon} /> */}
+                    {/* <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: myCategory.get("color")}}/> */}
+                    {this.getIcon('HandImage', 'Black')}
+                    <div style={{display: 'flex', alignSelf:'center', backgrounColor: 'red'}}>
+                        <h6 style={{color: titleColor1, width: '100%', textAlign: 'left'}}>{'Type Category Description Here. Lorem ipsumdolor sit amet, consectetuer adipiscing elit, seddiam nonummy nibh euismod tincidunt'}</h6>
+                    </div>
+                </div>
+                </Col>
+                    
                 </Row>
-                {/* <div className="row no-gutters">
-                    <div className="col my-auto" style={{backgroundColor: sq3Color, borderRadius: '20px'}} hidden={!showProductivity}>
-                        <div className="square"  onClick={(event) => { this.changeSelectedValue(3)}}>
-                           
-                            <ChartImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: chartIcon}}/>
-                            <span><h4 className="text-center" style={{color: titleColor3}}>{t('PRODUCTIVITY_CATEGORY')}</h4></span>
-                        </div>
-                    </div>
-                    <div className="col my-auto" style={{backgroundColor: sq4Color, borderRadius: '20px'}} hidden={!showAction}>
-                        <div className="square"  onClick={(event) => { this.changeSelectedValue(4)}}>
-                            
-                            <TimeImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: clockIcon}}/>
-                            <span><h4 className="text-center" style={{color: titleColor4}}>{t('IMMEDIATEACTION_CATEGORY')}</h4></span>
-                        </div>
-                    </div>
-                </div> */}
-                {/* <div className="row no-gutters">
-                    <div className="col my-auto" style={{backgroundColor: sq5Color, borderRadius: '20px'}} hidden={!showExtra}>
-                        <div className="square"  onClick={(event) => { this.changeSelectedValue(5)}}>
-                           
-                            <ExtraImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: extraIcon}}/>
-                            <span><h4 className="text-center" style={{color: titleColor5}}>{extraName[storageLanguage]}</h4></span>
-                        </div>
-                    </div>
-                </div> */}
             </div>
         )
     }

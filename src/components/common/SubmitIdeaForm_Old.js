@@ -23,17 +23,24 @@ import {
 } from "shards-react";
 import Select from 'react-select';
 import Parse from 'parse';
-import Switch from '@mui/material/Switch';
 
 import FormSectionTitle from "../edit-user-profile/FormSectionTitle";
 import CustomFileUpload from "../components-overview/CustomFileUpload";
 import CategorySelect from "./CategorySelect"
 import IdeaFilterSelect from "./IdeaFilterSelect";
 import { useTranslation, initReactI18next, withTranslation } from "react-i18next";
-import SelectedCategoryDisplay from "./SelectedCategoryDisplay";
 
+import { all } from "q";
 
+const remCharStyle = {
+  color: 'green'
+};
 
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+];
 
 var storageLanguage = localStorage.getItem('language');
 
@@ -728,23 +735,118 @@ class SubmitIdeaForm extends React.Component {
                       noValidate
                       >
                         <FormSectionTitle
-                          title={t('Choose how to contribute!')}
-                          description={' '}//"Somete los detalles y la informacion de la IDEA."
+                          title={t('IDEA')}
+                          description={t("SUBMIT_IDEA_Sub")}//"Somete los detalles y la informacion de la IDEA."
                         />
                         {/* VISIBILITY */}
                         <div style={{display: formVisibilityState}}>
-                        
+                        <Row form className="mx-4">
+                          <Col lg="12">
+                            <Row form>
+                              {/* Proponent */}
+                              <Col md="3" className="form-group">
+                                <label htmlFor="firstName">{t("SUBMIT_IDEA_Proponent")}</label>
+                                <FormInput
+                                  id="firstName"
+                                  value={userName}
+                                  onChange={() => {}}
+                                  required
+                                  disabled
+                                />
+                                <FormCheckbox
+                                  checked={this.state.hasTeam}
+                                  onChange={e => this.setState({hasTeam: !this.state.hasTeam})}
+                                >
+                                  {t('TEAM')}
+                                </FormCheckbox>
+                              </Col>
+                              {this.state.hasTeam &&
+                              <Col md="3" className="form-group">
+                              <label htmlFor="teamName">{t("SUBMIT_IDEA_Team")}</label>
+                              {/* Team */}
+                              <FormInput
+                                  id="teamName"
+                                  value={this.state.teamName}
+                                  placeholder={t("SUBMIT_IDEA_TeamPlaceholder")}
+                                  onChange={(input) => {this.setState({teamName: input.target.value})}}
+                                  required
+                                />
+                              {/* <Select
+                                    isMulti
+                                    value={this.state.selectedOption}
+                                    placeholder={t('SELECT_MEMBERS')}
+                                    onChange={this.handleChange}
+                                    options={this.state.allTeamUsers}
+                                  /> */}
+                                  <Select
+                                    value={this.state.selectedEmployees}
+                                    onChange={this.selectEmployees}
+                                    options={options}
+                                    isMulti
+                                    placeholder={t('SELECT_MEMBERS')}
+                                  />
+                              </Col>}
+                              {/* Employees Department */}
+                              <Col md="3" className="form-group">
+                                <label htmlFor="firstName">{t("SUBMIT_IDEA_Department")}</label>
+                                <FormInput
+                                  id="firstName"
+                                  value={this.state.userDept}
+                                  onChange={() => {}}
+                                  required
+                                  disabled
+                                />
+                              </Col>
+                              {/* Department */}
+                              <Col md="3" className="form-group">
+                                <label htmlFor="userLocation">{t("SUBMIT_IDEA_Department_Benefitted")}</label>
+                                <FormSelect
+                                  size="sm"
+                                  onChange={this.change} value={this.state.department}
+                                  required
+                                >
+                                  <option key={-1} value={-1}>{t("SUBMIT_IDEA_DepartmentSelect")}</option>
+                                  {this.state.data.map((item, idx) => (
+                                  
+                                  <option key={idx} value={item.get("itemName")} hidden={!item.get("show")}>{item.get("itemName")}</option>
+                               
+                                  ))}
+                              </FormSelect>
+                              </Col>
+    
+                              {/* Date */}
+                              <Col md="3" className="form-group">
+                              <label htmlFor="lastName">{t("SUBMIT_IDEA_Date")}</label>
+                              <InputGroup>
+                                  <InputGroupAddon type="append">
+                                    <InputGroupText>
+                                      <i className="material-icons">&#xE916;</i>
+                                    </InputGroupText>
+                                  </InputGroupAddon>
+                                  <DatePicker
+                                    placeholderText={date}
+                                    dropdownMode="select"
+                                    className="text-center"
+                                    readOnly = "true"
+                                    onChange={this.setDate} 
+                                    selected={this.state.date}
+                                    required
+                                  />
+                                </InputGroup>
+                              </Col>
+                            </Row>
+                          </Col>
+                        </Row>
+    
+                        <br/>
+    
+                        <Row form className="mx-4">
                         {/* Categoria */}
-                        <Col md="12" className="form-group">
+                        <Col md="6" className="form-group">
+                            <label htmlFor="userBio">{t("SUBMIT_IDEA_Category")}</label>
                             <CategorySelect setCategory={this.setCategory} department={this.props.department}/>
                           </Col>
-                        <br/>
-                        
-                        <Row form className="mx-4">
-                          <Col md="6">
-                          <h6>Selected Category: </h6>
-                            <SelectedCategoryDisplay setCategory={this.setCategory} department={this.props.department}></SelectedCategoryDisplay>
-                          </Col>
+                          
                           
                           {/* Idea Description */}
                           <Col md="6" className="form-group">
@@ -778,53 +880,7 @@ class SubmitIdeaForm extends React.Component {
                               {remainingCharacters} {t("SUBMIT_IDEA_RemainingCharacters")}
                             </FormFeedback>
                             <br/>
-                            <FormCheckbox
-                              checked={this.state.hasTeam}
-                              onChange={e => this.setState({hasTeam: !this.state.hasTeam})}
-                            >
-                              {t('Add team members and attachments')}
-                            </FormCheckbox>
-                            <br/>
-                            {this.state.hasTeam &&
-                              <div>
-                              <label htmlFor="teamName">{t("SUBMIT_IDEA_Team")}</label>
-                              {/* Team */}
-                              {/* <FormInput
-                                  id="teamName"
-                                  value={this.state.teamName}
-                                  placeholder={t("SUBMIT_IDEA_TeamPlaceholder")}
-                                  onChange={(input) => {this.setState({teamName: input.target.value})}}
-                                  required
-                                /> */}
-                              {/* <Select
-                                    isMulti
-                                    value={this.state.selectedOption}
-                                    placeholder={t('SELECT_MEMBERS')}
-                                    onChange={this.handleChange}
-                                    options={this.state.allTeamUsers}
-                                  /> */}
-                                  <Select
-                                    value={this.state.selectedEmployees}
-                                    onChange={this.selectEmployees}
-                                    options={options}
-                                    isMulti
-                                    placeholder={t('SELECT_MEMBERS')}
-                                  />
-                              </div>}
-                              <br/>
-                            <FormCheckbox
-                              checked={this.state.hasTeam}
-                              onChange={e => this.setState({hasAttachment: !this.state.hasTeam})}
-                            >
-                              {t('Add an attachment')}
-                            </FormCheckbox>
-                            <br/>
-                            <strong className="text-muted d-block mb-2">
-                            {t("SUBMIT_IDEA_UploadArchive")}
-                            </strong>
-                            <span><CustomFileUpload onFileSelect={this.selectFile} myFile={this.state.file}/> {this.state.file && <Button theme="warning" onClick={this.deleteFile}>{t("DELETE_FILE")}</Button>}</span>
-                            <Switch/>
-                            {/* <label htmlFor="ideaTitle">{t("SUBMIT_IDEA_ReturnTitle")}</label>
+                            <label htmlFor="ideaTitle">{t("SUBMIT_IDEA_ReturnTitle")}</label>
                               <FormInput
                                 id="expectedReturn"
                                 placeholder={t('SUBMIT_IDEA_ReturnPlaceholder')}
@@ -836,12 +892,12 @@ class SubmitIdeaForm extends React.Component {
                               valid={expectedRetunrnValid}
                               invalid={!expectedRetunrnValid}>
                              {t("SUBMIT_IDEA_Money")}
-                            </FormFeedback> */}
-                            {/* <br/>
+                            </FormFeedback>
+                            <br/>
                             <strong className="text-muted d-block mb-2">
                             {t("SUBMIT_IDEA_UploadArchive")}
                             </strong>
-                            <span><CustomFileUpload onFileSelect={this.selectFile} myFile={this.state.file}/> {this.state.file && <Button theme="warning" onClick={this.deleteFile}>{t("DELETE_FILE")}</Button>}</span> */}
+                            <span><CustomFileUpload onFileSelect={this.selectFile} myFile={this.state.file}/> {this.state.file && <Button theme="warning" onClick={this.deleteFile}>{t("DELETE_FILE")}</Button>}</span>
                           </Col>
                         </Row>
                         </div>
