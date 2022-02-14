@@ -9,6 +9,7 @@ import SmallStats from "../components/common/SmallStats";
 import IdeasTable from "../components/common/IdeasTable";
 import GoalsOverview from "../components/analytics/GoalsOverview/GoalsOverview";
 import UserPerformance from "./../components/user-profile/UserPerformance";
+import { CSVLink, CSVDownload } from "react-csv";
 import { Chart } from 'react-charts'
 import { Pie } from 'react-chartjs-2'
 // import ReactMinimalPieChart from 'react-minimal-pie-chart';
@@ -247,7 +248,8 @@ class Analytics extends React.Component {
       showIdeasByDeptChart: false,
       showProgressByCatChart: false,
       showEarningsByCatChart: false,
-      exportData:{}
+      exportData:{},
+      ideaDataCsv: []
     }
     
     this.getIdeas = this.getIdeas.bind(this);
@@ -270,7 +272,6 @@ class Analytics extends React.Component {
     const ideasInProgress = results.filter(idea => idea.get("progress")[0] > 0 && idea.get("progress")[0] < 100);
     const ideasPendingEval = results.filter(idea => idea.get("needsEvaluation") == true);
     
-
     // query.equalTo("needsEvaluation", true);
     // query.equalTo("completed", false);
     // query.descending("createdAt");
@@ -301,6 +302,8 @@ class Analytics extends React.Component {
 
   async getDepartments() {
     this.getCategories();
+    // Modify Idea Data
+    this.downloadIdeaData()
     const Department = Parse.Object.extend("IdeaDepartment");
     const query = new Parse.Query(Department);
     const results = await query.find();
@@ -443,6 +446,36 @@ class Analytics extends React.Component {
     this.setState({progressByCategoryData: results, showProgressByCatChart: true});
   }
 
+  downloadIdeaData() {
+    const modifiedData = this.state.ideas.map((idea) => {
+      const newData = {
+        "Idea Originator": idea.get("proponentName"),
+        "Idea Number": idea.get("num"),
+        "Idea Title": idea.get("title"),
+        "Description": idea.get("description"),
+        "Idea Category": idea.get("category"),
+        "Idea Type": idea.get("type"),
+        "Business Value": idea.get("questionAnswer"),
+        "Supervisor/Owner": idea.get("responsibleName"),
+        "Department": idea.get("department"),
+        "Submitted": idea.get("date"),
+        "Updated": idea.get("updatedAt"),
+        "Progress": idea.get("progress"),
+        "Implementation Type": idea.get("status"),
+        "Edited": idea.get("edited"),
+        "Idea Details": idea.get("filterAnswer"),
+        "Comments": idea.get("comments"),
+        "Has Team": idea.get("hasTeam"),
+        "Idea Team": idea.get("teamMembers"),
+        "Needs Evaluation": idea.get("needsEvaluation"),
+      }
+
+      return(newData)
+    })
+    console.log(modifiedData)
+    this.setState({ideaDataCsv: modifiedData})
+  }
+
   setupEarningsByCategoryData() {
     const {ideas, completedIdeas, ideasInProgress, departments, progressByCategoryData, categories} = this.state;
     console.log(completedIdeas);
@@ -563,14 +596,12 @@ class Analytics extends React.Component {
 
       {/* Page Header :: Actions */}
       <Col xs="12" sm="4" className="col d-flex align-items-center">
-        {/* <ButtonGroup size="sm" className="d-inline-flex mb-3 mb-sm-0 mx-auto">
+        <ButtonGroup size="sm" className="d-inline-flex mb-3 mb-sm-0 mx-auto">
           <Button theme="white">
-            Personal
+          <CSVLink filename={"murmuration_idea_report.csv"} data={this.state.ideaDataCsv}>Download Data</CSVLink>
           </Button>
-          <Button theme="white">
-            Admin
-          </Button>
-        </ButtonGroup> */}
+          
+        </ButtonGroup>
       </Col>
 
       {/* Page Header :: Datepicker */}
