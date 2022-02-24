@@ -2,9 +2,10 @@
 
 .main-footer {
   height: $main-footer-height;
+  background-color: #633FDA !important;
 
   .copyright {
-    color: $main-footer-copyright-color;
+    color: white;
   }
 
   @include media-breakpoint-down(sm) {

@@ -1140,6 +1140,13 @@ export default function () {
       roles:['user', 'evaluation', 'verification', 'recognition', 'super_user'],
       htmlBefore: '<i class="material-icons">record_voice_over</i>',
       htmlAfter: '',
+    },
+    {
+      title: t("Submit Idea (2.0)"),
+      to: '/submit-idea-new',
+      roles:['user', 'evaluation', 'verification', 'recognition', 'super_user'],
+      htmlBefore: '<i class="material-icons">record_voice_over</i>',
+      htmlAfter: '',
     }]
     }, 
     {

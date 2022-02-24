@@ -1,7 +1,8 @@
 .square {
     padding-bottom: 5%;
-    padding-top: 10%;
-    border-radius: 50%;
+    /* padding-top: 10%; */
+    align-items: center;
+    justify-content: center;
   }
   .orange {background-color: orange;}
   .orangered {background-color: orangered;}

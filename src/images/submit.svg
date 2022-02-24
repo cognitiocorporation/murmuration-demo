@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2048 2048">
+  <defs>
+    <clipPath id="clip-Artboard_2">
+      <rect width="2048" height="2048"/>
+    </clipPath>
+  </defs>
+  <g id="Artboard_2" data-name="Artboard 2" clip-path="url(#clip-Artboard_2)">
+    <g id="Layer_18" data-name="Layer 18" transform="translate(-2068)">
+      <text id="Submit_here_" data-name="Submit here!" transform="translate(2285.716 371.271)" fill="#2a2a2a" font-size="181.888" font-family="Georgia-Italic, Georgia" font-style="italic"><tspan x="0" y="0">Submit here!</tspan></text>
+    </g>
+    <g id="Layer_3" data-name="Layer 3" transform="translate(-2068)">
+      <circle id="Ellipse_3" data-name="Ellipse 3" cx="472.69" cy="472.69" r="472.69" transform="translate(2574.275 673.3)" fill="#633fda"/>
+    </g>
+    <g id="Layer_2" data-name="Layer 2" transform="translate(-2068)">
+      <path id="Path_3" data-name="Path 3" d="M2858.942,1449.559C3059.121,1328.636,3283.2,1124.31,3468.3,976.411q-43.98-45.885-87.959-91.774c-5.109-5.326-11-11.022-18.375-11.307-6.593-.25-12.442,3.938-17.647,8-149.978,117.038-294.3,291.926-460.381,384.7-8.636,4.83-18.417,9.558-28.047,7.273-8.745-2.068-15.1-9.4-20.778-16.353-25.336-31.048-41.041-68.925-65.979-100.348-12.363-15.577-22.291-23.457-31.757-25.7-16.711-3.967-31.961,9.63-56.565,29.438-21.078,16.974-44.836,30.093-65.915,47,61.732,59.142,137.122,171.77,198.856,230.906,7.034,6.743,14.758,13.823,24.416,15.12,7.046.939,14.683-.131,20.768-3.808" fill="#f6f6f6"/>
+    </g>
+  </g>
+</svg>

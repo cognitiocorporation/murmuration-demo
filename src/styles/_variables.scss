@@ -48,10 +48,21 @@ $text-light-color: $reagent-gray !default;
 // Text font weights
 $text-semibold-font-weight: 400 !default;
 
+
+@font-face {
+  font-family: 'Karrik';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/font/Karrik-Regular.woff2) format('woff2');
+  src: url(../assets/font/Karrik-Regular.woff) format('woff');
+  src: url(../assets/font/Karrik-Regular.otf) format('otf');
+  src: url(../assets/font/Karrik-Regular.ttf) format('ttf');
+}
+
 // Fonts
-$font-family-system-first: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
-$font-family-roboto-mono-first: "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
-$font-family-roboto-first: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif !default;
+$font-family-system-first: "Karrik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-family-roboto-mono-first: "Karrik", "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-roboto-first: "Karrik", Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif !default;
 
 
 // Icons
@@ -186,7 +197,7 @@ $page-subtitle-font-weight-sm: 400 !default;
 
 // Main footer
 $main-footer-height: $main-navbar-height !default;
-$main-footer-copyright-color: $reagent-gray !default;
+$main-footer-copyright-color: #633FDA !default;
 
 
 // Main sidebar

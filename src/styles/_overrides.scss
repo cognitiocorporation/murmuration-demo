@@ -14,8 +14,18 @@ $card-cap-bg: #fff;
 // Disable Google Fonts imports
 $enable-fonts-import: false;
 
+@font-face {
+    font-family: 'Karrik';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../assets/font/Karrik-Regular.woff2) format('woff2');
+    src: url(../assets/font/Karrik-Regular.woff) format('woff');
+    src: url(../assets/font/Karrik-Regular.otf) format('otf');
+    src: url(../assets/font/Karrik-Regular.ttf) format('ttf');
+  }
+
 // Use the System UI font instead of Poppins.
-$font-family-poppins-first:  -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-poppins-first:  Karrik, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
 $headings-color: #3D5170;
 $font-size-sm: 0.6875rem;

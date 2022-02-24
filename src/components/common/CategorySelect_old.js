@@ -27,25 +27,6 @@ import { ReactComponent as TeamImage } from "../../images/team.svg"
 import { ReactComponent as DollarImage } from "../../images/dollar-symbol.svg"
 // fill="#157ffb"
 
-// New
-import { ReactComponent as UrgentImage} from '../../images/Icons_Idle_01_Urgent.svg';
-import { ReactComponent as ProductivityImage } from "../../images/Icons_Idle_02_Productivity.svg"
-import { ReactComponent as CheckmarkImage} from "../../images/Icons_Idle_03_Checkmark.svg"
-import { ReactComponent as TrophyImage } from "../../images/Icons_Idle_04_Trophy.svg"
-import { ReactComponent as Shield2Image } from "../../images/Icons_Idle_05_Shield.svg"
-import { ReactComponent as DollarSignImage } from "../../images/Icons_Idle_06_Dollar Sign.svg"
-import { ReactComponent as NumberOneImage } from "../../images/Icons_Idle_07_Number One.svg"
-
-// New Selected
-import { ReactComponent as UrgentImageSelected} from '../../images/Icons_Selected_01_Urgent.svg';
-import { ReactComponent as ProductivityImageSelected } from "../../images/Icons_Selected_02_Productivity.svg"
-import { ReactComponent as CheckmarkImageSelected } from "../../images/Icons_Selected_03_Checkmark.svg"
-import { ReactComponent as TrophyImageSelected } from "../../images/Icons_Selected_04_Trophy.svg"
-import { ReactComponent as Shield2ImageSelected } from "../../images/Icons_Selected_05_Shield.svg"
-import { ReactComponent as DollarSignImageSelected } from "../../images/Icons_Selected_06_Dollar Sign.svg"
-import { ReactComponent as NumberOneImageSelected } from "../../images/Icons_Selected_07_Number One.svg"
-
-
 // Selected
 import clockImageSelected from "../../images/stopwatch_blue.svg"
 import handImageSelected from "../../images/hand_blue.svg"
@@ -264,32 +245,6 @@ class CategorySelect extends React.Component {
     }
 
     getIcon(name, fillColor) {
-        const {selectionValue, selectedCategoryName} = this.state;
-
-        const newIcons = [
-            {normal: <UrgentImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
-            },
-            {normal: <ProductivityImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <ProductivityImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
-            },
-            {normal: <CheckmarkImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
-            },
-            {normal: <TrophyImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <TrophyImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
-            },
-            {normal: <Shield2Image className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <Shield2ImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
-            },
-            {normal: <DollarSignImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <DollarSignImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
-            },
-            {normal: <NumberOneImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <NumberOneImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
-            },
-        ]
-
         switch(name) {
             case 'HandImage':
               return <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
@@ -303,21 +258,6 @@ class CategorySelect extends React.Component {
                 return <DollarImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'ClockImage':
                 return <TimeImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
-            //New Icons
-            case 'Urgent':
-                return newIcons[0].selected;
-            case 'Productivity':
-                return newIcons[1].selected;
-            case 'Checkmark':
-                return newIcons[2].selected;
-            case 'Trophy':
-                return newIcons[3].selected;
-            case 'Shield':
-                return newIcons[4].selected;
-            case 'Dollar':
-                return newIcons[5].selected;
-            case 'Number One':
-                return newIcons[6].selected;
             default:
               return <ExtraImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: fillColor}}/>;
           }
@@ -333,24 +273,47 @@ class CategorySelect extends React.Component {
 
     render() {
         const { allCats, bgColor, sq1Color, sq2Color, sq3Color, sq4Color, handIcon, shieldIcon, chartIcon, clockIcon, titleColor1, titleColor2, titleColor3, titleColor4, showAction, showProductivity, showQuality, showSecurity, showExtra, titleColor5, sq5Color, extraName, extraIcon } = this.state
-        const { t, categoryName, categoryIcon } = this.props;
+        const { t } = this.props;
         const storageLanguage = localStorage.getItem('language');
         return(
             <div className="container">
                 <Row>
-                    
-                {/* <Col sm="12" lg="12" md="12" style={{borderRadius: '20px', backgrounColor: 'black'}}> */}
-                <div className="square pt-2" onClick={(event) => { this.changeSelectedValue(0, 'HandImage')}} >
-                    {/* <img className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: '#32CD32'}} src={handIcon} /> */}
-                    {/* <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: myCategory.get("color")}}/> */}
-                    {this.getIcon(categoryName, 'Black')}
-                    <div className="mr-auto mt-4" style={{width: '70%', backgrounColor: 'black'}}>
-                        <p style={{color: titleColor1, textAlign: 'left', fontSize: 12, fontWeight: 600}}>{'Type Category Description Here. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, seddiam nonummy nibh euismod tincidunt'}</p>
-                    </div>
-                </div>
-                {/* </Col> */}
-                    
+                    {allCats.map((myCategory, index) => { return(
+                        <Col sm="12" lg="6" md="6" style={{backgroundColor: this.getBgColor(index), borderRadius: '20px'}} hidden={!myCategory.get("show")}>
+                        <div className="square"  onClick={(event) => { this.changeSelectedValue(index, myCategory)}} >
+                            {/* <img className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: '#32CD32'}} src={handIcon} /> */}
+                            {/* <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: myCategory.get("color")}}/> */}
+                            {this.getIcon(myCategory.get("icon"), myCategory.get("color"))}
+                            <span><h4 className="text-center" style={{color: titleColor1}}>{t(myCategory.get("itemNameTrans")[storageLanguage])}</h4></span>
+                        </div>
+                        </Col>
+                    )})}
                 </Row>
+                {/* <div className="row no-gutters">
+                    <div className="col my-auto" style={{backgroundColor: sq3Color, borderRadius: '20px'}} hidden={!showProductivity}>
+                        <div className="square"  onClick={(event) => { this.changeSelectedValue(3)}}>
+                           
+                            <ChartImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: chartIcon}}/>
+                            <span><h4 className="text-center" style={{color: titleColor3}}>{t('PRODUCTIVITY_CATEGORY')}</h4></span>
+                        </div>
+                    </div>
+                    <div className="col my-auto" style={{backgroundColor: sq4Color, borderRadius: '20px'}} hidden={!showAction}>
+                        <div className="square"  onClick={(event) => { this.changeSelectedValue(4)}}>
+                            
+                            <TimeImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: clockIcon}}/>
+                            <span><h4 className="text-center" style={{color: titleColor4}}>{t('IMMEDIATEACTION_CATEGORY')}</h4></span>
+                        </div>
+                    </div>
+                </div> */}
+                {/* <div className="row no-gutters">
+                    <div className="col my-auto" style={{backgroundColor: sq5Color, borderRadius: '20px'}} hidden={!showExtra}>
+                        <div className="square"  onClick={(event) => { this.changeSelectedValue(5)}}>
+                           
+                            <ExtraImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: extraIcon}}/>
+                            <span><h4 className="text-center" style={{color: titleColor5}}>{extraName[storageLanguage]}</h4></span>
+                        </div>
+                    </div>
+                </div> */}
             </div>
         )
     }

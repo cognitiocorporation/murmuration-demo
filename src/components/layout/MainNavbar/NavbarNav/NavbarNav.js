@@ -8,7 +8,7 @@ import Languages from "./Languages";
 export default () => (
   <Nav navbar className="border-left flex-row">
     <Languages/>
-    <Notifications />
+    {/* <Notifications /> */}
     <UserActions />
   </Nav>
 );

@@ -4,7 +4,7 @@ import { Container, Row, Col, Button, ButtonGroup } from "shards-react";
 import { NavLink } from "react-router-dom";
 
 import PageTitle from "../components/common/PageTitle";
-import SubmitIdeaForm from "../components/common/SubmitIdeaForm";
+import SubmitIdeaForm from "../components/common/SubmitIdeaForm_old";
 
 import colors from "../utils/colors";
 

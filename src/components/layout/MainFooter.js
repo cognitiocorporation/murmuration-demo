@@ -4,17 +4,22 @@ import { Container, Row, Nav, NavItem, NavLink } from "shards-react";
 import { Link } from "react-router-dom";
 
 const MainFooter = ({ contained, menuItems, copyright, linkStyle }) => (
-  <footer className="main-footer d-flex p-2 px-3 bg-white border-top">
+  <footer className="main-footer d-flex p-4 px-3">
     <Container fluid={contained}>
       <Row>
-        <Nav>
+        {/* <Nav>
           {menuItems.map((item, idx) => (
             <NavItem key={idx}>
               <a style={linkStyle} rel="noopener noreferrer" href={item.to} target="_blank">{item.title}</a>
             </NavItem>
           ))}
-        </Nav>
-        <span className="copyright ml-auto my-auto mr-2">{copyright}</span>
+        </Nav> */}
+        <span className="copyright my-auto mr-2">{copyright}</span>
+        <span className="ml-auto">
+        {menuItems.map((item, idx) => (
+             <span className="copyright my-auto mr-2">{item.title}</span>
+        ))}
+        </span>
       </Row>
     </Container>
   </footer>
@@ -37,9 +42,17 @@ MainFooter.propTypes = {
 
 MainFooter.defaultProps = {
   contained: false,
-  copyright: "Copyright © 2021 Murmuration",
+  copyright: "© Murmuration 2022",
   menuItems: [
-    ],
+    {
+      title: '() FAQs',
+      to: ''
+    },
+    {
+      title: '() Contact Customer Service',
+      to: ''
+    }
+  ],
   linkStyle: {
     marginRight: 40,
   }

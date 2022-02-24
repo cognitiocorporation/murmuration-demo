@@ -111,7 +111,7 @@ class UserActions extends React.Component {
             src={require("./../../../../images/avatars/user.png")}
             alt="User Avatar"
           />{" "}
-          <span className="d-none d-md-inline-block">{userName}</span>
+          {/* <span className="d-none d-md-inline-block">{userName}</span> */}
         </DropdownToggle>
         <Collapse tag={DropdownMenu} right small open={this.state.visible}>
           <DropdownItem className="text-success" onClick={this.resetPassword}>

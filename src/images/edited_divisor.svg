@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1182.5 3">
+  <defs>
+    <clipPath id="clip-edited_divisor">
+      <rect width="1182.5" height="3"/>
+    </clipPath>
+  </defs>
+  <g id="edited_divisor" clip-path="url(#clip-edited_divisor)">
+    <g id="Icons_FX_13b_Navigation_Bar" data-name="Icons_FX_13b_Navigation Bar" transform="translate(-82.5 -72.5)">
+      <path id="Path_1" data-name="Path 1" d="M82.5,74c378.8-2,803.7-2,1182.5,0C886.2,76,461.3,76,82.5,74Z" fill="#303030"/>
+    </g>
+  </g>
+</svg>

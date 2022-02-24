@@ -120,7 +120,7 @@ i18next.init({
     
           "SUBMIT_IDEA_IdeaTitle": "Idea Title",
     
-          "SUBMIT_IDEA_TitlePlaceholder": "Short title...",
+          "SUBMIT_IDEA_TitlePlaceholder": "Click to share your idea",
     
           "SAFETY_CATEGORY":"Safety",
     
@@ -132,7 +132,7 @@ i18next.init({
     
           "SUBMIT_IDEA_IdeaDescription": "Idea Description",
     
-          "SUBMIT_IDEA_DescriptionPlaceholder": "Description...",
+          "SUBMIT_IDEA_DescriptionPlaceholder": "Help us understand your idea and its benefits by describing it here!",
     
           "SUBMIT_IDEA_UploadArchive": "Upload Archive",
     

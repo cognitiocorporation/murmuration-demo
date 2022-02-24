@@ -23,7 +23,6 @@ import {
 } from "shards-react";
 import Select from 'react-select';
 import Parse from 'parse';
-import Switch from '@mui/material/Switch';
 
 import FormSectionTitle from "../edit-user-profile/FormSectionTitle";
 import CustomFileUpload from "../components-overview/CustomFileUpload";
@@ -32,7 +31,7 @@ import IdeaFilterSelect from "./IdeaFilterSelect";
 import { useTranslation, initReactI18next, withTranslation } from "react-i18next";
 import SelectedCategoryDisplay from "./SelectedCategoryDisplay";
 
-
+import { ReactComponent as SubmitIcon } from "../../images/submit.svg"
 
 
 var storageLanguage = localStorage.getItem('language');
@@ -78,7 +77,8 @@ class SubmitIdeaForm extends React.Component {
           ideaType: '',
           expectedReturn: 0,
           options: [],
-          selectedEmployees: []
+          selectedEmployees: [],
+          categoryIcon: '',
         }
 
         this.change = this.change.bind(this);
@@ -510,9 +510,10 @@ class SubmitIdeaForm extends React.Component {
       // console.log(event.target.value);
     }
 
-    setCategory(categoryName) {
+    setCategory(categoryName, categoryIcon) {
       this.setState({
-        category: categoryName
+        category: categoryName,
+        categoryIcon: categoryIcon
       })
 
       this.handleCategoryChange(categoryName)
@@ -717,20 +718,18 @@ class SubmitIdeaForm extends React.Component {
         const { t } = this.props;
         
         return(
-                  <Card small className="edit-user-details mb-4">
+                  <div className="edit-user-details mb-4">
                     {/* <ProfileBackgroundPhoto /> */}
     
-                    <CardBody className="p-0">
+                    {/* <CardBody className="p-0"> */}
     
                       {/* Form Section Title :: General */}
                       <Form className="py-4"
                       onSubmit={this.onSubmit}
                       noValidate
                       >
-                        <FormSectionTitle
-                          title={t('Choose how to contribute!')}
-                          description={' '}//"Somete los detalles y la informacion de la IDEA."
-                        />
+                        
+                        <h6 style={{fontWeight: 500, color: '#303030'}}>Choose how to contribute! </h6>
                         {/* VISIBILITY */}
                         <div style={{display: formVisibilityState}}>
                         
@@ -740,43 +739,49 @@ class SubmitIdeaForm extends React.Component {
                           </Col>
                         <br/>
                         
-                        <Row form className="mx-4">
+                        <Row form>
                           <Col md="6">
-                          <h6>Selected Category: </h6>
-                            <SelectedCategoryDisplay setCategory={this.setCategory} department={this.props.department}></SelectedCategoryDisplay>
+                          <h6 style={{fontWeight: 500, color: '#303030'}}>Selected Category: </h6>
+                            <SelectedCategoryDisplay categoryName={this.state.categoryIcon} setCategory={this.setCategory} department={this.props.department}></SelectedCategoryDisplay>
                           </Col>
                           
                           {/* Idea Description */}
                           <Col md="6" className="form-group">
-                            <label htmlFor="ideaTitle">{t("SUBMIT_IDEA_IdeaTitle")}</label>
+                            {/* <label htmlFor="ideaTitle">{t("SUBMIT_IDEA_IdeaTitle")}</label> */}
+                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{t("SUBMIT_IDEA_IdeaTitle")}</h6>
                             <FormInput
                             id="userBio"
                             placeholder={t('SUBMIT_IDEA_TitlePlaceholder')}
                             value={ideaTitle}
                             onChange={this.setIdeaTitle}
-                            valid={titleValid ? true : null}
-                            invalid={!titleValid ? true : null}/>
+                            // valid={titleValid ? true : null}
+                            // invalid={!titleValid ? true : null}
+                            />
+                            { titleValid &&
                             <FormFeedback 
-                              valid={titleValid ? true : null}
-                              invalid={!titleValid ? true : null}>
+                              valid={titleValid}
+                              invalid={!titleValid}>
                               {remainingTitleCharacters} {t("SUBMIT_IDEA_RemainingCharacters")}
                             </FormFeedback>
+                            }
                             <br/>
-                            <label htmlFor="userBio">{t("SUBMIT_IDEA_IdeaDescription")}</label>
+                            {/* <label htmlFor="userBio">{t("SUBMIT_IDEA_IdeaDescription")}</label> */}
+                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{t("SUBMIT_IDEA_IdeaDescription")}</h6>
                             <FormTextarea
                               style={{ minHeight: "120px" }}
                               id="userBio"
                               placeholder={t("SUBMIT_IDEA_DescriptionPlaceholder")}
                               value={ideaDescription}
                               onChange={this.setIdeaDescription}
-                              valid={descriptionValid ? true : null}
-                              invalid={!descriptionValid ? true : null}
+                              // valid={descriptionValid}
+                              // invalid={!descriptionValid}
                             />
+                            {ideaDescription && 
                             <FormFeedback 
-                              valid={descriptionValid ? true : null}
-                              invalid={!descriptionValid ? true : null}>
+                              valid={descriptionValid}
+                              invalid={!descriptionValid}>
                               {remainingCharacters} {t("SUBMIT_IDEA_RemainingCharacters")}
-                            </FormFeedback>
+                            </FormFeedback>}
                             <br/>
                             <FormCheckbox
                               checked={this.state.hasTeam}
@@ -810,9 +815,12 @@ class SubmitIdeaForm extends React.Component {
                                     isMulti
                                     placeholder={t('SELECT_MEMBERS')}
                                   />
-                              </div>}
-                              <br/>
-                            <FormCheckbox
+                                  <br/>
+                              </div>
+                              }
+                              
+                            
+                            {/* <FormCheckbox
                               checked={this.state.hasTeam}
                               onChange={e => this.setState({hasAttachment: !this.state.hasTeam})}
                             >
@@ -822,8 +830,8 @@ class SubmitIdeaForm extends React.Component {
                             <strong className="text-muted d-block mb-2">
                             {t("SUBMIT_IDEA_UploadArchive")}
                             </strong>
-                            <span><CustomFileUpload onFileSelect={this.selectFile} myFile={this.state.file}/> {this.state.file && <Button theme="warning" onClick={this.deleteFile}>{t("DELETE_FILE")}</Button>}</span>
-                            <Switch/>
+                            <span><CustomFileUpload onFileSelect={this.selectFile} myFile={this.state.file}/> {this.state.file && <Button theme="warning" onClick={this.deleteFile}>{t("DELETE_FILE")}</Button>}</span> */}
+                            {/* <Switch/> */}
                             {/* <label htmlFor="ideaTitle">{t("SUBMIT_IDEA_ReturnTitle")}</label>
                               <FormInput
                                 id="expectedReturn"
@@ -856,7 +864,7 @@ class SubmitIdeaForm extends React.Component {
                         {/* <Row className="mx-4" style={{paddingBottom:20}}>
                           <h2>{sectionTitle}</h2>
                         </Row> */}
-                        <Row form className="mx-4">
+                        <Row form>
                           <Col lg="12">
                             <Row form>
                               {selectedFilterQ.map((item,idx) =>
@@ -951,15 +959,15 @@ class SubmitIdeaForm extends React.Component {
                             </Col>
                           </Row>
                         </div>
-                        </Form>
-                    </CardBody>
-                    <CardFooter className="border-top">
+                      </Form>
+                    {/* </CardBody> */}
+                    {/* <CardFooter className="border-top">
                       <ButtonGroup size="sm" className="ml-auto d-table mr-3">
-                        {/* <Button theme="light" onClick={this.saveIdea}>Guardar</Button> */}
+                        <Button theme="light" onClick={this.saveIdea}>Guardar</Button>
                         <Button theme="accent" onClick={this.showNext} style={{display: nextButtonVisibilityState}} >{this.state.formButtonTitle}</Button>
                       </ButtonGroup>
-                    </CardFooter>
-                  </Card>
+                    </CardFooter> */}
+                  </div>
           );
     }
 }

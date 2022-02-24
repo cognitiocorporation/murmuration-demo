@@ -7,6 +7,7 @@ import { DefaultLayout, HeaderNavigation, IconSidebar } from "./layouts";
 // Route Views
 import Analytics from "./views/Analytics";
 import SubmitIdea from "./views/SubmitIdea"
+import SubmitIdeaNew from "./views/SubmitIdeaNew"
 import SearchIdea from "./views/SearchIdea"
 import OnlineStore from "./views/OnlineStore";
 import BlogOverview from "./views/BlogOverview";
@@ -97,6 +98,12 @@ export default [
     layout: DefaultLayout,
     protected: true,
     component: SubmitIdea,
+  },
+  {
+    path: "/submit-idea-new",
+    layout: DefaultLayout,
+    protected: true,
+    component: SubmitIdeaNew,
   },
   {
     path: "/search-idea",

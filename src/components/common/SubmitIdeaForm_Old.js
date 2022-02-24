@@ -26,7 +26,7 @@ import Parse from 'parse';
 
 import FormSectionTitle from "../edit-user-profile/FormSectionTitle";
 import CustomFileUpload from "../components-overview/CustomFileUpload";
-import CategorySelect from "./CategorySelect"
+import CategorySelect from "./CategorySelect_old"
 import IdeaFilterSelect from "./IdeaFilterSelect";
 import { useTranslation, initReactI18next, withTranslation } from "react-i18next";
 
