@@ -35,6 +35,8 @@ import { ReactComponent as TrophyImage } from "../../images/Icons_Idle_04_Trophy
 import { ReactComponent as Shield2Image } from "../../images/Icons_Idle_05_Shield.svg"
 import { ReactComponent as DollarSignImage } from "../../images/Icons_Idle_06_Dollar Sign.svg"
 import { ReactComponent as NumberOneImage } from "../../images/Icons_Idle_07_Number One.svg"
+import { ReactComponent as SelectIdeaImage } from "../../images/select_idea_category.svg"
+import selectIdeaImage from '../../images/select_idea_category_new.png';
 
 // New Selected
 import { ReactComponent as UrgentImageSelected} from '../../images/Icons_Selected_01_Urgent.svg';
@@ -319,7 +321,7 @@ class CategorySelect extends React.Component {
             case 'Number One':
                 return newIcons[6].selected;
             default:
-              return <ExtraImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: fillColor}}/>;
+              return <img src={selectIdeaImage} width="200" height="200" />//<SelectIdeaImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
           }
     }
 
@@ -345,7 +347,7 @@ class CategorySelect extends React.Component {
                     {/* <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: myCategory.get("color")}}/> */}
                     {this.getIcon(categoryName, 'Black')}
                     <div className="mr-auto mt-4" style={{width: '70%', backgrounColor: 'black'}}>
-                        <p style={{color: titleColor1, textAlign: 'left', fontSize: 12, fontWeight: 600}}>{'Type Category Description Here. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, seddiam nonummy nibh euismod tincidunt'}</p>
+                        {categoryName && <p style={{color: titleColor1, textAlign: 'left', fontSize: 12, fontWeight: 600}}>{'Type Category Description Here. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, seddiam nonummy nibh euismod tincidunt'}</p>}
                     </div>
                 </div>
                 {/* </Col> */}

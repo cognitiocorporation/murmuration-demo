@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 659 673">
+  <defs>
+    <clipPath id="clip-select_idea_category_new">
+      <rect width="659" height="673"/>
+    </clipPath>
+  </defs>
+  <g id="select_idea_category_new" clip-path="url(#clip-select_idea_category_new)">
+    <rect width="659" height="673" fill="#fff"/>
+    <g id="Icons_Fx_09_Placeholder" transform="translate(-12.7 -12.7)">
+      <g id="Component_1_1" data-name="Component 1 – 1" transform="translate(12.7 12.7)">
+        <g id="Layer_1">
+          <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="328.665" cy="336.5" rx="328.665" ry="336.5" fill="#e5e5e5"/>
+        </g>
+        <g id="Group" transform="translate(80 208.881)">
+          <text id="Select_an_idea" data-name="Select an idea" transform="translate(280.047 68)" fill="#2a2a2a" font-size="76" font-family=" Karrik"><tspan x="-233.662" y="0">Select an idea</tspan></text>
+          <text id="category" transform="translate(278 200.816)" fill="#2a2a2a" font-size="143" font-family="Karrik"><tspan x="-278.064" y="0">category</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

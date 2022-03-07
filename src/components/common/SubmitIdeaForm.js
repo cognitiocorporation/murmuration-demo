@@ -27,7 +27,8 @@ import Parse from 'parse';
 import FormSectionTitle from "../edit-user-profile/FormSectionTitle";
 import CustomFileUpload from "../components-overview/CustomFileUpload";
 import CategorySelect from "./CategorySelect"
-import IdeaFilterSelect from "./IdeaFilterSelect";
+import IdeaFilterSelectNew from "./IdeaFilterSelectNew";
+import ThankYou from "./ThankYou";
 import { useTranslation, initReactI18next, withTranslation } from "react-i18next";
 import SelectedCategoryDisplay from "./SelectedCategoryDisplay";
 
@@ -379,6 +380,7 @@ class SubmitIdeaForm extends React.Component {
       var filteredData;
       if (newCategory !== 'Todas') {
         console.log(newFilter)
+        // filteredData = filterQuestions.filter(item => item.get("filter") === newCategory);
         filteredData = filterQuestions.filter(item => item.get("filter") === newCategory);
       }  else {
         filteredData = filterQuestions;
@@ -707,14 +709,22 @@ class SubmitIdeaForm extends React.Component {
     };
 
     render() {
-        const {visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, hideNextButton, date, remainingCharacters, descriptionValid,ideaDescription, userName, ideaTitle, titleValid, remainingTitleCharacters, expectedReturn, options } = this.state
-        const formVisibilityState = visible? 'block' : 'none';
-        const filterVisibilityState = filterVisible? 'block' : 'none';
-        const filterQuestionVisibilityState = filterQuestionsVisible? 'block' : 'none';
+        const {visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, filterQuestions, selectedFilterQ, categoryQuestions, hideNextButton, date, remainingCharacters, descriptionValid,ideaDescription, userName, ideaTitle, titleValid, remainingTitleCharacters, expectedReturn, options } = this.state
+        const { currentStage } = this.props;
+
+        const formVisibilityState = currentStage == 0? 'block' : 'none';
+        const filterVisibilityState = currentStage == 1? 'block' : 'none';
+        // const formVisibilityState = 'none';
+        // const filterVisibilityState = 'none';
+        const filterQuestionVisibilityState = currentStage == 2? 'block' : 'none';
+        // const filterQuestionVisibilityState = 'block';
         const questionVisibilityState = ideaQuestionsVisible? 'block' : 'none';
+
+        const thankYouVisibilityState = currentStage == 3? 'block' : 'none';
+
         const nextButtonVisibilityState = !hideNextButton? 'inline' : 'none';
         const expectedRetunrnValid =  /^\d+$/.test(expectedReturn);
-        
+        // alert(this.state.filterQuestions.length)
         const { t } = this.props;
         
         return(
@@ -729,7 +739,7 @@ class SubmitIdeaForm extends React.Component {
                       noValidate
                       >
                         
-                        <h6 style={{fontWeight: 500, color: '#303030'}}>Choose how to contribute! </h6>
+                        {/* <h6 style={{fontWeight: 500, color: '#303030'}}>Choose how to contribute! </h6> */}
                         {/* VISIBILITY */}
                         <div style={{display: formVisibilityState}}>
                         
@@ -856,7 +866,12 @@ class SubmitIdeaForm extends React.Component {
                           
                         {/* Select IDEA Filter Visibility State */}
                         <div style={{display: filterVisibilityState}}>
-                          <IdeaFilterSelect setFilter={(e) => {this.setFilter(e)}}/>
+                          <IdeaFilterSelectNew setFilter={(e) => {this.setFilter(e)}}/>
+                          {/* <ThankYou></ThankYou> */}
+                        </div>
+
+                        <div style={{display: thankYouVisibilityState}}>
+                          <ThankYou></ThankYou>
                         </div>
 
                         {/* Select IDEA Filter Visibility State */}
@@ -867,9 +882,10 @@ class SubmitIdeaForm extends React.Component {
                         <Row form>
                           <Col lg="12">
                             <Row form>
-                              {selectedFilterQ.map((item,idx) =>
-                                <Col key={idx} md="6">
-                                  <label  htmlFor="question"><strong>{item.get("questionTrans")[storageLanguage]}</strong></label>
+                              {filterQuestions.map((item,idx) =>
+                                <Col key={idx} md="6" className={"mt-4 pr-4"}>
+                                  {/* <label  htmlFor="question"><strong>{item.get("questionTrans")[storageLanguage]}</strong></label> */}
+                                  <h6 style={{fontWeight: 500,  color: '#303030', fontSize: 14}}>{item.get("questionTrans")[storageLanguage]}</h6>
                                   {item.get("field")?
                                   <FormTextarea 
                                   style={{ minHeight: "80px" }}
@@ -883,7 +899,7 @@ class SubmitIdeaForm extends React.Component {
                                     <FormRadio
                                     inline
                                     name={"type"+idx}
-                                    checked={this.state.filterQAnswers[idx].answer == 'yes'}
+                                    // checked={this.state.filterQAnswers[idx].answer == 'yes'}
                                     onChange={() => {
                                       this.filterQuestionAnswerChange("yes", idx)
                                     }}
@@ -893,7 +909,7 @@ class SubmitIdeaForm extends React.Component {
                                   <FormRadio
                                     inline
                                     name={"type"+idx}
-                                    checked={this.state.filterQAnswers[idx].answer == 'no'}
+                                    // checked={this.state.filterQAnswers[idx].answer == 'no'}
                                     onChange={() => {
                                       this.filterQuestionAnswerChange("no", idx)
                                     }}

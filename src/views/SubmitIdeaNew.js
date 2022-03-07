@@ -11,7 +11,9 @@ import { v4 as uuidv4 } from 'uuid';
 import colors from "../utils/colors";
 
 import { ReactComponent as SubmitIcon } from "../images/submit.svg"
+import { ReactComponent as NextIcon} from "../images/next.svg"
 import { ReactComponent as DivisorBarIcon } from "../images/edited_divisor.svg"
+import { ReactComponent as HomeIcon } from "../images/home.svg"
 
 import { useTranslation, initReactI18next } from "react-i18next";
 
@@ -19,8 +21,11 @@ import { useTranslation, initReactI18next } from "react-i18next";
 function SubmitIdeaNew(smallStats) {
   const { t } = useTranslation();
   const [username, setUsername] = useState('')
+  const [title, setTitle] = useState('')
+  const [ideaStage, setIdeaStage] = useState(0)
   let currUser = Parse.User.current();
   // this.getUserName()
+
   const getUserName = async (user) => {
     var query = new Parse.Query(Parse.User);
     query.equalTo("objectId", user.id);
@@ -33,12 +38,36 @@ function SubmitIdeaNew(smallStats) {
     
     // return firstName
     setUsername(firstName)
+    if (ideaStage == 0) {
+      setTitle('Welcome back, ' + username+ '!')
+    }
   }
 
   useEffect(() => {
     // Update the document title using the browser API
     getUserName(currUser)
   });
+
+  const changeIdeaStage = () => {
+    const newStage = ideaStage + 1
+
+    if (newStage == 0) {
+      setTitle('Welcome back, ' + username+ '!')
+      setIdeaStage(newStage)
+    } else if (newStage == 1) {
+      setTitle('Idea > Select Idea Type')
+      setIdeaStage(newStage)
+    } else if (newStage == 2) {
+      setTitle('Idea > Innovation > Idea Details')
+      setIdeaStage(newStage)
+    } else if (newStage == 3) {
+      setTitle('Idea > Innovation > Idea Details > Done')
+      setIdeaStage(newStage)
+    } else {
+      setTitle('Welcome back, ' + username+ '!')
+      setIdeaStage(0)
+    }
+  }
 
   return (
   <Container fluid className="main-content-container px-4" style={{backgroundColor: 'white'}}>
@@ -48,7 +77,7 @@ function SubmitIdeaNew(smallStats) {
         {/* <PageTitle title={t('Welcome back, Angel')} subtitle=" " className="text-sm-left" /> */}
         <Row>
           <Col md="8" lg="8">
-            <h3 className="m-auto" style={{fontWeight: 600, color: '#303030'}}>Welcome back, {username}!</h3>
+            <h3 className="m-auto" style={{fontWeight: 600, color: '#303030'}}>{title}</h3>
           </Col>
           
           <Col xs="12" md="2" lg="2" className="col d-flex align-items-center ml-auto">
@@ -82,12 +111,16 @@ function SubmitIdeaNew(smallStats) {
     <Row>
       {/* Latest Orders */}
       <Col lg="10" className="mb-4 m-auto">
-        <SubmitIdeaForm />     
+        <SubmitIdeaForm currentStage={ideaStage} changeIdeaStage={() => this.changeIdeaStage()}/>     
       </Col>
     </Row>
     <Row>
-      <SubmitIcon className="ml-auto d-block" style={{minWidth: 120, maxWidth:120}}></SubmitIcon>
+      {ideaStage == 0 && <SubmitIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></SubmitIcon>}
+      {ideaStage == 1  && <NextIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></NextIcon>}
+      {ideaStage == 2  && <NextIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></NextIcon>}
+      {ideaStage == 3  && <HomeIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></HomeIcon>}
     </Row>
+    
   </Container>
   )}
 

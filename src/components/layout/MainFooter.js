@@ -44,12 +44,12 @@ MainFooter.defaultProps = {
   contained: false,
   copyright: "© Murmuration 2022",
   menuItems: [
+    // {
+    //   title: '() FAQs',
+    //   to: ''
+    // },
     {
-      title: '() FAQs',
-      to: ''
-    },
-    {
-      title: '() Contact Customer Service',
+      title: 'Contact Customer Service',
       to: ''
     }
   ],
