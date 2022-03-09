@@ -810,13 +810,14 @@ class SubmitIdeaForm extends React.Component {
 
                                 {/* Team */}
                                  
-                                {/* <div >
+                                <div >
                                   <Switch
                                   isOn={hasAttachment}
                                   onColor={"#633FDA"}
+                                  key={'32345'}
                                   style={{display: 'inline-block'}}
                                   handleToggle={(value) => this.setState({hasAttachment: !hasAttachment})}
-                                />
+                                ></Switch>
                                 <h6 style={{fontWeight: 500,  color: '#303030', display: 'inline-block'}}>{t("Add an attachment")}</h6>
                                 </div>
                                 
@@ -826,18 +827,18 @@ class SubmitIdeaForm extends React.Component {
                                 <span><CustomFileUpload onFileSelect={this.selectFile} myFile={this.state.file}/> {this.state.file && <Button theme="warning" onClick={this.deleteFile}>{t("DELETE_FILE")}</Button>}</span> 
                                 }
       
-                                  <br/> */}
+                                  <br/>
     
                               {/* Team */}
                                
                                  <div>
                                   <Switch
                                   isOn={hasATeam}
-                                  id={'1234'}
+                                  myKey={'1234'}
                                   onColor={"#633FDA"}
                                   style={{display: 'inline-block'}}
                                   handleToggle={(value) => this.setState({hasATeam: !hasATeam})}
-                                />
+                                ></Switch>
                                 <h6 style={{fontWeight: 500,  color: '#303030', display: 'inline-block'}}>{t("Add a team")}</h6>
                                 </div>
                                  
@@ -846,7 +847,7 @@ class SubmitIdeaForm extends React.Component {
                                   hasATeam &&
                                   <Select
                                     value={this.state.selectedEmployees}
-                                    id={'12345'}
+                                    myKey={'999888'}
                                     onChange={this.selectEmployees}
                                     options={options}
                                     isMulti
