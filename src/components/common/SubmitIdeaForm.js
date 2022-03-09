@@ -810,7 +810,7 @@ class SubmitIdeaForm extends React.Component {
 
                                 {/* Team */}
                                  
-                                <div >
+                                {/* <div >
                                   <Switch
                                   isOn={hasAttachment}
                                   onColor={"#633FDA"}
@@ -826,7 +826,7 @@ class SubmitIdeaForm extends React.Component {
                                 <span><CustomFileUpload onFileSelect={this.selectFile} myFile={this.state.file}/> {this.state.file && <Button theme="warning" onClick={this.deleteFile}>{t("DELETE_FILE")}</Button>}</span> 
                                 }
       
-                                  <br/>
+                                  <br/> */}
     
                               {/* Team */}
                                
