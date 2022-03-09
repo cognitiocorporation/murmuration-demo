@@ -27,6 +27,7 @@ import Parse from 'parse';
 import FormSectionTitle from "../edit-user-profile/FormSectionTitle";
 import CustomFileUpload from "../components-overview/CustomFileUpload";
 import CategorySelect from "./CategorySelect"
+import Switch from "./Switch.js"
 import IdeaFilterSelectNew from "./IdeaFilterSelectNew";
 import ThankYou from "./ThankYou";
 import { useTranslation, initReactI18next, withTranslation } from "react-i18next";
@@ -80,6 +81,8 @@ class SubmitIdeaForm extends React.Component {
           options: [],
           selectedEmployees: [],
           categoryIcon: '',
+          hasAttachment: false,
+          hasATeam: false
         }
 
         this.change = this.change.bind(this);
@@ -709,7 +712,7 @@ class SubmitIdeaForm extends React.Component {
     };
 
     render() {
-        const {visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, filterQuestions, selectedFilterQ, categoryQuestions, hideNextButton, date, remainingCharacters, descriptionValid,ideaDescription, userName, ideaTitle, titleValid, remainingTitleCharacters, expectedReturn, options } = this.state
+        const {hasATeam, hasAttachment, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, filterQuestions, selectedFilterQ, categoryQuestions, hideNextButton, date, remainingCharacters, descriptionValid,ideaDescription, userName, ideaTitle, titleValid, remainingTitleCharacters, expectedReturn, options } = this.state
         const { currentStage } = this.props;
 
         const formVisibilityState = currentStage == 0? 'block' : 'none';
@@ -799,32 +802,58 @@ class SubmitIdeaForm extends React.Component {
                             >
                               {t('Add team members and attachments')}
                             </FormCheckbox>
+    
+                            
                             <br/>
                             {this.state.hasTeam &&
                               <div>
-                              <label htmlFor="teamName">{t("SUBMIT_IDEA_Team")}</label>
+
+                                {/* Team */}
+                                 
+                                <div >
+                                  <Switch
+                                  isOn={hasAttachment}
+                                  onColor={"#633FDA"}
+                                  style={{display: 'inline-block'}}
+                                  handleToggle={(value) => this.setState({hasAttachment: !hasAttachment})}
+                                />
+                                <h6 style={{fontWeight: 500,  color: '#303030', display: 'inline-block'}}>{t("Add an attachment")}</h6>
+                                </div>
+                                
+                                
+                                {
+                                  hasAttachment &&
+                                <span><CustomFileUpload onFileSelect={this.selectFile} myFile={this.state.file}/> {this.state.file && <Button theme="warning" onClick={this.deleteFile}>{t("DELETE_FILE")}</Button>}</span> 
+                                }
+      
+                                  <br/>
+    
                               {/* Team */}
-                              {/* <FormInput
-                                  id="teamName"
-                                  value={this.state.teamName}
-                                  placeholder={t("SUBMIT_IDEA_TeamPlaceholder")}
-                                  onChange={(input) => {this.setState({teamName: input.target.value})}}
-                                  required
-                                /> */}
-                              {/* <Select
-                                    isMulti
-                                    value={this.state.selectedOption}
-                                    placeholder={t('SELECT_MEMBERS')}
-                                    onChange={this.handleChange}
-                                    options={this.state.allTeamUsers}
-                                  /> */}
+                               
+                                 <div>
+                                  <Switch
+                                  isOn={hasATeam}
+                                  id={'1234'}
+                                  onColor={"#633FDA"}
+                                  style={{display: 'inline-block'}}
+                                  handleToggle={(value) => this.setState({hasATeam: !hasATeam})}
+                                />
+                                <h6 style={{fontWeight: 500,  color: '#303030', display: 'inline-block'}}>{t("Add a team")}</h6>
+                                </div>
+                                 
+                                
+                                {
+                                  hasATeam &&
                                   <Select
                                     value={this.state.selectedEmployees}
+                                    id={'12345'}
                                     onChange={this.selectEmployees}
                                     options={options}
                                     isMulti
-                                    placeholder={t('SELECT_MEMBERS')}
+                                    placeholder={t('Type [First Name] [Last Name]')}
                                   />
+                                }
+      
                                   <br/>
                               </div>
                               }

@@ -585,10 +585,10 @@ class IdeaFilterSelect extends React.Component {
                                 {/* <Col lg="12" style={{backgroundColor: 'white'}}>  */}
                                                             
                                     <div  style={{justifyContent:'center', alignItems:'center'}}>
-                                    <div onClick={(event) => { this.changeSelectedValue(index, myCategory)}} style={{justifyContent:'center', alignItems:'center'}}>
+                                    <div className='pt-3' onClick={(event) => { this.changeSelectedValue(index, myCategory)}} style={{justifyContent:'center', alignItems:'center'}}>
                                         {myIcon}
-                                        <div style={{textAlign: 'center'}} className='pt-3'>
-                                        <h6 style={{color: titleColor1, fontWeight: 600, color: '#303030', marginRight: 10}}>
+                                        <div style={{textAlign: 'center'}} className='pt-4'>
+                                        <h6 style={{color: titleColor1, fontWeight: 500, color: '#303030', marginRight: 10}}>
                                             {myCategory.name}
                                             <a id={"TooltipExample" + index} className="text-right" style={{ color: 'inherit'}} className='pl-2' onClick={() => {this.setState({right: !this.state.right})}}>
                                                 <i className="material-icons">info</i>
