@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Container, Row, Nav, NavItem, NavLink } from "shards-react";
+import { Container, Row, Nav, NavItem, NavLink, Tooltip } from "shards-react";
 import { Link } from "react-router-dom";
 
 const MainFooter = ({ contained, menuItems, copyright, linkStyle }) => (
@@ -15,10 +15,21 @@ const MainFooter = ({ contained, menuItems, copyright, linkStyle }) => (
           ))}
         </Nav> */}
         <span className="copyright my-auto mr-2">{copyright}</span>
+        <a id={"TooltipExampleFooter"}>hola</a>
         <span className="ml-auto">
         {menuItems.map((item, idx) => (
-             <span className="copyright my-auto mr-2">{item.title}</span>
+             <span  className="copyright my-auto mr-2">{item.title}</span>
         ))}
+        
+        <Tooltip
+          open={false}
+          target={"#TooltipExampleFooter"}
+          // id={"TooltipExampleFooter"}
+          toggle={() => {this.toggle()}}
+          placement='left'
+          >
+          Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
+        </Tooltip>
         </span>
       </Row>
     </Container>

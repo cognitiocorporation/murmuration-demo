@@ -528,13 +528,15 @@ class SubmitIdeaForm extends React.Component {
     setFilter(filterName) {
       // console.log(filterName);
       // this.setState({sectionTitle: (filterName === "innovacion")?"INNOVACION":"RESOLUCION DE PROBLEMAS"});
-      if (filterName == "innovacion") {
-        this.setState({ideaType: filterName});
-      } else {
+      if (filterName == "Innovation") {
+        this.setState({ideaType: 'innovacion'});
+      } else if (filterName == "Problem Solving") {
         this.setState({ideaType: "problema"});
+      } else {
+        this.setState({ideaType: 'improvement'})
       }
 
-      this.handleFilterChange(filterName);
+      // this.handleFilterChange(filterName);
     }
 
     clickedPrint() {
@@ -712,8 +714,8 @@ class SubmitIdeaForm extends React.Component {
     };
 
     render() {
-        const {hasATeam, hasAttachment, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, filterQuestions, selectedFilterQ, categoryQuestions, hideNextButton, date, remainingCharacters, descriptionValid,ideaDescription, userName, ideaTitle, titleValid, remainingTitleCharacters, expectedReturn, options } = this.state
-        const { currentStage } = this.props;
+        const {hasATeam, category, hasAttachment, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, filterQuestions, selectedFilterQ, categoryQuestions, hideNextButton, date, remainingCharacters, descriptionValid,ideaDescription, userName, ideaTitle, titleValid, remainingTitleCharacters, expectedReturn, options } = this.state
+        const { currentStage, changeStatus } = this.props;
 
         const formVisibilityState = currentStage == 0? 'block' : 'none';
         const filterVisibilityState = currentStage == 1? 'block' : 'none';
@@ -726,12 +728,16 @@ class SubmitIdeaForm extends React.Component {
         const thankYouVisibilityState = currentStage == 3? 'block' : 'none';
 
         const nextButtonVisibilityState = !hideNextButton? 'inline' : 'none';
+
+        const canGoNext = ideaTitle && ideaDescription && category
+
+        changeStatus(canGoNext)
         const expectedRetunrnValid =  /^\d+$/.test(expectedReturn);
         // alert(this.state.filterQuestions.length)
         const { t } = this.props;
         
         return(
-                  <div className="edit-user-details mb-4">
+                  <div className="edit-user-details mb-2">
                     {/* <ProfileBackgroundPhoto /> */}
     
                     {/* <CardBody className="p-0"> */}
@@ -811,41 +817,21 @@ class SubmitIdeaForm extends React.Component {
                                 {/* Team */}
                                  
                                 <div >
-                                  <Switch
-                                  isOn={hasAttachment}
-                                  onColor={"#633FDA"}
-                                  key={'32345'}
-                                  style={{display: 'inline-block'}}
-                                  handleToggle={(value) => this.setState({hasAttachment: !hasAttachment})}
-                                ></Switch>
                                 <h6 style={{fontWeight: 500,  color: '#303030', display: 'inline-block'}}>{t("Add an attachment")}</h6>
+                                <span><CustomFileUpload onFileSelect={this.selectFile} myFile={this.state.file}/> {this.state.file && <Button theme="warning" onClick={this.deleteFile}>{t("DELETE_FILE")}</Button>}</span> 
                                 </div>
                                 
                                 
-                                {
-                                  hasAttachment &&
-                                <span><CustomFileUpload onFileSelect={this.selectFile} myFile={this.state.file}/> {this.state.file && <Button theme="warning" onClick={this.deleteFile}>{t("DELETE_FILE")}</Button>}</span> 
-                                }
+                                
       
                                   <br/>
     
                               {/* Team */}
                                
                                  <div>
-                                  <Switch
-                                  isOn={hasATeam}
-                                  myKey={'1234'}
-                                  onColor={"#633FDA"}
-                                  style={{display: 'inline-block'}}
-                                  handleToggle={(value) => this.setState({hasATeam: !hasATeam})}
-                                ></Switch>
+                                  
                                 <h6 style={{fontWeight: 500,  color: '#303030', display: 'inline-block'}}>{t("Add a team")}</h6>
-                                </div>
-                                 
-                                
-                                {
-                                  hasATeam &&
-                                  <Select
+                                <Select
                                     value={this.state.selectedEmployees}
                                     myKey={'999888'}
                                     onChange={this.selectEmployees}
@@ -853,7 +839,10 @@ class SubmitIdeaForm extends React.Component {
                                     isMulti
                                     placeholder={t('Type [First Name] [Last Name]')}
                                   />
-                                }
+                                </div>
+                                 
+                                
+                               
       
                                   <br/>
                               </div>

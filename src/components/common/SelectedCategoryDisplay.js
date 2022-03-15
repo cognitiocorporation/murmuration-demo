@@ -30,18 +30,19 @@ import { ReactComponent as DollarImage } from "../../images/dollar-symbol.svg"
 // New
 import { ReactComponent as UrgentImage} from '../../images/Icons_Idle_01_Urgent.svg';
 import { ReactComponent as ProductivityImage } from "../../images/Icons_Idle_02_Productivity.svg"
-import { ReactComponent as CheckmarkImage} from "../../images/Icons_Idle_03_Checkmark.svg"
+import { ReactComponent as CheckmarkImage} from "../../images/check1.svg"
 import { ReactComponent as TrophyImage } from "../../images/Icons_Idle_04_Trophy.svg"
 import { ReactComponent as Shield2Image } from "../../images/Icons_Idle_05_Shield.svg"
 import { ReactComponent as DollarSignImage } from "../../images/Icons_Idle_06_Dollar Sign.svg"
 import { ReactComponent as NumberOneImage } from "../../images/Icons_Idle_07_Number One.svg"
-import { ReactComponent as SelectIdeaImage } from "../../images/select_idea_category.svg"
-import selectIdeaImage from '../../images/select_idea_category_new.png';
+import { ReactComponent as SelectIdeaImage } from "../../images/Icons_Fx_09b_Placeholder.svg"
+// import selectIdeaImage from '../../images/select_idea_category_new.png';
+import selectIdeaImage from '../../images/selected.png';
 
 // New Selected
 import { ReactComponent as UrgentImageSelected} from '../../images/Icons_Selected_01_Urgent.svg';
 import { ReactComponent as ProductivityImageSelected } from "../../images/Icons_Selected_02_Productivity.svg"
-import { ReactComponent as CheckmarkImageSelected } from "../../images/Icons_Selected_03_Checkmark.svg"
+import { ReactComponent as CheckmarkImageSelected } from "../../images/check1_selected.svg"
 import { ReactComponent as TrophyImageSelected } from "../../images/Icons_Selected_04_Trophy.svg"
 import { ReactComponent as Shield2ImageSelected } from "../../images/Icons_Selected_05_Shield.svg"
 import { ReactComponent as DollarSignImageSelected } from "../../images/Icons_Selected_06_Dollar Sign.svg"

@@ -298,10 +298,12 @@ class IdeaFilterSelect extends React.Component {
             selectedCategoryName: ''
           }
           this.fetchCategoryData = this.fetchCategoryData.bind(this);
+          this.fetchNewData = this.fetchNewData.bind(this);
     }
 
     componentDidMount() {
         this.fetchCategoryData();
+        this.fetchNewData();
     }
 
     fetchCategoryData() {
@@ -373,8 +375,29 @@ class IdeaFilterSelect extends React.Component {
         // });
       }
 
+      fetchNewData() {
+        const className = "IdeaDepartment";
+  
+        var ItemClass = Parse.Object.extend(className);
+        var query = new Parse.Query(ItemClass);
+  
+        query.find()
+        .then((results) => {
+            this.setState({
+                data: results
+            });
+            // console.log(results);
+        }, (error) => {
+            this.setState({
+                data: []
+            });
+          // The object was not retrieved successfully.
+          // error is a Parse.Error with an error code and message.
+        });
+      }
+
     changeSelectedValue(selectionValue, category) {
-        const myExtraValue = category.get("itemName")
+        const myExtraValue = category.name
         // if (selectionValue === 1) {
         //     this.setState({
         //         selectionValue: 'Seguridad', 
@@ -480,9 +503,9 @@ class IdeaFilterSelect extends React.Component {
         // Old Selection
         this.setState({
             selectionValue: selectionValue,
-            selectedCategoryName: category.get("icon")
+            selectedCategoryName: category.icon
         })
-        this.props.setCategory(myExtraValue, category.get('icon'));
+        this.props.setFilter(category.name)
         console.log(selectionValue)
         console.log(category)
     }
@@ -492,25 +515,25 @@ class IdeaFilterSelect extends React.Component {
 
         const newIcons = [
             {normal: <UrgentImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+             selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
             {normal: <ProductivityImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <ProductivityImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+             selected: <ProductivityImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
             {normal: <CheckmarkImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+             selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
             {normal: <TrophyImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <TrophyImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+             selected: <TrophyImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
             {normal: <Shield2Image className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <Shield2ImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+             selected: <Shield2ImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
             {normal: <DollarSignImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:8200}}/>,
-             selected: <DollarSignImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+             selected: <DollarSignImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
             {normal: <NumberOneImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <NumberOneImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+             selected: <NumberOneImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
         ]
 

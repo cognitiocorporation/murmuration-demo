@@ -32,7 +32,7 @@ import { ReactComponent as DollarImage } from "../../images/dollar-symbol.svg"
 // New
 import { ReactComponent as UrgentImage} from '../../images/Icons_Idle_01_Urgent.svg';
 import { ReactComponent as ProductivityImage } from "../../images/Icons_Idle_02_Productivity.svg"
-import { ReactComponent as CheckmarkImage} from "../../images/Icons_Idle_03_Checkmark.svg"
+import { ReactComponent as CheckmarkImage} from "../../images/check1.svg"
 import { ReactComponent as TrophyImage } from "../../images/Icons_Idle_04_Trophy.svg"
 import { ReactComponent as Shield2Image } from "../../images/Icons_Idle_05_Shield.svg"
 import { ReactComponent as DollarSignImage } from "../../images/Icons_Idle_06_Dollar Sign.svg"
@@ -41,7 +41,7 @@ import { ReactComponent as NumberOneImage } from "../../images/Icons_Idle_07_Num
 // New Selected
 import { ReactComponent as UrgentImageSelected} from '../../images/Icons_Selected_01_Urgent.svg';
 import { ReactComponent as ProductivityImageSelected } from "../../images/Icons_Selected_02_Productivity.svg"
-import { ReactComponent as CheckmarkImageSelected } from "../../images/Icons_Selected_03_Checkmark.svg"
+import { ReactComponent as CheckmarkImageSelected } from "../../images/check1_selected.svg"
 import { ReactComponent as TrophyImageSelected } from "../../images/Icons_Selected_04_Trophy.svg"
 import { ReactComponent as Shield2ImageSelected } from "../../images/Icons_Selected_05_Shield.svg"
 import { ReactComponent as DollarSignImageSelected } from "../../images/Icons_Selected_06_Dollar Sign.svg"
@@ -98,7 +98,7 @@ class CategorySelect extends React.Component {
             extraValue: '',
             allCats: [],
             bgColor: '',
-            right: false,
+            right: [],
             selectedCategoryName: ''
           }
           this.fetchCategoryData = this.fetchCategoryData.bind(this);
@@ -119,7 +119,8 @@ class CategorySelect extends React.Component {
             // this.setState({
             //     data: results
             // });
-            this.setState({allCats: results})
+            this.setState({allCats: results, right:[false, false, false, false, false, false, false, false, false, false]})
+            
             console.log(results)
             
             for (var i = 0; i < results.length; i++) {
@@ -361,9 +362,10 @@ class CategorySelect extends React.Component {
                         const type = isSelected?'selected':'normal'
                         const icon = this.getIcon(myCategory.get("icon"), myCategory.get("color"))
                         const myIcon = icon[type]
-                        console.log(type)
+                        console.log(t(myCategory.get("itemNameTrans")[storageLanguage]))
+                        console.log(index)
                         return(
-                        <Col sm="12" lg="3" md="3" hidden={!myCategory.get("show")}>
+                        <Col sm="6" lg="3" md="3" hidden={!myCategory.get("show")}>
                         {/* <div className="square"  onClick={(event) => { this.changeSelectedValue(index, myCategory)}} > */}
                             {/* <img className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: '#32CD32'}} src={handIcon} /> */}
                             {/* <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: myCategory.get("color")}}/> */}
@@ -388,12 +390,17 @@ class CategorySelect extends React.Component {
                             {/* <span> */}
                             <Row>
                                 <h6 style={{color: titleColor1, fontWeight: 600, color: '#303030', marginRight: 10}}>{t(myCategory.get("itemNameTrans")[storageLanguage])}</h6>
-                                <a id={"TooltipExample" + index} className="text-right" style={{ color: 'inherit'}} onClick={() => {this.setState({right: !this.state.right})}}>
+                                <a id={"TooltipExample" + index} className="text-right" style={{ color: 'inherit'}} onClick={() => {
+                                    const myCopy = [...this.state.right]
+                                    myCopy[index] = !myCopy[index]
+                                    this.setState({right: myCopy})
+                                }}>
                                     <i className="material-icons">info</i>
                                 </a>
                                 <Tooltip
-                                        open={this.state.right}
-                                        target={"#TooltipExample"+index}
+                                        open={this.state.right[index]}
+                                        target={"#TooltipExample"+ index}
+                                        id={"TooltipExample1"+ index}
                                         toggle={() => {this.toggle()}}
                                         >
                                         Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
