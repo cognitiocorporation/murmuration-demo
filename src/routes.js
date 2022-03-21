@@ -38,6 +38,7 @@ import AdministrationComite from "./views/AdministrationComite";
 import AdministrationCatsDepts from "./views/AdministrationCatsDepts";
 import AdministrationPreguntas from "./views/AdministrationPreguntas";
 import RecognitionInbox from "./views/RecognitionInbox";
+import EvaluateIdea from "./views/EvaluateIdea";
 
 const BlankIconSidebarLayout = ({ children }) => (
   <IconSidebar noNavbar noFooter>
@@ -116,6 +117,12 @@ export default [
     layout: DefaultLayout,
     protected: true,
     component: OnlineStore
+  },
+  {
+    path: "/idea-management-2",
+    layout: DefaultLayout,
+    protected: true,
+    component: EvaluateIdea
   },
   {
     path: "/blog-overview",

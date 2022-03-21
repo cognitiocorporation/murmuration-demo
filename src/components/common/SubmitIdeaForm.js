@@ -714,7 +714,7 @@ class SubmitIdeaForm extends React.Component {
     };
 
     render() {
-        const {hasATeam, category, hasAttachment, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, filterQuestions, selectedFilterQ, categoryQuestions, hideNextButton, date, remainingCharacters, descriptionValid,ideaDescription, userName, ideaTitle, titleValid, remainingTitleCharacters, expectedReturn, options } = this.state
+        const {hasTeam, category, hasAttachment, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, filterQuestions, selectedFilterQ, categoryQuestions, hideNextButton, date, remainingCharacters, descriptionValid,ideaDescription, userName, ideaTitle, titleValid, remainingTitleCharacters, expectedReturn, options } = this.state
         const { currentStage, changeStatus } = this.props;
 
         const formVisibilityState = currentStage == 0? 'block' : 'none';
@@ -737,7 +737,7 @@ class SubmitIdeaForm extends React.Component {
         const { t } = this.props;
         
         return(
-                  <div className="edit-user-details mb-2">
+                  <div className="edit-user-details">
                     {/* <ProfileBackgroundPhoto /> */}
     
                     {/* <CardBody className="p-0"> */}
@@ -748,10 +748,10 @@ class SubmitIdeaForm extends React.Component {
                       noValidate
                       >
                         
-                        {/* <h6 style={{fontWeight: 500, color: '#303030'}}>Choose how to contribute! </h6> */}
+                        
                         {/* VISIBILITY */}
                         <div style={{display: formVisibilityState}}>
-                        
+                        <h6 style={{fontWeight: 500, color: '#303030'}}>Choose how to contribute! </h6>
                         {/* Categoria */}
                         <Col md="12" className="form-group">
                             <CategorySelect setCategory={this.setCategory} department={this.props.department}/>
@@ -802,12 +802,18 @@ class SubmitIdeaForm extends React.Component {
                               {remainingCharacters} {t("SUBMIT_IDEA_RemainingCharacters")}
                             </FormFeedback>}
                             <br/>
-                            <FormCheckbox
+                             <Switch 
+                              isOn={hasTeam}
+                              handleToggle={() => this.setState({hasTeam: !hasTeam})}
+                              onColor="#633FDA"
+                              title="Add team members and attachments"
+                             />
+                            {/* <FormCheckbox
                               checked={this.state.hasTeam}
                               onChange={e => this.setState({hasTeam: !this.state.hasTeam})}
                             >
                               {t('Add team members and attachments')}
-                            </FormCheckbox>
+                            </FormCheckbox> */}
     
                             
                             <br/>

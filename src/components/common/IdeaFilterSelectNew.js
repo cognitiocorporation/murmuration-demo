@@ -233,6 +233,9 @@ import { ReactComponent as TrophyImage } from "../../images/Icons_Idle_04_Trophy
 import { ReactComponent as Shield2Image } from "../../images/Icons_Idle_05_Shield.svg"
 import { ReactComponent as DollarSignImage } from "../../images/Icons_Idle_06_Dollar Sign.svg"
 import { ReactComponent as NumberOneImage } from "../../images/Icons_Idle_07_Number One.svg"
+import { ReactComponent as ProblemSolvingImage } from "../../images/Icons_Type_01_Problem Solving_NotSelected.svg"
+import { ReactComponent as InnovationImage } from "../../images/Icons_Type_02_Innovation_NotSelected.svg"
+import { ReactComponent as ContinuousImprovementImage } from "../../images/Icons_Type_03_ContinuousImprovement_NotSelected.svg"
 
 // New Selected
 import { ReactComponent as UrgentImageSelected} from '../../images/Icons_Selected_01_Urgent.svg';
@@ -242,6 +245,9 @@ import { ReactComponent as TrophyImageSelected } from "../../images/Icons_Select
 import { ReactComponent as Shield2ImageSelected } from "../../images/Icons_Selected_05_Shield.svg"
 import { ReactComponent as DollarSignImageSelected } from "../../images/Icons_Selected_06_Dollar Sign.svg"
 import { ReactComponent as NumberOneImageSelected } from "../../images/Icons_Selected_07_Number One.svg"
+import { ReactComponent as ProblemSolvingImageSelected } from "../../images/Icons_Type_01_Problem Solving_Selected.svg"
+import { ReactComponent as InnovationImageSelected } from "../../images/Icons_Type_02_Innovation_Selected.svg"
+import { ReactComponent as ContinuousImprovementImageSelected } from "../../images/Icons_Type_03_ContinuousImprovement_Selected.svg"
 
 // fill="#157ffb"
 
@@ -316,15 +322,15 @@ class IdeaFilterSelect extends React.Component {
         const filterSelectData = [
             {
                 name:'Problem Solving',
-                icon: 'Urgent'
-            },
-            {
-                name:'Continuous Improvement',
-                icon: 'Productivity'
+                icon: 'ProblemSolving'
             },
             {
                 name:'Innovation',
-                icon: 'Productivity'
+                icon: 'Innovation'
+            },
+            {
+                name:'Continuous Improvement',
+                icon: 'Improvement'
             },
         ]
 
@@ -535,6 +541,15 @@ class IdeaFilterSelect extends React.Component {
             {normal: <NumberOneImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
              selected: <NumberOneImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
+            {normal: <ProblemSolvingImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
+             selected: <ProblemSolvingImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            },
+            {normal: <InnovationImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:8200}}/>,
+             selected: <InnovationImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            },
+            {normal: <ContinuousImprovementImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
+             selected: <ContinuousImprovementImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            },
         ]
 
         switch(name) {
@@ -565,6 +580,12 @@ class IdeaFilterSelect extends React.Component {
                 return newIcons[5];
             case 'Number One':
                 return newIcons[6];
+            case 'ProblemSolving':
+                return newIcons[7];
+            case 'Innovation':
+                return newIcons[8];
+            case 'Improvement':
+                return newIcons[9];
             default:
               return <ExtraImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: fillColor}}/>;
           }

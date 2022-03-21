@@ -15,6 +15,9 @@ import { ReactComponent as SubmitIconNosel } from "../images/submit_new_nosel.sv
 import { ReactComponent as NextIcon} from "../images/next.svg"
 import { ReactComponent as DivisorBarIcon } from "../images/edited_divisor.svg"
 import { ReactComponent as HomeIcon } from "../images/home.svg"
+import { ReactComponent as PreviousIcon } from "../images/PreviousIcon.svg"
+
+
 
 import { useTranslation, initReactI18next } from "react-i18next";
 
@@ -117,16 +120,16 @@ function SubmitIdeaNew(smallStats) {
 
     <Row>
       {/* Latest Orders */}
-      <Col lg="10" className="mb-2 m-auto">
+      <Col lg="10" className="m-auto">
         <SubmitIdeaForm currentStage={ideaStage} changeStatus={(status) => changeBtnStatus(status)} changeIdeaStage={() => this.changeIdeaStage()}/>     
       </Col>
     </Row>
     <Row>
-      <Col lg="12" className="mb-4 ml-auto">
+      <Col lg="12" className="mb-2 ml-auto">
 
         {/* Submit Icon States */}
-        {ideaStage == 0 && canGoNext && <SubmitIcon className="ml-auto d-block mb-4" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIcon>}
-        {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block mb-4" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIconNosel>}
+        {ideaStage == 0 && canGoNext && <SubmitIcon className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIcon>}
+        {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIconNosel>}
         
 
         {ideaStage == 1  && <NextIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></NextIcon>}

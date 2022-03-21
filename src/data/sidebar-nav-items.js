@@ -1155,7 +1155,8 @@ export default function () {
       roles:['evaluation', 'super_user'],
       htmlBefore: '<i class="material-icons">assignment</i>',
       htmlAfter: '',
-      items: [{
+      items: 
+      [{
         title: t("MENU_INCOMING_IDEAS"),
         to: '/idea-management',
         roles:['evaluation finance','evaluation hr','finance','super_user'],
@@ -1167,7 +1168,14 @@ export default function () {
       roles:['evaluation finance','evaluation hr','finance','super_user'],
       htmlBefore: '<i class="material-icons">record_voice_over</i>',
       htmlAfter: '',
-    }]
+      },
+      {
+        title: t("Incoming Ideas (2.0)"),
+        to: '/idea-management-2',
+        roles:['evaluation finance','evaluation hr','finance','super_user'],
+        htmlBefore: '<i class="material-icons">record_voice_over</i>',
+        htmlAfter: '',
+      }]
     },
     {
       title: t("MENU_IDEA_VERIFICATION"),
