@@ -15,13 +15,13 @@ const MainFooter = ({ contained, menuItems, copyright, linkStyle }) => (
           ))}
         </Nav> */}
         <span className="copyright my-auto mr-2">{copyright}</span>
-        <a id={"TooltipExampleFooter"}>hola</a>
+         {/* <a id={"TooltipExampleFooter"}>hola</a> */}
         <span className="ml-auto">
         {menuItems.map((item, idx) => (
              <span  className="copyright my-auto mr-2">{item.title}</span>
         ))}
         
-        <Tooltip
+        {/* <Tooltip
           open={false}
           target={"#TooltipExampleFooter"}
           // id={"TooltipExampleFooter"}
@@ -29,7 +29,7 @@ const MainFooter = ({ contained, menuItems, copyright, linkStyle }) => (
           placement='left'
           >
           Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
-        </Tooltip>
+        </Tooltip> */}
         </span>
       </Row>
     </Container>

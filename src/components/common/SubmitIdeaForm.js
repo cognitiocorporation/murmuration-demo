@@ -111,6 +111,16 @@ class SubmitIdeaForm extends React.Component {
       this.getDate();
     }
 
+    checkFormStatus() {
+      const {department, ideaType} = this.state;
+
+      if (!department || !ideaType) {
+        this.props.changeStatus(false)
+      } else {
+        this.props.change(true)
+      }
+    }
+
     async getUsers() {
       var query = new Parse.Query(Parse.User);
       query.notEqualTo("evaluationCriteria", []);
@@ -536,7 +546,19 @@ class SubmitIdeaForm extends React.Component {
         this.setState({ideaType: 'improvement'})
       }
 
+      if (this.state.deptName && filterName) {
+        this.props.changeContinueStatus(true)
+      }
+
       // this.handleFilterChange(filterName);
+    }
+
+    setDepartment(deptName) {
+      this.setState({deptName: deptName})
+
+      if (deptName && this.state.ideaType) {
+        this.props.changeContinueStatus(true)
+      }
     }
 
     clickedPrint() {
@@ -729,7 +751,7 @@ class SubmitIdeaForm extends React.Component {
 
         const nextButtonVisibilityState = !hideNextButton? 'inline' : 'none';
 
-        const canGoNext = ideaTitle && ideaDescription && category
+        const canGoNext = ideaTitle && ideaDescription && category?true:false
 
         changeStatus(canGoNext)
         const expectedRetunrnValid =  /^\d+$/.test(expectedReturn);
@@ -767,7 +789,7 @@ class SubmitIdeaForm extends React.Component {
                           {/* Idea Description */}
                           <Col md="6" className="form-group">
                             {/* <label htmlFor="ideaTitle">{t("SUBMIT_IDEA_IdeaTitle")}</label> */}
-                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{t("SUBMIT_IDEA_IdeaTitle")}</h6>
+                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{t("SUBMIT_IDEA_IdeaTitle")+"*"}</h6>
                             <FormInput
                             id="userBio"
                             placeholder={t('SUBMIT_IDEA_TitlePlaceholder')}
@@ -785,7 +807,7 @@ class SubmitIdeaForm extends React.Component {
                             }
                             <br/>
                             {/* <label htmlFor="userBio">{t("SUBMIT_IDEA_IdeaDescription")}</label> */}
-                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{t("SUBMIT_IDEA_IdeaDescription")}</h6>
+                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{t("SUBMIT_IDEA_IdeaDescription")+"*"}</h6>
                             <FormTextarea
                               style={{ minHeight: "120px" }}
                               id="userBio"
@@ -891,7 +913,7 @@ class SubmitIdeaForm extends React.Component {
                           
                         {/* Select IDEA Filter Visibility State */}
                         <div style={{display: filterVisibilityState}}>
-                          <IdeaFilterSelectNew setFilter={(e) => {this.setFilter(e)}}/>
+                          <IdeaFilterSelectNew setFilter={(e) => {this.setFilter(e)}} setDepartment={(e) => {this.setDepartment(e)}}/>
                           {/* <ThankYou></ThankYou> */}
                         </div>
 

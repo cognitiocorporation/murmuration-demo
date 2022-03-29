@@ -23,6 +23,9 @@ import { ReactComponent as DivisorBarIcon } from "../images/edited_divisor.svg"
 import { ReactComponent as SubmitIcon} from "../images/submit_new_new.svg"
 import { ReactComponent as PreviousIcon } from "../images/PreviousIcon.svg"
 import { ReactComponent as NextIcon } from "../images/NextIcon.svg"
+import { ReactComponent as NextIconValid } from "../images/NextIconSelected.svg"
+import { ReactComponent as HomeIcon } from "../images/home.svg"
+
 import { v4 as uuidv4 } from 'uuid';
 
 import ReactTable from "react-table";
@@ -30,6 +33,7 @@ import FuzzySearch from "fuzzy-search";
 import dateFormat from "dateformat";
 
 import { withTranslation } from "react-i18next";
+import ThankYouEvaluate from "../components/common/ThankYouEvaluate";
 
 class EvaluateIdea extends React.Component { 
 
@@ -43,6 +47,19 @@ class EvaluateIdea extends React.Component {
       open: false,
       viewIdea: false,
       ideaItem: any,
+      title: 'Evaluate',
+      ideaStage:0,
+      canGoNext: true,
+      evaluationResponse: {
+        status: '',
+        economicImpact: '',
+        timeFrame: '',
+        recurringImpact: false,
+        comments: '',
+        ideaOwner: '',
+        ideaCoach: ''
+      }
+      
     }
   }
 
@@ -123,7 +140,7 @@ class EvaluateIdea extends React.Component {
   }
 
   render() {
-    const {categoryName, statusName, ideaType, open, viewIdea, ideaQuestion} = this.state;
+    const {categoryName, statusName, ideaType, open, viewIdea, ideaQuestion, ideaStage, canGoNext} = this.state;
     const { t } = this.props;
     const tableColumns = [
       {
@@ -180,6 +197,43 @@ class EvaluateIdea extends React.Component {
         )
       }
     ];
+
+    const changeIdeaStage = () => {
+      const { ideaStage, evaluationResponse } = this.state;
+      const newStage = ideaStage + 1
+  
+      if (newStage == 0) {
+        this.setState({title: 'Evaluate', ideaStage: newStage})
+      } else if (newStage == 1) {
+        // setTitle('Idea > Select Idea Type')
+        this.setState({title: 'Evaluate > Next Step', ideaStage: newStage})
+        
+        // Check for reqs
+        if (!evaluationResponse.economicImpact || !evaluationResponse.timeFrame) {
+          changeBtnStatus(false)
+        }
+
+
+      } else if (newStage == 2) {
+        // setTitle('Idea > Innovati n > Idea Details')
+        this.setState({title: 'Evaluate > Next Step > Additional Details', ideaStage: newStage})
+        
+        if (!evaluationResponse.ideaOwner) {
+          changeBtnStatus(false)
+        }
+      } else if (newStage == 3) {
+        // setTitle('Idea > Innovation > Idea Details > Done')
+        this.setState({title: 'Evaluate > Next Step > Additional Details > Thank You', ideaStage: newStage})
+      } else {
+        // setTitle('Welcome back, ' + username+ '!')
+        this.setState({title: 'Evaluate', ideaStage: 0})
+      }
+    }
+
+    const changeBtnStatus = (status) => {
+      this.setState({canGoNext: status})
+    }
+
     return(
       !open?(
       <Container fluid className="main-content-container px-4" style={{backgroundColor: 'white'}}>
@@ -203,7 +257,7 @@ class EvaluateIdea extends React.Component {
         {/* Small Stats Blocks */}
         <Row>
             <Col lassName="mb-4">
-            <IdeaFilterManager onCategoryChange={this.onCategoryChange.bind(this)} onStatusChange={this.onStatusChange.bind(this)} onTypeChange={this.onTypeChange.bind(this)}  onQuestionChange={this.onQuestionChange.bind(this)}/>
+              <IdeaFilterManager onCategoryChange={this.onCategoryChange.bind(this)} onStatusChange={this.onStatusChange.bind(this)} onTypeChange={this.onTypeChange.bind(this)}  onQuestionChange={this.onQuestionChange.bind(this)}/>
             </Col>
         </Row>
 
@@ -222,7 +276,7 @@ class EvaluateIdea extends React.Component {
         {/* <PageTitle title={t('Welcome back, Angel')} subtitle=" " className="text-sm-left" /> */}
         <Row>
           <Col md="8" lg="8">
-            <h3 className="m-auto" style={{fontWeight: 600, color: '#303030'}}>Evaluate</h3>
+            <h3 className="m-auto" style={{fontWeight: 600, color: '#303030'}}>{this.state.title}</h3>
           </Col>
           
           <Col xs="12" md="2" lg="2" className="col d-flex align-items-center ml-auto">
@@ -259,7 +313,8 @@ class EvaluateIdea extends React.Component {
         </Row>:
         <Row>
         <Col lg="10" className="m-auto">
-            <IdeaViewCardNew dismissModal={this.dismissModal.bind(this)} ideaItem={this.state.ideaItem} onViewIdeaPress={this.toggle.bind(this)}/>
+            {ideaStage != 3 && <IdeaViewCardNew evaluationData={this.state.evaluationResponse} dismissModal={this.dismissModal.bind(this)} ideaItem={this.state.ideaItem} changeStatus={(status) => changeBtnStatus(status)} ideaStage={this.state.ideaStage} onViewIdeaPress={this.toggle.bind(this)}/>}
+            {ideaStage == 3 && <ThankYouEvaluate idea={this.state.ideaItem}/>}
         </Col>
         </Row>
         }
@@ -267,7 +322,7 @@ class EvaluateIdea extends React.Component {
             <Col lg="6" className="mb-2 mr-auto">
 
                 {/* Submit Icon States */}
-                <PreviousIcon className="mr-auto d-block" style={{minWidth: 140, maxWidth:140}}></PreviousIcon>
+                {ideaStage < 3 && <PreviousIcon className="mr-auto d-block" style={{minWidth: 140, maxWidth:140}}></PreviousIcon>}
                 {/* {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIconNosel>}
 
 
@@ -278,7 +333,9 @@ class EvaluateIdea extends React.Component {
             <Col lg="6" className="mb-2 ml-auto">
 
                 {/* Submit Icon States */}
-                <NextIcon className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}}></NextIcon>
+                {ideaStage < 3 &&  !canGoNext && <NextIcon className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></NextIcon>}
+                {ideaStage < 3 &&  canGoNext && <NextIconValid className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></NextIconValid>}
+                {ideaStage == 3  && <HomeIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></HomeIcon>}
                 {/* {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIconNosel>}
                 
 

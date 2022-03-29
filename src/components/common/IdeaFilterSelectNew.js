@@ -301,15 +301,26 @@ class IdeaFilterSelect extends React.Component {
             allCats: [],
             bgColor: '',
             right: false,
-            selectedCategoryName: ''
+            selectedCategoryName: '',
+            department: ''
           }
           this.fetchCategoryData = this.fetchCategoryData.bind(this);
           this.fetchNewData = this.fetchNewData.bind(this);
+          this.change = this.change.bind(this);
     }
 
     componentDidMount() {
         this.fetchCategoryData();
         this.fetchNewData();
+        // this.updateStatus()
+    }
+
+    updateStatus() {
+        if (!this.state.deparment || this.state.selectedCategoryName) {
+            this.props.changeStatus(false)
+        } else {
+            this.props.changeStatus(true)
+        }
     }
 
     fetchCategoryData() {
@@ -605,6 +616,12 @@ class IdeaFilterSelect extends React.Component {
           open: !this.state.right
         });
       }
+
+     change(event) {
+         console.log(event.target.value)
+         this.setState({department: event.target.value})
+         this.props.setDepartment(event.target.value)
+     }
     
 
     render() {
@@ -670,7 +687,7 @@ class IdeaFilterSelect extends React.Component {
                     )})}
                 </Row>
                 <Row className='pt-4'>
-                    <h6 className="mt-4"style={{fontWeight: 500,  color: '#303030'}}>{t("Which department is this idea for?")}</h6>
+                    <h6 className="mt-4"style={{fontWeight: 500,  color: '#303030'}}>{t("Which department is this idea for? *")}</h6>
                     <FormSelect
                         size="sm"
                         onChange={this.change} value={this.state.department}

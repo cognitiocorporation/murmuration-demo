@@ -12,7 +12,8 @@ import colors from "../utils/colors";
 
 import { ReactComponent as SubmitIcon} from "../images/submit_new_new.svg"
 import { ReactComponent as SubmitIconNosel } from "../images/submit_new_nosel.svg"
-import { ReactComponent as NextIcon} from "../images/next.svg"
+import { ReactComponent as NextIcon } from "../images/NextIcon.svg"
+import { ReactComponent as NextIconValid } from "../images/NextIconSelected.svg"
 import { ReactComponent as DivisorBarIcon } from "../images/edited_divisor.svg"
 import { ReactComponent as HomeIcon } from "../images/home.svg"
 import { ReactComponent as PreviousIcon } from "../images/PreviousIcon.svg"
@@ -27,7 +28,9 @@ function SubmitIdeaNew(smallStats) {
   const [username, setUsername] = useState('')
   const [title, setTitle] = useState('')
   const [ideaStage, setIdeaStage] = useState(0)
+  const [category, setCategory] = useState('')
   const [canGoNext, setCanGoNext] = useState(false)
+  const [canContinue, setCanContinue] = useState(false)
   let currUser = Parse.User.current();
   // this.getUserName()
 
@@ -55,7 +58,7 @@ function SubmitIdeaNew(smallStats) {
 
   const changeIdeaStage = () => {
     const newStage = ideaStage + 1
-
+    
     if (newStage == 0) {
       setTitle('Welcome back, ' + username+ '!')
       setIdeaStage(newStage)
@@ -77,6 +80,11 @@ function SubmitIdeaNew(smallStats) {
   const changeBtnStatus = (status) => {
    console.log(status)
    setCanGoNext(status)
+  }
+
+  const changeContinueBtnStatus = (status) => {
+   console.log(status)
+   setCanContinue(status)
   }
 
   return (
@@ -121,7 +129,7 @@ function SubmitIdeaNew(smallStats) {
     <Row>
       {/* Latest Orders */}
       <Col lg="10" className="m-auto">
-        <SubmitIdeaForm currentStage={ideaStage} changeStatus={(status) => changeBtnStatus(status)} changeIdeaStage={() => this.changeIdeaStage()}/>     
+        <SubmitIdeaForm currentStage={ideaStage} changeStatus={(status) => changeBtnStatus(status)} changeContinueStatus={(status) => changeContinueBtnStatus(status)} changeIdeaStage={() => this.changeIdeaStage()}/>     
       </Col>
     </Row>
     <Row>
@@ -132,8 +140,9 @@ function SubmitIdeaNew(smallStats) {
         {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIconNosel>}
         
 
-        {ideaStage == 1  && <NextIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></NextIcon>}
-        {ideaStage == 2  && <NextIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></NextIcon>}
+        {ideaStage > 0 && ideaStage <= 2 && canContinue &&  <NextIconValid className="ml-auto d-block mb-4" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></NextIconValid>}
+        {ideaStage > 0 && ideaStage <= 2 && !canContinue && <NextIcon className="ml-auto d-block mb-4" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></NextIcon>}
+        
         {ideaStage == 3  && <HomeIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></HomeIcon>}
       </Col>
     </Row>

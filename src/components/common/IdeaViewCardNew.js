@@ -19,6 +19,7 @@ import {
   InputGroupAddon,
   InputGroupText, 
   FormFeedback,
+  Tooltip
 } from "shards-react";
 import Select from 'react-select';
 import Parse from 'parse';
@@ -30,7 +31,7 @@ import CategorySelect from "./CategorySelect"
 import IdeaFilterSelect from "./IdeaFilterSelect";
 import { all } from "q";
 import EvaluationSelect from "./EvaluationSelect";
-import ExecutionSelect from "./ExecutionSelect";
+import ExecutionSelectNew from "./ExecutionSelectNew";
 import { object } from "prop-types";
 
 import { ReactComponent as LineChartImage } from "../../images/line-chart.svg"
@@ -69,6 +70,9 @@ import { ReactComponent as TrophyImageSelected } from "../../images/Icons_Select
 import { ReactComponent as Shield2ImageSelected } from "../../images/Icons_Selected_05_Shield.svg"
 import { ReactComponent as DollarSignImageSelected } from "../../images/Icons_Selected_06_Dollar Sign.svg"
 import { ReactComponent as NumberOneImageSelected } from "../../images/Icons_Selected_07_Number One.svg"
+import Switch from "./Switch.js"
+
+import IdeaStatusSelect  from "./IdeaStatusSelect"
 
 import { withTranslation } from 'react-i18next';
 
@@ -108,7 +112,6 @@ class IdeaViewCardNew extends React.Component {
           formButtonTitle: 'Continuar',
           ideaNumber: '#00008',
           status: '',
-          executionRes: 0,
           executionResObj: object,
           selectedBenefit:'',
           selectedResult: '',
@@ -117,6 +120,15 @@ class IdeaViewCardNew extends React.Component {
           selectedImpact: '',
           selectedCoachBackup: '',
           isRecognized: '',
+          page: 2,
+          responseInfo: false,
+          selectedStatus: ''.length,
+          expectedReturn: '',
+          timeUnit: '',
+          executionRes: 0,
+          coachRes: '',
+          recurringImpact: false,
+          comment: ''
         }
 
         this.change = this.change.bind(this);
@@ -130,6 +142,10 @@ class IdeaViewCardNew extends React.Component {
         this.showNext = this.showNext.bind(this);
         this.changeMoney = this.changeMoney.bind(this);
         this.downloadFile = this.downloadFile.bind(this);
+        this.setEvalStatus = this.setEvalStatus.bind(this);
+        this.setExpectedReturn = this.setExpectedReturn.bind(this);
+        this.setTimeUnit = this.setTimeUnit.bind(this);
+
     }
 
     componentDidMount() {
@@ -542,6 +558,18 @@ class IdeaViewCardNew extends React.Component {
       console.log(res);
     }
 
+    changeEvaluationResponse() {
+      const responseObj = {
+        status: '',
+        economicImpact: '',
+        timeFrame: '',
+        recurringImpact: false,
+        comments: '',
+        ideaOwner: '',
+        ideaCoach: ''
+      }
+    }
+
     async getHumanResourceUsers() {
       var query = new Parse.Query(Parse.User);
       query.equalTo("humanResources", true);
@@ -659,29 +687,29 @@ class IdeaViewCardNew extends React.Component {
     }
 
     getIcon(name, fillColor) {
-      const {selectionValue, selectedCategoryName} = this.state;
+      const {selectionValue, selectedCategoryName, page} = this.state;
 
       const newIcons = [
           {normal: <UrgentImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
            selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
           },
-          {normal: <ProductivityImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-           selected: <ProductivityImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+          {normal: <ProductivityImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+           selected: <ProductivityImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
           },
-          {normal: <CheckmarkImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-           selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+          {normal: <CheckmarkImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+           selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
           },
-          {normal: <TrophyImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-           selected: <TrophyImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+          {normal: <TrophyImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+           selected: <TrophyImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
           },
-          {normal: <Shield2Image className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-           selected: <Shield2ImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+          {normal: <Shield2Image className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+           selected: <Shield2ImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
           },
-          {normal: <DollarSignImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-           selected: <DollarSignImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+          {normal: <DollarSignImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+           selected: <DollarSignImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
           },
-          {normal: <NumberOneImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-           selected: <NumberOneImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+          {normal: <NumberOneImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+           selected: <NumberOneImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
           },
       ]
 
@@ -713,13 +741,81 @@ class IdeaViewCardNew extends React.Component {
               return newIcons[5].selected;
           case 'Number One':
               return newIcons[6].selected;
+          case 'Approve':
+              return newIcons[0].selected;
+          case 'Do not Pursue':
+              return newIcons[1].selected;
+          case 'Save for Later':
+              return newIcons[2].selected;
+          case 'Request information':
+              return newIcons[3].selected;
+          case 'Project Idea':
+              return newIcons[4].selected;
+          case 'Transfer Committee':
+              return newIcons[5].selected;
           default:
             return <img src={selectIdeaImage} width="200" height="200" />//<SelectIdeaImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
         }
   }
+    toggle() {
+      // alert('hover')
+      this.setState({
+        responseInfo: !this.state.responseInfo
+      });
+    }
+
+    setEvalStatus(status) {
+      console.log(status)
+      this.setState({
+        selectedStatus: status
+      })
+    }
+
+    setExpectedReturn(event) {
+      const amount = event.target.value;
+  
+      // console.log(isValid);
+      this.setState({
+        expectedReturn: amount,
+      })
+    }
+
+    setTimeUnit(unit) {
+      console.log(unit)
+      this.setState({timeUnit: unit.label})
+      if (this.state.expectedReturn && unit.label) {
+        this.props.changeStatus(true)
+      }
+    }
+
+    changeResponsible(res, idx) {
+      this.setState({
+        executionRes: res,
+      });
+      
+      if (res) {
+        this.props.changeStatus(true)
+      }
+      console.log(res);
+    }
+
+    changeCoach(res, idx) {
+      this.setState({
+        coachRes: res,
+      });
+      console.log(res);
+    }
+
+    commentChangeField(res) {
+      const comment = res.target.value
+      this.setState({
+        comment: comment
+      })
+    }
 
     render() {
-        const {visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
+        const {coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
+        const {ideaStage, evaluationData} = this.props;
         const formVisibilityState = visible? 'block' : 'none';
         const filterVisibilityState = filterVisible? 'block' : 'none';
         const filterQuestionVisibilityState = filterQuestionsVisible? 'block' : 'none';
@@ -729,10 +825,11 @@ class IdeaViewCardNew extends React.Component {
         const comments = ideaItem.get("comments")
         const ideaDate = ideaItem.get("date")
         const parsedDate = this.getDate(ideaDate)
+        const nowDate = this.getDate(Date())
         const { t } = this.props;
         return(
 
-            <div className="edit-user-details">
+            <div className="edit-user-details" >
                     {/* <ProfileBackgroundPhoto /> */}
     
                     {/* <CardBody className="p-0"> */}
@@ -751,14 +848,14 @@ class IdeaViewCardNew extends React.Component {
                             <Row form>
                               {/* Proponent */}
                               <Col md="12" className="form-group">
-                                <Row className="mt-2">
+                                <Row className="mt-4">
                                   <Col>
                                     <label htmlFor="firstName">Idea Title</label>
                                     <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("title")}</h6>
                                   </Col>
                                 </Row>
 
-                                <Row className="mt-2">
+                                <Row className="mt-4">
                                   <Col md="6">
                                     <label htmlFor="firstName">Idea Category</label>
                                     <Row>
@@ -779,29 +876,55 @@ class IdeaViewCardNew extends React.Component {
                                     </Row>
                                     <Row className="mt-2">
                                       <Col>
-                                        <label htmlFor="firstName">Response to Employee</label>
-                                        <h6 style={{fontWeight: 500,  color: '#303030'}}>On-Track</h6>
+                                        <label htmlFor="firstName">Employee Response</label>
+                                        <Row>
+                                          <Col md="7">
+                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>On-Track</h6>
+                                          </Col>
+                                          <Col className="mb-auto" md="1">
+                                            <div className="my-auto" style={{backgroundColor: '#1DE334', height: 16, width: 16, borderRadius: 8}}></div>
+                                          </Col>
+                                          <Col md="1" className="mb-auto">
+                                            <a id={"TooltipResponseInfo"} className="text-right" style={{ color: 'inherit'}} onClick={() => {
+                                                const myCopy = this.state.responseInfo
+                                                myCopy = !myCopy
+                                                this.setState({responseInfo: myCopy})
+                                            }}>
+                                                <i className="material-icons">info</i>
+                                            </a>
+                                          </Col>
+                                         
+                                          <Tooltip
+                                            open={this.state.responseInfo}
+                                            target={"#TooltipResponseInfo"}
+                                            id={"TooltipResponseInfo1"}
+                                            toggle={() => {this.toggle()}}
+                                            >
+                                            Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
+                                          </Tooltip>
+                                      </Row>
+
                                       </Col>
                                     </Row>
                                     
                                   </Col>
                                 </Row>
 
-                                <Row className="mt-2">
+                                <Row className="mt-4">
                                   <Col>
                                     <label htmlFor="firstName">Idea Type</label>
                                     <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("ideaType")}</h6>
                                   </Col>
                                 </Row>
 
-                                <Row className="mt-2">
+                                <Row className="mt-4">
                                   <Col>
                                     <label htmlFor="firstName">Department to benefit from idea</label>
                                     <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("department")}</h6>
                                   </Col>
                                 </Row>
 
-                                <Row className="mt-2">
+                                <Row className="mt-4">
                                   <Col>
                                     <label htmlFor="firstName">Idea Description</label>
                                     <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("description")}</h6>
@@ -812,45 +935,184 @@ class IdeaViewCardNew extends React.Component {
                             </Row>
                           </Col>
                           {/* Divisor Line */}
-                          <Col lg="2">
+                          <Col lg="1" className="mx-auto">
                             {/* <div style={{height: 300, width: 10, color: 'blue'}}></div> */}
+                            <div className="mx-auto" style={{height: '100%', width: 1, backgroundColor: '#BABABA'}}></div>
                           </Col>
 
                           {/* Right Part */}
-                          <Col lg="5">
-                          <Row form className="mt-2">
-                            {ideaItem.get("filterAnswer").map((question, index) => {
-                                const prefix = 'Q' + (index + 1) + ': '
-                                return(
+                          { ideaStage == 0 && 
+                          
+                            <Col lg="6">
+                                <Row form>
+                                  {ideaItem.get("filterAnswer").map((question, index) => {
+                                      const prefix = 'Q' + (index + 1)+ ': '
+                                      const myQuestion = prefix + question["question"]
+                                      return(
+                                      <Col md="12" className="form-group">
+                                        <Row className="mt-4">
+                                          <Col md="12">
+                                            <p className="mb-2">{myQuestion}</p>
+                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{question["answer"]}</h6>
+                                          </Col>
+                                        </Row>
+                                        
+                                          {/* <Row form>
+                                          <Col md="9">
+                                          <p className="mb-2">{question["question"]}</p>
+                                          <p className="mb-2">{question["answer"]}</p>
+                                          </Col>
+                                          </Row> */}
+                                      </Col>)
+                                  })}
+                                  </Row>
+                            </Col>
+                          }
+
+                          {ideaStage == 1 && 
+                            <Col lg="6">
+                              <Row form className="mt-4">
                                 <Col md="12" className="form-group">
-                                  
-                                    <Row form className="mx-4">
-                                    <Col md="9">
-                                      <p className="mb-2">{prefix + question["question"]}</p>
-                                      <h6 style={{fontWeight: 500,  color: '#303030'}}>{question["answer"]}</h6>
+                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Choose how to proceed: ' + '*'}</h6>
+                                  <IdeaStatusSelect setEvalStatus={this.setEvalStatus}></IdeaStatusSelect>
+                                </Col>
+                              </Row>
+                              <Row form className="mt-4">
+                                <Col md="12" className="form-group">
+                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Estimate economic/output impact *'}</h6>
+                                  <Row>
+                                    <Col>
+                                      <FormInput
+                                        id="expectedReturn"
+                                        placeholder={'$15,000'}
+                                        value={expectedReturn}
+                                        onChange={this.setExpectedReturn}
+                                      />
                                     </Col>
+                                    <Col>
+                                      <Select
+                                        // value={ideaItem.get("teamMembers")}
+                                        placeholder='term'
+                                        onChange={this.setTimeUnit}
+                                        options={[
+                                          {
+                                            value:'month',
+                                            label:'month'
+                                          }, 
+                                          {
+                                            value:'year',
+                                            label:'year'
+                                          }
+                                        ]}
+                                      />
+                                    </Col>
+                                    <Col>
+                                      <Switch 
+                                         isOn={this.state.recurringImpact}
+                                        handleToggle={() => this.setState({recurringImpact: !this.state.recurringImpact})}
+                                        onColor="#633FDA"
+                                        title="Recurring Impact"
+                                      />
+                                    </Col>
+                                  </Row>
+                                </Col>
+                              </Row>
+                              <Row form >
+                                <Col md="12" className="form-group">
+                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Comments'}</h6>
+                                    <FormTextarea 
+                                      style={{ minHeight: "80px" }}
+                                      id="ideaQuestion"
+                                      placeholder={t('ANSWER')}
+                                      onChange={(event) => this.commentChangeField(event)}
+                                      required>
+                                    </FormTextarea>
+                                </Col>
+                              </Row>
+                            </Col>
+                          }
+
+                          {ideaStage == 2 && 
+                            <Col lg="6">
+                              <Row className="mt-4">
+                                  <Col md="6">
+                                    <label htmlFor="firstName">Choose how to proceed: </label>
+                                    <Row>
+                                      <Col>
+                                      {this.getIcon(this.state.selectedStatus, 'Black')}
+                                          <div className="mr-auto" style={{width: '100%', backgrounColor: 'black'}}>
+                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{this.state.selectedStatus}</h6>
+                                          </div>
+                                      </Col>
                                     </Row>
-                                </Col>)
-                            })}
-                          </Row>
-                          </Col>
+                                  </Col>
+                                  <Col md="6">
+                                    <Row className="mt-2">
+                                      <Col>
+                                        <label htmlFor="firstName">Employee Response Date</label>
+                                        <h6 style={{fontWeight: 500,  color: '#303030'}}>{nowDate}</h6>
+                                      </Col>
+                                    </Row>
+                                    <Row className="mt-2">
+                                      <Col>
+                                        <label htmlFor="firstName">Idea Status</label>
+                                        <h6 style={{fontWeight: 500,  color: '#303030'}}>Evaluated</h6>
+                                      </Col>
+                                    </Row>
+                                    
+                                  </Col>
+                              </Row>
+
+                              {/* Subject Matter Comments */}
+                              <Row form className="mt-4">
+                                <Col md="12" className="form-group">
+                                  <label htmlFor="firstName">Subject-Matter Comments:</label>
+                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{this.state.comment}</h6>
+                                </Col>
+                              </Row>
+
+                              <Row form className="mt-4">
+                                <Col md="12" className="form-group">
+                                  <label >{'Estimate economic/output impact'}</label>
+                                  <Row>
+                                    <Col>
+                                      <h6 style={{fontWeight: 500,  color: '#303030'}}>{'$'+this.state.expectedReturn}</h6>
+                                    </Col>
+                                    <Col md="4">
+                                      <h6 style={{fontWeight: 500,  color: '#303030'}}>{this.state.timeUnit}</h6>
+                                    </Col>
+                                    <Col md="4">
+                                      <Switch 
+                                        isOn={this.state.recurringImpact}
+                                        disabled
+                                        // handleToggle={() => this.setState({hasTeam: !hasTeam})}
+                                        onColor="#633FDA"
+                                        title="Recurring Impact"
+                                      />
+                                    </Col>
+                                  </Row>
+                                </Col>
+                              </Row>
+
+                              { this.state.selectedStatus !== "Do not Pursue" &&
+                              <Row form className="mt-4">
+                                <Col md="12" className="form-group">
+                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Choose an Idea Owner *'}</h6>
+                                    <ExecutionSelectNew evalType={'execution'} setResponsible={(res, idx) => this.changeResponsible(res, idx)} selectedVal={executionRes}/>
+                                  <br/>
+                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Choose an Idea Coach'}</h6>
+                                    <ExecutionSelectNew evalType={'coach'} setResponsible={(res, idx) => this.changeCoach(res, idx)} selectedVal={coachRes}/>
+                                </Col>
+                              </Row>
+                              }
+                            </Col>
+                          }
                         </Row>
+
+                        
     
                        
-                        {/* <Row form className="mx-4">
-                        {ideaItem.get("questionAnswer").map((question, index) => {
-                            return(
-                            <Col md="4" className="form-group">
-                               
-                                <Row form className="mx-4">
-                                <Col md="9">
-                                <p className="mb-2">{question["question"]}</p>
-                                <p className="mb-2">{question["answer"]}</p>
-                                </Col>
-                                </Row>
-                            </Col>)
-                        })}
-                        </Row> */}
+                       
                         {/* Type of Idea Information (Problema o Innovacion) */}
                         
                         
