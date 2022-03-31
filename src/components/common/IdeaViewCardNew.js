@@ -48,6 +48,9 @@ import { ReactComponent as ShieldImage } from "../../images/shield.svg"
 import { ReactComponent as TimeImage } from "../../images/time.svg"
 import { ReactComponent as TeamImage } from "../../images/team.svg"
 import { ReactComponent as DollarImage } from "../../images/dollar-symbol.svg"
+import { ReactComponent as GreenIcon } from "../../images/green_icon.svg"
+import { ReactComponent as RedIcon } from "../../images/red_icon.svg"
+import { ReactComponent as InfoIcon } from "../../images/info_icon.svg"
 // fill="#157ffb"
 
 // New
@@ -122,6 +125,7 @@ class IdeaViewCardNew extends React.Component {
           isRecognized: '',
           page: 2,
           responseInfo: false,
+          responseInfo2: false,
           selectedStatus: ''.length,
           expectedReturn: '',
           timeUnit: '',
@@ -824,6 +828,13 @@ class IdeaViewCardNew extends React.Component {
         const ideaItem = this.props.ideaItem;
         const comments = ideaItem.get("comments")
         const ideaDate = ideaItem.get("date")
+        const today = moment()
+        const ideaMomentDate = moment(ideaDate)
+        const timeDiff = today.diff(ideaMomentDate, 'days')
+        const timingWording = timeDiff > 10 ? "Late" : "On-Time"
+        console.log(ideaMomentDate)
+        console.log(today)
+        console.log(timeDiff)
         const parsedDate = this.getDate(ideaDate)
         const nowDate = this.getDate(Date())
         const { t } = this.props;
@@ -850,14 +861,14 @@ class IdeaViewCardNew extends React.Component {
                               <Col md="12" className="form-group">
                                 <Row className="mt-4">
                                   <Col>
-                                    <label htmlFor="firstName">Idea Title</label>
+                                    <label htmlFor="firstName" className="georgia">Idea Title</label>
                                     <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("title")}</h6>
                                   </Col>
                                 </Row>
 
                                 <Row className="mt-4">
                                   <Col md="6">
-                                    <label htmlFor="firstName">Idea Category</label>
+                                    <label htmlFor="firstName" className="georgia">Idea Category</label>
                                     <Row>
                                       <Col>
                                       {this.getIcon('Urgent', 'Black')}
@@ -870,19 +881,24 @@ class IdeaViewCardNew extends React.Component {
                                   <Col md="6">
                                     <Row className="mt-2">
                                       <Col>
-                                        <label htmlFor="firstName">Submit Date</label>
+                                        <label htmlFor="firstName" className="georgia">Submit Date</label>
                                         <h6 style={{fontWeight: 500,  color: '#303030'}}>{parsedDate}</h6>
                                       </Col>
                                     </Row>
                                     <Row className="mt-2">
                                       <Col>
-                                        <label htmlFor="firstName">Employee Response</label>
+                                        <label htmlFor="firstName" className="georgia">Employee Response</label>
                                         <Row>
                                           <Col md="7">
-                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>On-Track</h6>
+                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{timingWording}</h6>
                                           </Col>
                                           <Col className="mb-auto" md="1">
-                                            <div className="my-auto" style={{backgroundColor: '#1DE334', height: 16, width: 16, borderRadius: 8}}></div>
+                                            {/* <div className="my-auto" style={{backgroundColor: '#1DE334', height: 16, width: 16, borderRadius: 8}}></div> */}
+                                            { timingWording == "On-Time"? 
+                                            <GreenIcon style={{height: 16, width: 16}}></GreenIcon>
+                                            :
+                                            <RedIcon style={{height: 16, width: 16}}></RedIcon>
+                                            }
                                           </Col>
                                           <Col md="1" className="mb-auto">
                                             <a id={"TooltipResponseInfo"} className="text-right" style={{ color: 'inherit'}} onClick={() => {
@@ -890,7 +906,9 @@ class IdeaViewCardNew extends React.Component {
                                                 myCopy = !myCopy
                                                 this.setState({responseInfo: myCopy})
                                             }}>
-                                                <i className="material-icons">info</i>
+                                                
+                                                <InfoIcon style={{height: 16, width: 16}}></InfoIcon>
+                                                
                                             </a>
                                           </Col>
                                          
@@ -912,21 +930,21 @@ class IdeaViewCardNew extends React.Component {
 
                                 <Row className="mt-4">
                                   <Col>
-                                    <label htmlFor="firstName">Idea Type</label>
+                                    <label htmlFor="firstName" className="georgia">Idea Type</label>
                                     <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("ideaType")}</h6>
                                   </Col>
                                 </Row>
 
                                 <Row className="mt-4">
                                   <Col>
-                                    <label htmlFor="firstName">Department to benefit from idea</label>
+                                    <label htmlFor="firstName" className="georgia">Department to benefit from idea</label>
                                     <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("department")}</h6>
                                   </Col>
                                 </Row>
 
                                 <Row className="mt-4">
                                   <Col>
-                                    <label htmlFor="firstName">Idea Description</label>
+                                    <label htmlFor="firstName" className="georgia">Idea Description</label>
                                     <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("description")}</h6>
                                   </Col>
                                 </Row>
@@ -952,7 +970,7 @@ class IdeaViewCardNew extends React.Component {
                                       <Col md="12" className="form-group">
                                         <Row className="mt-4">
                                           <Col md="12">
-                                            <p className="mb-2">{myQuestion}</p>
+                                            <label className="georgia">{myQuestion}</label>
                                             <h6 style={{fontWeight: 500,  color: '#303030'}}>{question["answer"]}</h6>
                                           </Col>
                                         </Row>
@@ -987,11 +1005,13 @@ class IdeaViewCardNew extends React.Component {
                                         placeholder={'$15,000'}
                                         value={expectedReturn}
                                         onChange={this.setExpectedReturn}
+                                        className="insideFont"
                                       />
                                     </Col>
                                     <Col>
                                       <Select
                                         // value={ideaItem.get("teamMembers")}
+                                        className="insideFont"
                                         placeholder='term'
                                         onChange={this.setTimeUnit}
                                         options={[
@@ -1023,6 +1043,7 @@ class IdeaViewCardNew extends React.Component {
                                     <FormTextarea 
                                       style={{ minHeight: "80px" }}
                                       id="ideaQuestion"
+                                      className="insideFont"
                                       placeholder={t('ANSWER')}
                                       onChange={(event) => this.commentChangeField(event)}
                                       required>
@@ -1036,7 +1057,7 @@ class IdeaViewCardNew extends React.Component {
                             <Col lg="6">
                               <Row className="mt-4">
                                   <Col md="6">
-                                    <label htmlFor="firstName">Choose how to proceed: </label>
+                                    <label htmlFor="firstName" className="georgia">Choose how to proceed: </label>
                                     <Row>
                                       <Col>
                                       {this.getIcon(this.state.selectedStatus, 'Black')}
@@ -1049,14 +1070,47 @@ class IdeaViewCardNew extends React.Component {
                                   <Col md="6">
                                     <Row className="mt-2">
                                       <Col>
-                                        <label htmlFor="firstName">Employee Response Date</label>
+                                        <label htmlFor="firstName" className="georgia">Employee Response Date</label>
                                         <h6 style={{fontWeight: 500,  color: '#303030'}}>{nowDate}</h6>
                                       </Col>
                                     </Row>
                                     <Row className="mt-2">
-                                      <Col>
-                                        <label htmlFor="firstName">Idea Status</label>
-                                        <h6 style={{fontWeight: 500,  color: '#303030'}}>Evaluated</h6>
+                                    <Col>
+                                        <label htmlFor="firstName" className="georgia">Idea Status</label>
+                                        <Row>
+                                          <Col md="7">
+                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Pending'}</h6>
+                                          </Col>
+                                          <Col className="mb-auto" md="1">
+                                            {/* <div className="my-auto" style={{backgroundColor: '#1DE334', height: 16, width: 16, borderRadius: 8}}></div> */}
+                                            {/* { timingWording == "On-Time"? 
+                                            <GreenIcon style={{height: 16, width: 16}}></GreenIcon>
+                                            : */}
+                                            <RedIcon style={{height: 16, width: 16}}></RedIcon>
+                                            {/* } */}
+                                          </Col>
+                                          <Col md="1" className="mb-auto">
+                                            <a id={"TooltipResponseInfo2"} className="text-right" style={{ color: 'inherit'}} onClick={() => {
+                                                const myCopy = this.state.responseInfo2
+                                                myCopy = !myCopy
+                                                this.setState({responseInfo2: myCopy})
+                                            }}>
+                                                
+                                                <InfoIcon style={{height: 16, width: 16}}></InfoIcon>
+                                                
+                                            </a>
+                                          </Col>
+                                         
+                                          <Tooltip
+                                            open={this.state.responseInfo2}
+                                            target={"#TooltipResponseInfo2"}
+                                            id={"TooltipResponseInfo2"}
+                                            toggle={() => {this.toggle()}}
+                                            >
+                                            Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
+                                          </Tooltip>
+                                      </Row>
+
                                       </Col>
                                     </Row>
                                     
@@ -1066,14 +1120,14 @@ class IdeaViewCardNew extends React.Component {
                               {/* Subject Matter Comments */}
                               <Row form className="mt-4">
                                 <Col md="12" className="form-group">
-                                  <label htmlFor="firstName">Subject-Matter Comments:</label>
+                                  <label htmlFor="firstName" className="georgia">Subject-Matter Comments:</label>
                                   <h6 style={{fontWeight: 500,  color: '#303030'}}>{this.state.comment}</h6>
                                 </Col>
                               </Row>
 
                               <Row form className="mt-4">
                                 <Col md="12" className="form-group">
-                                  <label >{'Estimate economic/output impact'}</label>
+                                  <label className="georgia">{'Estimate economic/output impact'}</label>
                                   <Row>
                                     <Col>
                                       <h6 style={{fontWeight: 500,  color: '#303030'}}>{'$'+this.state.expectedReturn}</h6>
@@ -1098,10 +1152,10 @@ class IdeaViewCardNew extends React.Component {
                               <Row form className="mt-4">
                                 <Col md="12" className="form-group">
                                   <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Choose an Idea Owner *'}</h6>
-                                    <ExecutionSelectNew evalType={'execution'} setResponsible={(res, idx) => this.changeResponsible(res, idx)} selectedVal={executionRes}/>
+                                    <ExecutionSelectNew className="insideFont" evalType={'execution'} setResponsible={(res, idx) => this.changeResponsible(res, idx)} selectedVal={executionRes}/>
                                   <br/>
                                   <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Choose an Idea Coach'}</h6>
-                                    <ExecutionSelectNew evalType={'coach'} setResponsible={(res, idx) => this.changeCoach(res, idx)} selectedVal={coachRes}/>
+                                    <ExecutionSelectNew className="insideFont" evalType={'coach'} setResponsible={(res, idx) => this.changeCoach(res, idx)} selectedVal={coachRes}/>
                                 </Col>
                               </Row>
                               }

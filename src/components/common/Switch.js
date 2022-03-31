@@ -23,7 +23,7 @@ const Switch = ({ isOn, handleToggle, onColor, myKey, title }) => {
       </div>
       
       <div className="my-auto ml-2">
-         <p>{title}</p>
+         <p className="insideFont">{title}</p>
       </div>
      
     </div>

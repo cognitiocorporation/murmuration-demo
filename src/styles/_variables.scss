@@ -59,6 +59,14 @@ $text-semibold-font-weight: 400 !default;
   src: url(../assets/font/Karrik-Regular.ttf) format('ttf');
 }
 
+
+@font-face {
+  font-family: 'Georgia';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/font/Georgia.ttf) format('ttf');
+}
+
 // Fonts
 $font-family-system-first: "Karrik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 $font-family-roboto-mono-first: "Karrik", "Roboto Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;

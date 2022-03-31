@@ -300,7 +300,7 @@ class IdeaFilterSelect extends React.Component {
             extraValue: '',
             allCats: [],
             bgColor: '',
-            right: false,
+            right: [],
             selectedCategoryName: '',
             department: ''
           }
@@ -345,7 +345,7 @@ class IdeaFilterSelect extends React.Component {
             },
         ]
 
-        this.setState({allCats: filterSelectData})
+        this.setState({allCats: filterSelectData, right:[false, false, false]})
   
         // query.find()
         // .then((results) => {
@@ -651,11 +651,23 @@ class IdeaFilterSelect extends React.Component {
                                         <div style={{textAlign: 'center'}} className='pt-4'>
                                         <h6 style={{color: titleColor1, fontWeight: 500, color: '#303030', marginRight: 10}}>
                                             {myCategory.name}
-                                            <a id={"TooltipExample" + index} className="text-right" style={{ color: 'inherit'}} className='pl-2' onClick={() => {this.setState({right: !this.state.right})}}>
+                                            <a id={"TooltipExampleFilter" + index} className="text-right" style={{ color: 'inherit'}} className='pl-2' onClick={() => {
+                                                const myCopy = [...this.state.right]
+                                                myCopy[index] = !myCopy[index]
+                                                this.setState({right: myCopy})
+                                            }}>
                                                 <i className="material-icons">info</i>
                                             </a>
                                         </h6>
-                                        
+                                        <Tooltip
+                                            className='pl-2'
+                                            open={this.state.right[index]}
+                                            target={"#TooltipExampleFilter" + index}
+                                            id={"TooltipExampleFilter1" + index}
+                                            toggle={() => {this.toggle()}}
+                                            >
+                                            Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
+                                        </Tooltip>
                                         </div>
                                     </div>
                                     </div>

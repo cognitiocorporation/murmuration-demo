@@ -230,6 +230,39 @@ class EvaluateIdea extends React.Component {
       }
     }
 
+    const changeIdeaStageBack = () => {
+      const { ideaStage, evaluationResponse } = this.state;
+      const newStage = ideaStage - 1
+  
+      if (newStage == -1) {
+        this.setState({title: 'Evaluate', ideaStage: 0})
+        this.dismissModal()
+      } else if (newStage == 0) {
+        // setTitle('Idea > Select Idea Type')
+        this.setState({title: 'Evaluate ', ideaStage: newStage})
+        
+        // Check for reqs
+        if (!evaluationResponse.economicImpact || !evaluationResponse.timeFrame) {
+          changeBtnStatus(false)
+        }
+
+
+      } else if (newStage == 1) {
+        // setTitle('Idea > Innovati n > Idea Details')
+        this.setState({title: 'Evaluate > Next Step', ideaStage: newStage})
+        
+        if (!evaluationResponse.ideaOwner) {
+          changeBtnStatus(false)
+        }
+      } else if (newStage == 2) {
+        // setTitle('Idea > Innovation > Idea Details > Done')
+        this.setState({title: 'Evaluate > Next Step > Additional Details', ideaStage: newStage})
+      } else {
+        // setTitle('Welcome back, ' + username+ '!')
+        this.setState({title: 'Evaluate', ideaStage: 0})
+      }
+    }
+
     const changeBtnStatus = (status) => {
       this.setState({canGoNext: status})
     }
@@ -322,7 +355,7 @@ class EvaluateIdea extends React.Component {
             <Col lg="6" className="mb-2 mr-auto">
 
                 {/* Submit Icon States */}
-                {ideaStage < 3 && <PreviousIcon className="mr-auto d-block" style={{minWidth: 140, maxWidth:140}}></PreviousIcon>}
+                {ideaStage < 3 && <PreviousIcon className="mr-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStageBack()}></PreviousIcon>}
                 {/* {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIconNosel>}
 
 

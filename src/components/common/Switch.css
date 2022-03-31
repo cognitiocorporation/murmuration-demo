@@ -5,6 +5,10 @@
   background-color: red;
 }
 
+.insideFont {
+  font-family: Karrik;
+}
+
 .react-switch-label {
   /* display: flex; */
   align-items: center;

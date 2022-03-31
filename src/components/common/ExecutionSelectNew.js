@@ -164,6 +164,7 @@ class ExecutionSelectNew extends React.Component {
                                         options={options}
                                         placeholder={'Choose employee'}
                                         clearable={false}
+                                        className="insideFont"
                                     />
                                 </div>
                                 
@@ -176,6 +177,7 @@ class ExecutionSelectNew extends React.Component {
                                 onChange={this.handleSelectedPersonChange}
                                 options={coaches}
                                 placeholder={'No Coach'}
+                                className="insideFont"
                             />
                         </div>
                     

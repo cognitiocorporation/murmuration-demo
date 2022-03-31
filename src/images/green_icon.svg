@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"viewBox="0 0 2048 2048">
+  <defs>
+    <clipPath id="clip-green_icon">
+      <rect width="2048" height="2048"/>
+    </clipPath>
+  </defs>
+  <g id="green_icon" clip-path="url(#clip-green_icon)">
+    <circle id="green_icon-2" data-name="green_icon" cx="1024" cy="1024" r="1024" fill="#79de75"/>
+  </g>
+</svg>

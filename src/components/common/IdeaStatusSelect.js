@@ -47,11 +47,12 @@ import { ReactComponent as Shield2ImageSelected } from "../../images/Icons_Selec
 import { ReactComponent as DollarSignImageSelected } from "../../images/Icons_Selected_06_Dollar Sign.svg"
 import { ReactComponent as NumberOneImageSelected } from "../../images/Icons_Selected_07_Number One.svg"
 
+
 // fill="#157ffb"
 
 // Selected
 import clockImageSelected from "../../images/stopwatch_blue.svg"
-import InfoIcon from "../../images/info_icon.png"
+import { ReactComponent as InfoIcon} from "../../images/info_icon.svg"
 import handImageSelected from "../../images/hand_blue.svg"
 import chartImageSelected from "../../images/line-chart_blue.svg"
 import shieldImageSelected from "../../images/shield_blue.svg"
@@ -401,7 +402,8 @@ class IdeaStatusSelect extends React.Component {
                                 }}>
                                     {/* <i className="material-icons" style={{height: 8}}>info</i> */}
                                     {/* <img src={{InfoIcon}} style={{width: 10, height: 10}}/> */}
-                                    <img src={InfoIcon} alt="Info Icon" width="10" height="10"></img>
+                                    {/* <img src={InfoIcon} alt="Info Icon" width="10" height="10"></img> */}
+                                    <InfoIcon style={{height: 10, width: 10, marginTop: 3}}></InfoIcon>
                                 </a>
                                 <Tooltip
                                         open={this.state.right[index]}

@@ -276,16 +276,31 @@ class ThankYouEvaluate extends React.Component {
                                     </div>
                             </Row>
                         </Col>
-                        <Col sm="6" lg="6" md="6">
+                        <Col sm="6" lg="6" md="6" className={"my-auto"}>
                         {/* <div className="square"  onClick={(event) => { this.changeSelectedValue(index, myCategory)}} > */}
                             {/* <img className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: '#32CD32'}} src={handIcon} /> */}
                             {/* <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: myCategory.get("color")}}/> */}
-                            <Row className="mt-=4">   
+                            <Row className="mt-4">   
                                 <h5 style={{color: titleColor1, fontWeight: 400, color: '#303030', marginRight: 10}}>This idea was developed and submitted by:</h5>
                             </Row>
                             {/* <span> */}
                             <Row className="mt-2">
-                                <h5 style={{color: titleColor1, fontWeight: 400, color: '#303030', marginRight: 10}}>{idea && idea.get("proponentName")}</h5>
+                                <Col md="12">
+                                    <Row>
+                                    <h5 style={{color: titleColor1, fontWeight: 400, color: '#303030', marginRight: 10}}>{idea && idea.get("proponentName")}</h5>
+                                    </Row>
+                                    
+                                </Col>
+                                <Col md="12">
+                                    <Row>
+                                    <p className="insideFont"style={{color: titleColor1, fontWeight: 400, color: '#303030', marginRight: 10, fontSize: 14}}>{'Operations Team'}</p>
+                                    </Row>
+                                </Col>
+                               
+                               
+                            </Row>
+                            <Row className="mt-4">
+                                <p className="insideFont"style={{color: titleColor1, fontWeight: 400, color: '#303030', marginRight: 10, fontSize: 14}}>{'Supervisor: Yolanda Lassalle'}</p>
                                
                             </Row>
                             {/* <Row>

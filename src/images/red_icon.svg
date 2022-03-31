@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2048 2048">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="green_icon" cx="1024" cy="1024" r="1024" transform="translate(190.7 190.7)" fill="#79de75"/>
+    </clipPath>
+    <clipPath id="clip-red_icon">
+      <rect width="2048" height="2048"/>
+    </clipPath>
+  </defs>
+  <g id="red_icon" clip-path="url(#clip-red_icon)">
+    <g id="Mask_Group_1" data-name="Mask Group 1" transform="translate(-190.7 -190.7)" clip-path="url(#clip-path)">
+      <circle id="red_icon-2" data-name="red_icon" cx="1024" cy="1024" r="1024" transform="translate(190.7 190.7)" fill="#ea1c1c"/>
+    </g>
+  </g>
+</svg>

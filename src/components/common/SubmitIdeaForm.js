@@ -777,7 +777,7 @@ class SubmitIdeaForm extends React.Component {
                         {/* Categoria */}
                         <Col md="12" className="form-group">
                             <CategorySelect setCategory={this.setCategory} department={this.props.department}/>
-                          </Col>
+                        </Col>
                         <br/>
                         
                         <Row form>
@@ -913,7 +913,13 @@ class SubmitIdeaForm extends React.Component {
                           
                         {/* Select IDEA Filter Visibility State */}
                         <div style={{display: filterVisibilityState}}>
+                        <Row form>
+                          <Col md="12" className="form-group">
                           <IdeaFilterSelectNew setFilter={(e) => {this.setFilter(e)}} setDepartment={(e) => {this.setDepartment(e)}}/>
+                          </Col>
+                        </Row>
+                        
+  
                           {/* <ThankYou></ThankYou> */}
                         </div>
 
