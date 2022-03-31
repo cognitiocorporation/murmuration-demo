@@ -101,7 +101,7 @@ class IdeaStatusSelect extends React.Component {
             allCats: [],
             bgColor: '',
             right: [],
-            iconNames: ["Approve", "Do not Pursue", "Save for Later", "Request information", "Project Idea", "Transfer Committee"],
+            iconNames: ["Approve", "Do not Pursue", "Save for Later", "Request\ninformation", "Project Idea", "Transfer\nCommittee"],
             selectedCategoryName: ''
           }
           this.fetchCategoryData = this.fetchCategoryData.bind(this);
@@ -326,11 +326,11 @@ class IdeaStatusSelect extends React.Component {
                 return newIcons[1];
             case 'Save for Later':
                 return newIcons[2];
-            case 'Request information':
+            case 'Request\ninformation':
                 return newIcons[3];
             case 'Project Idea':
                 return newIcons[4];
-            case 'Transfer Committee':
+            case 'Transfer\nCommittee':
                 return newIcons[5];
             case 'Number One':
                 return newIcons[6];
@@ -375,7 +375,7 @@ class IdeaStatusSelect extends React.Component {
                             {/* <img className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: '#32CD32'}} src={handIcon} /> */}
                             {/* <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: myCategory.get("color")}}/> */}
                             <Row>
-                                {/* <Col lg="12" style={{backgroundColor: 'white'}}>  */}
+                                <Col md="12"> 
                                 
                                     <div className="text-right" >
                                     <div onClick={(event) => { this.changeSelectedValue(index, myCategory)}}>
@@ -391,10 +391,12 @@ class IdeaStatusSelect extends React.Component {
                                     <i className="material-icons">info</i>
                                 </a>
                                 </Col> */}
+                                 </Col>
                             </Row>
                             {/* <span> */}
-                            <Row>
-                                <p style={{color: titleColor1, fontWeight: 600, color: '#303030', marginRight: 10, fontSize: 12, marginTop: 4}}>{iconNames[index]}</p>
+                            <Row className="mx-auto">
+                                
+                                <p style={{color: titleColor1, fontWeight: 600, color: '#303030', marginRight: 10, fontSize: 12, marginTop: 4, whiteSpace: 'pre-line'}}>{iconNames[index]}</p>
                                 <a id={"TooltipExample" + index} className="text-right" style={{ color: 'inherit'}} onClick={() => {
                                     const myCopy = [...this.state.right]
                                     myCopy[index] = !myCopy[index]
@@ -418,6 +420,7 @@ class IdeaStatusSelect extends React.Component {
                             {/* </span> */}
                         {/* </div> */}
                         </Col>
+                        
                     )})}
                 </Row>
                 {/* <div className="row no-gutters">

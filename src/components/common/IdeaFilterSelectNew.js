@@ -223,6 +223,7 @@ import { ReactComponent as ShieldImage } from "../../images/shield.svg"
 import { ReactComponent as TimeImage } from "../../images/time.svg"
 import { ReactComponent as TeamImage } from "../../images/team.svg"
 import { ReactComponent as DollarImage } from "../../images/dollar-symbol.svg"
+import { ReactComponent as InfoIcon} from "../../images/info_icon.svg"
 
 
 // New
@@ -656,7 +657,7 @@ class IdeaFilterSelect extends React.Component {
                                                 myCopy[index] = !myCopy[index]
                                                 this.setState({right: myCopy})
                                             }}>
-                                                <i className="material-icons">info</i>
+                                                <InfoIcon style={{height: 10, width: 10}}></InfoIcon>
                                             </a>
                                         </h6>
                                         <Tooltip

@@ -817,6 +817,8 @@ class IdeaViewCardNew extends React.Component {
       })
     }
 
+    
+
     render() {
         const {coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
         const {ideaStage, evaluationData} = this.props;
@@ -838,6 +840,15 @@ class IdeaViewCardNew extends React.Component {
         const parsedDate = this.getDate(ideaDate)
         const nowDate = this.getDate(Date())
         const { t } = this.props;
+
+        const customStyles = {
+          control: base => ({
+            ...base,
+            height: 35,
+            minHeight: 35
+          })
+        };
+
         return(
 
             <div className="edit-user-details" >
@@ -1013,6 +1024,7 @@ class IdeaViewCardNew extends React.Component {
                                         // value={ideaItem.get("teamMembers")}
                                         className="insideFont"
                                         placeholder='term'
+                                        styles={customStyles}
                                         onChange={this.setTimeUnit}
                                         options={[
                                           {
@@ -1120,7 +1132,7 @@ class IdeaViewCardNew extends React.Component {
                               {/* Subject Matter Comments */}
                               <Row form className="mt-4">
                                 <Col md="12" className="form-group">
-                                  <label htmlFor="firstName" className="georgia">Subject-Matter Comments:</label>
+                                  <label htmlFor="firstName" className="georgia">Subject-Matter Expert Comments:</label>
                                   <h6 style={{fontWeight: 500,  color: '#303030'}}>{this.state.comment}</h6>
                                 </Col>
                               </Row>
