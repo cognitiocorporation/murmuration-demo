@@ -366,7 +366,7 @@ class EvaluateIdea extends React.Component {
             <Col lg="6" className="mb-2 ml-auto">
 
                 {/* Submit Icon States */}
-                {ideaStage < 3 &&  !canGoNext && <NextIcon className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></NextIcon>}
+                {ideaStage < 3 &&  !canGoNext && <NextIcon className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} ></NextIcon>}
                 {ideaStage < 3 &&  canGoNext && <NextIconValid className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></NextIconValid>}
                 {ideaStage == 3  && <HomeIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></HomeIcon>}
                 {/* {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIconNosel>}

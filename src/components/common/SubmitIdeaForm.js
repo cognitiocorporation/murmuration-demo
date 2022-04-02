@@ -111,6 +111,12 @@ class SubmitIdeaForm extends React.Component {
       this.getDate();
     }
 
+    componentDidUpdate(prevProps) {
+      if (prevProps.canSubmit !== this.props.canSubmit) {
+        this.saveIdea()
+      }
+    }
+
     checkFormStatus() {
       const {department, ideaType} = this.state;
 
@@ -403,7 +409,7 @@ class SubmitIdeaForm extends React.Component {
         selectedFilterQ: filteredData
       }, this.addFilterAnswer(filteredData));
       console.log(filteredData);
-      this.showNext();
+      // this.showNext();
     }
 
     handleCategoryChange(selectedCategory) {
@@ -431,7 +437,7 @@ class SubmitIdeaForm extends React.Component {
     }
 
     async saveIdea() {
-      const {department, category, date, ideaDescription, file, answers, filterQAnswers, ideaTitle, userName} = this.state;
+      const {deptName, department, category, date, ideaDescription, file, answers, filterQAnswers, ideaTitle, userName} = this.state;
       // Simple syntax to create a new subclass of Parse.Object.
       var Idea = Parse.Object.extend("Idea");
       // Create a new instance of that class.
@@ -449,7 +455,7 @@ class SubmitIdeaForm extends React.Component {
       ideaInfo.set("proponent", userId);
       ideaInfo.set("edited", false);
       ideaInfo.set("completed", false);
-      ideaInfo.set("department", department);
+      ideaInfo.set("department", deptName);
       ideaInfo.set("category", category);
       ideaInfo.set("date", date);
       ideaInfo.set("num", count);
@@ -476,8 +482,6 @@ class SubmitIdeaForm extends React.Component {
 
       var myFile;
       if (file) {
-        console.log('HELLO TIENES O NO FILE');
-        console.log(file);
         const parseFile = new Parse.File(file.name, file);
         parseFile.save().then((myFile) => {
           // The file has been saved to Parse.
@@ -493,13 +497,15 @@ class SubmitIdeaForm extends React.Component {
     }
 
     saveFinalIdea(ideaInfo) {
+      const { setFinishedSaving } = this.props;
       ideaInfo.save()
       .then(() => {
         this.setNotifications().then((e) =>
-          alert('¡Congrats! Thanks for submitting your idea.',this.resetForm(e)));
-        // Execute any logic that should take place after the object is saved.
+        setFinishedSaving()
         // 
-      }, (error) => {
+          // alert('¡Congrats! Thanks for submitting your idea.',this.resetForm(e)));
+        // Execute any logic that should take place after the object is saved.
+        )}, (error) => {
         // Execute any logic that should take place if the save fails.
         // error is a Parse.Error with an error code and message.
         alert('Failed to create new object, with error code: ' + error.message);
@@ -538,11 +544,15 @@ class SubmitIdeaForm extends React.Component {
     setFilter(filterName) {
       // console.log(filterName);
       // this.setState({sectionTitle: (filterName === "innovacion")?"INNOVACION":"RESOLUCION DE PROBLEMAS"});
+      var newFilterName = ''
       if (filterName == "Innovation") {
+        newFilterName = 'innovacion'
         this.setState({ideaType: 'innovacion'});
       } else if (filterName == "Problem Solving") {
+        newFilterName = 'solucion'
         this.setState({ideaType: "problema"});
       } else {
+        newFilterName = 'improvement'
         this.setState({ideaType: 'improvement'})
       }
 
@@ -550,7 +560,7 @@ class SubmitIdeaForm extends React.Component {
         this.props.changeContinueStatus(true)
       }
 
-      // this.handleFilterChange(filterName);
+      this.handleFilterChange(newFilterName);
     }
 
     setDepartment(deptName) {
@@ -577,8 +587,10 @@ class SubmitIdeaForm extends React.Component {
       // console.log(event.target.value);
       // console.log(idx);
       // const newObj = {'question':this.state.filterQuestions[idx], 'answer': event.target.value }
+
       this.state.filterQAnswers[idx].answer = answer;
       this.setState({filterQAnswers: filterQAnswers})
+      
       // console.log(this.state.filterQAnswers);
       // const newArray = this.state.filterQAnswers
       // this.setState({filterQAnswers: newArray}, console.log(this.state.filterQAnswers));
@@ -590,7 +602,11 @@ class SubmitIdeaForm extends React.Component {
       // console.log(event.target.value);
       // console.log(idx);
       // const newObj = {'question':this.state.filterQuestions[idx], 'answer': event.target.value }
+      
+      
       this.state.filterQAnswers[idx].answer = event.target.value;
+      console.log(this.state.filterQAnswers[idx])
+      console.log(event.target.value)
       // console.log(this.state.filterQAnswers);
       // const newArray = this.state.filterQAnswers
       // this.setState({filterQAnswers: newArray}, console.log(this.state.filterQAnswers));
@@ -935,7 +951,7 @@ class SubmitIdeaForm extends React.Component {
                         <Row form>
                           <Col lg="12">
                             <Row form>
-                              {filterQuestions.map((item,idx) =>
+                              {selectedFilterQ.map((item,idx) =>
                                 <Col key={idx} md="6" className={"mt-4 pr-4"}>
                                   {/* <label  htmlFor="question"><strong>{item.get("questionTrans")[storageLanguage]}</strong></label> */}
                                   <h6 style={{fontWeight: 500,  color: '#303030', fontSize: 14}}>{item.get("questionTrans")[storageLanguage]}</h6>

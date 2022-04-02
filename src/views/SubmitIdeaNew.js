@@ -31,6 +31,8 @@ function SubmitIdeaNew(smallStats) {
   const [category, setCategory] = useState('')
   const [canGoNext, setCanGoNext] = useState(false)
   const [canContinue, setCanContinue] = useState(false)
+  const [canSubmit, setCanSubmit] = useState(false)
+  const [finishedSaving, setFinishedSaving] = useState(false)
   let currUser = Parse.User.current();
   // this.getUserName()
 
@@ -70,11 +72,15 @@ function SubmitIdeaNew(smallStats) {
       setIdeaStage(newStage)
     } else if (newStage == 3) {
       setTitle('Idea > Innovation > Idea Details > Done')
-      setIdeaStage(newStage)
+      setCanSubmit(true)
     } else {
       setTitle('Welcome back, ' + username+ '!')
       setIdeaStage(0)
     }
+  }
+
+  const setFinished = () => {
+    setIdeaStage(3)
   }
 
   const changeBtnStatus = (status) => {
@@ -129,7 +135,7 @@ function SubmitIdeaNew(smallStats) {
     <Row>
       {/* Latest Orders */}
       <Col lg="10" className="m-auto">
-        <SubmitIdeaForm currentStage={ideaStage} changeStatus={(status) => changeBtnStatus(status)} changeContinueStatus={(status) => changeContinueBtnStatus(status)} changeIdeaStage={() => this.changeIdeaStage()}/>     
+        <SubmitIdeaForm canSubmit={canSubmit} setFinishedSaving={() => setFinished()} currentStage={ideaStage} changeStatus={(status) => changeBtnStatus(status)} changeContinueStatus={(status) => changeContinueBtnStatus(status)} changeIdeaStage={() => this.changeIdeaStage()}/>     
       </Col>
     </Row>
     <Row>
@@ -137,11 +143,11 @@ function SubmitIdeaNew(smallStats) {
 
         {/* Submit Icon States */}
         {ideaStage == 0 && canGoNext && <SubmitIcon className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIcon>}
-        {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIconNosel>}
+        {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} ></SubmitIconNosel>}
         
 
         {ideaStage > 0 && ideaStage <= 2 && canContinue &&  <NextIconValid className="ml-auto d-block mb-4" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></NextIconValid>}
-        {ideaStage > 0 && ideaStage <= 2 && !canContinue && <NextIcon className="ml-auto d-block mb-4" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></NextIcon>}
+        {ideaStage > 0 && ideaStage <= 2 && !canContinue && <NextIcon className="ml-auto d-block mb-4" style={{minWidth: 140, maxWidth:140}} ></NextIcon>}
         
         {ideaStage == 3  && <HomeIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></HomeIcon>}
       </Col>
