@@ -57,7 +57,7 @@ export default [
     exact: true,
     layout: DefaultLayout,
     protected: true,
-    component: () => <Redirect to="/administration-categories" />
+    component: () => <Redirect to="/submit-idea-new" />
   },
   {
     path: "/analytics",
