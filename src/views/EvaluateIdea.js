@@ -58,8 +58,8 @@ class EvaluateIdea extends React.Component {
         comments: '',
         ideaOwner: '',
         ideaCoach: ''
-      }
-      
+      },
+      canSubmit: false,
     }
   }
 
@@ -140,7 +140,7 @@ class EvaluateIdea extends React.Component {
   }
 
   render() {
-    const {categoryName, statusName, ideaType, open, viewIdea, ideaQuestion, ideaStage, canGoNext} = this.state;
+    const {canSubmit, categoryName, statusName, ideaType, open, viewIdea, ideaQuestion, ideaStage, canGoNext} = this.state;
     const { t } = this.props;
     const tableColumns = [
       {
@@ -223,7 +223,7 @@ class EvaluateIdea extends React.Component {
         }
       } else if (newStage == 3) {
         // setTitle('Idea > Innovation > Idea Details > Done')
-        this.setState({title: 'Evaluate > Next Step > Additional Details > Thank You', ideaStage: newStage})
+        this.setState({title: 'Evaluate > Next Step > Additional Details > Thank You', canSubmit: true})
       } else {
         // setTitle('Welcome back, ' + username+ '!')
         this.setState({title: 'Evaluate', ideaStage: 0})
@@ -265,6 +265,10 @@ class EvaluateIdea extends React.Component {
 
     const changeBtnStatus = (status) => {
       this.setState({canGoNext: status})
+    }
+
+    const setFinished = () => {
+      this.setState({ideaStage: 3})
     }
 
     return(
@@ -346,7 +350,7 @@ class EvaluateIdea extends React.Component {
         </Row>:
         <Row>
         <Col lg="10" className="m-auto">
-            {ideaStage != 3 && <IdeaViewCardNew evaluationData={this.state.evaluationResponse} dismissModal={this.dismissModal.bind(this)} ideaItem={this.state.ideaItem} changeStatus={(status) => changeBtnStatus(status)} ideaStage={this.state.ideaStage} onViewIdeaPress={this.toggle.bind(this)}/>}
+            {ideaStage != 3 && <IdeaViewCardNew canSubmit={canSubmit} setFinishedSaving={() => setFinished()} evaluationData={this.state.evaluationResponse} dismissModal={this.dismissModal.bind(this)} ideaItem={this.state.ideaItem} changeStatus={(status) => changeBtnStatus(status)} ideaStage={this.state.ideaStage} onViewIdeaPress={this.toggle.bind(this)}/>}
             {ideaStage == 3 && <ThankYouEvaluate idea={this.state.ideaItem}/>}
         </Col>
         </Row>

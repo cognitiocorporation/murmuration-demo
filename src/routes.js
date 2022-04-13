@@ -36,6 +36,7 @@ import Administration from "./views/Administration";
 import AdministrationUsers from "./views/AdministrationUsers";
 import AdministrationComite from "./views/AdministrationComite";
 import AdministrationCatsDepts from "./views/AdministrationCatsDepts";
+import AdministrationCategories from "./views/AdministrationCategories";
 import AdministrationPreguntas from "./views/AdministrationPreguntas";
 import RecognitionInbox from "./views/RecognitionInbox";
 import EvaluateIdea from "./views/EvaluateIdea";
@@ -56,7 +57,7 @@ export default [
     exact: true,
     layout: DefaultLayout,
     protected: true,
-    component: () => <Redirect to="/submit-idea-new" />
+    component: () => <Redirect to="/administration-categories" />
   },
   {
     path: "/analytics",
@@ -93,6 +94,12 @@ export default [
     layout: DefaultLayout,
     protected: true,
     component: AdministrationCatsDepts
+  },
+  {
+    path: "/administration-categories",
+    layout: DefaultLayout,
+    protected: true,
+    component: AdministrationCategories
   },
   {
     path: "/submit-idea",

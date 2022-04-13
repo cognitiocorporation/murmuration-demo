@@ -51,6 +51,10 @@ import { ReactComponent as DollarImage } from "../../images/dollar-symbol.svg"
 import { ReactComponent as GreenIcon } from "../../images/green_icon.svg"
 import { ReactComponent as RedIcon } from "../../images/red_icon.svg"
 import { ReactComponent as InfoIcon } from "../../images/info_icon.svg"
+import { ReactComponent as SelectedLanguageIcon } from "../../images/selected_language.svg"
+import { ReactComponent as NotSelectedLanguageIcon } from "../../images/not_selected_language.svg"
+import { ReactComponent as EditIcon } from "../../images/edit.svg"
+import { ReactComponent as DeleteIcon } from "../../images/delete.svg"
 // fill="#157ffb"
 
 // New
@@ -73,18 +77,64 @@ import { ReactComponent as TrophyImageSelected } from "../../images/Icons_Select
 import { ReactComponent as Shield2ImageSelected } from "../../images/Icons_Selected_05_Shield.svg"
 import { ReactComponent as DollarSignImageSelected } from "../../images/Icons_Selected_06_Dollar Sign.svg"
 import { ReactComponent as NumberOneImageSelected } from "../../images/Icons_Selected_07_Number One.svg"
+
+// Import Category Icons
+import UrgentImageLocal from '../../images/Icons_Idle_01_Urgent.svg';
+import ProductivityImageLocal  from "../../images/Icons_Idle_02_Productivity.svg"
+import CheckmarkImageLocal from "../../images/check1.svg"
+import TrophyImageLocal  from "../../images/Icons_Idle_04_Trophy.svg"
+import Shield2ImageLocal  from "../../images/Icons_Idle_05_Shield.svg"
+import DollarSignImageLocal from "../../images/Icons_Idle_06_Dollar Sign.svg"
+import NumberOneImageLocal  from "../../images/Icons_Idle_07_Number One.svg"
+
+
 import Switch from "./Switch.js"
+
+import SmallSwitch from "./SmallSwitch.js"
 
 import IdeaStatusSelect  from "./IdeaStatusSelect"
 
 import { withTranslation } from 'react-i18next';
+
+import ImageGallery from 'react-image-gallery';
+
+const images = [
+  {
+    original: UrgentImageLocal,
+    thumbnail: UrgentImageLocal,
+  },
+  {
+    original: ProductivityImageLocal,
+    thumbnail: ProductivityImageLocal,
+  },
+  {
+    original: CheckmarkImageLocal,
+    thumbnail: CheckmarkImageLocal,
+  },
+  {
+    original: TrophyImageLocal,
+    thumbnail: TrophyImageLocal,
+  },
+  {
+    original: Shield2ImageLocal,
+    thumbnail: Shield2ImageLocal,
+  },
+  {
+    original: DollarSignImageLocal,
+    thumbnail: DollarSignImageLocal,
+  },
+  {
+    original: NumberOneImageLocal,
+    thumbnail: NumberOneImageLocal,
+  },
+];
 
 
 const remCharStyle = {
   color: 'green'
 };
 
-class IdeaViewCardNew extends React.Component {
+class EditCategoryForm extends React.Component {
     constructor(props) {
         super(props);
 
@@ -132,7 +182,10 @@ class IdeaViewCardNew extends React.Component {
           executionRes: 0,
           coachRes: '',
           recurringImpact: false,
-          comment: ''
+          comment: '',
+          categoryDuration: false,
+          startDate: '',
+          endDate: ''
         }
 
         this.change = this.change.bind(this);
@@ -912,8 +965,8 @@ class IdeaViewCardNew extends React.Component {
         const questionVisibilityState = ideaQuestionsVisible? 'block' : 'none';
         const nextButtonVisibilityState = !hideNextButton? 'inline' : 'none';
         const ideaItem = this.props.ideaItem;
-        const comments = ideaItem.get("comments")
-        const ideaDate = ideaItem.get("date")
+        const comments = []//ideaItem.get("comments")
+        const ideaDate = Date() //ideaItem.get("date")
         const today = moment()
         const ideaMomentDate = moment(ideaDate)
         const timeDiff = today.diff(ideaMomentDate, 'days')
@@ -921,6 +974,7 @@ class IdeaViewCardNew extends React.Component {
         console.log(ideaMomentDate)
         console.log(today)
         console.log(timeDiff)
+        console.log(ideaStage)
         const parsedDate = this.getDate(ideaDate)
         const nowDate = this.getDate(Date())
         const { t } = this.props;
@@ -947,106 +1001,101 @@ class IdeaViewCardNew extends React.Component {
                       >
                         
                         {/* VISIBILITY */}
-                        <div style={{display: formVisibilityState}}>
-                        <Row form>
+                        <div >
+                        <Row form >
                           {/* Left Part */}
-                          <Col lg="5">
+                          <Col lg="4" className="mx-auto">
                             <Row form>
                               {/* Proponent */}
                               <Col md="12" className="form-group">
-                                <Row className="mt-4">
+                                <Row className="mt-2">
                                   <Col>
-                                    <label htmlFor="firstName" className="georgia">Idea Title</label>
-                                    <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("title")}</h6>
+                                    <label htmlFor="firstName" className="georgia">Choose Language: </label>
+                                    <Select
+                                        // value={ideaItem.get("teamMembers")}
+                                        className="insideFont"
+                                        placeholder='English'
+                                        styles={customStyles}
+                                        onChange={this.setTimeUnit}
+                                        options={[
+                                          {
+                                            value:'English',
+                                            label:'English'
+                                          }, 
+                                          {
+                                            value:'Spanish',
+                                            label:'Spanish'
+                                          }
+                                        ]}
+                                      />
                                   </Col>
                                 </Row>
-
                                 <Row className="mt-4">
-                                  <Col md="6">
-                                    <label htmlFor="firstName" className="georgia">Idea Category</label>
-                                    <Row>
-                                      <Col>
-                                      {this.getIcon('Urgent', 'Black')}
-                                          <div className="mr-auto" style={{width: '100%', backgrounColor: 'black'}}>
-                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("category")}</h6>
-                                          </div>
-                                      </Col>
-                                    </Row>
-                                  </Col>
-                                  <Col md="6">
-                                    <Row className="mt-2">
-                                      <Col>
-                                        <label htmlFor="firstName" className="georgia">Submit Date</label>
-                                        <h6 style={{fontWeight: 500,  color: '#303030'}}>{parsedDate}</h6>
-                                      </Col>
-                                    </Row>
-                                    <Row className="mt-2">
-                                      <Col>
-                                        <label htmlFor="firstName" className="georgia">Employee Response</label>
-                                        <Row>
-                                          <Col md="7">
-                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{timingWording}</h6>
-                                          </Col>
-                                          <Col className="mb-auto" md="1">
-                                            {/* <div className="my-auto" style={{backgroundColor: '#1DE334', height: 16, width: 16, borderRadius: 8}}></div> */}
-                                            { timingWording == "On-Time"? 
-                                            <GreenIcon style={{height: 16, width: 16}}></GreenIcon>
-                                            :
-                                            <RedIcon style={{height: 16, width: 16}}></RedIcon>
-                                            }
-                                          </Col>
-                                          <Col md="1" className="mb-auto">
-                                            <a id={"TooltipResponseInfo"} className="text-right" style={{ color: 'inherit'}} onClick={() => {
-                                                const myCopy = this.state.responseInfo
-                                                myCopy = !myCopy
-                                                this.setState({responseInfo: myCopy})
-                                            }}>
-                                                
-                                                <InfoIcon style={{height: 16, width: 16}}></InfoIcon>
-                                                
-                                            </a>
-                                          </Col>
-                                         
-                                          <Tooltip
-                                            open={this.state.responseInfo}
-                                            target={"#TooltipResponseInfo"}
-                                            id={"TooltipResponseInfo1"}
-                                            toggle={() => {this.toggle()}}
-                                            >
-                                            Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
-                                          </Tooltip>
-                                      </Row>
-
-                                      </Col>
-                                    </Row>
-                                    
-                                  </Col>
+                                    <Col>
+                                        <label htmlFor="firstName" className="georgia">Category Name: *</label>
+                                        <FormInput
+                                            id="categoryName"
+                                            placeholder={'Category name'}
+                                            value={expectedReturn}
+                                            onChange={this.setExpectedReturn}
+                                            className="insideFont"
+                                        />
+                                    </Col>
                                 </Row>
-
                                 <Row className="mt-4">
-                                  <Col>
-                                    <label htmlFor="firstName" className="georgia">Idea Type</label>
-                                    <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("ideaType")}</h6>
-                                  </Col>
+                                    <Col>
+                                        <label htmlFor="firstName" className="georgia">Category Information: * </label>
+                                        <FormTextarea 
+                                        style={{ minHeight: "80px" }}
+                                        id="ideaQuestion"
+                                        className="insideFont"
+                                        placeholder="Type Category Description Here..."
+                                        onChange={(event) => this.commentChangeField(event)}
+                                        required>
+                                        </FormTextarea>
+                                    </Col>
                                 </Row>
-
                                 <Row className="mt-4">
-                                  <Col>
-                                    <label htmlFor="firstName" className="georgia">Department to benefit from idea</label>
-                                    <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("department")}</h6>
-                                  </Col>
-                                </Row>
-
-                                <Row className="mt-4">
-                                  <Col>
-                                    <label htmlFor="firstName" className="georgia">Idea Description</label>
-                                    <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("description")}</h6>
-                                  </Col>
+                                    <Col>
+                                        <Switch 
+                                            isOn={this.state.recurringImpact}
+                                            myKey={'kpi'}
+                                            handleToggle={() => this.setState({recurringImpact: !this.state.recurringImpact})}
+                                            onColor="#633FDA"
+                                            title="KPIs/Metrics"
+                                        />
+                                        {this.state.recurringImpact && 
+                                         <div>
+                                                <FormInput
+                                                    id="kpi1"
+                                                    placeholder={'KPI 1'}
+                                                    // value={kpi1}
+                                                    // onChange={this.setExpectedReturn}
+                                                    className="insideFont mb-2"
+                                                />
+                                                 <FormInput
+                                                    id="kpi2"
+                                                    placeholder={'KPI 2'}
+                                                    // value={kpi2}
+                                                    // onChange={this.setExpectedReturn}
+                                                    className="insideFont mb-2"
+                                                />
+                                                 <FormInput
+                                                    id="kpi3"
+                                                    placeholder={'KPI 3'}
+                                                    // value={expectedReturn}
+                                                    // onChange={this.setExpectedReturn}
+                                                    className="insideFont"
+                                                />
+                                         </div>
+                                        }
+                                    </Col>
                                 </Row>
                               </Col>
     
                             </Row>
                           </Col>
+
                           {/* Divisor Line */}
                           <Col lg="1" className="mx-auto">
                             {/* <div style={{height: 300, width: 10, color: 'blue'}}></div> */}
@@ -1054,100 +1103,110 @@ class IdeaViewCardNew extends React.Component {
                           </Col>
 
                           {/* Right Part */}
-                          { ideaStage == 0 && 
                           
-                            <Col lg="6">
-                                <Row form>
-                                  {ideaItem.get("filterAnswer").map((question, index) => {
-                                      const prefix = 'Q' + (index + 1)+ ': '
-                                      const myQuestion = prefix + question["question"]
-                                      return(
-                                      <Col md="12" className="form-group">
-                                        <Row className="mt-4">
-                                          <Col md="12">
-                                            <label className="georgia">{myQuestion}</label>
-                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{question["answer"]}</h6>
-                                          </Col>
-                                        </Row>
-                                        
-                                          {/* <Row form>
-                                          <Col md="9">
-                                          <p className="mb-2">{question["question"]}</p>
-                                          <p className="mb-2">{question["answer"]}</p>
-                                          </Col>
-                                          </Row> */}
-                                      </Col>)
-                                  })}
-                                  </Row>
-                            </Col>
-                          }
 
                           {ideaStage == 1 && 
-                            <Col lg="6">
-                              <Row form className="mt-4">
-                                <Col md="12" className="form-group">
-                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Choose how to proceed: ' + '*'}</h6>
-                                  <IdeaStatusSelect setEvalStatus={this.setEvalStatus}></IdeaStatusSelect>
+                            <Col lg="5" className="mx-auto">
+                              <Row form className="mt-2">
+                                <Col md="8" className="form-group">
+                                <label htmlFor="firstName" className="georgia">Icons * </label>
+                                  {/* <IdeaStatusSelect setEvalStatus={this.setEvalStatus}></IdeaStatusSelect> */}
+                                  <ImageGallery originalHeight={100} originalWidth={100} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} items={images} />
+                                </Col>
+                                <Col lg="2" className="ml-auto"> 
+                                    <Row className="ml-auto">
+                                        <Col lg="12">
+                                            <DeleteIcon style={{height: 20, width: 20}} onClick={() => window.confirm("This action will delete your category. Do you want to proceed?")}></DeleteIcon>
+                                        </Col>
+                                    </Row> 
+                                    <Row className="ml-auto">
+                                        <Col lg="12">
+                                        <SmallSwitch 
+                                              isOn={this.state.categoryOn}
+                                              myKey={'turnOn'}
+                                              handleToggle={() => this.setState({categoryOn: !this.state.categoryOn})}
+                                              onColor="#79de75"
+                                              title="On/Off"
+                                          />
+                                        </Col>
+                                    </Row>
                                 </Col>
                               </Row>
                               <Row form className="mt-4">
                                 <Col md="12" className="form-group">
-                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Estimate economic/output impact *'}</h6>
-                                  <Row>
-                                    <Col>
-                                      <FormInput
-                                        id="expectedReturn"
-                                        placeholder={'$15,000'}
-                                        value={expectedReturn}
-                                        onChange={this.setExpectedReturn}
-                                        className="insideFont"
-                                      />
+                                <Switch 
+                                    isOn={this.state.categoryDuration}
+                                    handleToggle={() => this.setState({categoryDuration: !this.state.categoryDuration})}
+                                    onColor="#633FDA"
+                                    title="Category Duration"
+                                    myKey={'categoryDuration'}
+                                />
+                                { this.state.categoryDuration && 
+                                <div>
+                                <Row>
+                                    <Col md="2" className="my-auto">
+                                    <label htmlFor="firstName" className="georgia">Start </label>
                                     </Col>
-                                    <Col>
-                                      <Select
-                                        // value={ideaItem.get("teamMembers")}
-                                        className="insideFont"
-                                        placeholder='term'
-                                        styles={customStyles}
-                                        onChange={this.setTimeUnit}
-                                        options={[
-                                          {
-                                            value:'month',
-                                            label:'month'
-                                          }, 
-                                          {
-                                            value:'year',
-                                            label:'year'
-                                          }
-                                        ]}
-                                      />
+                                    <Col className="my-auto" md="9">
+                                    <DatePicker
+                                        value={this.state.startDate}
+                                        placeholderText={this.state.startDate}
+                                        dropdownMode="select"
+                                        className="text-center"
+                                        onChange={(date) => this.setState({startDate: date})} 
+                                        required
+                                        style={{height: 20}}
+                                    />
+                                    {/* } */}
                                     </Col>
-                                    <Col>
-                                      <Switch 
-                                         isOn={this.state.recurringImpact}
-                                        handleToggle={() => this.setState({recurringImpact: !this.state.recurringImpact})}
-                                        onColor="#633FDA"
-                                        title="Recurring Impact"
-                                      />
+                                </Row>
+                                <Row className="mt-2">
+                                    <Col md="2" className="my-auto">
+                                    <label htmlFor="firstName" className="georgia">End </label>
                                     </Col>
-                                  </Row>
+                                    <Col className="my-auto" md="9">
+                                    <DatePicker
+                                        value={this.state.endDate}
+                                        placeholderText={this.state.endDate}
+                                        dropdownMode="select"
+                                        className="text-center"
+                                        onChange={(date) => this.setState({endDate: date})} 
+                                        required
+                                        style={{height: 20}}
+                                    />
+                                    {/* } */}
+                                    </Col>
+                                </Row>
+                                </div>
+                                }
                                 </Col>
                               </Row>
                               <Row form >
                                 <Col md="12" className="form-group">
-                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Comments'}</h6>
-                                    <FormTextarea 
-                                      style={{ minHeight: "80px" }}
-                                      id="ideaQuestion"
-                                      className="insideFont"
-                                      placeholder={t('ANSWER')}
-                                      onChange={(event) => this.commentChangeField(event)}
-                                      required>
-                                    </FormTextarea>
+                                <label htmlFor="firstName" className="georgia">Configured Languages </label>
+                                <Row>
+                                    <Col md="3">
+                                    <h6 style={{fontWeight: 500,  color: '#303030'}}>{'English'}</h6>
+                                    </Col>
+                                    <Col className="mb-auto" md="1">
+                                    <SelectedLanguageIcon style={{height: 20, width: 20}}></SelectedLanguageIcon>
+                                    {/* } */}
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col md="3">
+                                    <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Spanish'}</h6>
+                                    </Col>
+                                    <Col className="mb-auto" md="1">
+                                    <NotSelectedLanguageIcon style={{height: 16, width: 16}}></NotSelectedLanguageIcon>
+                                    {/* } */}
+                                    </Col>
+                                </Row>
                                 </Col>
                               </Row>
                             </Col>
                           }
+                          
 
                           {ideaStage == 2 && 
                             <Col lg="6">
@@ -1258,7 +1317,7 @@ class IdeaViewCardNew extends React.Component {
                             </Col>
                           }
                         </Row>
-
+                        
                         
     
                        
@@ -1284,4 +1343,4 @@ class IdeaViewCardNew extends React.Component {
 
 
 
-export default withTranslation()(IdeaViewCardNew);
+export default withTranslation()(EditCategoryForm);
