@@ -109,7 +109,7 @@ function DepartmentItem({category, updateCategories}) {
                 {/* Change Status Color of Category */}
                 {/* {categoryStatus && <GreenIcon className="ml-4 my-auto" style={{height: 16, width: 16, display: 'inline-block'}}></GreenIcon>}
                 {!categoryStatus && <RedIcon className="ml-4 my-auto" style={{height: 16, width: 16, display: 'inline-block'}}></RedIcon>} */}
-                <div className="ml-4 my-auto" style={{height: '100%', width: 40, display: 'inline-block'}}>
+                <div className="ml-4 mt-3" style={{height: '100%', width: 40, display: 'inline-block'}}>
                   <SmallSwitch 
                       isOn={categoryStatus}
                       myKey={'turnOn' + Math.random()}

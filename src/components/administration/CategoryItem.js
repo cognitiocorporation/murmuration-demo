@@ -103,13 +103,14 @@ function CategoryItem({category, updateCategories}) {
     <Row>
       {/* Latest Orders */}
       <Col lg="10" className="m-auto">
-              <div style={{width: '100%', borderStyle: 'solid',borderColor: 'black', borderWidth: 2, borderRadius: 5, marginBottom: 5, display: 'flex'}}>
+              <div className="my-auto" style={{width: '100%', borderStyle: 'solid',borderColor: 'black', borderWidth: 2, borderRadius: 5, marginBottom: 5, display: 'flex'}}>
 
                 {/* Change Status Color of Category */}
                 {/* {categoryStatus && <GreenIcon className="ml-4 my-auto" style={{height: 16, width: 16, display: 'inline-block'}}></GreenIcon>}
                 {!categoryStatus && <RedIcon className="ml-4 my-auto" style={{height: 16, width: 16, display: 'inline-block'}}></RedIcon>} */}
-                <div className="ml-4 my-auto" style={{height: '100%', width: 40, display: 'inline-block'}}>
+                <div className="ml-4 mt-3" style={{height: '100%', width: 40}}>
                   <SmallSwitch 
+                      // className="mt-auto"
                       isOn={categoryStatus}
                       myKey={'turnOn' + Math.random()}
                       handleToggle={() => updateIdeaCategoryStatus(category, categoryStatus)}
