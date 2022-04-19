@@ -1,0 +1,10 @@
+<svg id="Component_5_1" data-name="Component 5 – 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 445.132 94">
+  <g id="Component_4_1" data-name="Component 4 – 1">
+    <g id="Component_3_1" data-name="Component 3 – 1">
+      <rect id="Rectangle_169" data-name="Rectangle 169" width="94" height="94" fill="#2a2a2a"/>
+    </g>
+    <line id="Line_134" data-name="Line 134" x2="43" transform="translate(25.5 47)" fill="none" stroke="#f6f6f6" stroke-miterlimit="10" stroke-width="15"/>
+    <line id="Line_135" data-name="Line 135" y1="43" transform="translate(47 25.5)" fill="none" stroke="#f6f6f6" stroke-miterlimit="10" stroke-width="15"/>
+  </g>
+  <text id="Add_a_category" data-name="Add a category" transform="translate(135.132 58.737)" font-size="36" font-family="Karrik-Regular, Karrik"><tspan x="0" y="0">Add a department</tspan></text>
+</svg>
