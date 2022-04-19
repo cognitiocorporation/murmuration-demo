@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import PropTypes from "prop-types";
 import { Container, Row, Col, Button, ButtonGroup } from "shards-react";
 import { NavLink } from "react-router-dom";
@@ -6,6 +6,7 @@ import Parse from 'parse';
 
 import PageTitle from "../components/common/PageTitle";
 import EditCategoryForm from "../components/common/EditCategoryForm";
+import CategoryItem from '../components/administration/CategoryItem';
 import { v4 as uuidv4 } from 'uuid';
 
 import colors from "../utils/colors";
@@ -37,6 +38,8 @@ function AdministrationCategories(smallStats) {
   const [canSubmit, setCanSubmit] = useState(false)
   const [finishedSaving, setFinishedSaving] = useState(false)
   const [categoryIsOpen, setCategoryIsOpen] = useState(false)
+  const [categories, setCategories] = useState([])
+  const [newCategory, setNewCategory] = useState([])
   let currUser = Parse.User.current();
   // this.getUserName()
 
@@ -51,7 +54,16 @@ function AdministrationCategories(smallStats) {
   useEffect(() => {
     // Update the document title using the browser API
     setInitialTitle()
-  });
+    getCategories()
+  }, []);
+
+  const getCategories = async() => {
+    const Category = Parse.Object.extend("IdeaCategory");
+    const query = new Parse.Query(Category);
+    const results = await query.find();
+    
+    setCategories(results)
+  }
 
   const changeIdeaStage = () => {
     const newStage = ideaStage + 1
@@ -86,6 +98,37 @@ function AdministrationCategories(smallStats) {
   const changeContinueBtnStatus = (status) => {
    console.log(status)
    setCanContinue(status)
+  }
+
+  const updateCategories = () => {
+    // alert('Update Categories') 
+    setNewCategory([])
+    getCategories()
+  }
+
+  const createCategory = () => {
+    const IdeaCategory = Parse.Object.extend("IdeaCategory");
+    const ideaCategory = new IdeaCategory();
+
+    ideaCategory.set("itemNameTrans", {en: "New Category", es: "Nueva Categoria"});
+    ideaCategory.set("extra", true);
+    ideaCategory.set("icon", "");
+    ideaCategory.set("show", false);
+    ideaCategory.set("itemName", 'newCategory'+Math.random())
+    ideaCategory.set("categoryDescription", {"en": "Category 7 description goes here.","es": "Descripción 7 de categoria va aquí."})
+
+    ideaCategory.save()
+    .then((ideaCategory) => {
+      // Execute any logic that should take place after the object is saved.
+      setNewCategory([ideaCategory])
+    }, (error) => {
+      // Execute any logic that should take place if the save fails.
+      // error is a Parse.Error with an error code and message.
+      console.log(error.message)
+      alert('Error creating new category.')
+    });
+    
+    setCategories()
   }
 
   return (
@@ -124,30 +167,33 @@ function AdministrationCategories(smallStats) {
     {/* Divider */}
     {/* <Col xs="12" md="12" style={{height: 1, width: '100%', backgroundColor: 'black', opacity: 0.2}} className="col d-flex align-items-center"></Col> */}
 
-    <Row>
-      {/* Latest Orders */}
-      <Col lg="10" className="m-auto">
-              <div style={{width: '100%', borderStyle: 'solid',borderColor: 'black', borderWidth: 2, borderRadius: 5, marginBottom: 5, display: 'flex'}}>
-                <GreenIcon className="ml-4 my-auto" style={{height: 16, width: 16, display: 'inline-block'}}></GreenIcon>
-                <div className="ml-4 my-auto" style={{height: '100%', display: 'inline-block'}}>
-                    <h6 className="my-auto" style={{fontWeight: 500,  color: '#303030',}}>{"Category Name"}</h6>
-                </div>
+    {/* Categories */}
 
-                { categoryIsOpen && <ArrowUpIcon onClick={() => setCategoryIsOpen(false)} className="mr-2 ml-auto my-auto" style={{height: 16, width: 16, display: 'inline-block'}}></ArrowUpIcon> }
-                { !categoryIsOpen && <ArrowDownIcon onClick={() => setCategoryIsOpen(true)} className="mr-2 ml-auto my-auto" style={{height: 16, width: 16, display: 'inline-block'}}></ArrowDownIcon>}
-              
-              </div>
-              { categoryIsOpen &&
-              <div style={{backgroundColor: '#F6F6F6',}}>
-               <EditCategoryForm canSubmit={canSubmit} setFinishedSaving={() => setFinished()} ideaStage={ideaStage} changeStatus={(status) => changeBtnStatus(status)} changeContinueStatus={(status) => changeContinueBtnStatus(status)} changeIdeaStage={() => this.changeIdeaStage()}/>
-              </div>
-              }
-      </Col>
-    </Row>
+    { categories && categories.map((category, i) => {
+      return (
+        <Row className="mt-2">
+          <Col md="12" lg="12">
+            <CategoryItem key={i+Math.random()} id={i+Math.random()} category={category} updateCategories={updateCategories}></CategoryItem>
+          </Col>
+        </Row>
+      )
+    })}
+
+    { newCategory && newCategory.map((newCategory, i) => {
+      return (
+        <Row className="mt-2">
+          <Col md="12" lg="12">
+            <CategoryItem key={i+Math.random()} id={i+Math.random()} category={newCategory} isNew={true} updateCategories={updateCategories}></CategoryItem>
+          </Col>
+        </Row>
+      )
+    })}
+
+    
     <Row className="mt-4">
       <Col lg="10" className="m-auto">
        
-        <AddCategoryIcon className="mr-4 d-block mb-4" style={{minWidth: 180, maxWidth:180}} onClick={() => console.log('New Category')}></AddCategoryIcon>
+        <AddCategoryIcon className="mr-4 d-block mb-4" style={{minWidth: 180, maxWidth:180}} onClick={() => createCategory()}></AddCategoryIcon>
        
         {/* {ideaStage == 0 && canGoNext && <SubmitIcon className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIcon>}
         {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} ></SubmitIconNosel>}

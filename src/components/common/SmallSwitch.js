@@ -5,7 +5,7 @@ const SmallSwitch = ({ isOn, handleToggle, onColor, myKey, title }) => {
   console.log(myKey)
   return (
     <div style={{flex: 1}} key={myKey}>
-      <div >
+      <div>
         <input
           checked={isOn}
           onChange={handleToggle}
@@ -22,9 +22,9 @@ const SmallSwitch = ({ isOn, handleToggle, onColor, myKey, title }) => {
         </label>
       </div>
       
-      <div className="my-auto ml-2">
+      {/* <div className="my-auto ml-2">
          <p className="insideFont">{title}</p>
-      </div>
+      </div> */}
      
     </div>
   );

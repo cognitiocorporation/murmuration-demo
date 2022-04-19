@@ -51,6 +51,8 @@ import { ReactComponent as DollarImage } from "../../images/dollar-symbol.svg"
 import { ReactComponent as GreenIcon } from "../../images/green_icon.svg"
 import { ReactComponent as RedIcon } from "../../images/red_icon.svg"
 import { ReactComponent as InfoIcon } from "../../images/info_icon.svg"
+import { ReactComponent as AcceptIcon } from "../../images/accept_button.svg"
+import { ReactComponent as CancelIcon } from "../../images/cancel_button.svg"
 import { ReactComponent as SelectedLanguageIcon } from "../../images/selected_language.svg"
 import { ReactComponent as NotSelectedLanguageIcon } from "../../images/not_selected_language.svg"
 import { ReactComponent as EditIcon } from "../../images/edit.svg"
@@ -102,30 +104,37 @@ const images = [
   {
     original: UrgentImageLocal,
     thumbnail: UrgentImageLocal,
+    name: 'Urgent'
   },
   {
     original: ProductivityImageLocal,
     thumbnail: ProductivityImageLocal,
+    name: 'Productivity'
   },
   {
     original: CheckmarkImageLocal,
     thumbnail: CheckmarkImageLocal,
+    name: 'Checkmark'
   },
   {
     original: TrophyImageLocal,
     thumbnail: TrophyImageLocal,
+    name: 'Trophy'
   },
   {
     original: Shield2ImageLocal,
     thumbnail: Shield2ImageLocal,
+    name: 'Shiel Image'
   },
   {
     original: DollarSignImageLocal,
     thumbnail: DollarSignImageLocal,
+    name: 'Dollar Sign'
   },
   {
     original: NumberOneImageLocal,
     thumbnail: NumberOneImageLocal,
+    name: 'Number One'
   },
 ];
 
@@ -137,6 +146,9 @@ const remCharStyle = {
 class EditCategoryForm extends React.Component {
     constructor(props) {
         super(props);
+
+        // Refs
+        this.galleryRef = React.createRef();
 
         this.state = {
           data:[],
@@ -179,13 +191,22 @@ class EditCategoryForm extends React.Component {
           selectedStatus: ''.length,
           expectedReturn: '',
           timeUnit: '',
+          language: 'en',
           executionRes: 0,
           coachRes: '',
           recurringImpact: false,
           comment: '',
           categoryDuration: false,
           startDate: '',
-          endDate: ''
+          endDate: '',
+          selectedLanguage: {
+            value:'English',
+            label:'English'
+          }, 
+          categoryTitle: '',
+          categoryInformation: '',
+          hasEnglish: false,
+          hasSpanish: false,
         }
 
         this.change = this.change.bind(this);
@@ -200,8 +221,8 @@ class EditCategoryForm extends React.Component {
         this.changeMoney = this.changeMoney.bind(this);
         this.downloadFile = this.downloadFile.bind(this);
         this.setEvalStatus = this.setEvalStatus.bind(this);
-        this.setExpectedReturn = this.setExpectedReturn.bind(this);
-        this.setTimeUnit = this.setTimeUnit.bind(this);
+        this.setCategoryTitle = this.setCategoryTitle.bind(this);
+        this.setLanguage = this.setLanguage.bind(this);
 
     }
 
@@ -213,12 +234,46 @@ class EditCategoryForm extends React.Component {
     }
 
     componentDidMount() {
+      const {categoryData} = this.props;
+      // Category
+
+      this.loadInitialSettings()
+
       let currUser = Parse.User.current();
       this.getUserName(currUser);
-      this.fetchNewData();
+      // this.fetchNewData();
       this.fetchQuestions();
       this.fetchFilterQuestions();
       this.getDate();
+    }
+
+    loadInitialSettings() {
+      const { selectedLanguage } = this.state;
+      const { categoryData } = this.props;
+
+      // Language
+
+      const languageSelector = selectedLanguage.label == "English"? "en":"es"
+      const categoryName = categoryData.get("itemNameTrans")[languageSelector]
+      const categoryInformation = categoryData.get("categoryDescription")[languageSelector]
+
+      // Status On/Off
+      const categoryStatus = categoryData.get('show')
+
+      // English / Spanish Setup
+      const hasEnglish = categoryData.get("itemNameTrans").en != ''
+      const hasSpanish = categoryData.get("itemNameTrans").es != ''
+
+      // Get Category Icon
+      var index = images.findIndex(function(image) {
+        return image.name == categoryData.get("icon")
+      });
+
+      this.galleryRef.current.slideToIndex(index)
+
+
+
+      this.setState({categoryOn: categoryStatus, categoryTitle: categoryName, categoryInformation: categoryInformation, hasEnglish: hasEnglish, hasSpanish: hasSpanish})
     }
 
     getDate() {
@@ -338,26 +393,6 @@ class EditCategoryForm extends React.Component {
       window.location.reload();
     }
 
-    fetchNewData() {
-      const className = "IdeaDepartment";
-
-      var ItemClass = Parse.Object.extend(className);
-      var query = new Parse.Query(ItemClass);
-
-      query.find()
-      .then((results) => {
-          this.setState({
-              data: results
-          });
-          // console.log(results);
-      }, (error) => {
-          this.setState({
-              data: []
-          });
-        // The object was not retrieved successfully.
-        // error is a Parse.Error with an error code and message.
-      });
-    }
 
     fetchQuestions() {
       const className = "IdeaQuestion";
@@ -912,21 +947,24 @@ class EditCategoryForm extends React.Component {
       })
     }
 
-    setExpectedReturn(event) {
-      const amount = event.target.value;
+    setCategoryTitle(event) {
+      const title = event.target.value;
   
       // console.log(isValid);
       this.setState({
-        expectedReturn: amount,
+        categoryTitle: title,
       })
     }
 
-    setTimeUnit(unit) {
+    setLanguage(unit) {
       console.log(unit)
-      this.setState({timeUnit: unit.label})
-      if (this.state.expectedReturn && unit.label) {
-        this.props.changeStatus(true)
-      }
+      this.setState({selectedLanguage: unit}, () => {
+        this.loadInitialSettings()
+    })
+      // this.loadInitialSettings()
+      // if (this.state.expectedReturn && unit.label) {
+      //   this.props.changeStatus(true)
+      // }
     }
 
     changeResponsible(res, idx) {
@@ -947,18 +985,56 @@ class EditCategoryForm extends React.Component {
       console.log(res);
     }
 
-    commentChangeField(res) {
+    changeCategoryInformation(res) {
       const comment = res.target.value
       this.setState({
-        comment: comment
+        categoryInformation: comment
       })
     }
 
-    
+    updateIdea() {
+      const { selectedLanguage, categoryTitle, categoryInformation } = this.state;
+      const {ideaStage, evaluationData, categoryData, refreshIdea} = this.props;
+      
+      const languageSelector = selectedLanguage.label == "English"? "en":"es"
+      const titleTrans = categoryData.get("itemNameTrans")
+      titleTrans[languageSelector] = categoryTitle
+
+      const description = categoryData.get("categoryDescription")
+      description[languageSelector] = categoryInformation
+
+      const iconIndex = this.galleryRef.current.getCurrentIndex()
+      const iconName = images[iconIndex].name
+      console.log(iconIndex)
+      console.log(iconName)
+
+      categoryData.set("itemNameTrans", titleTrans)
+      categoryData.set("categoryDescription", description)
+      categoryData.set("icon", iconName)
+      
+      categoryData.save().then(() => refreshIdea())
+    }
+
+    deleteIdea() {
+      const { selectedLanguage, categoryTitle, categoryInformation } = this.state;
+      const {ideaStage, evaluationData, categoryData, refreshIdea} = this.props;
+      
+      const canDelete = window.confirm('Are you sure you want to delete this category?');
+      
+      if (canDelete) {
+        categoryData.destroy().then(() => {
+          refreshIdea()
+        })
+      }
+    }
+
+    createIdea() {
+
+    }
 
     render() {
-        const {coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
-        const {ideaStage, evaluationData} = this.props;
+        const {selectedLanguage, categoryTitle, categoryInformation, language, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
+        const {ideaStage, evaluationData, categoryData} = this.props;
         const formVisibilityState = visible? 'block' : 'none';
         const filterVisibilityState = filterVisible? 'block' : 'none';
         const filterQuestionVisibilityState = filterQuestionsVisible? 'block' : 'none';
@@ -979,13 +1055,18 @@ class EditCategoryForm extends React.Component {
         const nowDate = this.getDate(Date())
         const { t } = this.props;
 
+        
+
         const customStyles = {
           control: base => ({
             ...base,
             height: 35,
             minHeight: 35
           })
-        };
+        }; 
+
+        const hasEnglish = categoryData.get("itemNameTrans").en != ''
+        const hasSpanish = categoryData.get("itemNameTrans").es != ''
 
         return(
 
@@ -1012,11 +1093,11 @@ class EditCategoryForm extends React.Component {
                                   <Col>
                                     <label htmlFor="firstName" className="georgia">Choose Language: </label>
                                     <Select
-                                        // value={ideaItem.get("teamMembers")}
+                                        value={selectedLanguage}
                                         className="insideFont"
                                         placeholder='English'
                                         styles={customStyles}
-                                        onChange={this.setTimeUnit}
+                                        onChange={this.setLanguage}
                                         options={[
                                           {
                                             value:'English',
@@ -1026,7 +1107,7 @@ class EditCategoryForm extends React.Component {
                                             value:'Spanish',
                                             label:'Spanish'
                                           }
-                                        ]}
+                                        ]}z
                                       />
                                   </Col>
                                 </Row>
@@ -1036,8 +1117,8 @@ class EditCategoryForm extends React.Component {
                                         <FormInput
                                             id="categoryName"
                                             placeholder={'Category name'}
-                                            value={expectedReturn}
-                                            onChange={this.setExpectedReturn}
+                                            value={categoryTitle}
+                                            onChange={this.setCategoryTitle}
                                             className="insideFont"
                                         />
                                     </Col>
@@ -1046,11 +1127,12 @@ class EditCategoryForm extends React.Component {
                                     <Col>
                                         <label htmlFor="firstName" className="georgia">Category Information: * </label>
                                         <FormTextarea 
+                                        value={categoryInformation}
                                         style={{ minHeight: "80px" }}
                                         id="ideaQuestion"
                                         className="insideFont"
                                         placeholder="Type Category Description Here..."
-                                        onChange={(event) => this.commentChangeField(event)}
+                                        onChange={(event) => this.changeCategoryInformation(event)}
                                         required>
                                         </FormTextarea>
                                     </Col>
@@ -1108,19 +1190,13 @@ class EditCategoryForm extends React.Component {
                           {ideaStage == 1 && 
                             <Col lg="5" className="mx-auto">
                               <Row form className="mt-2">
-                                <Col md="8" className="form-group">
+                                <Col md="6" className="form-group">
                                 <label htmlFor="firstName" className="georgia">Icons * </label>
                                   {/* <IdeaStatusSelect setEvalStatus={this.setEvalStatus}></IdeaStatusSelect> */}
-                                  <ImageGallery originalHeight={100} originalWidth={100} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} items={images} />
+                                  <ImageGallery ref={this.galleryRef} originalHeight={100} originalWidth={100} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} items={images} />
                                 </Col>
-                                <Col lg="2" className="ml-auto"> 
+                                {/* <Col lg="2" className="ml-auto">  
                                     <Row className="ml-auto">
-                                        <Col lg="12">
-                                            <DeleteIcon style={{height: 20, width: 20}} onClick={() => window.confirm("This action will delete your category. Do you want to proceed?")}></DeleteIcon>
-                                        </Col>
-                                    </Row> 
-                                    <Row className="ml-auto">
-                                        <Col lg="12">
                                         <SmallSwitch 
                                               isOn={this.state.categoryOn}
                                               myKey={'turnOn'}
@@ -1128,9 +1204,8 @@ class EditCategoryForm extends React.Component {
                                               onColor="#79de75"
                                               title="On/Off"
                                           />
-                                        </Col>
                                     </Row>
-                                </Col>
+                                </Col> */}
                               </Row>
                               <Row form className="mt-4">
                                 <Col md="12" className="form-group">
@@ -1182,25 +1257,44 @@ class EditCategoryForm extends React.Component {
                                 </Col>
                               </Row>
                               <Row form >
-                                <Col md="12" className="form-group">
-                                <label htmlFor="firstName" className="georgia">Configured Languages </label>
+                                <Col md="8" className="form-group">
+                                  <label htmlFor="firstName" className="georgia">Configured Languages </label>
+                                  <Row>
+                                      <Col md="3">
+                                      <h6 style={{fontWeight: 500,  color: '#303030'}}>{'English'}</h6>
+                                      </Col>
+                                      <Col className="mb-auto" md="1">
+                                      { hasEnglish && <SelectedLanguageIcon style={{height: 20, width: 20}}></SelectedLanguageIcon>}
+                                      { !hasEnglish && <NotSelectedLanguageIcon style={{height: 16, width: 16}}></NotSelectedLanguageIcon>}
+                                      {/* } */}
+                                      </Col>
+                                  </Row>
+                                  <Row>
+                                      <Col md="3">
+                                      <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Spanish'}</h6>
+                                      </Col>
+                                      <Col className="mb-auto" md="1">
+                                      { hasSpanish && <SelectedLanguageIcon style={{height: 20, width: 20}}></SelectedLanguageIcon>}
+                                      { !hasSpanish && <NotSelectedLanguageIcon style={{height: 16, width: 16}}></NotSelectedLanguageIcon>}
+                                      {/* } */}
+                                      </Col>
+                                  </Row>
+                                </Col>
+                                <Col md="4" className="mt-auto">
                                 <Row>
-                                    <Col md="3">
-                                    <h6 style={{fontWeight: 500,  color: '#303030'}}>{'English'}</h6>
-                                    </Col>
-                                    <Col className="mb-auto" md="1">
-                                    <SelectedLanguageIcon style={{height: 20, width: 20}}></SelectedLanguageIcon>
-                                    {/* } */}
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col md="3">
-                                    <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Spanish'}</h6>
-                                    </Col>
-                                    <Col className="mb-auto" md="1">
-                                    <NotSelectedLanguageIcon style={{height: 16, width: 16}}></NotSelectedLanguageIcon>
-                                    {/* } */}
-                                    </Col>
+                                  <Col md="4" className="ml-auto">
+                                   
+                                  </Col>
+                                  <Col md="8">
+                                    <Row>
+                                      <Col md="5">
+                                      <AcceptIcon style={{height: 34, width: 34}} onClick={() => this.updateIdea()}></AcceptIcon>
+                                      </Col>
+                                      <Col md="5">
+                                      <CancelIcon style={{height: 34, width: 34}} onClick={() => this.deleteIdea()}></CancelIcon>
+                                      </Col>
+                                    </Row>
+                                  </Col>
                                 </Row>
                                 </Col>
                               </Row>
