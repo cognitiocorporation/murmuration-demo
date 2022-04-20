@@ -1268,6 +1268,13 @@ export default function () {
         htmlAfter: '',
       },
       {
+        title: "Questions 2.0", //'Categorias / Departamentos'
+        to: '/administration-questions',
+        roles:['super_user'],
+        htmlBefore: '<i class="material-icons">record_voice_over</i>',
+        htmlAfter: '',
+      },
+      {
         title: t("MENU_USERS"), //'Usuarios',
         to: '/administracion-user',
         roles:['super_user'],

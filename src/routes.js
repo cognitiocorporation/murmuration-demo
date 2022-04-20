@@ -35,6 +35,7 @@ import IconSidebarView from "./views/IconSidebar";
 import Administration from "./views/Administration";
 import AdministrationUsers from "./views/AdministrationUsers";
 import AdministrationUsersNew from "./views/AdministrationUsersNew";
+import AdministrationQuestions from "./views/AdministrationQuestions";
 import AdministrationComite from "./views/AdministrationComite";
 import AdministrationCatsDepts from "./views/AdministrationCatsDepts";
 import AdministrationCategories from "./views/AdministrationCategories";
@@ -59,8 +60,8 @@ export default [
     exact: true,
     layout: DefaultLayout,
     protected: true,
-    component: () => <Redirect to="/submit-idea-new" />
-  },//<Redirect to="/administration-users" />
+    component: () => <Redirect to="/administration-questions" />
+  },//<Redirect to="/submit-idea-new" />
   {
     path: "/analytics",
     layout: DefaultLayout,
@@ -84,6 +85,12 @@ export default [
     layout: DefaultLayout,
     protected: true,
     component: AdministrationUsersNew
+  },
+  {
+    path: "/administration-questions",
+    layout: DefaultLayout,
+    protected: true,
+    component: AdministrationQuestions
   },
   {
     path: "/administracion-comite",
