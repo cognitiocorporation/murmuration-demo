@@ -34,6 +34,7 @@ import HeaderNav from "./views/HeaderNavigation";
 import IconSidebarView from "./views/IconSidebar";
 import Administration from "./views/Administration";
 import AdministrationUsers from "./views/AdministrationUsers";
+import AdministrationUsersNew from "./views/AdministrationUsersNew";
 import AdministrationComite from "./views/AdministrationComite";
 import AdministrationCatsDepts from "./views/AdministrationCatsDepts";
 import AdministrationCategories from "./views/AdministrationCategories";
@@ -59,7 +60,7 @@ export default [
     layout: DefaultLayout,
     protected: true,
     component: () => <Redirect to="/submit-idea-new" />
-  },
+  },//<Redirect to="/administration-users" />
   {
     path: "/analytics",
     layout: DefaultLayout,
@@ -77,6 +78,12 @@ export default [
     layout: DefaultLayout,
     protected: true,
     component: AdministrationUsers
+  },
+  {
+    path: "/administration-users",
+    layout: DefaultLayout,
+    protected: true,
+    component: AdministrationUsersNew
   },
   {
     path: "/administracion-comite",
