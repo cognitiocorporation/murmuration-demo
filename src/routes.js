@@ -60,8 +60,8 @@ export default [
     exact: true,
     layout: DefaultLayout,
     protected: true,
-    component: () => <Redirect to="/administration-questions" />
-  },//<Redirect to="/submit-idea-new" />
+    component: () => <Redirect to="/submit-idea-new" />
+  },//<Redirect to="/administration-questions" />
   {
     path: "/analytics",
     layout: DefaultLayout,
