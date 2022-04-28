@@ -752,7 +752,7 @@ class EvaluateIdeaForm extends React.Component {
                                 <label htmlFor="userLocation">{t('SUBMIT_IDEA_Category')}</label>
                                 <FormInput
                                   id="firstName"
-                                  value={ideaItem.get("category")}
+                                  value={ideaItem.get("itemNameTrans").en}
                                   onChange={() => {}}
                                   required
                                   disabled

@@ -319,6 +319,8 @@ class CategorySelect extends React.Component {
                 return newIcons[4].selected;
             case 'Dollar':
                 return newIcons[5].selected;
+            case 'Dollar Sign':
+                return newIcons[5].selected;
             case 'Number One':
                 return newIcons[6].selected;
             default:
@@ -336,8 +338,9 @@ class CategorySelect extends React.Component {
 
     render() {
         const { allCats, bgColor, sq1Color, sq2Color, sq3Color, sq4Color, handIcon, shieldIcon, chartIcon, clockIcon, titleColor1, titleColor2, titleColor3, titleColor4, showAction, showProductivity, showQuality, showSecurity, showExtra, titleColor5, sq5Color, extraName, extraIcon } = this.state
-        const { t, categoryName, categoryIcon } = this.props;
+        const { t, categoryName, categoryIcon, categoryDescription } = this.props;
         const storageLanguage = localStorage.getItem('language');
+        const myDescription = categoryDescription[storageLanguage]
         return(
             <div className="container">
                 <Row>
@@ -348,7 +351,7 @@ class CategorySelect extends React.Component {
                     {/* <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: myCategory.get("color")}}/> */}
                     {this.getIcon(categoryName, 'Black')}
                     <div className="mr-auto mt-4" style={{width: '70%', backgrounColor: 'black'}}>
-                        {categoryName && <p style={{color: titleColor1, textAlign: 'left', fontSize: 12, fontWeight: 600}}>{'Type Category Description Here. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, seddiam nonummy nibh euismod tincidunt'}</p>}
+                        {categoryName && <p style={{color: titleColor1, textAlign: 'left', fontSize: 12, fontWeight: 600}}>{myDescription}</p>}
                     </div>
                 </div>
                 {/* </Col> */}

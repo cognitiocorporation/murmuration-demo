@@ -86,21 +86,20 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
    font-family: 'Karrik';
    font-style: normal;
    font-weight: 400;
-   src: url(src/assets/font/Karrik-Regular.eot); /* For IE6-8 */
-   src: local('Karrik'),
-        local('Karrik-Regular'),
-        url(src/assets/font/Karrik-Regular.woff2) format('woff2'),
-        url(src/assets/font/Karrik-Regular.woff) format('woff'),
-        url(src/assets/font/Karrik-Regular.ttf) format('truetype');
+   src: url('src/assets/font/Karrik-Regular.eot?#iefix') format('embedded-opentype'), /* For IE6-8 */
+        url('src/assets/font/Karrik-Regular.woff2') format('woff2'),
+        url('src/assets/font/Karrik-Regular.woff') format('woff'),
+        url('src/assets/font/Karrik-Regular.ttf') format('truetype');
 }
 
 
 @font-face {
-  font-family: 'Georgia';
+  font-family: "Georgia";
   font-style: normal;
   font-weight: 400;
-  src: url(../assets/font/Georgia.ttf) format('ttf');
+  src: url("../assets/font/Georgia.ttf") format('ttf');
 }
+
 body {
 -webkit-text-size-adjust: 100%;
 text-size-adjust: 100%;

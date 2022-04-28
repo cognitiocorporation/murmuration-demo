@@ -101,16 +101,21 @@ class IdeaQuestionsNew extends React.Component {
   }
 
   deleteItem(item) {
-    item.destroy({})
-    .then((item) => {
-    // Execute any logic that should take place after the object is saved.
-      this.fetchNewData();
-      alert('¡La operacion fue exitosa!');
-    }, (error) => {
-      // Execute any logic that should take place if the save fails.
-      // error is a Parse.Error with an error code and message.
-      alert('Hubo un error en la operacion: ' + error.message);
-    });
+
+    const canDelete = window.confirm('Are you sure you want to delete this question?')
+    if (canDelete) {
+      item.destroy({})
+      .then((item) => {
+      // Execute any logic that should take place after the object is saved.
+        this.fetchNewData();
+        
+      }, (error) => {
+        // Execute any logic that should take place if the save fails.
+        // error is a Parse.Error with an error code and message.
+        alert('Hubo un error en la operacion: ' + error.message);
+      });
+    } 
+    
   }
 
   editItem(item) {

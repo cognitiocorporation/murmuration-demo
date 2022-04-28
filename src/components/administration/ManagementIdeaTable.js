@@ -210,7 +210,7 @@ class ManagementIdeaTable extends React.Component {
             <table className="table mb-0">
               <thead className="py-2 bg-light text-semibold border-bottom">
                 <tr>
-                  <th className="text-center">{t("IDEA_MANAGE_OPEN")}</th>
+                  
                   <th className="text-center">{t("IDEA_MANAGE_NUM")}</th>
                   {/* <th className="text-center">Categoria</th> */}
                   <th className="text-center">{t("IDEA_MANAGE_TITLE")}</th>
@@ -223,13 +223,6 @@ class ManagementIdeaTable extends React.Component {
               <tbody>
                 {filteredIdeas.map((item, idx) => (
                   <tr key={idx}>
-                    <td className="lo-stats__actions ">
-                      <ButtonGroup className="d-table ml-auto">
-                      <Button pill outline size="sm" theme="danger" onClick={() => this.props.onViewIdeaPress(item)}>
-                        <i className="material-icons">visibility</i>
-                      </Button>
-                      </ButtonGroup>
-                      </td>
                     <td className="lo-stats__order-details text-center ">
                       {item.get("num")}
                     </td>
@@ -249,11 +242,11 @@ class ManagementIdeaTable extends React.Component {
                     </td>
                     <td className="lo-stats__actions ">
                       <ButtonGroup className="d-table ml-auto">
-                        <Button pill outline size="sm" theme="danger" onClick={() => this.props.onEditActionPress(item)}>
+                      <Button pill outline size="sm" theme="danger" onClick={() => this.props.onViewIdeaPress(item)}>
                         <i className="material-icons">create</i>
-                        </Button>
+                      </Button>
                       </ButtonGroup>
-                    </td>
+                      </td>
                   </tr>
                 ))}
               </tbody>

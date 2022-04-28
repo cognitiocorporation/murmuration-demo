@@ -190,7 +190,7 @@ function AdministrationUsersNew(smallStats) {
     
     <Row className="mt-2">
         <Col md="12" lg="12">
-        { showUser && <NewUserItem key={Math.random()} id={Math.random()}  updateUsers={updateCategories} user={user}></NewUserItem>}
+          <NewUserItem key={Math.random()} id={Math.random()}  open={showUser} updateUsers={updateCategories} user={user}></NewUserItem>
         </Col>
     </Row>
     

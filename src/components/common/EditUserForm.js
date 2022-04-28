@@ -1038,23 +1038,24 @@ class EditUserForm extends React.Component {
       var sessionToken = Parse.User.current().getSessionToken();
       var user = new Parse.User();
 
-      if (firstName == '' || lastName == '' || email == '' || password == '' || privileges.length == 0 || department == '' || supervisor == '') {
+      if (firstName == '' || lastName == '' || email == '' || password == '' || department == '') {
         alert('Please enter all required information.');
       } else {
 
         // Check if super-user
-        const isSuperUser = privileges.some(e => e.label === 'Super User')
+        const isSuperUser = privileges.length !== 0 && privileges.some(e => e.label === 'Super User')
         // Check if Coach
-        const isCoach = privileges.some(e => e.label === 'Coach')
+        const isCoach = privileges.length !== 0 && privileges.some(e => e.label === 'Coach')
         // Check if Supervisor
-        const isSupervisor = privileges.some(e => e.label === 'Supervisor')
+        const isSupervisor = privileges.length !== 0 && privileges.some(e => e.label === 'Supervisor')
 
         // User type
         const userType = isSuperUser? 'super_user':'user'
 
         // Supervisor email
-        const supervisorData = supervisor.value
-        const supervisorEmail = supervisorData.get("username")
+        const supervisorData = supervisor ? supervisor.value : ""
+        const supervisorEmail = supervisorData?supervisorData.get("username"):""
+        
         console.log(supervisorEmail)
 
           user.set("username", email)

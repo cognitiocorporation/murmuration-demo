@@ -166,6 +166,7 @@ class IdeaViewCardNew extends React.Component {
       this.fetchQuestions();
       this.fetchFilterQuestions();
       this.getDate();
+      this.fetchCategoryData()
     }
 
     getDate() {
@@ -298,6 +299,33 @@ class IdeaViewCardNew extends React.Component {
           });
           // console.log(results);
       }, (error) => {
+          this.setState({
+              data: []
+          });
+        // The object was not retrieved successfully.
+        // error is a Parse.Error with an error code and message.
+      });
+    }
+
+    fetchCategoryData() {
+      const ideaItem = this.props.ideaItem;
+      const ideaCategory = ideaItem.get("category")
+
+      const className = "IdeaCategory";
+
+      var ItemClass = Parse.Object.extend(className);
+      var query = new Parse.Query(ItemClass);
+
+      // alert(ideaCategory)
+      query.equalTo("itemName", ideaCategory);
+      query.find()
+      .then((results) => {
+          this.setState({
+              ideaCategory: results[0]
+          });
+          // console.log(results);
+      }, (error) => {
+        console.log(error)
           this.setState({
               data: []
           });
@@ -827,6 +855,8 @@ class IdeaViewCardNew extends React.Component {
               return newIcons[4].selected;
           case 'Dollar':
               return newIcons[5].selected;
+          case 'Dollar Sign':
+            return newIcons[5].selected;
           case 'Number One':
               return newIcons[6].selected;
           case 'Approve':
@@ -904,7 +934,7 @@ class IdeaViewCardNew extends React.Component {
     
 
     render() {
-        const {coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
+        const {ideaCategory, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
         const {ideaStage, evaluationData} = this.props;
         const formVisibilityState = visible? 'block' : 'none';
         const filterVisibilityState = filterVisible? 'block' : 'none';
@@ -932,6 +962,9 @@ class IdeaViewCardNew extends React.Component {
             minHeight: 35
           })
         };
+        const storageLanguage = localStorage.getItem('language');
+        const myIcon = ideaCategory && ideaCategory.get("icon")
+        const categoryTitle = ideaCategory && ideaCategory.get("itemNameTrans")[storageLanguage]
 
         return(
 
@@ -966,9 +999,9 @@ class IdeaViewCardNew extends React.Component {
                                     <label htmlFor="firstName" className="georgia">Idea Category</label>
                                     <Row>
                                       <Col>
-                                      {this.getIcon('Urgent', 'Black')}
+                                      {this.getIcon(myIcon, 'Black')}
                                           <div className="mr-auto" style={{width: '100%', backgrounColor: 'black'}}>
-                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("category")}</h6>
+                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{categoryTitle}</h6>
                                           </div>
                                       </Col>
                                     </Row>

@@ -39,7 +39,7 @@ function AdministrationCategories(smallStats) {
   const [finishedSaving, setFinishedSaving] = useState(false)
   const [categoryIsOpen, setCategoryIsOpen] = useState(false)
   const [categories, setCategories] = useState([])
-  const [newCategory, setNewCategory] = useState([])
+  const [newCategory, setNewCategory] = useState('')
   let currUser = Parse.User.current();
   // this.getUserName()
 
@@ -102,7 +102,8 @@ function AdministrationCategories(smallStats) {
 
   const updateCategories = () => {
     // alert('Update Categories') 
-    setNewCategory([])
+    alert('Your category was updated succesfully!')
+    setNewCategory('')
     getCategories()
   }
 
@@ -110,25 +111,27 @@ function AdministrationCategories(smallStats) {
     const IdeaCategory = Parse.Object.extend("IdeaCategory");
     const ideaCategory = new IdeaCategory();
 
-    ideaCategory.set("itemNameTrans", {en: "New Category", es: "Nueva Categoria"});
+    ideaCategory.set("itemNameTrans", {en: "", es: ""});
     ideaCategory.set("extra", true);
     ideaCategory.set("icon", "");
     ideaCategory.set("show", false);
     ideaCategory.set("itemName", 'newCategory'+Math.random())
-    ideaCategory.set("categoryDescription", {"en": "Category 7 description goes here.","es": "Descripción 7 de categoria va aquí."})
+    ideaCategory.set("categoryDescription", {en: "",es: ""})
+    setNewCategory(ideaCategory)
+    // ideaCategory.save()
+    // .then((ideaCategory) => {
+    //   // Execute any logic that should take place after the object is saved.
+    //   setNewCategory([ideaCategory])
+    // }, (error) => {
+    //   // Execute any logic that should take place if the save fails.
+    //   // error is a Parse.Error with an error code and message.
+    //   console.log(error.message)
+    //   alert('Error creating new category.')
+    // });
 
-    ideaCategory.save()
-    .then((ideaCategory) => {
-      // Execute any logic that should take place after the object is saved.
-      setNewCategory([ideaCategory])
-    }, (error) => {
-      // Execute any logic that should take place if the save fails.
-      // error is a Parse.Error with an error code and message.
-      console.log(error.message)
-      alert('Error creating new category.')
-    });
     
-    setCategories()
+    
+    // setCategories()
   }
 
   return (
@@ -179,7 +182,15 @@ function AdministrationCategories(smallStats) {
       )
     })}
 
-    { newCategory && newCategory.map((newCategory, i) => {
+    {newCategory && 
+      <Row className="mt-2">
+       <Col md="12" lg="12">
+          <CategoryItem key={Math.random()} id={Math.random()} category={newCategory} isNew={true} updateCategories={updateCategories}></CategoryItem>
+       </Col>
+      </Row>
+    }
+
+    {/* { newCategory && newCategory.map((newCategory, i) => {
       return (
         <Row className="mt-2">
           <Col md="12" lg="12">
@@ -187,7 +198,7 @@ function AdministrationCategories(smallStats) {
           </Col>
         </Row>
       )
-    })}
+    })} */}
 
     
     <Row className="mt-4">

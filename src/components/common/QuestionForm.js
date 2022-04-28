@@ -1104,7 +1104,7 @@ class QuestionForm extends React.Component {
 
 
 
-      if (question == '' || questionSpanish == '' || questionType == '' || filterType == '' || filterTypeValue == '') {
+      if (question == '' || questionType == '' || filterType == '' || filterTypeValue == '') {
         alert('Please enter all required information.');
       } else {
 
@@ -1140,7 +1140,7 @@ class QuestionForm extends React.Component {
         const isField = questionType.label == 'Comment Box'
         const questionTrans = {
             en: question,
-            es: questionSpanish
+            es: questionSpanish?questionSpanish:''
         }
 
         ideaQuestion.set("questionTrans", questionTrans)

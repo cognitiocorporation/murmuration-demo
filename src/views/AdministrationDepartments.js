@@ -40,7 +40,7 @@ function AdministrationDepartments(smallStats) {
   const [finishedSaving, setFinishedSaving] = useState(false)
   const [categoryIsOpen, setCategoryIsOpen] = useState(false)
   const [departments, setDepartments] = useState([])
-  const [newCategory, setNewCategory] = useState([])
+  const [newCategory, setNewCategory] = useState('')
   let currUser = Parse.User.current();
   // this.getUserName()
 
@@ -102,8 +102,8 @@ function AdministrationDepartments(smallStats) {
   }
 
   const updateCategories = () => {
-    // alert('Update Categories') 
-    setNewCategory([])
+    alert('Your department was updated succesfully!') 
+    setNewCategory('')
     getCategories()
   }
 
@@ -111,23 +111,11 @@ function AdministrationDepartments(smallStats) {
     const IdeaDepartment= Parse.Object.extend("IdeaDepartment");
     const ideaDepartment = new IdeaDepartment();
 
-    ideaDepartment.set("itemNameTrans", {en: "New Department", es: "Nueva Department"});
+    ideaDepartment.set("itemNameTrans", {en: "", es: ""});
     ideaDepartment.set("show", false);
     ideaDepartment.set("itemName", 'newCategory'+Math.random())
-    
 
-    ideaDepartment.save()
-    .then((ideaDepartment) => {
-      // Execute any logic that should take place after the object is saved.
-      setNewCategory([ideaDepartment])
-    }, (error) => {
-      // Execute any logic that should take place if the save fails.
-      // error is a Parse.Error with an error code and message.
-      console.log(error.message)
-      alert('Error creating new category.')
-    });
-    
-    setDepartments()
+    setNewCategory(ideaDepartment)
   }
 
   return (
@@ -178,15 +166,13 @@ function AdministrationDepartments(smallStats) {
       )
     })}
 
-    { newCategory && newCategory.map((newCategory, i) => {
-      return (
+    { newCategory && 
         <Row className="mt-2">
           <Col md="12" lg="12">
-            <DepartmentItem key={i+Math.random()} id={i+Math.random()} category={newCategory} isNew={true} updateCategories={updateCategories}></DepartmentItem>
+            <DepartmentItem key={Math.random()} id={Math.random()} category={newCategory} isNew={true} updateCategories={updateCategories}></DepartmentItem>
           </Col>
         </Row>
-      )
-    })}
+    }
 
     
     <Row className="mt-4">

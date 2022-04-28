@@ -1294,7 +1294,8 @@ export default function () {
       roles:['super_user'],
       htmlBefore: '<i class="material-icons">record_voice_over</i>',
       htmlAfter: '',
-    }]
+    }
+    ]
     }
   ],
   },];

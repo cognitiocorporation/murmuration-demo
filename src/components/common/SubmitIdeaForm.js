@@ -82,7 +82,8 @@ class SubmitIdeaForm extends React.Component {
           selectedEmployees: [],
           categoryIcon: '',
           hasAttachment: false,
-          hasATeam: false
+          hasATeam: false,
+          categoryDescription: ''
         }
 
         this.change = this.change.bind(this);
@@ -531,10 +532,11 @@ class SubmitIdeaForm extends React.Component {
       // console.log(event.target.value);
     }
 
-    setCategory(categoryName, categoryIcon) {
+    setCategory(categoryName, categoryIcon, description) {
       this.setState({
         category: categoryName,
-        categoryIcon: categoryIcon
+        categoryIcon: categoryIcon,
+        categoryDescription: description
       })
 
       this.handleCategoryChange(categoryName)
@@ -799,7 +801,7 @@ class SubmitIdeaForm extends React.Component {
                         <Row form>
                           <Col md="6">
                           <h6 style={{fontWeight: 500, color: '#303030'}}>Selected Category: </h6>
-                            <SelectedCategoryDisplay categoryName={this.state.categoryIcon} setCategory={this.setCategory} department={this.props.department}></SelectedCategoryDisplay>
+                            <SelectedCategoryDisplay categoryName={this.state.categoryIcon} categoryDescription={this.state.categoryDescription} setCategory={this.setCategory} department={this.props.department}></SelectedCategoryDisplay>
                           </Col>
                           
                           {/* Idea Description */}

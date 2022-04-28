@@ -204,7 +204,9 @@ class EditDepartmentForm extends React.Component {
             label:'English'
           }, 
           categoryTitle: '',
+          categoryTitleSpanish: '',
           categoryInformation: '',
+          categoryInformationSpanish: '',
           hasEnglish: false,
           hasSpanish: false,
         }
@@ -254,7 +256,8 @@ class EditDepartmentForm extends React.Component {
       // Language
 
       const languageSelector = selectedLanguage.label == "English"? "en":"es"
-      const departmentName = categoryData.get("itemNameTrans")[languageSelector]
+      const departmentName = categoryData.get("itemNameTrans").en
+      const departmentNameSpanish = categoryData.get("itemNameTrans").es
 
 
       // Status On/Off
@@ -264,7 +267,7 @@ class EditDepartmentForm extends React.Component {
       const hasEnglish = categoryData.get("itemNameTrans").en != ''
       const hasSpanish = categoryData.get("itemNameTrans").es != ''
 
-      this.setState({categoryOn: departmentStatus, categoryTitle: departmentName, hasEnglish: hasEnglish, hasSpanish: hasSpanish})
+      this.setState({categoryOn: departmentStatus, categoryTitle: departmentName, categoryTitleSpanish: departmentNameSpanish, hasEnglish: hasEnglish, hasSpanish: hasSpanish})
     }
 
     getDate() {
@@ -940,17 +943,22 @@ class EditDepartmentForm extends React.Component {
 
     setCategoryTitle(event) {
       const title = event.target.value;
-  
-      // console.log(isValid);
-      this.setState({
-        categoryTitle: title,
-      })
+
+      if (this.state.selectedLanguage.value == "English") {
+        this.setState({
+          categoryTitle: title,
+        })
+      } else {
+        this.setState({
+          categoryTitleSpanish: title,
+        })
+      }
     }
 
     setLanguage(unit) {
       console.log(unit)
       this.setState({selectedLanguage: unit}, () => {
-        this.loadInitialSettings()
+      
     })
       // this.loadInitialSettings()
       // if (this.state.expectedReturn && unit.label) {
@@ -984,13 +992,15 @@ class EditDepartmentForm extends React.Component {
     }
 
     updateIdea() {
-      const { selectedLanguage, categoryTitle, categoryInformation } = this.state;
+      const { selectedLanguage, categoryTitle, categoryTitleSpanish, categoryInformation } = this.state;
       const {ideaStage, evaluationData, categoryData, refreshIdea} = this.props;
       
       const languageSelector = selectedLanguage.label == "English"? "en":"es"
       const titleTrans = categoryData.get("itemNameTrans")
-      titleTrans[languageSelector] = categoryTitle     
-
+      titleTrans.en = categoryTitle
+      titleTrans.es = categoryTitleSpanish
+      
+      categoryData.set("itemName", categoryTitle)
       categoryData.set("itemNameTrans", titleTrans)
       
       categoryData.save().then(() => refreshIdea())
@@ -1014,7 +1024,7 @@ class EditDepartmentForm extends React.Component {
     }
 
     render() {
-        const {selectedLanguage, categoryTitle, categoryInformation, language, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
+        const {categoryTitleSpanish, selectedLanguage, categoryTitle, categoryInformation, language, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
         const {ideaStage, evaluationData, categoryData} = this.props;
         const formVisibilityState = visible? 'block' : 'none';
         const filterVisibilityState = filterVisible? 'block' : 'none';
@@ -1046,8 +1056,8 @@ class EditDepartmentForm extends React.Component {
           })
         }; 
 
-        const hasEnglish = categoryData.get("itemNameTrans").en != ''
-        const hasSpanish = categoryData.get("itemNameTrans").es != ''
+        const hasEnglish = categoryTitle != ''
+        const hasSpanish = categoryTitleSpanish != ''
 
         return(
 
@@ -1098,7 +1108,7 @@ class EditDepartmentForm extends React.Component {
                                         <FormInput
                                             id="categoryName"
                                             placeholder={'Category name'}
-                                            value={categoryTitle}
+                                            value={this.state.selectedLanguage.value == "English"?categoryTitle:categoryTitleSpanish}
                                             onChange={this.setCategoryTitle}
                                             className="insideFont"
                                         />

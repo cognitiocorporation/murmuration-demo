@@ -204,9 +204,12 @@ class EditCategoryForm extends React.Component {
             label:'English'
           }, 
           categoryTitle: '',
+          categoryTitleSpanish: '',
           categoryInformation: '',
+          categoryInformationSpanish: '',
           hasEnglish: false,
           hasSpanish: false,
+
         }
 
         this.change = this.change.bind(this);
@@ -254,8 +257,14 @@ class EditCategoryForm extends React.Component {
       // Language
 
       const languageSelector = selectedLanguage.label == "English"? "en":"es"
-      const categoryName = categoryData.get("itemNameTrans")[languageSelector]
-      const categoryInformation = categoryData.get("categoryDescription")[languageSelector]
+      const categoryName = categoryData.get("itemNameTrans").en
+      const categoryNameSpanish = categoryData.get("itemNameTrans").es
+
+      const categoryInformation = categoryData.get("categoryDescription").en
+      const categoryInformationSpanish = categoryData.get("categoryDescription").es
+
+      
+
 
       // Status On/Off
       const categoryStatus = categoryData.get('show')
@@ -273,7 +282,7 @@ class EditCategoryForm extends React.Component {
 
 
 
-      this.setState({categoryOn: categoryStatus, categoryTitle: categoryName, categoryInformation: categoryInformation, hasEnglish: hasEnglish, hasSpanish: hasSpanish})
+      this.setState({categoryOn: categoryStatus, categoryTitle: categoryName, categoryTitleSpanish: categoryNameSpanish, categoryInformationSpanish: categoryInformationSpanish, categoryInformation: categoryInformation, hasEnglish: hasEnglish, hasSpanish: hasSpanish})
     }
 
     getDate() {
@@ -949,18 +958,29 @@ class EditCategoryForm extends React.Component {
 
     setCategoryTitle(event) {
       const title = event.target.value;
-  
+
+      // Confirm Length
+      if (title.length >= 30) {
+        alert('Title should contain less than 30 characters.')
+      } else {
+        if (this.state.selectedLanguage.value == "English") {
+          this.setState({
+            categoryTitle: title,
+          })
+        } else {
+          this.setState({
+            categoryTitleSpanish: title,
+          })
+        }
+    
+      }
+
       // console.log(isValid);
-      this.setState({
-        categoryTitle: title,
-      })
     }
 
     setLanguage(unit) {
       console.log(unit)
-      this.setState({selectedLanguage: unit}, () => {
-        this.loadInitialSettings()
-    })
+      this.setState({selectedLanguage: unit})
       // this.loadInitialSettings()
       // if (this.state.expectedReturn && unit.label) {
       //   this.props.changeStatus(true)
@@ -987,27 +1007,37 @@ class EditCategoryForm extends React.Component {
 
     changeCategoryInformation(res) {
       const comment = res.target.value
-      this.setState({
-        categoryInformation: comment
-      })
+
+      if (this.state.selectedLanguage.value == "English") {
+        this.setState({
+          categoryInformation: comment
+        })
+      } else {
+        this.setState({
+          categoryInformationSpanish: comment
+        })
+      }
     }
 
     updateIdea() {
-      const { selectedLanguage, categoryTitle, categoryInformation } = this.state;
+      const { selectedLanguage, categoryTitle, categoryTitleSpanish, categoryInformationSpanish, categoryInformation } = this.state;
       const {ideaStage, evaluationData, categoryData, refreshIdea} = this.props;
       
       const languageSelector = selectedLanguage.label == "English"? "en":"es"
       const titleTrans = categoryData.get("itemNameTrans")
-      titleTrans[languageSelector] = categoryTitle
+      titleTrans.en = categoryTitle
+      titleTrans.es = categoryTitleSpanish
 
       const description = categoryData.get("categoryDescription")
-      description[languageSelector] = categoryInformation
+      description.en = categoryInformation
+      description.es = categoryInformationSpanish
 
       const iconIndex = this.galleryRef.current.getCurrentIndex()
       const iconName = images[iconIndex].name
       console.log(iconIndex)
       console.log(iconName)
-
+      
+      categoryData.set("itemName", categoryTitle)
       categoryData.set("itemNameTrans", titleTrans)
       categoryData.set("categoryDescription", description)
       categoryData.set("icon", iconName)
@@ -1033,7 +1063,7 @@ class EditCategoryForm extends React.Component {
     }
 
     render() {
-        const {selectedLanguage, categoryTitle, categoryInformation, language, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
+        const {categoryTitleSpanish, categoryInformationSpanish, selectedLanguage, categoryTitle, categoryInformation, language, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
         const {ideaStage, evaluationData, categoryData} = this.props;
         const formVisibilityState = visible? 'block' : 'none';
         const filterVisibilityState = filterVisible? 'block' : 'none';
@@ -1065,8 +1095,8 @@ class EditCategoryForm extends React.Component {
           })
         }; 
 
-        const hasEnglish = categoryData.get("itemNameTrans").en != ''
-        const hasSpanish = categoryData.get("itemNameTrans").es != ''
+        const hasEnglish = this.state.categoryTitle != '' && this.state.categoryInformation != ''
+        const hasSpanish = this.state.categoryTitleSpanish!= '' && this.state.categoryInformationSpanish != ''
 
         return(
 
@@ -1117,7 +1147,8 @@ class EditCategoryForm extends React.Component {
                                         <FormInput
                                             id="categoryName"
                                             placeholder={'Category name'}
-                                            value={categoryTitle}
+                                            // value={categoryTitle}
+                                            value={this.state.selectedLanguage.value == "English"?categoryTitle:categoryTitleSpanish}
                                             onChange={this.setCategoryTitle}
                                             className="insideFont"
                                         />
@@ -1127,7 +1158,7 @@ class EditCategoryForm extends React.Component {
                                     <Col>
                                         <label htmlFor="firstName" className="georgia">Category Information: * </label>
                                         <FormTextarea 
-                                        value={categoryInformation}
+                                        value={this.state.selectedLanguage.value == "English"?categoryInformation:categoryInformationSpanish}
                                         style={{ minHeight: "80px" }}
                                         id="ideaQuestion"
                                         className="insideFont"

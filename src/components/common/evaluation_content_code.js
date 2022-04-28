@@ -738,6 +738,8 @@ class IdeaViewCardNew extends React.Component {
               return newIcons[4].selected;
           case 'Dollar':
               return newIcons[5].selected;
+          case 'Dollar Sign':
+            return newIcons[5].selected;
           case 'Number One':
               return newIcons[6].selected;
           default:

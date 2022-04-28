@@ -270,7 +270,7 @@ class CategorySelect extends React.Component {
             selectionValue: selectionValue,
             selectedCategoryName: category.get("icon")
         })
-        this.props.setCategory(myExtraValue, category.get('icon'));
+        this.props.setCategory(myExtraValue, category.get('icon'), category.get("categoryDescription"));
         console.log(selectionValue)
         console.log(category)
     }
@@ -328,6 +328,8 @@ class CategorySelect extends React.Component {
                 return newIcons[4];
             case 'Dollar':
                 return newIcons[5];
+            case 'Dollar Sign':
+                return newIcons[5];
             case 'Number One':
                 return newIcons[6];
             default:
@@ -363,6 +365,8 @@ class CategorySelect extends React.Component {
                         const type = isSelected?'selected':'normal'
                         const icon = this.getIcon(myCategory.get("icon"), myCategory.get("color"))
                         const myIcon = icon[type]
+                        const description = myCategory.get('categoryDescription')
+                        const myDescription = description[storageLanguage]
                         console.log(t(myCategory.get("itemNameTrans")[storageLanguage]))
                         console.log(index)
                         return(
@@ -404,7 +408,7 @@ class CategorySelect extends React.Component {
                                         id={"TooltipExample1"+ index}
                                         toggle={() => {this.toggle()}}
                                         >
-                                        Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
+                                        {myDescription}
                                 </Tooltip>
                             </Row>
                                 

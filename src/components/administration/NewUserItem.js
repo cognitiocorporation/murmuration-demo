@@ -25,7 +25,7 @@ import { ReactComponent as ArrowUpIcon } from "../../images/arrow_up.svg"
 import { useTranslation, initReactI18next } from "react-i18next";
 
 
-function NewUserItem({user, updateUsers}) {
+function NewUserItem({user, updateUsers, open}) {
   const { t } = useTranslation();
   const [username, setUsername] = useState('')
   const [title, setTitle] = useState('')
@@ -35,7 +35,7 @@ function NewUserItem({user, updateUsers}) {
   const [canContinue, setCanContinue] = useState(false)
   const [canSubmit, setCanSubmit] = useState(false)
   const [finishedSaving, setFinishedSaving] = useState(false)
-  const [categoryIsOpen, setCategoryIsOpen] = useState(true)
+  const [categoryIsOpen, setCategoryIsOpen] = useState(open)
   const [selectedUser, setSelectedUser] = useState(user)
   let currUser = Parse.User.current();
   // this.getUserName()

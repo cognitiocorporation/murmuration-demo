@@ -110,7 +110,7 @@ function AdministrationQuestions(smallStats) {
   }
 
   const updateQuestions = () => {
-    alert('Your question was saved.') 
+    alert('Your question was saved succesfully!') 
     setShouldUpdateUsers(!shouldUpdateUsers)
     setShowUser(false)
     setUser('')
