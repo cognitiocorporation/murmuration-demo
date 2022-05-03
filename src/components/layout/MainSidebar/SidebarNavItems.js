@@ -104,7 +104,7 @@ class SidebarNavItems extends React.Component {
                     className="d-inline-block align-top mr-1 ml-3"
                     style={{ maxWidth: "120px" }}
                     // src= {require("../../../images/logo_murmuration.png")}
-                    src={'http://mymurmuration.theswiftstudio.com/wp-content/uploads/2021/11/Group-18.png'}
+                    src={'http://mymurmuration.theswiftstudio.com/wp-content/uploads/2022/05/image001-1.png'}
                     alt="Murmuration"
                   />
           </a>

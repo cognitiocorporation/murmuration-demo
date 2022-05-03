@@ -57,6 +57,8 @@ import { ReactComponent as SelectedLanguageIcon } from "../../images/selected_la
 import { ReactComponent as NotSelectedLanguageIcon } from "../../images/not_selected_language.svg"
 import { ReactComponent as EditIcon } from "../../images/edit.svg"
 import { ReactComponent as DeleteIcon } from "../../images/delete.svg"
+import { ReactComponent as ArrowDownIcon } from "../../images/arrow_down_white.svg"
+import { ReactComponent as ArrowUpIcon } from "../../images/arrow_up_white.svg"
 // fill="#157ffb"
 
 // New
@@ -1225,6 +1227,7 @@ class EditCategoryForm extends React.Component {
                                 <label htmlFor="firstName" className="georgia">Icons * </label>
                                   {/* <IdeaStatusSelect setEvalStatus={this.setEvalStatus}></IdeaStatusSelect> */}
                                   <ImageGallery ref={this.galleryRef} originalHeight={100} originalWidth={100} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} items={images} />
+                                  
                                 </Col>
                                 {/* <Col lg="2" className="ml-auto">  
                                     <Row className="ml-auto">

@@ -17,10 +17,10 @@
   font-family: 'Karrik';
   font-style: normal;
   font-weight: 400;
-  src: url('src/assets/font/Karrik-Regular.eot?#iefix') format('embedded-opentype'), /* For IE6-8 */
-       url('src/assets/font/Karrik-Regular.woff2') format('woff2'),
-       url('src/assets/font/Karrik-Regular.woff') format('woff'),
-       url('src/assets/font/Karrik-Regular.ttf') format('truetype');
+  src:  url('../assets/font/Karrik-Regular.ttf') format('ttf'),
+        url('../assets/font/Karrik-Regular.eot?#iefix') format('embedded-opentype'), /* For IE6-8 */
+        url('../assets/font/Karrik-Regular.woff2') format('woff2'),
+        url('../assets/font/Karrik-Regular.woff') format('woff'),
 }
 
 

@@ -31,8 +31,8 @@ class Login extends Component {
                     id="main-logo"
                     className="d-inline-block align-top"
                     style={{ maxWidth: "90%", maxHeight: '90px', marginBottom: '20px', alignSelf: 'center', marginLeft: 'auto', marginRight: 'auto' }}
-                    src= {'http://mymurmuration.theswiftstudio.com/wp-content/uploads/2021/11/Group-18.png'}
-                    alt="Johnson & Johnson"
+                    src= {'http://mymurmuration.theswiftstudio.com/wp-content/uploads/2022/05/image001-1.png'}
+                    alt="Murmuratto"
                 />
             </Row>
             <Card>
@@ -67,8 +67,8 @@ class Login extends Component {
                     className="d-inline-block align-top mr-1 ml-3"
                     style={{ maxWidth: "140px" }}
                     // src= {require("../images/logo_murmuration.png")}
-                    src={'http://mymurmuration.theswiftstudio.com/wp-content/uploads/2021/11/Group-18.png'}
-                    alt="Shards Dashboard"
+                    src={'http://mymurmuration.theswiftstudio.com/wp-content/uploads/2022/05/image001-1.png'}
+                    alt="Murmuratto"
                   />
           </a>
         </div>
