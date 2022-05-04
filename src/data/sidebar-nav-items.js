@@ -433,7 +433,7 @@ i18next.init({
   
         "TRANSACTION_HISTORY": "Transaction History",
 
-        "EVAL_COMMITTEE_MANAGE": "Management",
+
   
         "TRANSACTION_DESCRIPTION": "Description",
   
@@ -550,6 +550,7 @@ i18next.init({
         // Return
         "SUBMIT_IDEA_ReturnTitle":"Expected Savings (Monthly)",
         "SUBMIT_IDEA_ReturnPlaceholder":"E.g. 1000",
+        "EVAL_COMMITTEE_MANAGE": "Management",
 
         "DELETE_FILE": "Delete File",
         "HELP":"Help",
@@ -1129,8 +1130,8 @@ export default function () {
       htmlBefore: '<i class="material-icons">record_voice_over</i>',
       htmlAfter: '',
       items: [{
-        title: t("MENU_SUBMIT_IDEA"),
-        to: '/submit-idea',
+        title: t("Submit Idea"),
+        to: '/submit-idea-new',
         roles:['user', 'evaluation', 'verification', 'recognition', 'super_user'],
         htmlBefore: '<i class="material-icons">record_voice_over</i>',
         htmlAfter: '',
@@ -1140,14 +1141,7 @@ export default function () {
       roles:['user', 'evaluation', 'verification', 'recognition', 'super_user'],
       htmlBefore: '<i class="material-icons">record_voice_over</i>',
       htmlAfter: '',
-    },
-    {
-      title: t("Submit Idea (2.0)"),
-      to: '/submit-idea-new',
-      roles:['user', 'evaluation', 'verification', 'recognition', 'super_user'],
-      htmlBefore: '<i class="material-icons">record_voice_over</i>',
-      htmlAfter: '',
-    }]
+    },]
     }, 
     {
       title: t("MENU_MANAGE_IDEA"),
@@ -1157,8 +1151,8 @@ export default function () {
       htmlAfter: '',
       items: 
       [{
-        title: t("MENU_INCOMING_IDEAS"),
-        to: '/idea-management',
+        title: t("Incoming Ideas"),
+        to: '/idea-management-2',
         roles:['evaluation finance','evaluation hr','finance','super_user'],
         htmlBefore: '<i class="material-icons">record_voice_over</i>',
         htmlAfter: '',
@@ -1168,14 +1162,7 @@ export default function () {
       roles:['evaluation finance','evaluation hr','finance','super_user'],
       htmlBefore: '<i class="material-icons">record_voice_over</i>',
       htmlAfter: '',
-      },
-      {
-        title: t("Incoming Ideas (2.0)"),
-        to: '/idea-management-2',
-        roles:['evaluation finance','evaluation hr','finance','super_user'],
-        htmlBefore: '<i class="material-icons">record_voice_over</i>',
-        htmlAfter: '',
-      }]
+      },]
     },
     {
       title: t("MENU_IDEA_VERIFICATION"),
@@ -1239,48 +1226,48 @@ export default function () {
       //   htmlBefore: '<i class="material-icons">record_voice_over</i>',
       //   htmlAfter: '',
       // },
+      // {
+      //   title: t("MENU_CATS_DEPTS"), //'Categorias / Departamentos'
+      //   to: '/administracion-departamentos-comites',
+      //   roles:['super_user'],
+      //   htmlBefore: '<i class="material-icons">record_voice_over</i>',
+      //   htmlAfter: '',
+      // },
       {
-        title: t("MENU_CATS_DEPTS"), //'Categorias / Departamentos'
-        to: '/administracion-departamentos-comites',
-        roles:['super_user'],
-        htmlBefore: '<i class="material-icons">record_voice_over</i>',
-        htmlAfter: '',
-      },
-      {
-        title: "Categories 2.0", //'Categorias / Departamentos'
+        title: "Categories", //'Categorias / Departamentos'
         to: '/administration-categories',
         roles:['super_user'],
         htmlBefore: '<i class="material-icons">record_voice_over</i>',
         htmlAfter: '',
       },
       {
-        title: "Departments 2.0", //'Categorias / Departamentos'
+        title: "Departments", //'Categorias / Departamentos'
         to: '/administration-departments',
         roles:['super_user'],
         htmlBefore: '<i class="material-icons">record_voice_over</i>',
         htmlAfter: '',
       },
       {
-        title: "Users 2.0", //'Categorias / Departamentos'
+        title: "Users", //'Categorias / Departamentos'
         to: '/administration-users',
         roles:['super_user'],
         htmlBefore: '<i class="material-icons">record_voice_over</i>',
         htmlAfter: '',
       },
       {
-        title: "Questions 2.0", //'Categorias / Departamentos'
+        title: "Questions", //'Categorias / Departamentos'
         to: '/administration-questions',
         roles:['super_user'],
         htmlBefore: '<i class="material-icons">record_voice_over</i>',
         htmlAfter: '',
       },
-      {
-        title: t("MENU_USERS"), //'Usuarios',
-        to: '/administracion-user',
-        roles:['super_user'],
-        htmlBefore: '<i class="material-icons">record_voice_over</i>',
-        htmlAfter: '',
-      },
+      // {
+      //   title: t("MENU_USERS"), //'Usuarios',
+      //   to: '/administracion-user',
+      //   roles:['super_user'],
+      //   htmlBefore: '<i class="material-icons">record_voice_over</i>',
+      //   htmlAfter: '',
+      // },
       {
       title:  t("MENU_COMITES"), //'Comites',
       to: '/administracion-comite',
@@ -1288,13 +1275,13 @@ export default function () {
       htmlBefore: '<i class="material-icons">record_voice_over</i>',
       htmlAfter: '',
     },
-    {
-      title:  t("MENU_PREGUNTAS"), //'Preguntas',
-      to: '/administracion-preguntas',
-      roles:['super_user'],
-      htmlBefore: '<i class="material-icons">record_voice_over</i>',
-      htmlAfter: '',
-    }
+    // {
+    //   title:  t("MENU_PREGUNTAS"), //'Preguntas',
+    //   to: '/administracion-preguntas',
+    //   roles:['super_user'],
+    //   htmlBefore: '<i class="material-icons">record_voice_over</i>',
+    //   htmlAfter: '',
+    // }
     ]
     }
   ],

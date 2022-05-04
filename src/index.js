@@ -562,6 +562,7 @@ i18next.init({
           "FILTER_SUBMITTED": "Submitted",
           "FILTER_DONE": "Done",
 
+          "EVAL_COMMITTEE_MANAGE": "Management",
           // Return
           "SUBMIT_IDEA_ReturnTitle":"Expected Savings (Monthly)",
           "SUBMIT_IDEA_ReturnPlaceholder":"E.g. 1000",
@@ -722,7 +723,6 @@ i18next.init({
    
           "EVAL_COMMITTEE_CLASSIFICATION": "Clasificación de la Idea",
 
-          "EVAL_COMMITTEE_MANAGE": "Management",
    
           "EVAL_COMMITTEE_CREATE_BTN": "Crear Comité",
    
