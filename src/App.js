@@ -19,7 +19,7 @@ import { withTranslation } from 'react-i18next';
 // Parse.initialize("Murmuration"); //App ID, Javascript Key
 // Parse.masterKey = 'Murmuration2021' // Master Key
 
-Parse.serverURL = 'http://ec2-100-26-182-148.compute-1.amazonaws.com/parse'//'https://parseapi.back4app.com' //'https://mymurmuration.app/parse';
+Parse.serverURL = 'https://mcs-server.murmuratto.com/parse'//'https://parseapi.back4app.com' //'https://mymurmuration.app/parse';
 
 // App ID
 Parse.initialize("myappID"); //App ID, Javascript Key
