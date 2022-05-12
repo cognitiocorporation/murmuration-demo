@@ -31,7 +31,7 @@ class Login extends Component {
                     id="main-logo"
                     className="d-inline-block align-top"
                     style={{ maxWidth: "90%", maxHeight: '90px', marginBottom: '20px', alignSelf: 'center', marginLeft: 'auto', marginRight: 'auto' }}
-                    src= {'http://murmuratto.com/wp-content/uploads/2022/05/image001-2.png'}
+                    src= {"http://mymurmuration.theswiftstudio.com/wp-content/uploads/2022/05/image001-1.png"}//{'http://murmuratto.com/wp-content/uploads/2022/05/image001-2.png'}
                     alt="Murmuratto"
                 />
             </Row>
