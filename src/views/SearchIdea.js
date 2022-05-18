@@ -7,6 +7,9 @@ import PageTitle from "../components/common/PageTitle";
 import LatestOrders from "../components/ecommerce/LatestOrders";
 import ManageIdeaForm from "../components/common/ManageIdeaForm";
 import CompleteIdeaForm from "../components/common/CompletedIdeaForm";
+import { ReactComponent as PreviousIcon} from '../images/PreviousIcon.svg';
+import { ReactComponent as SaveIcon} from "../images/save_icon.svg"
+import { ReactComponent as SaveIconNosel } from "../images/save_nosel.svg"
 
 import colors from "../utils/colors";
 
@@ -43,16 +46,16 @@ class SearchIdea extends React.Component {
           <PageTitle title={t("IDEA_UPDATE_TITLE")} subtitle={t("IDEA_UPDATE_SUBTITLE")} className="text-sm-left mb-3" />
     
           {/* Page Header :: Actions */}
-          <Col xs="12" sm="8" className="col d-flex align-items-center">
+          {/* <Col xs="12" sm="8" className="col d-flex align-items-center">
             <ButtonGroup size="sm" className="d-inline-flex mb-3 mb-sm-0 mx-auto">
-              <Button theme="white" tag={NavLink} to="/submit-idea">
+              <Button theme="white" tag={NavLink} to="/submit-idea-new">
                 {t('SUBMIT')}
               </Button>
               <Button theme="white" tag={NavLink} to="/search-idea">
                 {t('SEARCH')}
               </Button>
             </ButtonGroup>
-          </Col>
+          </Col> */}
     
           {/* Page Header :: Datepicker */}
           {/* <Col sm="4" className="d-flex">
@@ -89,6 +92,10 @@ class SearchIdea extends React.Component {
         <Col lassName="mb-4">
           <ManageIdeaForm idea={this.state.currIdea}/>
         </Col>
+    </Row>
+    <Row>
+      <PreviousIcon className="mr-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => console.log('Go Back')}></PreviousIcon>
+      <SaveIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => console.log('Go Back')}></SaveIconNosel>
     </Row>
   </Container>)
     )

@@ -119,22 +119,24 @@ class IdeaQuestionsNew extends React.Component {
   }
 
   editItem(item) {
-    var newQuestion = prompt("Replace \"" + item.get("question") +"\" with: ");
-    if (newQuestion != '') {
-      item.set("question", newQuestion)
-      item.save()
-      .then((item) => {
-      // Execute any logic that should take place after the object is saved.
-        this.fetchNewData();
-        alert('¡La operacion fue exitosa!');
-      }, (error) => {
-        // Execute any logic that should take place if the save fails.
-        // error is a Parse.Error with an error code and message.
-        alert('Hubo un error en la operacion: ' + error.message);
-      });
-    } else {
-      alert("Question cannot be left blank.")
-    }
+    // var newQuestion = prompt("Replace \"" + item.get("question") +"\" with: ");
+    // if (newQuestion != '') {
+    //   item.set("question", newQuestion)
+    //   item.save()
+    //   .then((item) => {
+    //   // Execute any logic that should take place after the object is saved.
+    //     this.fetchNewData();
+    //     alert('¡La operacion fue exitosa!');
+    //   }, (error) => {
+    //     // Execute any logic that should take place if the save fails.
+    //     // error is a Parse.Error with an error code and message.
+    //     alert('Hubo un error en la operacion: ' + error.message);
+    //   });
+    // } else {
+    //   alert("Question cannot be left blank.")
+    // }
+    // console.log(item)
+    this.props.editItem(item)
   }
 
   render() {
@@ -167,8 +169,8 @@ class IdeaQuestionsNew extends React.Component {
                         {/* <Button size="sm" theme="white" onClick={e => this.editItem(item)}>
                           Editar
                         </Button> */}
-                        <Button size="sm" theme="white" onClick={e => this.deleteItem(item)}>
-                          Borrar
+                        <Button size="sm" theme="white" onClick={() => this.editItem(item)}>
+                          Edit
                         </Button>
                       </ButtonGroup>
                     </td>

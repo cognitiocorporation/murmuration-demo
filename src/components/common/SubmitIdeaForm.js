@@ -42,49 +42,7 @@ class SubmitIdeaForm extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-          data:[],
-          ideaQuestions: [],
-          answers:[],
-          category:'',
-          department:'',
-          date: '',
-          categoryQuestions: [],
-          filterQuestions: [],
-          selectedFilterQ: [],
-          filterQAnswers: [],
-          categoryQAnswers: [],
-          ideaDescription: null,
-          ideaTitle: null,
-          file:null, 
-          buttonNext:true,
-          descriptionValid:'',
-          titleValid:'',
-          remainingCharacters: 250,
-          remainingTitleCharacters: 30,
-          visible: true,
-          filterVisible: false,
-          filterQuestionsVisible: false, 
-          ideaQuestionsVisible: false,
-          hideNextButton: false,
-          userName: 'User Name',
-          userDept: '',
-          sectionTitle:'',
-          formButtonTitle: 'Continue',
-          allUsers:[],
-          selectedOption: null,
-          allTeamUsers: [],
-          teamName:'',
-          hasTeam: false,
-          ideaType: '',
-          expectedReturn: 0,
-          options: [],
-          selectedEmployees: [],
-          categoryIcon: '',
-          hasAttachment: false,
-          hasATeam: false,
-          categoryDescription: ''
-        }
+        this.state = this.getInitialState()
 
         this.change = this.change.bind(this);
         this.setCategory = this.setCategory.bind(this);
@@ -116,7 +74,65 @@ class SubmitIdeaForm extends React.Component {
       if (prevProps.canSubmit !== this.props.canSubmit) {
         this.saveIdea()
       }
+
+      if (prevProps.finishedSaving !== this.props.finishedSaving) {
+        alert('FInished saving.')
+      }
+
     }
+    
+    getInitialState = () => {
+      return {
+        data:[],
+        ideaQuestions: [],
+        answers:[],
+        category:'',
+        department:'',
+        date: '',
+        categoryQuestions: [],
+        filterQuestions: [],
+        selectedFilterQ: [],
+        filterQAnswers: [],
+        categoryQAnswers: [],
+        ideaDescription: null,
+        ideaTitle: null,
+        file:null, 
+        buttonNext:true,
+        descriptionValid:'',
+        titleValid:'',
+        remainingCharacters: 250,
+        remainingTitleCharacters: 30,
+        visible: true,
+        filterVisible: false,
+        filterQuestionsVisible: false, 
+        ideaQuestionsVisible: false,
+        hideNextButton: false,
+        userName: 'User Name',
+        userDept: '',
+        sectionTitle:'',
+        formButtonTitle: 'Continue',
+        allUsers:[],
+        selectedOption: null,
+        allTeamUsers: [],
+        teamName:'',
+        hasTeam: false,
+        ideaType: '',
+        expectedReturn: 0,
+        options: [],
+        selectedEmployees: [],
+        categoryIcon: '',
+        hasAttachment: false,
+        hasATeam: false,
+        categoryDescription: '',
+        canReset: false
+      }
+    }
+
+    resetState = () => {
+      const { setFinishedSaving } = this.props
+      const newState = this.getInitialState()
+      this.setState(newState, () => setFinishedSaving())
+   }
 
     checkFormStatus() {
       const {department, ideaType} = this.state;
@@ -501,8 +517,9 @@ class SubmitIdeaForm extends React.Component {
       const { setFinishedSaving } = this.props;
       ideaInfo.save()
       .then(() => {
-        this.setNotifications().then((e) =>
-        setFinishedSaving()
+        this.setNotifications().then((e) => {
+          this.resetState()
+        }
         // 
           // alert('¡Congrats! Thanks for submitting your idea.',this.resetForm(e)));
         // Execute any logic that should take place after the object is saved.
@@ -755,7 +772,7 @@ class SubmitIdeaForm extends React.Component {
 
     render() {
         const {hasTeam, category, hasAttachment, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, filterQuestions, selectedFilterQ, categoryQuestions, hideNextButton, date, remainingCharacters, descriptionValid,ideaDescription, userName, ideaTitle, titleValid, remainingTitleCharacters, expectedReturn, options } = this.state
-        const { currentStage, changeStatus } = this.props;
+        const { currentStage, changeStatus, changeIdeaStage } = this.props;
 
         const formVisibilityState = currentStage == 0? 'block' : 'none';
         const filterVisibilityState = currentStage == 1? 'block' : 'none';
@@ -770,8 +787,13 @@ class SubmitIdeaForm extends React.Component {
         const nextButtonVisibilityState = !hideNextButton? 'inline' : 'none';
 
         const canGoNext = ideaTitle && ideaDescription && category?true:false
-
+        
         changeStatus(canGoNext)
+
+        if (selectedFilterQ == 0 && categoryQuestions.length == 0 && currentStage == 2) {
+          changeIdeaStage()
+        }
+
         const expectedRetunrnValid =  /^\d+$/.test(expectedReturn);
         // alert(this.state.filterQuestions.length)
         const { t } = this.props;
@@ -794,14 +816,14 @@ class SubmitIdeaForm extends React.Component {
                         <h6 style={{fontWeight: 500, color: '#303030'}}>Choose how to contribute! </h6>
                         {/* Categoria */}
                         <Col md="12" className="form-group">
-                            <CategorySelect setCategory={this.setCategory} department={this.props.department}/>
+                            <CategorySelect setCategory={this.setCategory}/>
                         </Col>
                         <br/>
                         
                         <Row form>
                           <Col md="6">
                           <h6 style={{fontWeight: 500, color: '#303030'}}>Selected Category: </h6>
-                            <SelectedCategoryDisplay categoryName={this.state.categoryIcon} categoryDescription={this.state.categoryDescription} setCategory={this.setCategory} department={this.props.department}></SelectedCategoryDisplay>
+                            <SelectedCategoryDisplay categoryName={this.state.categoryIcon} categoryDescription={this.state.categoryDescription} setCategory={this.setCategory}></SelectedCategoryDisplay>
                           </Col>
                           
                           {/* Idea Description */}

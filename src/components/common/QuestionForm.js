@@ -270,16 +270,26 @@ class QuestionForm extends React.Component {
     }
 
     loadInitialSettings() {
-      const { userData } = this.props;
-      console.log(userData)
-      if (userData) {
-        const firstName = userData.get("firstName")
-        const lastName = userData.get("lastName")
-        const email = userData.get("username")
-        const department = userData.get("department")
-        const selectedDepartment = {value: "", label: department}
+      const { question } = this.props;
+      
+      if (question) {
+        
+        const questionNameEnglish = question.get("questionTrans").en
+        const questionNameSpanish = question.get("questionTrans").es
+        const field = question.get("field")
+        const required = question.get("required")
 
-        this.setState({firstName: firstName, lastName: lastName, email: email, department: selectedDepartment})
+        const fieldQuestionType = {label: 'Yes / No', value: 'Yes / No'}
+        const commentBoxQuestionType = {label: 'Comment Box', value: 'Comment Box'}
+
+        const fType = question.get("questionType")
+        const filterType = {label: fType, value: fType}
+
+        const filterTypeValue = {label: question.get("category")}
+
+        const questionType = field? fieldQuestionType:commentBoxQuestionType
+
+        this.setState({question: questionNameEnglish, questionSpanish: questionNameSpanish, questionType: questionType, filterType: filterType, filterTypeValue: filterTypeValue, isRequired: required})
       }
 
 
@@ -1095,9 +1105,12 @@ class QuestionForm extends React.Component {
 
     async saveQuestion() {
       const { question, questionSpanish, isRequired, questionType, filterType, filterTypeValue} = this.state;
+      const propsQuestion = this.props.question;
 
       const IdeaQuestion = Parse.Object.extend("IdeaQuestion");
-      const ideaQuestion = new IdeaQuestion();
+
+      // Choose between editing the question or saving the question
+      const ideaQuestion = propsQuestion?propsQuestion:new IdeaQuestion();
 
       const FilterQuestion = Parse.Object.extend("FilterQuestion")
       const filterQuestion = new FilterQuestion();
@@ -1237,15 +1250,15 @@ class QuestionForm extends React.Component {
       }
     }
 
-    deleteUser() {
+    deleteQuestion() {
       const {selectedLanguage, categoryTitle, categoryInformation } = this.state;
-      const {userData} = this.props;
+      const {question} = this.props;
       
-      const canDelete = window.confirm('Are you sure you want to delete this user?');
+      const canDelete = window.confirm('Are you sure you want to delete this question?');
       
       if (canDelete) {
-        userData.destroy({ useMasterKey: true}).then((item) => {
-          this.props.refreshUsers()
+        question.destroy({ useMasterKey: true}).then((item) => {
+          this.props.refreshQuestions()
         })
       }
     }
@@ -1565,10 +1578,10 @@ class QuestionForm extends React.Component {
                             <Col md="2" className="ml-auto">
                                 <Row>
                                     <Col md="3" className="ml-auto">
-                                        { !canEditUser && <AcceptIcon style={{height: 34, width: 34}} onClick={() => canEditUser?this.editUser():this.saveQuestion()}></AcceptIcon>}
+                                        <AcceptIcon style={{height: 34, width: 34}} onClick={() => this.saveQuestion()}></AcceptIcon>
                                     </Col>
                                     <Col md="3" className="mr-auto">
-                                        {/* <CancelIcon style={{height: 34, width: 34}} onClick={() => this.deleteUser()}></CancelIcon> */}
+                                        <CancelIcon style={{height: 34, width: 34}} onClick={() => this.deleteQuestion()}></CancelIcon>
                                     </Col>
                                 </Row>
                             </Col>

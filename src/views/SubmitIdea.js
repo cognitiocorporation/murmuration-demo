@@ -20,16 +20,16 @@ function SubmitIdea(smallStats) {
       <PageTitle title={t('SUBMIT_IDEA')} subtitle="Idea" className="text-sm-left mb-3" />
 
       {/* Page Header :: Actions */}
-      <Col xs="12" md="8" className="col d-flex align-items-center">
+      {/* <Col xs="12" md="8" className="col d-flex align-items-center">
         <ButtonGroup size="sm" className="d-inline-flex mb-3 mb-sm-0 mx-auto">
-          <Button theme="white" tag={NavLink} to="/submit-idea">
+          <Button theme="white" tag={NavLink} to="/submit-idea-new">
             {t('SUBMIT')}
           </Button>
           <Button theme="white" tag={NavLink} to="/search-idea">
             {t('SEARCH')}
           </Button>
         </ButtonGroup>
-      </Col>
+      </Col> */}
     </Row>
 
     <Row>

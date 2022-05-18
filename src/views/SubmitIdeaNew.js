@@ -58,7 +58,7 @@ function SubmitIdeaNew(smallStats) {
     getUserName(currUser)
   });
 
-  const changeIdeaStage = () => {
+  const changeIdeaStage = (hasQuestions) => {
     const newStage = ideaStage + 1
     
     if (newStage == 0) {
@@ -75,6 +75,7 @@ function SubmitIdeaNew(smallStats) {
       setCanSubmit(true)
     } else {
       setTitle('Welcome back, ' + username+ '!')
+      window.location.reload();
       setIdeaStage(0)
     }
   }
@@ -135,7 +136,7 @@ function SubmitIdeaNew(smallStats) {
     <Row>
       {/* Latest Orders */}
       <Col lg="10" className="m-auto">
-        <SubmitIdeaForm canSubmit={canSubmit} setFinishedSaving={() => setFinished()} currentStage={ideaStage} changeStatus={(status) => changeBtnStatus(status)} changeContinueStatus={(status) => changeContinueBtnStatus(status)} changeIdeaStage={() => this.changeIdeaStage()}/>     
+        <SubmitIdeaForm canSubmit={canSubmit} setFinishedSaving={() => setFinished()} finishedSaving={finishedSaving} currentStage={ideaStage} changeStatus={(status) => changeBtnStatus(status)} changeContinueStatus={(status) => changeContinueBtnStatus(status)} changeIdeaStage={() => changeIdeaStage()}/>     
       </Col>
     </Row>
     <Row>

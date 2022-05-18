@@ -278,13 +278,17 @@ class CategorySelect extends React.Component {
         return(
             <div className="container">
                 <Row>
-                    {allCats.map((myCategory, index) => { return(
+                    {allCats.map((myCategory, index) => { 
+                        const description = t(myCategory.get("itemNameTrans")[storageLanguage])
+                        const output = description.replace(/^(.{6})/,"$1 an")
+                        
+                        return(
                         <Col sm="12" lg="6" md="6" style={{backgroundColor: this.getBgColor(index), borderRadius: '20px'}} hidden={!myCategory.get("show")}>
                         <div className="square"  onClick={(event) => { this.changeSelectedValue(index, myCategory)}} >
                             {/* <img className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: '#32CD32'}} src={handIcon} /> */}
                             {/* <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: myCategory.get("color")}}/> */}
                             {this.getIcon(myCategory.get("icon"), myCategory.get("color"))}
-                            <span><h4 className="text-center" style={{color: titleColor1}}>{t(myCategory.get("itemNameTrans")[storageLanguage])}</h4></span>
+                            <span><h4 className="text-center" style={{color: titleColor1}}>{output}</h4></span>
                         </div>
                         </Col>
                     )})}

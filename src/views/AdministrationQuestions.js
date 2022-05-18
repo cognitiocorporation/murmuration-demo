@@ -48,7 +48,7 @@ function AdministrationQuestions(smallStats) {
   const [newCategory, setNewCategory] = useState([])
   const [showUser, setShowUser] = useState(false)
   const [shouldUpdateUsers, setShouldUpdateUsers] = useState(false)
-  const [user, setUser] = useState('')
+  const [question, setQuestion] = useState('')
   let currUser = Parse.User.current();
   // this.getUserName()
 
@@ -113,7 +113,7 @@ function AdministrationQuestions(smallStats) {
     alert('Your question was saved succesfully!') 
     setShouldUpdateUsers(!shouldUpdateUsers)
     setShowUser(false)
-    setUser('')
+    setQuestion('')
   }
 
   const createCategory = () => {
@@ -148,7 +148,7 @@ function AdministrationQuestions(smallStats) {
   const editItem = (item) => {
     // alert('edit me')
     console.log(item)
-    setUser(item)
+    setQuestion(item)
     setShowUser(true)
   }
 
@@ -193,7 +193,7 @@ function AdministrationQuestions(smallStats) {
     
     <Row className="mt-2">
         <Col md="12" lg="12">
-        { showUser && <QuestionItem key={Math.random()} id={Math.random()}  updateQuestions={updateQuestions} user={user}></QuestionItem>}
+        { showUser && <QuestionItem key={Math.random()} id={Math.random()}  updateQuestions={updateQuestions} question={question}></QuestionItem>}
         </Col>
     </Row>
     
@@ -218,7 +218,7 @@ function AdministrationQuestions(smallStats) {
     <Row className="mt-2">
         <Col lg="10" className="m-auto">
             <div style={{backgroundColor: '#F6F6F6', height: 500, overflow: 'scroll', borderStyle: 'solid', borderColor: 'black', borderWidth: 2, borderRadius: 5, marginBottom: 100}}>
-                <IdeaQuestionsNew shouldUpdate={shouldUpdateUsers} editItem={(user) => editItem(user)}/>
+                <IdeaQuestionsNew shouldUpdate={shouldUpdateUsers} editItem={(question) => editItem(question)}/>
             </div>
         </Col>
     </Row>

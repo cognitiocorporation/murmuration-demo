@@ -116,9 +116,11 @@ function CategoryItem({category, updateCategories}) {
                 {/* Change Status Color of Category */}
                 {/* {categoryStatus && <GreenIcon className="ml-4 my-auto" style={{height: 16, width: 16, display: 'inline-block'}}></GreenIcon>}
                 {!categoryStatus && <RedIcon className="ml-4 my-auto" style={{height: 16, width: 16, display: 'inline-block'}}></RedIcon>} */}
-                <div className="ml-4 my-auto" style={{height: '100%', width: 40}}>
+                <div className="ml-4" style={{ width: 40}}>
+                  
                   <SmallSwitch 
                       // className="mt-auto"
+                      style={{marginTop: 30}}
                       isOn={categoryStatus}
                       myKey={'turnOn' + Math.random()}
                       handleToggle={() => updateIdeaCategoryStatus(category, categoryStatus)}
