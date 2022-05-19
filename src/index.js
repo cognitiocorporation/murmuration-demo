@@ -78,6 +78,7 @@ i18next.init({
           "VIEW_FILE":"View File",
 
           "EVALUATION":"Evaluation",
+          "EVAL_COMMITTEE_MANAGE": "Management",
 
           "COMMENTS":"Comments",
 
