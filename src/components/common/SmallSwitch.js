@@ -5,7 +5,7 @@ const SmallSwitch = ({ isOn, handleToggle, onColor, myKey, title }) => {
   console.log(myKey)
   return (
     <div style={{flex: 1}} key={myKey}>
-      <div>
+      <div style={{display: 'flex', alignItems: 'center', minWidth: 50}}>
         <input
           checked={isOn}
           onChange={handleToggle}

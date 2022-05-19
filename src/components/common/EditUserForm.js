@@ -266,6 +266,13 @@ class EditUserForm extends React.Component {
         const firstName = userData.get("firstName")
         const lastName = userData.get("lastName")
         const email = userData.get("username")
+
+        const isSuperUser = userData.get("role") == 'super_user'
+        const isCoach = userData.get("coach")
+        const isSupervisor = userData.get("isSupervisor")
+
+        
+        
         const department = userData.get("department")
         const selectedDepartment = {value: "", label: department}
 
@@ -1207,7 +1214,7 @@ class EditUserForm extends React.Component {
 
         const hasEnglish = true
         const hasSpanish = true
-        const canEditUser = this.props.userData != ''
+        const canEditUser = false
 
         return(
 
@@ -1258,7 +1265,7 @@ class EditUserForm extends React.Component {
                                 </Row>
                                 <Row className="mt-4">
                                     <Col>
-                                        <label htmlFor="firstName" className="georgia">Privileges: *</label>
+                                        <label htmlFor="firstName" className="georgia">Additional Privileges: </label>
                                         <SelectPrivileges className="insideFont" evalType={'execution'} setResponsible={(res, idx) => this.changePrivileges(res, idx)} selectedVal={privileges}/>
                                     </Col>
                                 </Row>

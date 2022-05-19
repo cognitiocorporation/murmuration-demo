@@ -53,7 +53,7 @@ MainFooter.propTypes = {
 
 MainFooter.defaultProps = {
   contained: false,
-  copyright: "© Murmuration 2022",
+  copyright: "© Murmuratto 2022",
   menuItems: [
     // {
     //   title: '() FAQs',

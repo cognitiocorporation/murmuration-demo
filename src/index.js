@@ -78,6 +78,7 @@ i18next.init({
           "VIEW_FILE":"View File",
 
           "EVALUATION":"Evaluation",
+          "EVAL_COMMITTEE_MANAGE": "Management",
 
           "COMMENTS":"Comments",
 
@@ -722,7 +723,6 @@ i18next.init({
    
           "EVAL_COMMITTEE_CLASSIFICATION": "Clasificación de la Idea",
 
-          "EVAL_COMMITTEE_MANAGE": "Management",
    
           "EVAL_COMMITTEE_CREATE_BTN": "Crear Comité",
    

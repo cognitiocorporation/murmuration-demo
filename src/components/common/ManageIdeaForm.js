@@ -862,15 +862,7 @@ class ManageIdeaForm extends React.Component {
                         {/* Select IDEA Filter Visibility State */}
                         </Form>
                     </CardBody>
-                    <CardFooter className="border-top">
-                    { !holdOrCancelled &&
-                      <ButtonGroup size="sm" className="ml-auto d-table mr-3">
-                        {/* <Button theme="light" onClick={this.saveIdea}>Guardar</Button> */}
-                          <Button disabled={!finalPermission} theme="warning" onClick={this.addToQueue} style={{display: nextButtonVisibilityState}}>{t("IDEA_MANAGE_BTN_HOLD")}</Button>
-                          <Button disabled={!finalPermission} theme="accent" onClick={this.submitEvaluation} style={{display: nextButtonVisibilityState}}>{t("IDEA_MANAGE_BTN_UPDATE")}</Button>
-                      </ButtonGroup>
-                      }
-                    </CardFooter>
+                  
                   </Card>
                   :
                   <CompletedIdeaForm idea={idea}></CompletedIdeaForm>
