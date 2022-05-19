@@ -1070,7 +1070,7 @@ class QuestionForm extends React.Component {
         this.setState({
           filterTypeValue: res,
         });
-        
+       
         // if (res) {
         //   this.props.changeStatus(true)
         // }
@@ -1156,11 +1156,16 @@ class QuestionForm extends React.Component {
             es: questionSpanish?questionSpanish:''
         }
 
+        const hasFilterTypeValue = filterTypeValue.value.id != ''
+
         ideaQuestion.set("questionTrans", questionTrans)
         ideaQuestion.set("question", question)
         ideaQuestion.set("field", isField)
         ideaQuestion.set("category", filterTypeValue.label)
         ideaQuestion.set("required", isRequired)
+        if (hasFilterTypeValue) {
+          ideaQuestion.set("categoryId", filterTypeValue.value.id)
+        }
 
         if (filterType.label == 'Type') {
             filterQuestion.set("questionTrans", questionTrans)
