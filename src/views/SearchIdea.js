@@ -94,7 +94,7 @@ class SearchIdea extends React.Component {
         </Col>
     </Row>
     <Row>
-      <PreviousIcon className="mr-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => console.log('Go Back')}></PreviousIcon>
+      <PreviousIcon className="mr-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => this.setState({open: false})}></PreviousIcon>
       <SaveIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => console.log('Go Back')}></SaveIconNosel>
     </Row>
   </Container>)
