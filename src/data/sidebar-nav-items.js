@@ -1145,7 +1145,7 @@ export default function () {
     }, 
     {
       title: t("MENU_MANAGE_IDEA"),
-      to: '/idea-management-2',
+      to: '/idea-management',
       roles:['evaluation', 'super_user'],
       htmlBefore: '<i class="material-icons">assignment</i>',
       htmlAfter: '',
