@@ -124,7 +124,8 @@ class SubmitIdeaForm extends React.Component {
         hasAttachment: false,
         hasATeam: false,
         categoryDescription: '',
-        canReset: false
+        canReset: false,
+        categoryId: ''
       }
     }
 
@@ -433,8 +434,8 @@ class SubmitIdeaForm extends React.Component {
       const newCategory = selectedCategory;
       const { ideaQuestions } = this.state;
 
-      var filteredData = ideaQuestions.filter(item => item.get("category") === newCategory );
-            
+      var filteredData = ideaQuestions.filter(item => item.get("categoryId") === newCategory );
+      // alert(filteredData.length)
       this.setState({
         categoryQuestions: filteredData
       }, this.addAnswer(filteredData));
@@ -549,14 +550,15 @@ class SubmitIdeaForm extends React.Component {
       // console.log(event.target.value);
     }
 
-    setCategory(categoryName, categoryIcon, description) {
+    setCategory(categoryName, categoryIcon, description, categoryId) {
       this.setState({
         category: categoryName,
         categoryIcon: categoryIcon,
-        categoryDescription: description
+        categoryDescription: description,
+        categoryId: categoryId
       })
 
-      this.handleCategoryChange(categoryName)
+      this.handleCategoryChange(categoryId)
       console.log(categoryName);
     }
 
@@ -1020,13 +1022,13 @@ class SubmitIdeaForm extends React.Component {
                         </div>
 
                         {/* Question Visibility State */}
-                        <div style={{display: questionVisibilityState}}>
-                          <Row form className="mx-4">
+                        <div style={{display: filterQuestionVisibilityState}}>
+                          <Row form>
                             <Col lg="12">
                               <Row form>
                                 {categoryQuestions.map((item,idx) =>
-                                  <Col key={idx} md="6">
-                                    <label  htmlFor="question"><strong>{item.get("questionTrans")[storageLanguage]}</strong></label>
+                                  <Col key={idx} md="6" className="mt-4 pr-4">
+                                     <h6 style={{fontWeight: 500,  color: '#303030', fontSize: 14}}>{item.get("questionTrans")[storageLanguage]}</h6>
                                     {item.get("field")?
                                     <FormTextarea 
                                     style={{ minHeight: "80px" }}

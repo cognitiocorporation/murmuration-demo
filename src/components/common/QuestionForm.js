@@ -279,6 +279,8 @@ class QuestionForm extends React.Component {
         const field = question.get("field")
         const required = question.get("required")
 
+        alert(field)
+
         const fieldQuestionType = {label: 'Yes / No', value: 'Yes / No'}
         const commentBoxQuestionType = {label: 'Comment Box', value: 'Comment Box'}
 
@@ -287,7 +289,7 @@ class QuestionForm extends React.Component {
 
         const filterTypeValue = {label: question.get("category")}
 
-        const questionType = field? fieldQuestionType:commentBoxQuestionType
+        const questionType = field? commentBoxQuestionType:fieldQuestionType
 
         this.setState({question: questionNameEnglish, questionSpanish: questionNameSpanish, questionType: questionType, filterType: filterType, filterTypeValue: filterTypeValue, isRequired: required})
       }
@@ -1070,7 +1072,7 @@ class QuestionForm extends React.Component {
         this.setState({
           filterTypeValue: res,
         });
-        
+       
         // if (res) {
         //   this.props.changeStatus(true)
         // }
@@ -1156,11 +1158,16 @@ class QuestionForm extends React.Component {
             es: questionSpanish?questionSpanish:''
         }
 
+        const hasFilterTypeValue = filterTypeValue.value.id != ''
+
         ideaQuestion.set("questionTrans", questionTrans)
         ideaQuestion.set("question", question)
         ideaQuestion.set("field", isField)
         ideaQuestion.set("category", filterTypeValue.label)
         ideaQuestion.set("required", isRequired)
+        if (hasFilterTypeValue) {
+          ideaQuestion.set("categoryId", filterTypeValue.value.id)
+        }
 
         if (filterType.label == 'Type') {
             filterQuestion.set("questionTrans", questionTrans)

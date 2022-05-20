@@ -270,7 +270,7 @@ class CategorySelect extends React.Component {
             selectionValue: selectionValue,
             selectedCategoryName: category.get("icon")
         })
-        this.props.setCategory(myExtraValue, category.get('icon'), category.get("categoryDescription"));
+        this.props.setCategory(myExtraValue, category.get('icon'), category.get("categoryDescription"), category.id);
         console.log(selectionValue)
         console.log(category)
     }

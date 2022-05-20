@@ -73,6 +73,44 @@ class IdeaQuestionsNew extends React.Component {
         this.setState({
             ideas: results,
             filteredQuestions: results
+        }, () => this.fetchFilterQuestions());
+    }, (error) => {
+      alert('Hubo un error en la busca. Favor de tratar luego.');
+      // The object was not retrieved successfully.
+      // error is a Parse.Error with an error code and message.
+    });
+  }
+
+  fetchFilterQuestions() {
+    const { filter } = this.state;
+    const className = "FilterQuestion";
+
+    var ItemClass = Parse.Object.extend(className);
+    var query = new Parse.Query(ItemClass);
+
+    // subscription.on('open', () => {
+    //   console.log('subscription opened');
+    //  });
+
+    const currentUser = Parse.User.current();
+    const userId = currentUser.get("username");
+
+
+    if (filter == 'Todas') {
+      query = new Parse.Query(ItemClass);
+    } else {
+      query.equalTo("category", filter);
+    }
+
+    
+
+    query.find()
+    .then((results) => {
+      // alert(results.length)
+      const questions = [...this.state.filteredQuestions, ...results]
+        this.setState({
+            ideas: questions,
+            filteredQuestions: questions
         });
     }, (error) => {
       alert('Hubo un error en la busca. Favor de tratar luego.');
@@ -161,7 +199,7 @@ class IdeaQuestionsNew extends React.Component {
                       {item.get("question")}
                     </td>
                     <td className="lo-stats__total text-center text-success">
-                      {item.get("category")}
+                      {item.get("category")?item.get("category"):item.get("filter")}
                     </td>
                     <td className="lo-stats__items text-center">{item.get("required") ? 'Requerida':'No Requerida'}</td>
                     <td className="lo-stats__actions">
