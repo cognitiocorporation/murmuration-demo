@@ -1129,15 +1129,13 @@ export default function () {
       roles:['user', 'evaluation', 'verification', 'recognition', 'super_user'],
       htmlBefore: '<i class="material-icons">record_voice_over</i>',
       htmlAfter: '',
-      items: [
-    {
-      title: t("MENU_SUBMIT_IDEA"),
-      to: '/submit-idea-new',
-      roles:['user', 'evaluation', 'verification', 'recognition', 'super_user'],
-      htmlBefore: '<i class="material-icons">record_voice_over</i>',
-      htmlAfter: '',
-    },
-  {
+      items: [{
+        title: t("Submit Idea"),
+        to: '/submit-idea-new',
+        roles:['user', 'evaluation', 'verification', 'recognition', 'super_user'],
+        htmlBefore: '<i class="material-icons">record_voice_over</i>',
+        htmlAfter: '',
+      },{
       title: t("MENU_SEARCH_IDEA"),
       to: '/search-idea',
       roles:['user', 'evaluation', 'verification', 'recognition', 'super_user'],
@@ -1147,7 +1145,7 @@ export default function () {
     }, 
     {
       title: t("MENU_MANAGE_IDEA"),
-      to: '/idea-management-2',
+      to: '/idea-management',
       roles:['evaluation', 'super_user'],
       htmlBefore: '<i class="material-icons">assignment</i>',
       htmlAfter: '',
@@ -1164,8 +1162,7 @@ export default function () {
       roles:['evaluation finance','evaluation hr','finance','super_user'],
       htmlBefore: '<i class="material-icons">record_voice_over</i>',
       htmlAfter: '',
-      },
-      ]
+      },]
     },
     {
       title: t("MENU_IDEA_VERIFICATION"),

@@ -1126,6 +1126,26 @@ class IdeaViewCardNew extends React.Component {
                                           </Row> */}
                                       </Col>)
                                   })}
+                                  {ideaItem.get("questionAnswer").map((question, index) => {
+                                      const prefix = 'Q' + (index + 1)+ ': '
+                                      const myQuestion = prefix + question["question"]
+                                      return(
+                                      <Col md="12" className="form-group">
+                                        <Row className="mt-4">
+                                          <Col md="12">
+                                            <p className="georgia">{myQuestion}</p>
+                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{question["answer"]}</h6>
+                                          </Col>
+                                        </Row>
+                                        
+                                          {/* <Row form>
+                                          <Col md="9">
+                                          <p className="mb-2">{question["question"]}</p>
+                                          <p className="mb-2">{question["answer"]}</p>
+                                          </Col>
+                                          </Row> */}
+                                      </Col>)
+                                  })}
                                   </Row>
                             </Col>
                           }
