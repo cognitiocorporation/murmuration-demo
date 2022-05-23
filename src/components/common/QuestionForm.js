@@ -279,8 +279,6 @@ class QuestionForm extends React.Component {
         const field = question.get("field")
         const required = question.get("required")
 
-        alert(field)
-
         const fieldQuestionType = {label: 'Yes / No', value: 'Yes / No'}
         const commentBoxQuestionType = {label: 'Comment Box', value: 'Comment Box'}
 
@@ -289,7 +287,7 @@ class QuestionForm extends React.Component {
 
         const filterTypeValue = {label: question.get("category")}
 
-        const questionType = field? commentBoxQuestionType:fieldQuestionType
+        const questionType = field? fieldQuestionType:commentBoxQuestionType
 
         this.setState({question: questionNameEnglish, questionSpanish: questionNameSpanish, questionType: questionType, filterType: filterType, filterTypeValue: filterTypeValue, isRequired: required})
       }
