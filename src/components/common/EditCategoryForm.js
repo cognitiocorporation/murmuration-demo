@@ -57,8 +57,8 @@ import { ReactComponent as SelectedLanguageIcon } from "../../images/selected_la
 import { ReactComponent as NotSelectedLanguageIcon } from "../../images/not_selected_language.svg"
 import { ReactComponent as EditIcon } from "../../images/edit.svg"
 import { ReactComponent as DeleteIcon } from "../../images/delete.svg"
-import { ReactComponent as ArrowDownIcon } from "../../images/arrow_down_white.svg"
-import { ReactComponent as ArrowUpIcon } from "../../images/arrow_up_white.svg"
+import { ReactComponent as ArrowDownIcon } from "../../images/arrow_down.svg"
+import { ReactComponent as ArrowUpIcon } from "../../images/arrow_up.svg"
 // fill="#157ffb"
 
 // New
@@ -1021,6 +1021,16 @@ class EditCategoryForm extends React.Component {
       }
     }
 
+    goNext() {
+      const currIndex = this.galleryRef.current.getCurrentIndex()
+      this.galleryRef.current.slideToIndex(currIndex + 1)
+    }
+
+    goPrev() {
+      const currIndex = this.galleryRef.current.getCurrentIndex()
+      this.galleryRef.current.slideToIndex(currIndex - 1)
+    }
+
     updateIdea() {
       const { selectedLanguage, categoryTitle, categoryTitleSpanish, categoryInformationSpanish, categoryInformation } = this.state;
       const {ideaStage, evaluationData, categoryData, refreshIdea} = this.props;
@@ -1226,8 +1236,23 @@ class EditCategoryForm extends React.Component {
                                 <Col md="6" className="form-group">
                                 <label htmlFor="firstName" className="georgia">Icons * </label>
                                   {/* <IdeaStatusSelect setEvalStatus={this.setEvalStatus}></IdeaStatusSelect> */}
-                                  <ImageGallery ref={this.galleryRef} originalHeight={100} originalWidth={100} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} items={images} />
-                                  
+                                  {/* <ImageGallery ref={this.galleryRef} originalHeight={100} originalWidth={100} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} items={images} /> */}
+                                  <Row md="12" style={{backgrounColor: 'red'}}>
+                                    <Col>
+                                      <Row>
+                                        <ImageGallery ref={this.galleryRef} originalHeight={100} originalWidth={100} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} items={images} showNav={false} />
+                                      </Row>
+                                    </Col>
+                                    <Col flex>
+                                      <Row className={"mt-auto"}>
+                                        <ArrowUpIcon style={{width: 20, height: 20}} onClick={() => this.goNext()}></ArrowUpIcon>
+                                      </Row>
+                                      <Row className={"mb-auto"}>
+                                        <ArrowDownIcon style={{width: 20, height: 20}} onClick={() => this.goPrev()}></ArrowDownIcon>
+                                      </Row>
+                                    </Col>
+                                    
+                                  </Row>
                                 </Col>
                                 {/* <Col lg="2" className="ml-auto">  
                                     <Row className="ml-auto">
