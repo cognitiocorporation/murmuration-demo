@@ -125,7 +125,7 @@ function AdministrationQuestions(smallStats) {
     ideaCategory.set("icon", "");
     ideaCategory.set("show", false);
     ideaCategory.set("itemName", 'newCategory'+Math.random())
-    ideaCategory.set("categoryDescription", {"en": "Category 7 description goes here.","es": "Descripción 7 de categoria va aquí."})
+    ideaCategory.set("categoryDescription", {"en": "Category escription goes here.","es": "Descripción 7 de categoria va aquí."})
 
     ideaCategory.save()
     .then((ideaCategory) => {
