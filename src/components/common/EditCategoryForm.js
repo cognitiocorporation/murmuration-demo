@@ -1347,7 +1347,7 @@ class EditCategoryForm extends React.Component {
                                   <Col md="8">
                                     <Row>
                                       <Col md="5">
-                                      <AcceptIcon style={{height: 34, width: 34}} onClick={() => this.updateIdea()}></AcceptIcon>
+                                      <AcceptIcon onMouseEnter={() => alert('Mouse Entered')} onMouseLeave={() => alert('Mouse Left')} style={{height: 34, width: 34}} onClick={() => this.updateIdea()}></AcceptIcon>
                                       </Col>
                                       <Col md="5">
                                       <CancelIcon style={{height: 34, width: 34}} onClick={() => this.deleteIdea()}></CancelIcon>
