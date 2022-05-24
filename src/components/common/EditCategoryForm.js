@@ -34,6 +34,8 @@ import EvaluationSelect from "./EvaluationSelect";
 import ExecutionSelectNew from "./ExecutionSelectNew";
 import { object } from "prop-types";
 
+import VectorButton from '../common/VectorButton'
+
 import { ReactComponent as LineChartImage } from "../../images/line-chart.svg"
 import { ReactComponent as UserImage } from "../../images/man-user.svg"
 import { ReactComponent as DocumentImage } from "../../images/document.svg"
@@ -1346,6 +1348,7 @@ class EditCategoryForm extends React.Component {
                                   </Col>
                                   <Col md="8">
                                     <Row>
+                                      {/* <VectorButton icon={<AcceptIcon></AcceptIcon>}></VectorButton> */}
                                       <Col md="5">
                                       <AcceptIcon onMouseEnter={() => alert('Mouse Entered')} onMouseLeave={() => alert('Mouse Left')} style={{height: 34, width: 34}} onClick={() => this.updateIdea()}></AcceptIcon>
                                       </Col>
