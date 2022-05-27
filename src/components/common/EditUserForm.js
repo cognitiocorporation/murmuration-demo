@@ -1473,10 +1473,10 @@ class EditUserForm extends React.Component {
                             <Col md="2" className="ml-auto">
                                 <Row>
                                     <Col md="3" className="ml-auto">
-                                        { !canEditUser && <AcceptIcon style={{height: 34, width: 34}} onClick={() => canEditUser?this.editUser():this.saveUser()}></AcceptIcon>}
+                                        { !canEditUser && <AcceptIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => canEditUser?this.editUser():this.saveUser()}></AcceptIcon>}
                                     </Col>
                                     <Col md="3" className="mr-auto">
-                                        <CancelIcon style={{height: 34, width: 34}} onClick={() => this.deleteUser()}></CancelIcon>
+                                        <CancelIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.deleteUser()}></CancelIcon>
                                     </Col>
                                 </Row>
                             </Col>

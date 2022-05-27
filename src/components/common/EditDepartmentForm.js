@@ -1170,10 +1170,10 @@ class EditDepartmentForm extends React.Component {
                                   <Col md="8">
                                     <Row>
                                       <Col md="5">
-                                      <AcceptIcon style={{height: 34, width: 34}} onClick={() => this.updateIdea()}></AcceptIcon>
+                                      <AcceptIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.updateIdea()}></AcceptIcon>
                                       </Col>
                                       <Col md="5">
-                                      <CancelIcon style={{height: 34, width: 34}} onClick={() => this.deleteIdea()}></CancelIcon>
+                                      <CancelIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.deleteIdea()}></CancelIcon>
                                       </Col>
                                     </Row>
                                   </Col>

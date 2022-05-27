@@ -143,14 +143,14 @@ function SubmitIdeaNew(smallStats) {
       <Col lg="12" className="mb-2 ml-auto">
 
         {/* Submit Icon States */}
-        {ideaStage == 0 && canGoNext && <SubmitIcon className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIcon>}
-        {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} ></SubmitIconNosel>}
+        {ideaStage == 0 && canGoNext && <SubmitIcon className="functionalButton ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIcon>}
+        {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="functionalButton ml-auto d-block" style={{minWidth: 140, maxWidth:140}} ></SubmitIconNosel>}
         
 
-        {ideaStage > 0 && ideaStage <= 2 && canContinue &&  <NextIconValid className="ml-auto d-block mb-4" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></NextIconValid>}
-        {ideaStage > 0 && ideaStage <= 2 && !canContinue && <NextIcon className="ml-auto d-block mb-4" style={{minWidth: 140, maxWidth:140}} ></NextIcon>}
+        {ideaStage > 0 && ideaStage <= 2 && canContinue &&  <NextIconValid className="functionalButton ml-auto d-block mb-4" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></NextIconValid>}
+        {ideaStage > 0 && ideaStage <= 2 && !canContinue && <NextIcon className="functionalButton ml-auto d-block mb-4" style={{minWidth: 140, maxWidth:140}} ></NextIcon>}
         
-        {ideaStage == 3  && <HomeIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></HomeIcon>}
+        {ideaStage == 3  && <HomeIcon className="functionalButton ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></HomeIcon>}
       </Col>
     </Row>
     

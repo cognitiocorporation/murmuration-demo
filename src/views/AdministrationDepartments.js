@@ -178,7 +178,7 @@ function AdministrationDepartments(smallStats) {
     <Row className="mt-4">
       <Col lg="10" className="m-auto">
        
-        <AddDepartmentIcon className="mr-4 d-block mb-4" style={{minWidth: 180, maxWidth:180}} onClick={() => createDepartment()}></AddDepartmentIcon>
+        <AddDepartmentIcon className="functionalButton functionalButton mr-4 d-block mb-4" style={{minWidth: 180, maxWidth:180}} onClick={() => createDepartment()}></AddDepartmentIcon>
        
         {/* {ideaStage == 0 && canGoNext && <SubmitIcon className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIcon>}
         {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} ></SubmitIconNosel>}

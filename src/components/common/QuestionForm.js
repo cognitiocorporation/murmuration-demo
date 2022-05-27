@@ -1478,8 +1478,8 @@ class QuestionForm extends React.Component {
                                             <h6 style={{fontWeight: 500,  color: '#303030'}}>{'English'}</h6>
                                             </Col>
                                             <Col className="mb-auto" md="1">
-                                            { hasEnglish && <SelectedLanguageIcon style={{height: 20, width: 20}}></SelectedLanguageIcon>}
-                                            { !hasEnglish && <NotSelectedLanguageIcon style={{height: 16, width: 16}}></NotSelectedLanguageIcon>}
+                                            { hasEnglish && <SelectedLanguageIcon className="functionalButton" style={{height: 20, width: 20}}></SelectedLanguageIcon>}
+                                            { !hasEnglish && <NotSelectedLanguageIcon className="functionalButton" style={{height: 16, width: 16}}></NotSelectedLanguageIcon>}
                                             {/* } */}
                                             </Col>
                                         </Row>
@@ -1488,8 +1488,8 @@ class QuestionForm extends React.Component {
                                             <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Spanish'}</h6>
                                             </Col>
                                             <Col className="mb-auto" md="1">
-                                            { hasSpanish && <SelectedLanguageIcon style={{height: 20, width: 20}}></SelectedLanguageIcon>}
-                                            { !hasSpanish && <NotSelectedLanguageIcon style={{height: 16, width: 16}}></NotSelectedLanguageIcon>}
+                                            { hasSpanish && <SelectedLanguageIcon className="functionalButton" style={{height: 20, width: 20}}></SelectedLanguageIcon>}
+                                            { !hasSpanish && <NotSelectedLanguageIcon className="functionalButton" style={{height: 16, width: 16}}></NotSelectedLanguageIcon>}
                                             {/* } */}
                                             </Col>
                                         </Row>
@@ -1583,10 +1583,10 @@ class QuestionForm extends React.Component {
                             <Col md="2" className="ml-auto">
                                 <Row>
                                     <Col md="3" className="ml-auto">
-                                        <AcceptIcon style={{height: 34, width: 34}} onClick={() => this.saveQuestion()}></AcceptIcon>
+                                        <AcceptIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.saveQuestion()}></AcceptIcon>
                                     </Col>
                                     <Col md="3" className="mr-auto">
-                                        <CancelIcon style={{height: 34, width: 34}} onClick={() => this.deleteQuestion()}></CancelIcon>
+                                        <CancelIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.deleteQuestion()}></CancelIcon>
                                     </Col>
                                 </Row>
                             </Col>

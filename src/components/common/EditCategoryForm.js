@@ -55,6 +55,8 @@ import { ReactComponent as RedIcon } from "../../images/red_icon.svg"
 import { ReactComponent as InfoIcon } from "../../images/info_icon.svg"
 import { ReactComponent as AcceptIcon } from "../../images/accept_button.svg"
 import { ReactComponent as CancelIcon } from "../../images/cancel_button.svg"
+import { ReactComponent as RightIcon } from "../../images/right_icon.svg"
+import { ReactComponent as LeftIcon } from "../../images/left_icon.svg"
 import { ReactComponent as SelectedLanguageIcon } from "../../images/selected_language.svg"
 import { ReactComponent as NotSelectedLanguageIcon } from "../../images/not_selected_language.svg"
 import { ReactComponent as EditIcon } from "../../images/edit.svg"
@@ -1242,15 +1244,17 @@ class EditCategoryForm extends React.Component {
                                   <Row md="12" style={{backgrounColor: 'red'}}>
                                     <Col>
                                       <Row>
-                                        <ImageGallery ref={this.galleryRef} originalHeight={100} originalWidth={100} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} items={images} showNav={false} />
+                                        <div style={{backgrounColor: 'white'}}>
+                                          <ImageGallery ref={this.galleryRef} originalHeight={100} originalWidth={100} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} items={images} showNav={false} />
+                                        </div>
                                       </Row>
                                     </Col>
-                                    <Col flex>
+                                    <Col className="mt-auto ml-2 mb-2" flex>
                                       <Row className={"mt-auto"}>
-                                        <ArrowUpIcon style={{width: 20, height: 20}} onClick={() => this.goNext()}></ArrowUpIcon>
+                                        <LeftIcon className="functionalButton" style={{width: 20, height: 20}} onClick={() => this.goNext()}></LeftIcon>
                                       </Row>
-                                      <Row className={"mb-auto"}>
-                                        <ArrowDownIcon style={{width: 20, height: 20}} onClick={() => this.goPrev()}></ArrowDownIcon>
+                                      <Row className={"mt-2"}>
+                                        <RightIcon className="functionalButton" style={{width: 20, height: 20}} onClick={() => this.goPrev()}></RightIcon>
                                       </Row>
                                     </Col>
                                     
@@ -1348,12 +1352,12 @@ class EditCategoryForm extends React.Component {
                                   </Col>
                                   <Col md="8">
                                     <Row>
-                                      {/* <VectorButton icon={<AcceptIcon></AcceptIcon>}></VectorButton> */}
                                       <Col md="5">
-                                      <AcceptIcon onMouseEnter={() => alert('Mouse Entered')} onMouseLeave={() => alert('Mouse Left')} style={{height: 34, width: 34}} onClick={() => this.updateIdea()}></AcceptIcon>
+                                        <AcceptIcon  className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.updateIdea()}></AcceptIcon>
+                                        
                                       </Col>
                                       <Col md="5">
-                                      <CancelIcon style={{height: 34, width: 34}} onClick={() => this.deleteIdea()}></CancelIcon>
+                                        <CancelIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.deleteIdea()}></CancelIcon>
                                       </Col>
                                     </Row>
                                   </Col>

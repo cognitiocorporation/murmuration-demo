@@ -1,14 +1,23 @@
 import React, {useState} from 'react';
 import TouchableOpacity from 'react';
 
-const VectorButton = ({ icon}) => {
-    const [isPressed,setIsPressed]=useState(false) ;
+class VectorButton extends React.Component {
 
-  return (
-    <TouchableOpacity onPress={() => console.log('')}>
-        {icon}
-    </TouchableOpacity>
-  );
-};
+  constructor(props) {
+      super(props);
 
-export default VectorButton;
+      this.state = {
+          selectionValue: '',
+        }
+        
+  }
+
+  render() {
+    return (
+      this.props.icon
+    )
+  }
+
+}
+
+export default VectorButton

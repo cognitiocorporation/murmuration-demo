@@ -31,6 +31,18 @@
   src: url("../assets/font/Georgia.ttf") format('ttf');
 }
 
+.functionalButton:hover {
+  transform: scale(1.1);
+  transition-duration: 0.5s;
+  opacity: 0.5;
+}
+
+.functionalButton:active {
+  transform: scale(1.3);
+  transition-duration: 0.5s;
+  opacity: 1;
+}
+
 
 .material-icons {
   font-family: 'Material Icons';
