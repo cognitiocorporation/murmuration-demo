@@ -173,6 +173,8 @@ class NewUser extends React.Component {
     var sessionToken = Parse.User.current().getSessionToken();
     
     users.map(async (lUser) => {
+      const isCoach = lUser.Coach == 'X'
+      const isSuperUser = lUser["Super User"] == 'X'
       var user = new Parse.User();
       user.set("username", lUser.username);
       user.set("password", lUser.username + "123");
@@ -180,7 +182,8 @@ class NewUser extends React.Component {
       user.set("lastName", lUser.lastName);
       user.set("evaluationCriteria", [])
       user.set("email", lUser.email);
-      user.set("role", 'user')
+      user.set("role", isSuperUser?'super_user':'user')
+      user.set("coach", isCoach)
       user.set("department", lUser.department)
       user.set("notificationCount", 0)
       user.set("notificationMessages", [])

@@ -1,0 +1,3915 @@
+[
+  {
+    "objectId": "0TFwHWeT7p",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea simplify a process or a document?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to prevent defects, regulatory issues, product recall or customer complaints?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to align current process practices with a procedure?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 29,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "hernanj25",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Sun Sep 05 2021 20:34:48 GMT-0500 (GMT-05:00)",
+    "proponentObj": "uKT0a6T0xA",
+    "date": "Sun Sep 05 2021 20:31:13 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Jose Oscar Hernandez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Actualmente tiene un mas o menos 30kg pero el mismo es la tolerancia del instrumento y no la carga de Chloro"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Intentar incluir un mas o menos 30kg en el paso de adicion de Chloro del MBR SR 1301, paso de carga de chloro"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Sistema de Chlorinacion",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Sun Sep 05 2021 20:34:48 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Intentar incluir un mas o menos 30kg en el paso de adicion de Chloro del MBR SR 1301, paso de carga de chloro",
+    "teamMembers": "",
+    "result": "",
+    "category": "Calidad"
+  },
+  {
+    "objectId": "2YF8VQAPPu",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea enhance the knowledge and accountability on the Environment Management System and Programs? (e.g. ISO 14001)\n",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce  Energy and Water Consumption and/or minimize Waste? How much? \n",
+        "answer": "N/A",
+        "required": false
+      },
+      {
+        "question": "Does this idea foster employee EHSS accountability and an interdependent EHSS culture?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 10,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "santiaa22",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Thu Jul 22 2021 14:02:37 GMT-0500 (GMT-05:00)",
+    "proponentObj": "qXFV2MtMAR",
+    "date": "Thu Jul 22 2021 13:58:07 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 2",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Adaline Santiago-Perez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Revision del manual de DES. Recurso ingeniero de proceso."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "2 meses"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Flush de antimonio",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Thu Jul 22 2021 14:02:37 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Establecer una instrucción en los MBrs de la DR1411/12 para realizar un flush de mínimo 5 minutos cuando se vaya a reemplazar el cilindro de antimonio.",
+    "teamMembers": "",
+    "result": "",
+    "category": "EHS y Cumplimiento"
+  },
+  {
+    "objectId": "7Gv36LLTmn",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help in developing a positive workplace environment?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing new skills and competencies?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing a positive workplace environment?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing new skills and competencies?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing a positive workplace environment?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing new skills and competencies?",
+        "answer": "",
+        "required": false
+      }
+    ],
+    "num": 38,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Thu Sep 09 2021 10:59:11 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Thu Sep 09 2021 10:29:34 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "Recursos Humanos",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "Quiza la de comunicacion en las diversas encuestas."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "N/A"
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": "Desde siempre, tenemos turnos todo el tiempo."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Aunque se envie la invitacion via zoom, los empleados en sus dias libres no deberian o no pueden siempre conectarse. Pierden esa comunicacion."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Que todos los turnos tengan igualdad ya sea en modo presencial o virtual. Si se graban, se hacen los arreglos para que los supervisores reciban la grabacion y la discutan en sus respectivos turnos. Aunque presencialmente no disfruten siempre, es imposible y comprensible, de los refrigerios y otras actividades. Que al menos vean la grabaciön de lo que se discutio y esten informados. "
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "En todas las actividades que estamos llevando a cabo."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "A nivel de toda la planta, con su sturnos en: Planta I, PLanta II, QC, EOA, UTL, ENG y algunos turnos de FP. "
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Grabacion eventos via zoom",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Thu Sep 09 2021 10:59:11 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Las actividades que se citen via zoom, como por ejemplo: Al Fresco, Townhall, I Care Pod Cast, entre otros; con el consentimiento debido, se deberïan grabar para que de ese modo todos los turnos se beneficien.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Best Place to Work"
+  },
+  {
+    "objectId": "8riiNpiVbZ",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "no",
+        "required": false
+      }
+    ],
+    "num": 2,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "huertai",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Tue Jul 13 2021 02:16:22 GMT-0500 (GMT-05:00)",
+    "proponentObj": "t7U2sLxG1F",
+    "date": "Tue Jul 13 2021 02:02:56 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Israel Huertas Mendez",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "productividad"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "de que el calculo es manual"
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": "siempre"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "automatizar el forecut"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "perdida de producto"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "d vez en cuando"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "SV1422"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Agregar modulo para forecut",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Jul 13 2021 02:16:22 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Modulo para calcular el  forecut de SV1422 d acuerdo a la carga inicial y asi evitar perdida d producto en la etapa d Amine Recovery.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Productividad"
+  },
+  {
+    "objectId": "9Wl9P1jFqy",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to reduce costs and comply with site cost reduction initiatives? ",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce materials inventory levels? How much? ",
+        "answer": "",
+        "required": false
+      }
+    ],
+    "num": 12,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "_riverp5",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Sat Jul 24 2021 14:18:24 GMT-0500 (GMT-05:00)",
+    "proponentObj": "DNw35VQc3J",
+    "date": "Sat Jul 24 2021 12:10:44 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Pedro Manuel Rivera Enchautegui",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Lineas nuevas \nValvulas\nLavado de tanques\nDelta V\n(Sistema generar de transferencias)\n"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "(1) Shutdown"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Mejoras en la columna SC-1330",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Sat Jul 24 2021 14:18:24 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Utilizar el SV-1202 o el SV-1222 como gemelo del SV-1329 para aumentar la capacidad de almacenaje de Chlorosevo.",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "Reduce carga laboral",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "Elimina la posibilidad de detener la destilación por falta de espacio.",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "WIP",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "Elimina SV-1336/37 a Tote Tank",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "Cost Competitiveness",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "A183XulWth",
+    "responsibleName": "Richard Vazquez",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "jkghjk",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "kghjk",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 3,
+    "expectedReturn": 1000,
+    "teamName": "",
+    "verified": true,
+    "edited": true,
+    "proponent": "_vazqur",
+    "ACL": null,
+    "completed": true,
+    "progress": [
+      100,
+      0
+    ],
+    "updatedAt": "Fri Jul 16 2021 08:40:53 GMT-0500 (GMT-05:00)",
+    "proponentObj": "56NcSBooXp",
+    "date": "Fri Jul 16 2021 08:23:51 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "Recursos Humanos",
+    "status": "Ejecutar - Just Do It",
+    "comments": [
+      {
+        "comment": "Just do it",
+        "date": "2021-07-16T13:28:28.163Z",
+        "user": "Richard Vazquez",
+        "progress": [
+          25,
+          75
+        ]
+      },
+      {
+        "date": "2021-07-16T13:29:15.268Z",
+        "user": "Richard Vazquez",
+        "progress": [
+          75,
+          25
+        ]
+      },
+      {
+        "date": "2021-07-16T13:29:44.393Z",
+        "user": "Richard Vazquez",
+        "progress": [
+          100,
+          0
+        ]
+      }
+    ],
+    "proponentName": "Richard Vazquez",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "ghd"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "dgh"
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": "dhg"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "dfgh"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "dgh"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "d"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "dgfhdf"
+      }
+    ],
+    "responsible": "56NcSBooXp",
+    "hasTeam": false,
+    "title": "titulo",
+    "needsEvaluation": false,
+    "needsRecognition": true,
+    "createdAt": "Fri Jul 16 2021 08:25:46 GMT-0500 (GMT-05:00)",
+    "verification": "atN6Plc3ZF",
+    "file": null,
+    "description": "descripcion",
+    "teamMembers": "",
+    "result": "BNOlfABNif",
+    "category": "Productividad"
+  },
+  {
+    "objectId": "AizSAtHuZ8",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea simplify a process or a document?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to prevent defects, regulatory issues, product recall or customer complaints?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to align current process practices with a procedure?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 11,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Thu Jul 22 2021 14:10:06 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Thu Jul 22 2021 14:05:07 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Administracion",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Recursos de IT. Para la integraciónde los Sharepoints, representantes de cada departamento para estructurar lo que cada uno quiere compartir."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Depende de los recursos."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Crear Engineering Shrepoint",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Thu Jul 22 2021 14:10:06 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Crear un Sharepoint que permita acceder a las aplicaciones que actualmente utilizamos en Ingeniería para monitorear los sistemas departamentales. Que igualmente sea un estándar para todos los departamentos y entre ellos se puedan comunicar.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Calidad"
+  },
+  {
+    "objectId": "C5AJyV3zMv",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "Evitamos reprocesar un producto que puede estar bueno. ",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 28,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "perezng",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Sun Sep 05 2021 18:53:54 GMT-0500 (GMT-05:00)",
+    "proponentObj": "1rppz0N7Ma",
+    "date": "Sun Sep 05 2021 18:37:59 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Glidden E Perez-Nieves",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Hay que hacer una linea de recircular y una de transferencia al SV1320."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "De acuerdo a las lineas que necesite."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "no"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Transferencia del SV1332",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Sun Sep 05 2021 18:53:54 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Cuando se colecte un forecut del SV1332, podemos tomar una muestra y saber si cumple para transferirlo al SV1320 en vez de devolverlo al SV1307/08. Si la muestra no cumple transferirlo para una flash bottom.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Productividad"
+  },
+  {
+    "objectId": "FTegLhlv4q",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to reduce costs and comply with site cost reduction initiatives? ",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce materials inventory levels? How much? ",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing a positive workplace environment?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing new skills and competencies?",
+        "answer": "",
+        "required": false
+      }
+    ],
+    "num": 33,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Tue Sep 07 2021 09:06:33 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Tue Sep 07 2021 08:54:32 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Recursos Humanos",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Consulta y aprobacion del SLT, Cambio de criterios para la seleccion, informar a la poblacion, comprar acrilicos adicionales o en una misma lamina, incluirlos a ambos.\nAsi solidificamos nuestro pilar de reconocimiento, inclusion y Baxter Woman Who Leads Culture."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Puede ser casi inmediato.\nLa realidad es que hay ciertos recursos que no tienen la misma exposiciön por lo que su posibilidad por mas que se esfuerce es limitada. SIn embargo dentro de la circusntancia logra contribuir y deberia reconocerce igual. Por lo que tener un chico y una chica por categoria debe ser sencillo de implementar."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Reconocientos a ambos generos",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Sep 07 2021 09:06:33 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Usualmente vemos en los Awards en la cafeteria los observadores del mes o el trimestre, un solo premio y eso esta bien. Pero para ser mas inclusivos y hasta cierto punto justos, deberiamos otrogar los premios al observador y observadora del mes.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Best Place to Work"
+  },
+  {
+    "objectId": "GVBYGqLIAg",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to reduce costs and comply with site cost reduction initiatives? ",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce materials inventory levels? How much? ",
+        "answer": "En cada carga que se realice en los lavados.",
+        "required": false
+      }
+    ],
+    "num": 20,
+    "expectedReturn": 10000,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "rodrige18",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Mon Aug 16 2021 23:44:43 GMT-0500 (GMT-05:00)",
+    "proponentObj": "Lf3x1v4E6S",
+    "date": "Mon Aug 16 2021 23:30:07 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Evat Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Ingenieros"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "6 meses"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": true,
+    "title": "Remanente   NaOH /H2O SV-1516",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Mon Aug 16 2021 23:44:43 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": {
+      "__type": "File",
+      "name": "a9169add5d73a0dc8bfc69b254d0fb79_idea evat sv-1516.pdf",
+      "url": "http://localhost:1337/parse/files/Murmuration/a9169add5d73a0dc8bfc69b254d0fb79_idea%20evat%20sv-1516.pdf"
+    },
+    "description": "Luego de finalizar el lavado del Spener , queda un remanente y podria evaluar ,para utilizar en el siguiente lavado, para no disponer del mismo y utilizarlo.  Reduciendo el consumo de cautica por corida en los lavados.",
+    "teamMembers": [
+      {
+        "value": {
+          "objectId": "rGtij77vQM"
+        },
+        "label": "Alejandro Goycochea"
+      },
+      {
+        "value": {
+          "objectId": "JMHLhzaGly"
+        },
+        "label": "Angely M Questell-Melendez"
+      }
+    ],
+    "result": "",
+    "category": "Cost Competitiveness"
+  },
+  {
+    "objectId": "Gx8oapzrC8",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help in developing a positive workplace environment?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing new skills and competencies?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 26,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Fri Sep 03 2021 10:59:08 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Fri Sep 03 2021 10:32:46 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Recursos Humanos",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Coordinación con EHSS (Dispensario), HR y los recursos que dan servicio al dispensario: sicologa, médicos, masajista. "
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Poco tiempo, lo que tome crear los certificados y agendar con los recursos: sicologa, médicos, masajistas.\nEl tener un \"one on one\" les permite de cerca, conocer en vivo los beneficios y en caso de los empleados que sean tímidos, ya rompen el hielo. Adicional se crea una oportunidad para todos por igual para tener un examen físico completo de los empleados. Así prioritizamos la salud lo que redunda en mejor productividad y muestra \"Yo me Preocupo y me Ocupo por mis empleados\"."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Crear certificados servicios",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Fri Sep 03 2021 10:59:08 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Como parte del programa de new hire,además de explicar los beneficios que tenemos en el dispensario, crear unos certificados para:un masaje, una cita con los doctores para crear un expediente e igual con la sicologa.El objetivo es que puedan conocer",
+    "teamMembers": "",
+    "result": "",
+    "category": "Best Place to Work"
+  },
+  {
+    "objectId": "HFpEVXoXBA",
+    "responsibleName": "Richard Vazquez",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "Si. Maybe 10 hours",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 19,
+    "expectedReturn": 25000,
+    "teamName": "",
+    "verified": "",
+    "edited": true,
+    "proponent": "rvca",
+    "ACL": null,
+    "completed": true,
+    "progress": [
+      100,
+      0
+    ],
+    "updatedAt": "Sun May 29 2022 17:11:44 GMT-0500 (GMT-05:00)",
+    "proponentObj": "bZKOJrccVc",
+    "date": "Tue Aug 10 2021 08:59:13 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "OpEx",
+    "status": "Ejecutar - Just Do It",
+    "comments": [
+      {
+        "comment": "This task is to be executed NOW!",
+        "date": "2021-08-10T14:42:47.996Z",
+        "user": "Richard Vazquez",
+        "progress": [
+          25,
+          75
+        ]
+      },
+      {
+        "date": "2021-08-10T14:43:16.431Z",
+        "user": "Richard Vazquez",
+        "progress": [
+          100,
+          0
+        ]
+      }
+    ],
+    "proponentName": "Ricardo Vasquez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Money, Trainings, Experts (People)"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Maybe 6 month"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "56NcSBooXp",
+    "hasTeam": false,
+    "title": "This is a testing",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Aug 10 2021 09:26:47 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Hello CIS!",
+    "teamMembers": "",
+    "result": "ZdOhuyHDy7",
+    "category": "Productividad"
+  },
+  {
+    "objectId": "Hy3nvbGEQj",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help in developing a positive workplace environment?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing new skills and competencies?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 27,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Fri Sep 03 2021 11:23:13 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Fri Sep 03 2021 10:59:10 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Recursos Humanos",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Ordenar e instalar el letrero para empleados que vengan a las citas de return to work o que se le recomiende por alguna circunstancia un estacionamiento temporero por \"medical pass\".\nRevisar el SOP que legisla el \"return to work\"para incluir las recomendaciones, si se aprobaran."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Sería ordenar el letrero que adjunto, esta idea la tomé de la visita a la planta de Opelika.\nRevisar la forma o documento y el SOP que legisla el \"Return to worK\" para incluir la info detallada y evitar el dolor de cabeza de las restricciones, de igual modo tener la opción de consulta entre médicos pues entre ellos se pueden entender mejor si hubiese algún punto de inflexióno duda y así evitar el \"back and foward\" que hasta puediera dilatar innecesariamente un retorno. Igualmente tenemos un experto en ergonomía y en cirugías especialemnte, debe ser compulsorio evaluar si con el cambio de circunstancias nos aseguramos que el empleado no necesita algún recurso para cuidar su recuperación."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Evaluación Return to Work",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Fri Sep 03 2021 11:23:13 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Entregar un documento con la info detallada que se desea sea provista por el especialista e igual tener una evaluación de ergonomía si aplica. Igualmente otras conseciones como un estacionamiento para cuando se cite con el doctor ocupacional.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Best Place to Work"
+  },
+  {
+    "objectId": "IlsrL3ZV5u",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to reduce costs and comply with site cost reduction initiatives? ",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce materials inventory levels? How much? ",
+        "answer": "",
+        "required": false
+      }
+    ],
+    "num": 14,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "_riverp5",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Sat Jul 24 2021 15:14:11 GMT-0500 (GMT-05:00)",
+    "proponentObj": "DNw35VQc3J",
+    "date": "Sat Jul 24 2021 14:32:01 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Pedro Manuel Rivera Enchautegui",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "SOP\nRemover bomba SP-1542 \nAñadir un pedazo de línea para sustituir el espacio de la bomba (gravedad)\n\n"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Shutdown (1)"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Eliminar bomba SP-1542",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Sat Jul 24 2021 15:14:11 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Eliminar bomba SP-1542. La misma está conectada en la línea transferencia del SV-1510/11 hacia el SV-1514/15. Esta transferencia es por gravedad.",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": ".Perdida de producto en los bolsillos de la bomba",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": ".Disminuye el PH de Sevo",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": ".Perdida kg en carga",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "Cost Competitiveness",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "JAmfbmVOiO",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea enhance the knowledge and accountability on the Environment Management System and Programs? (e.g. ISO 14001)\n",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce  Energy and Water Consumption and/or minimize Waste? How much? \n",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea foster employee EHSS accountability and an interdependent EHSS culture?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 17,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "_riverp5",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Tue Jul 27 2021 04:39:58 GMT-0500 (GMT-05:00)",
+    "proponentObj": "DNw35VQc3J",
+    "date": "Tue Jul 27 2021 04:37:01 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Pedro Manuel Rivera Enchautegui",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "no"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Ingenieros de proceso "
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Tiempo desconocido \n"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Añadir carbón adsorber SC1502",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Jul 27 2021 04:39:58 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Añadir carbón adsorber a la destilación final SC-1502",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "Actualmente tiene solo un carbón SA-1828",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "En ocasiones hay que esperar que termine la destilación para poder hacer el remplazo del carbón",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "No cumplimos con el calendario ya estipulado.",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "EHS y Cumplimiento",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "K9Dnc8E5xP",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea enhance the knowledge and accountability on the Environment Management System and Programs? (e.g. ISO 14001)\n",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce  Energy and Water Consumption and/or minimize Waste? How much? \n",
+        "answer": "No.",
+        "required": false
+      },
+      {
+        "question": "Does this idea foster employee EHSS accountability and an interdependent EHSS culture?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 5,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Mon Jul 19 2021 14:03:35 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Mon Jul 19 2021 13:49:07 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "Ingenieria",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "Work Orders.\nDowntime."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "No entendí esta pregunta :("
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": "Meses."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Work Orders que no se pueden cerrar por que se dejan espacios en blancos o los turnos rotan el completar las formas y a veces no se acceden tan rápidamente. Situación aplicable con los LOTOS, MI, Significativos, entre otras."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Cierre de WOs de forma efectiva, ahorro de tiempo en buscar documentos. Crear campos requeridos que no permitan cerrar hasta que se tenga toda la info. A la vez que digitaliza el acceso es más fácil y certero."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Todas las semanas."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "En las plantas de Manufactura principalmente."
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Sharepoint para Formas",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Mon Jul 19 2021 14:03:35 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Crear un Sharepoint para documentar o \"scan\" de los Pressure Test, de forma que todos los implicados tenga la evidencia disponible para cierre de acciones o completar documentaciones de WO's. Igual los LOTO y Permisos.",
+    "teamMembers": "",
+    "result": "",
+    "category": "EHS y Cumplimiento"
+  },
+  {
+    "objectId": "MmL0ei93SH",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "N/A",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "Sí.\nDepende del tiempo en conseguir las cinco diferentes firmas y la cantidad de instrumentos para registrar.",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 35,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Wed Sep 08 2021 10:34:13 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Wed Sep 08 2021 09:26:11 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "GPF",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "Puede que la del Overtime."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "N/A"
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": "Desde 2011."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Evitar que el lead de Calibraciones tenga más responsabilidades llenando una forma que para nada apoya Simplicity, buscando cinco firmas que a veces no aparecen por que están remoto o están en reuniones. No tiene valor añadido por que estas firmas no retan los muchos instrumentos que salen de la planta para calibraciones rutinarias. Cuando tenemos un listado, un PO, conduce y una firma de salida de todo lo que se llevan y regresan, los cuales se firman. Tenemos rastreabilidad y podemos digitalizar un log para asegurar esto, sin tener que seguir lo que manda este SOP GG0038 y su forma GZF099. "
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Simplificar el proceso que legisla el GG0038 y su forma GZF099 para remover los instrumentos que hay que calibrar rutinariamente. "
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Mensualmente."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "En el área de calibraciones, con la carga de calibraciones de: Instrumentació, F&P, QC, Incoming, EOA Lab, Eoa, EHSS, entre otros instrumentos que son calibrados por sus PMs rutinarios."
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Editar GZF099 y el GZ0038",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Wed Sep 08 2021 10:34:13 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": {
+      "__type": "File",
+      "name": "ccf851af053c97e80c6cae8dd7cf5509_GZF099 _E.pdf",
+      "url": "http://localhost:1337/parse/files/Murmuration/ccf851af053c97e80c6cae8dd7cf5509_GZF099%20_E.pdf"
+    },
+    "description": "La forma GZf099 Request for Shipment tiene demasiadas firmas para llenar al momento de enviar lo que por rutina sale a calibtación con los laboratorios externos. Editar la forma y el SOP para añadir una nota de exepción para que no aplique a IC&M.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Productividad"
+  },
+  {
+    "objectId": "R7ehEu7RYR",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help in developing a positive workplace environment?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing new skills and competencies?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea simplify a process or a document?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to prevent defects, regulatory issues, product recall or customer complaints?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to align current process practices with a procedure?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea simplify a process or a document?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to prevent defects, regulatory issues, product recall or customer complaints?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to align current process practices with a procedure?",
+        "answer": "",
+        "required": false
+      }
+    ],
+    "num": 30,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "huertai",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Sun Sep 05 2021 20:51:52 GMT-0500 (GMT-05:00)",
+    "proponentObj": "t7U2sLxG1F",
+    "date": "Sun Sep 05 2021 20:31:50 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Israel Huertas Mendez",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "Cuando se va a escoger las cargas FQIC sea d Caustic o Water utlizando como ejemplo El SV-1304 en el Delta V me envia a una pantalla con todas las cargas juntas de todos loas equipos q necesitan dicha carga."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Eso se presta a escoger por erro el quipo incorrecto"
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": " "
+      },
+      {
+        "question": "¿Problema?",
+        "answer": " "
+      },
+      {
+        "question": "¿Problema?",
+        "answer": " "
+      },
+      {
+        "question": "¿Problema?",
+        "answer": " "
+      },
+      {
+        "question": "¿Problema?",
+        "answer": " "
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Cargas FQIC en Delta V",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Sun Sep 05 2021 20:51:52 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "La idea es que al selecionar la carga a uitilizar en este caso el agua al SV1304 me lleve solo a el FQIC del mismo o que solo se pueda usar solo ese FQIC y los demas no.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Accion Inmediata"
+  },
+  {
+    "objectId": "Sz3Vdi1lSA",
+    "responsibleName": "",
+    "questionAnswer": [],
+    "num": 32,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Tue Sep 07 2021 08:54:28 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Tue Sep 07 2021 08:45:29 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "OpEx",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Supervisores y SLT para informar.\nQue los empleados muestren el antes y el despues.\nPublicarlo en la pagina de intranet\nSeleccionar una empleado y un empleado para reconocer el el Recognition Wall"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Inmediato, que los supervisores y/o el SLT anuncie que quieren que los empleados cometan sus iniciativas e ideas alineadas a Simplicity y Digital transformation y presentarlas en la pagina de intranet y mensualmente escoger una para un Award en la pared de reconocimiento."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Digital Transformation Awards",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Sep 07 2021 08:54:28 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Estamos fomentando SImplicity y Digital trasnformation, me parece que una forma de promover es dando a conocer esas ideas o iniciativas que lograron cumplir con uno o ambos de estos dos elementos. Asi medimos la efectividad y reconocemos el esfuerzo",
+    "teamMembers": "",
+    "result": "",
+    "category": "Accion Inmediata"
+  },
+  {
+    "objectId": "TQQUotcmkd",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "60",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "60  min",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 24,
+    "expectedReturn": 5000,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "rodrige18",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Tue Aug 17 2021 00:51:14 GMT-0500 (GMT-05:00)",
+    "proponentObj": "Lf3x1v4E6S",
+    "date": "Tue Aug 17 2021 00:39:31 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Evat Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Mantanimiento,Ingenieria"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "6 meses"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": true,
+    "title": "SV1304",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Aug 17 2021 00:51:14 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": {
+      "__type": "File",
+      "name": "f5af981e7f01a7eccd61989748383011_idea evat - sv-1304.pdf",
+      "url": "http://localhost:1337/parse/files/Murmuration/f5af981e7f01a7eccd61989748383011_idea%20evat%20-%20sv-1304.pdf"
+    },
+    "description": "Añadir un interlock a la SP1311 para cuando este en funcion las dos forma ajitando y recirculando en settel down se detenga",
+    "teamMembers": [
+      {
+        "value": {
+          "objectId": "rGtij77vQM"
+        },
+        "label": "Alejandro Goycochea"
+      },
+      {
+        "value": {
+          "objectId": "JMHLhzaGly"
+        },
+        "label": "Angely M Questell-Melendez"
+      }
+    ],
+    "result": "",
+    "category": "Productividad"
+  },
+  {
+    "objectId": "VtxsG5lw8K",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea simplify a process or a document?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to prevent defects, regulatory issues, product recall or customer complaints?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to align current process practices with a procedure?",
+        "answer": "no",
+        "required": false
+      }
+    ],
+    "num": 6,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Mon Jul 19 2021 15:16:33 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Mon Jul 19 2021 14:57:46 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "Quality Control, Operations and Compliance",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "Past Due."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "El sistema de editar los documentos y determinar en el sello ofiicial la efectividad (TcU) debería alimentar con esta fecha al sistema de adiestramiento (BaxU) para que ambos estén alineados y puedan tener las fechas iguales de efectividad. Esto ayuda a asegurar que estamos midiendo certeramente este proceso de Calidad calibrado."
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": "Desde que se implementó BaxU."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Past Due que no aplican o por otro lado, peligro potencial de ejecutar con un SOP que está efectivo y no se registra el adiestramiento ni el past due que es real."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "BaxU tiene un default para efectividad de cualquier SOP, 14 días. A veces si es el SOP tiene menos días, un empleado puede ejecutar sin estar past due a efecto del sistema de adiestramiento BaxU, pero fuera de la fecha de efectividad según el stamp del SOP sí. Por otro lado si tiene más de los 14 días, a efectos del BaxU tendrá un falso past due que impacta la métrica, cuando la realidad es que puede estar en conformidad de la fecha segúnla efectividad del documento."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Desconozco."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "En todos los departamentos, el problema antes descrito pasó con un SOP que aplicaba a toda la población, fue en el assessment del past due que llegamos a la causa raíz."
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "BaxU y TcU alineados due date",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Mon Jul 19 2021 15:16:33 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Generar un CC para que BaxU y TcU puedan comunicarse y ambos sistemas tengan igual fecha de efectividad.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Calidad"
+  },
+  {
+    "objectId": "X6XwdGbBWE",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help in developing a positive workplace environment?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing new skills and competencies?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 36,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Wed Sep 08 2021 10:38:57 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Wed Sep 08 2021 10:34:16 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Recursos Humanos",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Un grupo multidisciplinario para la creación de cada capítulo."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Crear el manual, sujeto a la disponibilidad de un grupo multidisciplinario para la creación de cada capítulo."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Crear manual programas",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Wed Sep 08 2021 10:38:57 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Crear en un solo manual todos los programas corporativos y locales. Ej. Programa de Ideas, I Care, BPTW, Recognition, Observaciones 360, entre otros. Igual crear un currículo en BaxU y que tenga unos slides informativos para cada uno de ellos.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Best Place to Work"
+  },
+  {
+    "objectId": "XMBZBN99rC",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea enhance the knowledge and accountability on the Environment Management System and Programs? (e.g. ISO 14001)\n",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce  Energy and Water Consumption and/or minimize Waste? How much? \n",
+        "answer": "N/A",
+        "required": false
+      },
+      {
+        "question": "Does this idea foster employee EHSS accountability and an interdependent EHSS culture?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea enhance the knowledge and accountability on the Environment Management System and Programs? (e.g. ISO 14001)\n",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce  Energy and Water Consumption and/or minimize Waste? How much? \n",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea foster employee EHSS accountability and an interdependent EHSS culture?",
+        "answer": "",
+        "required": false
+      }
+    ],
+    "num": 8,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "pereze1",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Wed Jul 21 2021 15:31:59 GMT-0500 (GMT-05:00)",
+    "proponentObj": "9SIf1U3RYM",
+    "date": "Wed Jul 21 2021 15:19:38 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "EHSS",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Elsa M Perez-Valentin",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "EHS y Calidad"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "N/A"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "One Point Lessons en BAXU",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Wed Jul 21 2021 15:31:59 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Evaluar colocar los One Point Lessons en BAXU para que los empleados entren a la aplicación como si fuera un adiestramiento.  Así aseguraremos que todos los empleados 'tomaron' el One Point Lesson y cumplimos con las fechas de 'commitment'.",
+    "teamMembers": "",
+    "result": "",
+    "category": "EHS y Cumplimiento"
+  },
+  {
+    "objectId": "ZBq1lUXeI6",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to reduce costs and comply with site cost reduction initiatives? ",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce materials inventory levels? How much? ",
+        "answer": "test",
+        "required": false
+      }
+    ],
+    "num": 39,
+    "expectedReturn": 0.1,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "roquem",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Tue Apr 19 2022 12:50:06 GMT-0500 (GMT-05:00)",
+    "proponentObj": "x8f0X3UskL",
+    "date": "Tue Apr 19 2022 12:34:43 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "GPF",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Marylin Roque-Vicente",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "test"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "test"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Test",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Apr 19 2022 12:50:06 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Test",
+    "teamMembers": "",
+    "result": "",
+    "category": "Cost Competitiveness"
+  },
+  {
+    "objectId": "c9Va9msYlv",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "60",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "por coridas establecidas",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 23,
+    "expectedReturn": 5000,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "rodrige18",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Tue Aug 17 2021 00:39:28 GMT-0500 (GMT-05:00)",
+    "proponentObj": "Lf3x1v4E6S",
+    "date": "Tue Aug 17 2021 00:32:51 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Evat Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Ingenieria y mantanimiento"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "3 meses"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Cargas de SV156 Wash vent",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Aug 17 2021 00:39:28 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": {
+      "__type": "File",
+      "name": "663b1ee24d414dc8728eeb991b840d11_idea evat - vent sv-1517 sv-1506.pdf",
+      "url": "http://localhost:1337/parse/files/Murmuration/663b1ee24d414dc8728eeb991b840d11_idea%20evat%20-%20vent%20sv-1517%20sv-1506.pdf"
+    },
+    "description": "Evaluar como se venteo SV1506 wash si las flash estan destilando nompermite alinear el vente delSV1506.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Productividad"
+  },
+  {
+    "objectId": "cP1e5C4PVx",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to reduce costs and comply with site cost reduction initiatives? ",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce materials inventory levels? How much? ",
+        "answer": "",
+        "required": false
+      }
+    ],
+    "num": 4,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Mon Jul 19 2021 10:54:52 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Mon Jul 19 2021 10:42:12 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "GPF",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "SME de Warehouse, Compras y IT. Es necesario según me informaron de COUPA que el departamento de integración de Baxter evalue la viabilidad para la programación de la aplicación en los handhelds y/o tabletas."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Depende del departamento de Warehouse y de IT para la compra de equipo, revisión de documento (SOP) si aplicara y el adiestramiento."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Recibo COUPA WHS",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Mon Jul 19 2021 10:54:52 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Utilizar handheld o tableta para hacer el recibo al momento.\nHacer el registro de forma digital, ya sea por \"scan\" o en el portal de recibos de COUPA.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Cost Competitiveness"
+  },
+  {
+    "objectId": "cSSQ7ew5Jp",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea simplify a process or a document?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to prevent defects, regulatory issues, product recall or customer complaints?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to align current process practices with a procedure?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea enhance the knowledge and accountability on the Environment Management System and Programs? (e.g. ISO 14001)\n",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce  Energy and Water Consumption and/or minimize Waste? How much? \n",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea foster employee EHSS accountability and an interdependent EHSS culture?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea simplify a process or a document?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to prevent defects, regulatory issues, product recall or customer complaints?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to align current process practices with a procedure?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing a positive workplace environment?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in developing new skills and competencies?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "",
+        "required": false
+      }
+    ],
+    "num": 16,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "_riverp5",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Tue Jul 27 2021 00:26:30 GMT-0500 (GMT-05:00)",
+    "proponentObj": "DNw35VQc3J",
+    "date": "Tue Jul 27 2021 00:09:07 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Pedro Manuel Rivera Enchautegui",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Ingenieros de proceso "
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Tiempo estimado desconocido "
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Eliminar muestra SV-1503/23",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Jul 27 2021 00:26:30 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Eliminar muestra (SV-1503, SV-1523) “forecut” #2 en cargas de SR1421 \"Improved\".  \nSiempre se transfiere hacia el SV-1527.\nReducción de costos\nTiempo\nReducción laboral del personal de laboratorio para enfocarse en muestra de más prioridad.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Productividad"
+  },
+  {
+    "objectId": "eEF4F0ckK3",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to reduce costs and comply with site cost reduction initiatives? ",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce materials inventory levels? How much? ",
+        "answer": "Anual",
+        "required": false
+      }
+    ],
+    "num": 22,
+    "expectedReturn": 5000,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "rodrige18",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Tue Aug 17 2021 00:26:36 GMT-0500 (GMT-05:00)",
+    "proponentObj": "Lf3x1v4E6S",
+    "date": "Tue Aug 17 2021 00:14:02 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Evat Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "La cantidad no es la corecta"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "perdida en cautica"
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": "Junio-2021"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Al cargar mas, hay menos espacio en los tanques no por estar saturados"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "optimizar la carga de scrubber"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Diario"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Planta !, SV1804,SV1805"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": true,
+    "title": "Carga de Scrubber",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Aug 17 2021 00:26:36 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": {
+      "__type": "File",
+      "name": "b8d8ff3aadec5619fa7027ec9868df43_Idea Evat carga NaOH a Scrubber 20-Jun-2021.docx",
+      "url": "http://localhost:1337/parse/files/Murmuration/b8d8ff3aadec5619fa7027ec9868df43_Idea%20Evat%20carga%20NaOH%20a%20Scrubber%2020-Jun-2021.docx"
+    },
+    "description": "La  carga de Cautica SV1804,SV1805",
+    "teamMembers": [
+      {
+        "value": {
+          "objectId": "rGtij77vQM"
+        },
+        "label": "Alejandro Goycochea"
+      },
+      {
+        "value": {
+          "objectId": "JMHLhzaGly"
+        },
+        "label": "Angely M Questell-Melendez"
+      }
+    ],
+    "result": "",
+    "category": "Cost Competitiveness"
+  },
+  {
+    "objectId": "fC5L078BXO",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "No lo se",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "No depender de entradas manuales, eliminar la posibilidad de que no se encuentre le log fisico, la accesibilidad de todos y que sean ellos mismos (operadores, supervisores, tecnicos) quienes puedan redactar los incidentes. Y que los ingenieros puedan analizar y determinar el evento. Mayor acceso a todos en caso de alguna investigacion o mejora. Tener un link a los sistemas para someter: WO, Observaciones 360,entre otros recursos que ayuden a resolver y no repetir el fallo que provoco el downtime.",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 18,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Tue Jul 27 2021 10:17:41 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Tue Jul 27 2021 09:55:20 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 2",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Ingenieros de confiabilidad, gerentes de areas de manufactura y personal de IT."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Depemdera de lso recursos."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Downtime Log",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Jul 27 2021 10:17:41 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": {
+      "__type": "File",
+      "name": "7110c5296a608c81f245ce16f32c67a8_Downtime.docx",
+      "url": "http://localhost:1337/parse/files/Murmuration/7110c5296a608c81f245ce16f32c67a8_Downtime.docx"
+    },
+    "description": "Tener una opcion en la pagina de intranet para que todas las areas de manufactura y tecnicos puedan documentar los procesos de downtime de forma digital y asi los ingenieros de confiabilidad puedan analizar y compartir la data mas facilmente.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Productividad"
+  },
+  {
+    "objectId": "fvDxmF6e2O",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea simplify a process or a document?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to prevent defects, regulatory issues, product recall or customer complaints?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to align current process practices with a procedure?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 9,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "felicil2",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Thu Jul 22 2021 09:56:24 GMT-0500 (GMT-05:00)",
+    "proponentObj": "JiPTGjjvpA",
+    "date": "Thu Jul 22 2021 09:42:27 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Laisa D Feliciano-Amaro",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "Calidad (Nota - No hay NCRs, eventos o raíces causas relacionadas a esta idea)."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "N/A"
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": "Se identifica cada vez que hacemos los Quality Gemba Walks. Del mismo modo, los operadores me dan el feedback e ideas para esta mejora la cual es necesaria."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Dolor de Cabeza - Se ha identificado que el personal coloca sus bultos, herramientas, envases de muestreo, etc. en el piso, encima de zafacones, base de columnas, etc. Estas son areas sucias las cuales causan posible contaminacion y particulado en muestras tomadas. Esto puede causar que tengamos fallas en la calidad del producto muestreado ya que personal puede estar en contacto con superficies sucias. De la misma manera se pueden evitar riesgos a la salud o issues de seguridad al evitar tener contacto con las manos en superficies sucias. "
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Posible impacto a la calidad del producto y reducir riesgos de seguridad."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Se identifica cada vez que hacemos los Quality Gemba Walks. Del mismo modo, los operadores me dan el feedback e ideas para la mejora la cual es necesaria."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "En los 3 pisos de Planta I - Sevoflurane."
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Estacion de Trabajo/Muestreo",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Thu Jul 22 2021 09:56:24 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Para que el personal no coloque sus bultos, herramientas, envases de muestreo, etc. en el piso, encima de zafacones, base de columnas, etc. Estas son areas sucias las cuales causan posible contaminación y particulado en muestras tomadas.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Calidad"
+  },
+  {
+    "objectId": "gZhoGhilzX",
+    "responsibleName": "Richard Vazquez",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "25",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "25",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "no",
+        "required": false
+      }
+    ],
+    "num": 7,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": true,
+    "proponent": "_vazqur",
+    "ACL": null,
+    "completed": true,
+    "progress": [
+      100,
+      0
+    ],
+    "updatedAt": "Sun May 29 2022 17:10:58 GMT-0500 (GMT-05:00)",
+    "proponentObj": "56NcSBooXp",
+    "date": "Wed Jul 21 2021 10:38:10 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "OpEx",
+    "status": "Ejecutar - Just Do It",
+    "comments": [
+      {
+        "comment": "xxxxxxx",
+        "date": "2021-08-05T18:17:36.894Z",
+        "user": "Diana M Santiago",
+        "progress": [
+          25,
+          75
+        ]
+      },
+      {
+        "date": "2021-08-10T14:58:48.889Z",
+        "user": "Richard Vazquez",
+        "progress": [
+          100,
+          0
+        ]
+      }
+    ],
+    "proponentName": "Richard Vazquez",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "Test"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Test"
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": "Test"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Test"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Test"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Test"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Test"
+      }
+    ],
+    "responsible": "56NcSBooXp",
+    "hasTeam": false,
+    "title": "This is a testing",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Wed Jul 21 2021 10:40:15 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Ensure that everyone can view the idea.",
+    "teamMembers": "",
+    "result": "dBnrPIdCWb",
+    "category": "Productividad"
+  },
+  {
+    "objectId": "lj5bBCVSIt",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "N/A",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "N/A",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 31,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "perezng",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Mon Sep 06 2021 02:40:11 GMT-0500 (GMT-05:00)",
+    "proponentObj": "1rppz0N7Ma",
+    "date": "Mon Sep 06 2021 02:28:04 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Glidden E Perez-Nieves",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "N/A"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "En condiciones normales uno sigue los prestatus del manual, "
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": "Siempre que se cambia el SV1301. Son muchas las cosas que hay que verificar."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "N/A"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Es evitar que a la hora de arrancar haya un procedimiento mas especifico que nos asegure que se verificó que todo esta en orden para empezar a usar el equipo."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "N/A"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Planta 1"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "SV1301",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Mon Sep 06 2021 02:40:11 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Sería bueno en el manual GPM004 hacer un capitulo especifico de cuando hay una intervencción mayor (ej cambio del SV1301) que diga todos los pasos a seguir para asegurar que el equipo cumpla con los requisitos de seguridad, calidad y producción.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Productividad"
+  },
+  {
+    "objectId": "msUGHI7KKN",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "",
+        "required": false
+      }
+    ],
+    "num": 1,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "huertai",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Tue Jul 13 2021 02:02:54 GMT-0500 (GMT-05:00)",
+    "proponentObj": "t7U2sLxG1F",
+    "date": "Tue Jul 13 2021 01:57:29 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Israel Huertas Mendez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "automatizar  sistema"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "mejorar sistema"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Agregar modulo para forecut",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Jul 13 2021 02:02:54 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Modulo para calcular el  forecut de SV1422 d acuerdo a la carga inicial y asi evitar perdida d producto en la etapa d Amine Recovery.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Productividad"
+  },
+  {
+    "objectId": "opfgpUj0A5",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea simplify a process or a document?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to prevent defects, regulatory issues, product recall or customer complaints?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to align current process practices with a procedure?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 37,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Wed Sep 08 2021 20:01:22 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Wed Sep 08 2021 10:39:04 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Quality Control, Operations and Compliance",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Personal que maneje Maximo y representante de Calidad para retar el WO que se genera y recopile la info que trate la incidencia (no critical)."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Crear un Job Plan de prueba, que Calidad lo apruebe y adiestrar....dependera de los recursos."
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Crear Job Plan Incidencias",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Wed Sep 08 2021 20:01:22 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Tenemos la tendencia a mitigar algunos incidentes a investigar, creando nuevas formas. Tenemos un sistema como lo es Maximo, que es uno validado, corporativo y rastreable. Para lo cual podemos crear JPs y adjuntar memos y otras evidencias.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Calidad"
+  },
+  {
+    "objectId": "rfMjhZAGSO",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to reduce costs and comply with site cost reduction initiatives? ",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce materials inventory levels? How much? ",
+        "answer": "Posiblemente en cuanto el sistema de la PSA no se encuentre en servicio y se este consumiendo el nitrogeno liquido",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce costs and comply with site cost reduction initiatives? ",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce materials inventory levels? How much? ",
+        "answer": "",
+        "required": false
+      }
+    ],
+    "num": 25,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "hernanj25",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Thu Aug 19 2021 13:10:42 GMT-0500 (GMT-05:00)",
+    "proponentObj": "uKT0a6T0xA",
+    "date": "Thu Aug 19 2021 12:58:58 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Jose Oscar Hernandez",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "Costo\nCalidad"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Con 2 log books diferentes o que se pueda hacer en 1 solos log book"
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": "La colocacion de 2 formas diferentes para el mismo proceso de manufactura en general"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Confusion en secado de las limpieza de los contenedores \"Tote Tanks\""
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "El consumo de nitrogeno del area Planta y la reducion de cualquier problema el cual se pueda identificar en los pasos de las formas "
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Durante las limpieza de los tote tanks"
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Planta 1"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Limpieza de Tote Tanks",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Thu Aug 19 2021 13:10:42 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Colocar o estandarizar las formas GAF003 y GAf006 en la estapa de secado el cual mencione o provea el secado de los tote tanks con nitrogeno o aire de proceso a travez del UZ 1725.  Minimiza confusion en hojas de limpieza.",
+    "teamMembers": "",
+    "result": "",
+    "category": "Cost Competitiveness"
+  },
+  {
+    "objectId": "slQ2m23AzG",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea help to improve %OEE? How much?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "By how much does this idea help to improve %OEE?",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to achieve the  strategic projects defined in Baxter Guayama within its timeframe?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce the execution times without compromising quality? How much?\n",
+        "answer": "",
+        "required": false
+      },
+      {
+        "question": "Does this idea help in reducing the process steps and reducing non-value added activities?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 13,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "_riverp5",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Sat Jul 24 2021 14:30:01 GMT-0500 (GMT-05:00)",
+    "proponentObj": "DNw35VQc3J",
+    "date": "Sat Jul 24 2021 14:18:45 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Pedro Manuel Rivera Enchautegui",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Protocolo "
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Instante "
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Mejoras en la columna SC-1502",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Sat Jul 24 2021 14:30:01 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Alinear el burbujeo (nitrógeno) del SV-1510 & SV-1511 desde aproximadamente 1000 kg en adelante hasta que termine de colectar aproximadamente los 2300kg. Una vez termina la cantidad de colección se le toma muestra.",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "Reducción de ciclo",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "PVP",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "Productividad",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "tRkLX8mOGH",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea simplify a process or a document?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to prevent defects, regulatory issues, product recall or customer complaints?",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to align current process practices with a procedure?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 15,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "_riverp5",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Sat Jul 24 2021 15:25:08 GMT-0500 (GMT-05:00)",
+    "proponentObj": "DNw35VQc3J",
+    "date": "Sat Jul 24 2021 15:14:54 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Pedro Manuel Rivera Enchautegui",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Instalación de bomba \nSistema de recirculación \nSOP\n"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Shutdown (1)"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "SV-1320 Recirculación",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Sat Jul 24 2021 15:25:08 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "Utilizar bomba SP-1542 para recircular el SV-1320.  SV-1320 no tiene línea de recircular. Su punto de muestreo actualmente no es representativo.",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": ".Ver idea anterior para entender porque la SP-1542.",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "",
+    "responsibleName": "",
+    "questionAnswer": "",
+    "num": "Calidad",
+    "expectedReturn": "",
+    "teamName": "",
+    "verified": "",
+    "edited": "",
+    "proponent": "",
+    "ACL": "",
+    "completed": "",
+    "progress": "",
+    "updatedAt": "",
+    "proponentObj": "",
+    "date": "",
+    "ideaType": "",
+    "department": "",
+    "status": "",
+    "comments": "",
+    "proponentName": "",
+    "filterAnswer": "",
+    "responsible": "",
+    "hasTeam": "",
+    "title": "",
+    "needsEvaluation": "",
+    "needsRecognition": "",
+    "createdAt": "",
+    "verification": "",
+    "file": "",
+    "description": "",
+    "teamMembers": "",
+    "result": "",
+    "category": ""
+  },
+  {
+    "objectId": "v51ZnNPXCV",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea enhance the knowledge and accountability on the Environment Management System and Programs? (e.g. ISO 14001)\n",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce  Energy and Water Consumption and/or minimize Waste? How much? \n",
+        "answer": "Este ejemplo está basado en la puerta a Fill and Pack que ha sido reportada por varios compañeros y como no se sabe que está reportada  ni por qué se ha reparado...la seguirán reportando. Mientras se consume energía por que se queda abiert ay el blower no tumba.",
+        "required": false
+      },
+      {
+        "question": "Does this idea foster employee EHSS accountability and an interdependent EHSS culture?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 34,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "paganry",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Wed Sep 08 2021 09:25:15 GMT-0500 (GMT-05:00)",
+    "proponentObj": "4sxChBRU0P",
+    "date": "Wed Sep 08 2021 08:57:10 GMT-0500 (GMT-05:00)",
+    "ideaType": "problema",
+    "department": "EHSS",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Yolanda Pagan-Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Problema?",
+        "answer": "La de observaciones 360."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "N/A"
+      },
+      {
+        "question": "¿Since when is it happening?",
+        "answer": "Desde que el programa está establecido, varios años."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "La duplicidad de ideas, llenar el sistema de Maximo de WO para corregir lo msimo."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "La duplicidad de WO para una misma situación y el trabajo en vano que realiza el observador. Tener un sello que contenga por ejemplo: WO # 360 In Progess en los que sean posible colocar. Igual otra alternativa es un reporte que presente las observaciones abiertas por areas al momento para corroborar que no este en sistema."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "Semanalmente."
+      },
+      {
+        "question": "¿Problema?",
+        "answer": "En toda la planta."
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "Observation In Progress Label",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Wed Sep 08 2021 09:25:15 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": null,
+    "description": "A veces se observa una oportunidad y se genera el WO en el proceso de someter la Observación 360. Para daese cuenta que el equipo o la situación tienen múltiples WOs para lo mismo. Colocar un label con el WO No alertaría que ha sido reportada.",
+    "teamMembers": "",
+    "result": "",
+    "category": "EHS y Cumplimiento"
+  },
+  {
+    "objectId": "wOYt7Ghegz",
+    "responsibleName": "",
+    "questionAnswer": [
+      {
+        "question": "Does this idea enhance the knowledge and accountability on the Environment Management System and Programs? (e.g. ISO 14001)\n",
+        "answer": "yes",
+        "required": false
+      },
+      {
+        "question": "Does this idea help to reduce  Energy and Water Consumption and/or minimize Waste? How much? \n",
+        "answer": "no",
+        "required": false
+      },
+      {
+        "question": "Does this idea foster employee EHSS accountability and an interdependent EHSS culture?",
+        "answer": "yes",
+        "required": false
+      }
+    ],
+    "num": 21,
+    "expectedReturn": 0,
+    "teamName": "",
+    "verified": "",
+    "edited": false,
+    "proponent": "rodrige18",
+    "ACL": null,
+    "completed": false,
+    "progress": [
+      0,
+      100
+    ],
+    "updatedAt": "Tue Aug 17 2021 00:13:57 GMT-0500 (GMT-05:00)",
+    "proponentObj": "Lf3x1v4E6S",
+    "date": "Tue Aug 17 2021 00:01:49 GMT-0500 (GMT-05:00)",
+    "ideaType": "innovacion",
+    "department": "Planta 1",
+    "status": "SOMETIDA",
+    "comments": [],
+    "proponentName": "Evat Rodriguez",
+    "filterAnswer": [
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "Ingenieria  "
+      },
+      {
+        "question": "¿Test?",
+        "answer": "3 meses"
+      },
+      {
+        "question": "¿Test?",
+        "answer": "yes"
+      }
+    ],
+    "responsible": "",
+    "hasTeam": false,
+    "title": "SR1421",
+    "needsEvaluation": true,
+    "needsRecognition": "",
+    "createdAt": "Tue Aug 17 2021 00:13:57 GMT-0500 (GMT-05:00)",
+    "verification": "",
+    "file": {
+      "__type": "File",
+      "name": "dcf93a54b91a21f8b70e7184586bb13b_Idea evat SR1421 nitrogeno.pdf",
+      "url": "http://localhost:1337/parse/files/Murmuration/dcf93a54b91a21f8b70e7184586bb13b_Idea%20evat%20SR1421%20nitrogeno.pdf"
+    },
+    "description": "Reguladora de valvula de nitrogeno SR1421.",
+    "teamMembers": "",
+    "result": "",
+    "category": "EHS y Cumplimiento"
+  }
+]

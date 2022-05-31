@@ -18,6 +18,7 @@ import { ReactComponent as DivisorBarIcon } from "../images/edited_divisor.svg"
 import { ReactComponent as HomeIcon } from "../images/home.svg"
 import { ReactComponent as PreviousIcon } from "../images/PreviousIcon.svg"
 
+import OldIdeas from "../assets/baxter_idea_data.json"
 
 
 import { useTranslation, initReactI18next } from "react-i18next";
@@ -94,6 +95,61 @@ function SubmitIdeaNew(smallStats) {
    setCanContinue(status)
   }
 
+  const processJson = (result) => {
+      
+    var object = OldIdeas;
+    var allObjects = [];
+    
+    // alert(object.length)
+    for (var i = 0; i < object.length; i++){
+       var parseObject = createParseObjectFromJSONObject(object[i]);
+       allObjects.push(parseObject);
+    }
+    
+    // outside the loop we are ready to save all the objects in 
+    // allObjects array in one service call!
+    if (allObjects.length > 0){
+      
+        Parse.Object.saveAll(allObjects).then(function(){
+          alert("all objects were saved!");
+          // all object ids are now available under the allObjects array..
+        },function(error){
+            console.log("error: " + error);
+        });   
+    }
+
+  }
+
+  const  createParseObjectFromJSONObject = (jsonObject) => {
+
+    var Idea = Parse.Object.extend("Idea");
+    // Create a new instance of that class.
+    var ideaInfo = new Idea();
+    var currentUser = Parse.User.current();
+    ideaInfo.set("proponentObj", currentUser);
+    ideaInfo.set("proponent", jsonObject.proponent);
+    ideaInfo.set("edited", jsonObject.edited?jsonObject.edited:false);
+    ideaInfo.set("completed", jsonObject.completed?jsonObject.completed:false);
+    ideaInfo.set("department", jsonObject.department);
+    ideaInfo.set("category", jsonObject.category);
+    ideaInfo.set("date", new Date());
+    ideaInfo.set("num", 0);
+    ideaInfo.set("title", jsonObject.title)
+    ideaInfo.set("description", jsonObject.description);
+    ideaInfo.set("status", jsonObject.status);
+    ideaInfo.set("progress", jsonObject.progress?jsonObject.progress:[]);
+    ideaInfo.set("filterAnswer", jsonObject.filterAnswer?jsonObject.filterAnswer:[]);
+    ideaInfo.set("questionAnswer", jsonObject.questionAnswer?jsonObject.questionAnswer:[]);
+    ideaInfo.set("proponentName", jsonObject.proponentName);
+    ideaInfo.set("comments", jsonObject.comments?jsonObject.comments:[]);
+    ideaInfo.set("needsEvaluation", jsonObject.needsEvaluation?jsonObject.needsEvaluation:false);
+    ideaInfo.set("hasTeam", jsonObject.hasTeam?jsonObject.hasTeam:false);
+    ideaInfo.set("ideaType", jsonObject.ideaType);
+    ideaInfo.set("expectedReturn", jsonObject.expectedReturn?jsonObject.expectedReturn:0);
+    
+    return ideaInfo;
+  }
+
   return (
   <Container fluid className="main-content-container px-4" style={{backgroundColor: 'white'}}>
     <Row>
@@ -107,8 +163,8 @@ function SubmitIdeaNew(smallStats) {
           
           <Col xs="12" md="2" lg="2" className="col d-flex align-items-center ml-auto">
             {/* <ButtonGroup size="sm" className="d-inline-flex mb-3 mb-sm-0 mx-auto">
-              <Button theme="white" tag={NavLink} to="/submit-idea">
-                {t('SUBMIT')}
+              <Button theme="white" onClick={() => processJson()}>
+                {'import ideas'}
               </Button>
               <Button theme="white" tag={NavLink} to="/search-idea">
                 {t('SEARCH')}

@@ -273,7 +273,7 @@ class IdeaStatusSelect extends React.Component {
             selectedCategoryName: this.state.iconNames[selectionValue]
         })
 
-        this.props.setEvalStatus(myExtraValue, this.state.iconNames[selectionValue]);
+        this.props.setEvalStatus(myExtraValue, selectionValue);
         console.log(selectionValue)
         console.log(category)
     }

@@ -233,7 +233,7 @@ class EvaluateIdea extends React.Component {
     const changeIdeaStageBack = () => {
       const { ideaStage, evaluationResponse } = this.state;
       const newStage = ideaStage - 1
-  
+      
       if (newStage == -1) {
         this.setState({title: 'Evaluate', ideaStage: 0})
         this.dismissModal()
@@ -246,17 +246,19 @@ class EvaluateIdea extends React.Component {
           changeBtnStatus(false)
         }
 
-
+        changeBtnStatus(true)
       } else if (newStage == 1) {
         // setTitle('Idea > Innovati n > Idea Details')
         this.setState({title: 'Evaluate > Next Step', ideaStage: newStage})
-        
-        if (!evaluationResponse.ideaOwner) {
-          changeBtnStatus(false)
+        if (evaluationResponse.economicImpact && evaluationResponse.timeFrame) {
+          changeBtnStatus(true)
         }
       } else if (newStage == 2) {
         // setTitle('Idea > Innovation > Idea Details > Done')
         this.setState({title: 'Evaluate > Next Step > Additional Details', ideaStage: newStage})
+        // if (!evaluationResponse.ideaOwner) {
+        //   changeBtnStatus(false)
+        // }
       } else {
         // setTitle('Welcome back, ' + username+ '!')
         this.setState({title: 'Evaluate', ideaStage: 0})

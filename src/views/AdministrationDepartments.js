@@ -21,7 +21,7 @@ import { ReactComponent as GreenIcon } from "../images/green_icon.svg"
 import { ReactComponent as ArrowDownIcon } from "../images/arrow_down.svg"
 import { ReactComponent as ArrowUpIcon } from "../images/arrow_up.svg"
 import { ReactComponent as AddCategoryIcon } from "../images/add_category.svg"
-import { ReactComponent as AddDepartmentIcon } from "../images/add_department.svg"
+import { ReactComponent as AddDepartmentIcon } from "../images/add_a_department.svg"
 
 
 
@@ -178,7 +178,7 @@ function AdministrationDepartments(smallStats) {
     <Row className="mt-4">
       <Col lg="10" className="m-auto">
        
-        <AddDepartmentIcon className="functionalButton functionalButton mr-4 d-block mb-4" style={{minWidth: 180, maxWidth:180}} onClick={() => createDepartment()}></AddDepartmentIcon>
+        <AddDepartmentIcon className="functionalButton functionalButton mr-4 d-block mb-4" style={{minWidth: 180, maxWidth:180, overflow: 'visible'}} onClick={() => createDepartment()}></AddDepartmentIcon>
        
         {/* {ideaStage == 0 && canGoNext && <SubmitIcon className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIcon>}
         {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} ></SubmitIconNosel>}
