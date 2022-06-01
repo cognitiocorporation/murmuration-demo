@@ -410,7 +410,7 @@ class EditCategoryForm extends React.Component {
 
 
     fetchQuestions() {
-      const className = "IdeaQuestion";
+      const className = "IdeaCategory";
 
       var ItemClass = Parse.Object.extend(className);
       var query = new Parse.Query(ItemClass);
@@ -419,7 +419,7 @@ class EditCategoryForm extends React.Component {
       .then((results) => {
         // console.log(results);
           this.setState({
-              ideaQuestions: results
+              data: results
           });
       }, (error) => {
           this.setState({
@@ -1052,13 +1052,34 @@ class EditCategoryForm extends React.Component {
       const iconName = images[iconIndex].name
       console.log(iconIndex)
       console.log(iconName)
+      const isIconRepeated = this.isIconRepeated(categoryTitle, iconName)
       
-      categoryData.set("itemName", categoryTitle)
-      categoryData.set("itemNameTrans", titleTrans)
-      categoryData.set("categoryDescription", description)
-      categoryData.set("icon", iconName)
+      if (isIconRepeated) {
+        alert('This icon is already being used in another category. Please fix! ')
+      } else {
+        categoryData.set("itemName", categoryTitle)
+        categoryData.set("itemNameTrans", titleTrans)
+        categoryData.set("categoryDescription", description)
+        categoryData.set("icon", iconName)
+        
+        categoryData.save().then(() => refreshIdea())
+      }
       
-      categoryData.save().then(() => refreshIdea())
+    }
+
+    isIconRepeated(categoryTitle, iconName) {
+      const {data} = this.state;
+      
+      // data.filter((category) => { return category.get("icon") == iconName })
+
+      if (data.some(e => e.get("icon") === iconName && e.get("itemName") !== categoryTitle)) {
+        /* vendors contains the element we're looking for */
+        return true
+      }
+         
+   
+     
+      
     }
 
     deleteIdea() {
