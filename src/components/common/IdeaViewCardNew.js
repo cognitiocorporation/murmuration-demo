@@ -129,6 +129,7 @@ class IdeaViewCardNew extends React.Component {
           selectedStatus: ''.length,
           expectedReturn: '',
           timeUnit: '',
+          timeUnitVal: '',
           executionRes: 0,
           coachRes: '',
           recurringImpact: false,
@@ -156,6 +157,18 @@ class IdeaViewCardNew extends React.Component {
       if (prevProps.canSubmit !== this.props.canSubmit) {
         // alert('Can evaluate!')
         this.submitEvaluation()
+      }
+
+      if (prevProps.ideaStage ==0 && this.props.ideaStage==1) {
+        if (this.state.expectedReturn && this.state.timeUnit) {
+          this.props.changeStatus(true)
+        }
+      }
+
+      if (prevProps.ideaStage ==2 && this.props.ideaStage==1) {
+        if (this.state.expectedReturn && this.state.timeUnit) {
+          this.props.changeStatus(true)
+        }
       }
     }
 
@@ -882,10 +895,11 @@ class IdeaViewCardNew extends React.Component {
       });
     }
 
-    setEvalStatus(status) {
+    setEvalStatus(status, index) {
       console.log(status)
       this.setState({
-        selectedStatus: status
+        selectedStatus: status,
+        selectedStatusVal: status
       })
     }
 
@@ -900,7 +914,7 @@ class IdeaViewCardNew extends React.Component {
 
     setTimeUnit(unit) {
       console.log(unit)
-      this.setState({timeUnit: unit.label})
+      this.setState({timeUnit: unit.label, timeUnitVal: unit})
       if (this.state.expectedReturn && unit.label) {
         this.props.changeStatus(true)
       }
@@ -965,6 +979,7 @@ class IdeaViewCardNew extends React.Component {
         const storageLanguage = localStorage.getItem('language');
         const myIcon = ideaCategory && ideaCategory.get("icon")
         const categoryTitle = ideaCategory && ideaCategory.get("itemNameTrans")[storageLanguage]
+
 
         return(
 
@@ -1120,7 +1135,7 @@ class IdeaViewCardNew extends React.Component {
                               <Row form className="mt-4">
                                 <Col md="12" className="form-group">
                                   <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Choose how to proceed: ' + '*'}</h6>
-                                  <IdeaStatusSelect setEvalStatus={this.setEvalStatus}></IdeaStatusSelect>
+                                  <IdeaStatusSelect setEvalStatus={this.setEvalStatus} selectedStatus={this.state.selectedStatus}></IdeaStatusSelect>
                                 </Col>
                               </Row>
                               <Row form className="mt-4">
@@ -1138,7 +1153,7 @@ class IdeaViewCardNew extends React.Component {
                                     </Col>
                                     <Col>
                                       <Select
-                                        // value={ideaItem.get("teamMembers")}
+                                        value={this.state.timeUnitVal}
                                         className="insideFont"
                                         placeholder='term'
                                         styles={customStyles}
