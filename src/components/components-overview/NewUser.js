@@ -298,10 +298,10 @@ class NewUser extends React.Component {
                   </Row>
                   <Button onClick={e => this.handleSubmit(e)}>{t('ADD_USER_BTN')}</Button>
                 </Form>
-                <div>
+                {/* <div>
                   <br></br>
                 <Button outline theme="light" onClick={e => this.handleSubmitPre(e)}>PRE-LOAD</Button>
-                </div>
+                </div> */}
               </Col>
             </Row>
           </ListGroupItem>
