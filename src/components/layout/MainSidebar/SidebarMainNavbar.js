@@ -35,9 +35,9 @@ class SidebarMainNavbar extends React.Component {
               <img
                 id="main-logo"
                 className="d-inline-block align-top mr-1"
-                style={{ maxWidth: "160px" }}
-                src={'http://mymurmuration.theswiftstudio.com/wp-content/uploads/2022/05/image001-1.png'}//"https://seeklogo.com/images/B/Bacardi-logo-DD0961793C-seeklogo.com.png"//"https://6erxg60qvo1qvjha44jrgpan-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/Teva_logo.svg_.png"//{require("../../../images/shards-dashboards-logo.svg")}
-                alt="Shards Dashboard"
+                style={{ maxWidth: "140px" }}
+                src={'https://www.ablesales.com/wp-content/uploads/2017/08/logo-able-sales-vector-2111.png'}//"https://seeklogo.com/images/B/Bacardi-logo-DD0961793C-seeklogo.com.png"//"https://6erxg60qvo1qvjha44jrgpan-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/Teva_logo.svg_.png"//{require("../../../images/shards-dashboards-logo.svg")}
+                alt="Able Sales Logo"
               />
               {/* {!hideLogoText && (
                 <span className="d-none d-md-inline ml-1">
