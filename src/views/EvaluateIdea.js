@@ -314,24 +314,17 @@ class EvaluateIdea extends React.Component {
         <Col md="10" lg="10" className="mt-4 mx-auto">
         {/* <PageTitle title={t('Welcome back, Angel')} subtitle=" " className="text-sm-left" /> */}
         <Row>
-          <Col md="8" lg="8">
+          <Col md="12" lg="12">
             <h3 className="m-auto" style={{fontWeight: 600, color: '#303030'}}>{this.state.title}</h3>
           </Col>
           
-          <Col xs="12" md="2" lg="2" className="col d-flex align-items-center ml-auto">
-            {/* <ButtonGroup size="sm" className="d-inline-flex mb-3 mb-sm-0 mx-auto">
-              <Button theme="white" tag={NavLink} to="/submit-idea">
-                {t('SUBMIT')}
-              </Button>
-              <Button theme="white" tag={NavLink} to="/search-idea">
-                {t('SEARCH')}
-              </Button>
-            </ButtonGroup> */}
+          {/* <Col xs="12" md="2" lg="2" className="col d-flex align-items-center ml-auto">
+            
             <div>
               <h6 className="m-0" style={{color: '#303030'}}>Idea # </h6>
             </div>
             <h4 className="m-0" style={{fontWeight: 600, color: '#303030'}}>{uuidv4().substring(0,4)}</h4>
-          </Col>
+          </Col> */}
         </Row>
         <Row>
           <Col>
