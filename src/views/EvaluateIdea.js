@@ -64,7 +64,7 @@ class EvaluateIdea extends React.Component {
   }
 
   onCategoryChange(categoryName) {
-    console.log(categoryName);
+    console.log(categoryName)
     var selectedCategoryName = categoryName
     if (categoryName == "All" || categoryName == "Todas") {
       selectedCategoryName = ""
@@ -226,6 +226,7 @@ class EvaluateIdea extends React.Component {
         this.setState({title: 'Evaluate > Next Step > Additional Details > Thank You', canSubmit: true})
       } else {
         // setTitle('Welcome back, ' + username+ '!')
+        this.dismissModal()
         this.setState({title: 'Evaluate', ideaStage: 0})
       }
     }

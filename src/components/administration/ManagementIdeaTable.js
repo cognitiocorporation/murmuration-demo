@@ -53,7 +53,7 @@ class ManagementIdeaTable extends React.Component {
     const evalCriteria = currentUser.get("evaluationCriteria");
     console.log('MY EVAL CRITERIA')
     console.log(evalCriteria)
-
+    
     var myQueries = [];
 
     for (var i in evalCriteria) {
@@ -123,12 +123,18 @@ class ManagementIdeaTable extends React.Component {
       //     },
       //     evalCriteria
       // );
-        
-        var filtered = results.filter(result => evalCriteria.includes(result.get("department")))
+        var filtered = []
+        if (evalCriteria.length == 0) {
+          filtered = results
+        } else {
+          filtered = results.filter(result => evalCriteria.includes(result.get("department")))
+        }
+       
       //  console.log(evalCriteria)
       //   console.log(filtered)
         
         if (!pmo) {
+          
           filtered = filtered.filter(result => result.get('status') != 'Idea Proyecto' )
           // const secondFilter = filtered.filter(result => evalCriteria.includes(result.get("department")))
           // filtered = secondFilter
@@ -174,6 +180,7 @@ class ManagementIdeaTable extends React.Component {
     if (newCategory !== 'Todas' && newCategory !== '') {
       console.log('CATEGORY')
       filteredData = ideas.filter(item => item.get("category") === newCategory);
+      
       filteredData = status && status!='Todos'?filteredData.filter(item => item.get("status") === newStatus):filteredData;
       filteredData = ideaType && ideaType!='Todos'?filteredData.filter(item => item.get("ideaType") === newType):filteredData;
     } else if(status !== 'Todas' && status !== ''){
