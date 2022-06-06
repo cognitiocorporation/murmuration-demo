@@ -123,6 +123,7 @@ class ManagementIdeaTable extends React.Component {
       //     },
       //     evalCriteria
       // );
+      
         var filtered = []
         if (evalCriteria.length == 0) {
           filtered = results

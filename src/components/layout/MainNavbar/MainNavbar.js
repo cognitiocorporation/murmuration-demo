@@ -28,11 +28,11 @@ const MainNavbar = ({ layout, stickyTop }) => {
                   id="main-logo"
                   className="d-inline-block align-top mr-1 ml-3"
                   style={{ maxWidth: "25px" }}
-                  src= "http://mymurmuration.theswiftstudio.com/wp-content/uploads/2022/05/image001-2.png"//{require("../../../images/shards-dashboards-logo.svg")}
+                  src= "http://theswiftstudio.com/wp-content/uploads/2022/04/Bravo-REP-e1650459669722.png"//{require("../../../images/shards-dashboards-logo.svg")}
                   alt="Shards Dashboard"
                 />
                 <span className="d-none d-md-inline ml-1">
-                  Murmuration
+                  Murmuratto
                 </span>
               </div>
             </NavbarBrand>
