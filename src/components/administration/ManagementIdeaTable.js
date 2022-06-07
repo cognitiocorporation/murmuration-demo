@@ -179,6 +179,7 @@ class ManagementIdeaTable extends React.Component {
     var filteredData;
     if (newCategory !== 'Todas' && newCategory !== '') {
       console.log('CATEGORY')
+      // alert(newCategory)
       filteredData = ideas.filter(item => item.get("category") === newCategory);
       
       filteredData = status && status!='Todos'?filteredData.filter(item => item.get("status") === newStatus):filteredData;
