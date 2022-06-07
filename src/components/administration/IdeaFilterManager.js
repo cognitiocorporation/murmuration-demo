@@ -238,7 +238,7 @@ class IdeaFilterManager extends Component {
                                         // <FormCheckbox onChange={e => this.handleToggle(item)} className="mb-1" checked={item.get("show")} key={idx}> 
                                         //   {item.get("itemName")}
                                         // </FormCheckbox>
-                                        <option value={item.get("itemNameTrans")["es"]} key={idx}>{item.get("itemNameTrans")[storageLanguage]}</option>
+                                        <option value={item.get("itemNameTrans")["en"]} key={idx}>{item.get("itemNameTrans")[storageLanguage]}</option>
                                     //   <IndividualPropertyItem itemName={item.get("itemName")} itemID={item.get("objectId")} objectClass={this.className}/>
                                     ))}
                                 </FormSelect>
