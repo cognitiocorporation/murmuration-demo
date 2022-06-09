@@ -347,11 +347,10 @@ class IdeaStatusSelect extends React.Component {
         }
     }
 
-    toggle() {
-        // alert('hover')
-        this.setState({
-          open: !this.state.right
-        });
+    toggle(index) {
+        const myCopy = [...this.state.right]
+        myCopy[index] = !myCopy[index]
+        this.setState({right: myCopy})
       }
     
 
@@ -411,7 +410,7 @@ class IdeaStatusSelect extends React.Component {
                                         open={this.state.right[index]}
                                         target={"#TooltipExample"+ index}
                                         id={"TooltipExample1"+ index}
-                                        toggle={() => {this.toggle()}}
+                                        toggle={() => {this.toggle(index)}}
                                         >
                                         Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
                                 </Tooltip>

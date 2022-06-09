@@ -345,11 +345,11 @@ class CategorySelect extends React.Component {
         }
     }
 
-    toggle() {
+    toggle(index) {
         // alert('hover')
-        this.setState({
-          open: !this.state.right
-        });
+        const myCopy = [...this.state.right]
+        myCopy[index] = !myCopy[index]
+        this.setState({right: myCopy})
       }
     
 
@@ -406,7 +406,7 @@ class CategorySelect extends React.Component {
                                         open={this.state.right[index]}
                                         target={"#TooltipExample"+ index}
                                         id={"TooltipExample1"+ index}
-                                        toggle={() => {this.toggle()}}
+                                        toggle={() => {this.toggle(index)}}
                                         >
                                         {myDescription}
                                 </Tooltip>

@@ -133,7 +133,8 @@ class IdeaViewCardNew extends React.Component {
           executionRes: 0,
           coachRes: '',
           recurringImpact: false,
-          comment: ''
+          comment: '',
+          needsEconomicImpact: false,
         }
 
         this.change = this.change.bind(this);
@@ -163,10 +164,18 @@ class IdeaViewCardNew extends React.Component {
         if (this.state.expectedReturn && this.state.timeUnit) {
           this.props.changeStatus(true)
         }
+
+        if (this.state.needsEconomicImpact == false) {
+          this.props.changeStatus(true)
+        }
       }
 
       if (prevProps.ideaStage ==2 && this.props.ideaStage==1) {
         if (this.state.expectedReturn && this.state.timeUnit) {
+          this.props.changeStatus(true)
+        }
+
+        if (this.state.needsEconomicImpact == false) {
           this.props.changeStatus(true)
         }
       }
@@ -910,6 +919,12 @@ class IdeaViewCardNew extends React.Component {
       this.setState({
         expectedReturn: amount,
       })
+
+      if (amount && this.state.timeUnit) {
+        this.props.changeStatus(true)
+      } else {
+        this.props.changeStatus(false)
+      }
     }
 
     setTimeUnit(unit) {
@@ -1140,7 +1155,34 @@ class IdeaViewCardNew extends React.Component {
                               </Row>
                               <Row form className="mt-4">
                                 <Col md="12" className="form-group">
-                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Estimate economic/output impact *'}</h6>
+                                <Switch 
+                                        isOn={this.state.needsEconomicImpact}
+                                        handleToggle={() => {
+                                          // Check to see if it has  everything
+                                          if (this.state.needsEconomicImpact == false) {
+                                            // this.props.changeStatus(false)
+                                            if (this.state.expectedReturn && this.state.timeUnit) {
+                                              this.props.changeStatus(true)
+                                            } else {
+                                              this.props.changeStatus(false)
+                                            }
+                                          } else {
+                                            this.props.changeStatus(true)
+                                            // if (this.state.expectedReturn && this.state.timeUnit) {
+                                            //   this.props.changeStatus(true)
+                                            // } else {
+                                            //   this.props.changeStatus(false)
+                                            // }
+                                          }
+                                          
+                                          this.setState({needsEconomicImpact: !this.state.needsEconomicImpact})}
+                                        }
+                                        onColor="#633FDA"
+                                        myKey={'economicImpact'}
+                                        title="Estimate economic/output impact"
+                                      />
+                                  {/* <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Estimate economic/output impact *'}</h6> */}
+                                  {this.state.needsEconomicImpact &&
                                   <Row>
                                     <Col>
                                       <FormInput
@@ -1172,13 +1214,15 @@ class IdeaViewCardNew extends React.Component {
                                     </Col>
                                     <Col>
                                       <Switch 
-                                         isOn={this.state.recurringImpact}
+                                        isOn={this.state.recurringImpact}
+                                        myKey={'recurringImpact'}
                                         handleToggle={() => this.setState({recurringImpact: !this.state.recurringImpact})}
                                         onColor="#633FDA"
                                         title="Recurring Impact"
                                       />
                                     </Col>
                                   </Row>
+                                }
                                 </Col>
                               </Row>
                               <Row form >

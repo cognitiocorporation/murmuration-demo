@@ -334,15 +334,18 @@ class IdeaFilterSelect extends React.Component {
         const filterSelectData = [
             {
                 name:'Problem Solving',
-                icon: 'ProblemSolving'
+                icon: 'ProblemSolving',
+                description: 'Solve a problem or challenge that stops us from getting things done or makes it harder.'
             },
             {
                 name:'Innovation',
-                icon: 'Innovation'
+                icon: 'Innovation',
+                description: 'Doing things in a way they have not been done before.'
             },
             {
                 name:'Continuous Improvement',
-                icon: 'Improvement'
+                icon: 'Improvement',
+                description: 'Improving the way we do things.'
             },
         ]
 
@@ -611,11 +614,10 @@ class IdeaFilterSelect extends React.Component {
         }
     }
 
-    toggle() {
-        // alert('hover')
-        this.setState({
-          open: !this.state.right
-        });
+    toggle(index) {
+        const myCopy = [...this.state.right]
+        myCopy[index] = !myCopy[index]
+        this.setState({right: myCopy})
       }
 
      change(event) {
@@ -665,9 +667,9 @@ class IdeaFilterSelect extends React.Component {
                                             open={this.state.right[index]}
                                             target={"#TooltipExampleFilter" + index}
                                             id={"TooltipExampleFilter1" + index}
-                                            toggle={() => {this.toggle()}}
+                                            toggle={() => {this.toggle(index)}}
                                             >
-                                            Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
+                                            {myCategory.description}
                                         </Tooltip>
                                         </div>
                                     </div>

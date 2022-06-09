@@ -119,7 +119,7 @@ function AdministrationDepartments(smallStats) {
   }
 
   return (
-  <Container fluid className="main-content-container px-4" style={{backgroundColor: 'white'}}>
+  <Container fluid className="main-content-container px-4 pb-4" style={{backgroundColor: 'white'}}>
     <Row>
       {/* Page Header :: Title */}
       <Col md="10" lg="10" className="mt-4 mx-auto">
@@ -150,31 +150,7 @@ function AdministrationDepartments(smallStats) {
       {/* Page Header :: Actions */}
       
     </Row>
-    
-    {/* Divider */}
-    {/* <Col xs="12" md="12" style={{height: 1, width: '100%', backgroundColor: 'black', opacity: 0.2}} className="col d-flex align-items-center"></Col> */}
 
-    {/* Categories */}
-
-    { departments && departments.map((category, i) => {
-      return (
-        <Row className="mt-2">
-          <Col md="12" lg="12">
-            <DepartmentItem key={i+Math.random()} id={i+Math.random()} category={category} updateCategories={updateCategories}></DepartmentItem>
-          </Col>
-        </Row>
-      )
-    })}
-
-    { newCategory && 
-        <Row className="mt-2">
-          <Col md="12" lg="12">
-            <DepartmentItem key={Math.random()} id={Math.random()} category={newCategory} isNew={true} updateCategories={updateCategories}></DepartmentItem>
-          </Col>
-        </Row>
-    }
-
-    
     <Row className="mt-4">
       <Col lg="10" className="m-auto">
        
@@ -190,6 +166,29 @@ function AdministrationDepartments(smallStats) {
         {ideaStage == 3  && <HomeIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></HomeIcon>} */}
       </Col>
     </Row>
+    
+    {/* Divider */}
+    {/* <Col xs="12" md="12" style={{height: 1, width: '100%', backgroundColor: 'black', opacity: 0.2}} className="col d-flex align-items-center"></Col> */}
+
+    {/* Categories */}
+
+    { newCategory && 
+        <Row className="mt-2">
+          <Col md="12" lg="12">
+            <DepartmentItem key={Math.random()} id={Math.random()} category={newCategory} isNew={true} updateCategories={updateCategories}></DepartmentItem>
+          </Col>
+        </Row>
+    }
+
+    { departments && departments.map((category, i) => {
+      return (
+        <Row className="mt-2">
+          <Col md="12" lg="12">
+            <DepartmentItem key={i+Math.random()} id={i+Math.random()} category={category} updateCategories={updateCategories}></DepartmentItem>
+          </Col>
+        </Row>
+      )
+    })}
     
   </Container>
   )}

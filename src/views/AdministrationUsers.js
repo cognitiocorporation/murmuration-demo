@@ -83,16 +83,7 @@ function AdministrationUsers() {
     <PageTitle sm="4" title={t('ADMINISTRATION_TITLE')} subtitle={t('ADMINISTRATION_SUBTITLE')} className="text-sm-left" />
 
       {/* Page Header :: Actions */}
-      <Col xs="12" sm="8" className="col d-flex align-items-center">
-        <ButtonGroup size="sm" className="d-inline-flex mb-3 mb-sm-0 mx-auto">
-          <Button theme="white" onClick={() => deleteAllIdeas()}>
-            {t('RESET')}
-          </Button>
-          {/* <Button theme="white" tag={NavLink} to="/historial-reconocimiento">
-            History
-          </Button> */}
-        </ButtonGroup>
-      </Col>
+      
     </Row>
     <Row>
       <Col lg="12" md="12">
