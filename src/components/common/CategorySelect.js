@@ -277,7 +277,7 @@ class CategorySelect extends React.Component {
 
     getIcon(name, fillColor) {
         const {selectionValue, selectedCategoryName} = this.state;
-
+        
         const newIcons = [
             {normal: <UrgentImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
              selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
@@ -324,9 +324,11 @@ class CategorySelect extends React.Component {
                 return newIcons[2];
             case 'Trophy':
                 return newIcons[3];
-            case 'Shield':
+            case 'Shield Image':
                 return newIcons[4];
             case 'Dollar':
+                return newIcons[5];
+            case 'Dollar Sign':
                 return newIcons[5];
             case 'Dollar Sign':
                 return newIcons[5];

@@ -130,7 +130,7 @@ const images = [
   {
     original: Shield2ImageLocal,
     thumbnail: Shield2ImageLocal,
-    name: 'Shiel Image'
+    name: 'Shield Image'
   },
   {
     original: DollarSignImageLocal,
