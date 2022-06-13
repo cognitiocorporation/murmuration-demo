@@ -36,6 +36,7 @@ import Administration from "./views/Administration";
 import AdministrationUsers from "./views/AdministrationUsers";
 import AdministrationUsersNew from "./views/AdministrationUsersNew";
 import AdministrationQuestions from "./views/AdministrationQuestions";
+import AdministrationCommittees from "./views/AdministrationCommittees";
 import AdministrationComite from "./views/AdministrationComite";
 import AdministrationCatsDepts from "./views/AdministrationCatsDepts";
 import AdministrationCategories from "./views/AdministrationCategories";
@@ -91,6 +92,12 @@ export default [
     layout: DefaultLayout,
     protected: true,
     component: AdministrationQuestions
+  },
+  {
+    path: "/administration-committees",
+    layout: DefaultLayout,
+    protected: true,
+    component: AdministrationCommittees
   },
   {
     path: "/administracion-comite",

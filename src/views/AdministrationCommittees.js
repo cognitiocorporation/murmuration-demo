@@ -6,7 +6,7 @@ import Parse from 'parse';
 
 import PageTitle from "../components/common/PageTitle";
 import EditCategoryForm from "../components/common/EditCategoryForm";
-import DepartmentItem from '../components/administration/DepartmentItem';
+import CategoryItem from '../components/administration/CategoryItem';
 import CommitteeItem from '../components/administration/CommitteeItem';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -22,14 +22,14 @@ import { ReactComponent as GreenIcon } from "../images/green_icon.svg"
 import { ReactComponent as ArrowDownIcon } from "../images/arrow_down.svg"
 import { ReactComponent as ArrowUpIcon } from "../images/arrow_up.svg"
 import { ReactComponent as AddCategoryIcon } from "../images/add_category.svg"
-import { ReactComponent as AddDepartmentIcon } from "../images/add_a_department.svg"
+import { ReactComponent as AddCommitteeIcon } from "../images/add_a_committee.svg"
 
 
 
 import { useTranslation, initReactI18next } from "react-i18next";
 
 
-function AdministrationDepartments(smallStats) {
+function AdministrationCommittees(smallStats) {
   const { t } = useTranslation();
   const [username, setUsername] = useState('')
   const [title, setTitle] = useState('')
@@ -40,7 +40,7 @@ function AdministrationDepartments(smallStats) {
   const [canSubmit, setCanSubmit] = useState(false)
   const [finishedSaving, setFinishedSaving] = useState(false)
   const [categoryIsOpen, setCategoryIsOpen] = useState(false)
-  const [departments, setDepartments] = useState([])
+  const [categories, setCategories] = useState([])
   const [newCategory, setNewCategory] = useState('')
   let currUser = Parse.User.current();
   // this.getUserName()
@@ -49,7 +49,7 @@ function AdministrationDepartments(smallStats) {
     
     // return firstName
    
-    setTitle('Administration > Departments')
+    setTitle('Administration > Committees')
 
   }
 
@@ -60,11 +60,11 @@ function AdministrationDepartments(smallStats) {
   }, []);
 
   const getCategories = async() => {
-    const Department = Parse.Object.extend("IdeaDepartment");
-    const query = new Parse.Query(Department);
+    const Category = Parse.Object.extend("IdeaCategory");
+    const query = new Parse.Query(Category);
     const results = await query.find();
     
-    setDepartments(results)
+    setCategories(results)
   }
 
   const changeIdeaStage = () => {
@@ -103,20 +103,37 @@ function AdministrationDepartments(smallStats) {
   }
 
   const updateCategories = () => {
-    alert('Your department was updated succesfully!') 
+    // alert('Update Categories') 
+    alert('Your category was updated succesfully!')
     setNewCategory('')
     getCategories()
   }
 
-  const createDepartment = () => {
-    const IdeaDepartment= Parse.Object.extend("IdeaDepartment");
-    const ideaDepartment = new IdeaDepartment();
+  const createCategory = () => {
+    const IdeaCategory = Parse.Object.extend("IdeaCategory");
+    const ideaCategory = new IdeaCategory();
 
-    ideaDepartment.set("itemNameTrans", {en: "", es: ""});
-    ideaDepartment.set("show", false);
-    ideaDepartment.set("itemName", 'newCategory'+Math.random())
+    ideaCategory.set("itemNameTrans", {en: "", es: ""});
+    ideaCategory.set("extra", true);
+    ideaCategory.set("icon", "");
+    ideaCategory.set("show", false);
+    ideaCategory.set("itemName", 'newCategory'+Math.random())
+    ideaCategory.set("categoryDescription", {en: "",es: ""})
+    setNewCategory(ideaCategory)
+    // ideaCategory.save()
+    // .then((ideaCategory) => {
+    //   // Execute any logic that should take place after the object is saved.
+    //   setNewCategory([ideaCategory])
+    // }, (error) => {
+    //   // Execute any logic that should take place if the save fails.
+    //   // error is a Parse.Error with an error code and message.
+    //   console.log(error.message)
+    //   alert('Error creating new category.')
+    // });
 
-    setNewCategory(ideaDepartment)
+    
+    
+    // setCategories()
   }
 
   return (
@@ -147,15 +164,15 @@ function AdministrationDepartments(smallStats) {
             <DivisorBarIcon></DivisorBarIcon>
           </Col>
         </Row>
+        
       </Col>
       {/* Page Header :: Actions */}
       
     </Row>
-
     <Row className="mt-4">
       <Col lg="10" className="m-auto">
        
-        <AddDepartmentIcon className="functionalButton functionalButton mr-4 d-block mb-4" style={{minWidth: 180, maxWidth:180, overflow: 'visible'}} onClick={() => createDepartment()}></AddDepartmentIcon>
+        <AddCommitteeIcon className="functionalButton mr-4 d-block mb-4" style={{minWidth: 180, maxWidth:180, overflow: 'visible'}} onClick={() => createCategory()}></AddCommitteeIcon>
        
         {/* {ideaStage == 0 && canGoNext && <SubmitIcon className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => changeIdeaStage()}></SubmitIcon>}
         {ideaStage == 0 && !canGoNext && <SubmitIconNosel className="ml-auto d-block" style={{minWidth: 140, maxWidth:140}} ></SubmitIconNosel>}
@@ -173,35 +190,40 @@ function AdministrationDepartments(smallStats) {
 
     {/* Categories */}
 
-    { newCategory && 
-        <Row className="mt-2">
-          <Col md="12" lg="12">
-            <DepartmentItem key={Math.random()} id={Math.random()} category={newCategory} isNew={true} updateCategories={updateCategories}></DepartmentItem>
-          </Col>
-        </Row>
+    {newCategory && 
+      <Row className="mt-2">
+       <Col md="12" lg="12">
+          <CommitteeItem key={Math.random()} id={Math.random()} category={newCategory} isNew={true} updateCategories={updateCategories}></CommitteeItem>
+       </Col>
+      </Row>
     }
 
-    { departments && departments.map((category, i) => {
+    {/* { categories && categories.map((category, i) => {
       return (
-        <Row className="mt-2">
+        <Row className="mt-2 ">
           <Col md="12" lg="12">
-            <DepartmentItem key={i+Math.random()} id={i+Math.random()} category={category} updateCategories={updateCategories}></DepartmentItem>
+            <CategoryItem key={i+Math.random()} id={i+Math.random()} category={category} updateCategories={updateCategories}></CategoryItem>
           </Col>
         </Row>
       )
-    })}
+    })} */}
+
+    
+
+    
+    
     
   </Container>
   )}
 
-AdministrationDepartments.propTypes = {
+AdministrationCommittees.propTypes = {
   /**
    * The small stats data.
    */
   smallStats: PropTypes.array
 };
 
-AdministrationDepartments.defaultProps = {
+AdministrationCommittees.defaultProps = {
   signedIn: true,
   smallStats: [
     {
@@ -261,4 +283,4 @@ AdministrationDepartments.defaultProps = {
   ]
 };
 
-export default AdministrationDepartments;
+export default AdministrationCommittees;

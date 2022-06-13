@@ -80,6 +80,9 @@ class SelectPrivileges extends React.Component {
             {"value":"coach", "label":"Coach"},
             {"value":"supervisor", "label":"Supervisor"},
             {"value":"super_user", "label":"Super User"},
+            {"value":"pmo", "label":"PMO"},
+            {"value":"pmo", "label":"Verification"},
+            {"value":"pmo", "label":"Reward & Recognition"},
         )
 
         this.setState({
