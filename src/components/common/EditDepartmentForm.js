@@ -1163,21 +1163,21 @@ class EditDepartmentForm extends React.Component {
                                   </Row>
                                 </Col>
                                 <Col md="4" className="mt-auto">
-                                <Row>
-                                  <Col md="4" className="ml-auto">
-                                   
-                                  </Col>
-                                  <Col md="8">
-                                    <Row>
-                                      <Col md="5">
-                                      <AcceptIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.updateIdea()}></AcceptIcon>
-                                      </Col>
-                                      <Col md="5">
-                                      <CancelIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.deleteIdea()}></CancelIcon>
-                                      </Col>
-                                    </Row>
-                                  </Col>
-                                </Row>
+                                  <Row>
+                                    <Col md="4" className="ml-auto">
+                                    
+                                    </Col>
+                                    <Col md="8">
+                                      <Row>
+                                        <Col md="5">
+                                        <AcceptIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.updateIdea()}></AcceptIcon>
+                                        </Col>
+                                        <Col md="5">
+                                        <CancelIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.deleteIdea()}></CancelIcon>
+                                        </Col>
+                                      </Row>
+                                    </Col>
+                                  </Row>
                                 </Col>
                               </Row>
                             </Col>

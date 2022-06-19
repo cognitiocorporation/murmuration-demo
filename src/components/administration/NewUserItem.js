@@ -25,7 +25,7 @@ import { ReactComponent as ArrowUpIcon } from "../../images/arrow_up.svg"
 import { useTranslation, initReactI18next } from "react-i18next";
 
 
-function NewUserItem({user, updateUsers, open}) {
+function NewUserItem({user, updateUsers, open, canEdit}) {
   const { t } = useTranslation();
   const [username, setUsername] = useState('')
   const [title, setTitle] = useState('')
@@ -115,7 +115,7 @@ function NewUserItem({user, updateUsers, open}) {
               </div>
               { categoryIsOpen &&
               <div style={{backgroundColor: '#F6F6F6',}}>
-               <EditUserForm refreshUsers={updateUsers} userData={user} canSubmit={canSubmit} setFinishedSaving={() => setFinished()} ideaStage={ideaStage} changeStatus={(status) => changeBtnStatus(status)} changeContinueStatus={(status) => changeContinueBtnStatus(status)} changeIdeaStage={() => this.changeIdeaStage()}/>
+               <EditUserForm canEdit={canEdit} refreshUsers={updateUsers} userData={user} canSubmit={canSubmit} setFinishedSaving={() => setFinished()} ideaStage={ideaStage} changeStatus={(status) => changeBtnStatus(status)} changeContinueStatus={(status) => changeContinueBtnStatus(status)} changeIdeaStage={() => this.changeIdeaStage()}/>
               </div>
               }
       </Col>

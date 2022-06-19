@@ -500,14 +500,16 @@ class SubmitIdeaForm extends React.Component {
 
       var myFile;
       if (file) {
-        const parseFile = new Parse.File(file.name, file);
+        const parseFile = new Parse.File(ideaTitle, file);
         parseFile.save().then((myFile) => {
           // The file has been saved to Parse.
+          console.log(file.name)
           console.log(myFile);
           ideaInfo.set("file", myFile);
           this.saveFinalIdea(ideaInfo);
         }, (error) => {
           // The file either could not be read, or could not be saved to Parse.
+          alert('There was an erro uploading the file. Please confirm that it is less than 20mb.')
         });
       } else {
         this.saveFinalIdea(ideaInfo);
@@ -723,8 +725,14 @@ class SubmitIdeaForm extends React.Component {
     }
 
     selectFile(myFile) {
-      console.log(myFile);
-      this.setState({file: myFile});
+      
+      
+      const fileSize = myFile.size / 1000000
+      if (fileSize > 20) {
+        alert('This file is too big. Please select a file that is less than 20mb. ')
+      } else {
+        this.setState({file: myFile});
+      }
     }
 
     deleteFile() {
@@ -837,8 +845,7 @@ class SubmitIdeaForm extends React.Component {
                             placeholder={t('SUBMIT_IDEA_TitlePlaceholder')}
                             value={ideaTitle}
                             onChange={this.setIdeaTitle}
-                            // valid={titleValid ? true : null}
-                            // invalid={!titleValid ? true : null}
+                          
                             />
                             { titleValid &&
                             <FormFeedback 
@@ -856,8 +863,6 @@ class SubmitIdeaForm extends React.Component {
                               placeholder={t("SUBMIT_IDEA_DescriptionPlaceholder")}
                               value={ideaDescription}
                               onChange={this.setIdeaDescription}
-                              // valid={descriptionValid}
-                              // invalid={!descriptionValid}
                             />
                             {ideaDescription && 
                             <FormFeedback 
@@ -872,13 +877,7 @@ class SubmitIdeaForm extends React.Component {
                               onColor="#633FDA"
                               title="Add team members and attachments"
                              />
-                            {/* <FormCheckbox
-                              checked={this.state.hasTeam}
-                              onChange={e => this.setState({hasTeam: !this.state.hasTeam})}
-                            >
-                              {t('Add team members and attachments')}
-                            </FormCheckbox> */}
-    
+                          
                             
                             <br/>
                             {this.state.hasTeam &&
@@ -908,7 +907,7 @@ class SubmitIdeaForm extends React.Component {
                                     options={options}
                                     isMulti
                                     placeholder={t('Type [First Name] [Last Name]')}
-                                  />
+                                />
                                 </div>
                                  
                                 
@@ -962,7 +961,7 @@ class SubmitIdeaForm extends React.Component {
                         </Row>
                         
   
-                          {/* <ThankYou></ThankYou> */}
+                          
                         </div>
 
                         <div style={{display: thankYouVisibilityState}}>
@@ -971,15 +970,12 @@ class SubmitIdeaForm extends React.Component {
 
                         {/* Select IDEA Filter Visibility State */}
                         <div style={{display: filterQuestionVisibilityState}}>
-                        {/* <Row className="mx-4" style={{paddingBottom:20}}>
-                          <h2>{sectionTitle}</h2>
-                        </Row> */}
+                        
                         <Row form>
                           <Col lg="12">
                             <Row form>
                               {selectedFilterQ.map((item,idx) =>
                                 <Col key={idx} md="6" className={"mt-4 pr-4"}>
-                                  {/* <label  htmlFor="question"><strong>{item.get("questionTrans")[storageLanguage]}</strong></label> */}
                                   <h6 style={{fontWeight: 500,  color: '#303030', fontSize: 14}}>{item.get("questionTrans")[storageLanguage]}</h6>
                                   {item.get("field")?
                                   <FormTextarea 
@@ -994,7 +990,6 @@ class SubmitIdeaForm extends React.Component {
                                     <FormRadio
                                     inline
                                     name={"type"+idx}
-                                    // checked={this.state.filterQAnswers[idx].answer == 'yes'}
                                     onChange={() => {
                                       this.filterQuestionAnswerChange("yes", idx)
                                     }}
@@ -1071,13 +1066,6 @@ class SubmitIdeaForm extends React.Component {
                           </Row>
                         </div>
                       </Form>
-                    {/* </CardBody> */}
-                    {/* <CardFooter className="border-top">
-                      <ButtonGroup size="sm" className="ml-auto d-table mr-3">
-                        <Button theme="light" onClick={this.saveIdea}>Guardar</Button>
-                        <Button theme="accent" onClick={this.showNext} style={{display: nextButtonVisibilityState}} >{this.state.formButtonTitle}</Button>
-                      </ButtonGroup>
-                    </CardFooter> */}
                   </div>
           );
     }

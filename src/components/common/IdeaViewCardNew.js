@@ -1313,6 +1313,7 @@ class IdeaViewCardNew extends React.Component {
                                 </Col>
                               </Row>
 
+                              {this.state.needsEconomicImpact &&
                               <Row form className="mt-4">
                                 <Col md="12" className="form-group">
                                   <label className="georgia">{'Estimate economic/output impact'}</label>
@@ -1335,6 +1336,7 @@ class IdeaViewCardNew extends React.Component {
                                   </Row>
                                 </Col>
                               </Row>
+                              }
 
                               { this.state.selectedStatus !== "Do not Pursue" &&
                               <Row form className="mt-4">

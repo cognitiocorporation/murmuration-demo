@@ -38,7 +38,7 @@ import Select from 'react-select';
 
 const selectedColor = '#157ffb';//'#ff9012';
 
-class DepartmentSelect extends React.Component {
+class EmployeeSelect extends React.Component {
 
     constructor(props) {
         super(props);
@@ -75,7 +75,7 @@ class DepartmentSelect extends React.Component {
     }
 
     fetchCategoryData() {
-        const className = "IdeaDepartment";
+        const className = "User";
   
         var ItemClass = Parse.Object.extend(className);
         var query = new Parse.Query(ItemClass);
@@ -84,16 +84,11 @@ class DepartmentSelect extends React.Component {
         .then((results) => {
             const options = []
             var coaches = []
-
-
-            if (this.props.type == 'Committee') {
-                options.push({"value":'All Departments', "label":'All Departments'})
-            }
             
-            results.map((result, idx) => options.push({"value":result, "label":result.get("itemNameTrans").en}))
-               
-            
-            
+            results.map((result, idx) => {
+                const fullName = result.get("firstName") + " " + result.get("lastName")
+                options.push({"value":result, "label":fullName})
+            })
             this.setState({
                 data: results, 
                 options: options
@@ -165,8 +160,9 @@ class DepartmentSelect extends React.Component {
                                         value={selectedVal}
                                         onChange={this.handleSelectedPersonChange}
                                         options={options}
-                                        placeholder={'Department'}
+                                        placeholder={'Members'}
                                         clearable={false}
+                                        isMulti
                                         className="insideFont"
                                     />
                                 </div>
@@ -189,7 +185,7 @@ class DepartmentSelect extends React.Component {
     }
 }
 
-export default withTranslation()(DepartmentSelect);
+export default withTranslation()(EmployeeSelect);
 
 const myStyles = {
     container: {

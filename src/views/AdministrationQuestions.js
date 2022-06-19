@@ -191,13 +191,6 @@ function AdministrationQuestions(smallStats) {
     {/* Categories */}
 
     
-    <Row className="mt-2">
-        <Col md="12" lg="12">
-        { showUser && <QuestionItem key={Math.random()} id={Math.random()}  updateQuestions={updateQuestions} question={question}></QuestionItem>}
-        </Col>
-    </Row>
-    
-
     
     <Row className="mt-4">
       <Col lg="10" className="m-auto">
@@ -213,6 +206,12 @@ function AdministrationQuestions(smallStats) {
         
         {ideaStage == 3  && <HomeIcon className="ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></HomeIcon>} */}
       </Col>
+    </Row>
+
+    <Row className="mt-2">
+        <Col md="12" lg="12">
+        { showUser && <QuestionItem key={Math.random()} id={Math.random()}  updateQuestions={updateQuestions} question={question}></QuestionItem>}
+        </Col>
     </Row>
 
     <Row className="mt-2">

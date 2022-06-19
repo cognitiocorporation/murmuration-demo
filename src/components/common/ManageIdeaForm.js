@@ -103,6 +103,12 @@ class ManageIdeaForm extends React.Component {
       this.setPercentage();
     }
 
+    componentDidUpdate(prevProps) {
+      if (prevProps.canSubmit !== this.props.canSubmit) {
+        this.submitEvaluation()
+      }
+    }
+
     showCorrectScreen() {
       const idea = this.props.idea;
       const percentage = idea.get("progress")[0];
@@ -519,7 +525,7 @@ class ManageIdeaForm extends React.Component {
 
     submitEvaluation() {
       const { progress, ideaDescription, userName } = this.state;
-      const { idea } = this.props;
+      const { idea, closeIdea } = this.props;
     
       // IDEA Properties
       if (progress.length > 0) {
@@ -546,7 +552,7 @@ class ManageIdeaForm extends React.Component {
         if (progress[0] == 100) {
           alert('Su IDEA ha sido actualizada. ¡Gracias!', this.showCompletedIdeaForm());
         } else {
-          alert('Su IDEA ha sido actualizada. ¡Gracias!', window.location.reload());
+          alert('Su IDEA ha sido actualizada. ¡Gracias!', closeIdea());
         }
       }, (error) => {
         // Execute any logic that should take place if the save fails.
@@ -581,6 +587,8 @@ class ManageIdeaForm extends React.Component {
     }
 
     progressBtnPress(e) {
+      const { idea, changeStatus } = this.props;
+
       e.preventDefault();
       const value = e.target.value;
       if (value==25) {
@@ -616,6 +624,11 @@ class ManageIdeaForm extends React.Component {
           fourthActive: true,
         });
       }
+
+      if (value > idea.get("progress")[0]) {
+        changeStatus(true)
+      }
+
     }
 
     getDate(date) {

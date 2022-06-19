@@ -76,14 +76,21 @@ class SelectPrivileges extends React.Component {
 
     fetchCategoryData() {
         const options = []
-        options.push(
-            {"value":"coach", "label":"Coach"},
-            {"value":"supervisor", "label":"Supervisor"},
-            {"value":"super_user", "label":"Super User"},
-            {"value":"pmo", "label":"PMO"},
-            {"value":"pmo", "label":"Verification"},
-            {"value":"pmo", "label":"Reward & Recognition"},
-        )
+        const { selectedVal, t, type} = this.props;
+        if (type == 'privileges') {
+            options.push(
+                {"value":"pmo", "label":"PMO"},
+                {"value":"verification", "label":"Verification"},
+                {"value":"reward", "label":"Reward & Recognition"},
+            )
+        } else {
+            options.push(
+                {"value":"coach", "label":"Coach"},
+                {"value":"supervisor", "label":"Supervisor"},
+                {"value":"super_user", "label":"Super User"},
+            )
+        }
+        
 
         this.setState({
             options: options
@@ -132,7 +139,7 @@ class SelectPrivileges extends React.Component {
 
     render() {
         const { selectedPerson, data, options, coaches } = this.state;
-        const { selectedVal, t } = this.props;
+        const { selectedVal, t, type} = this.props;
         console.log(selectedVal)
         return(
             
@@ -149,7 +156,7 @@ class SelectPrivileges extends React.Component {
                                         onChange={this.handleSelectedPersonChange}
                                         options={options}
                                         isMulti
-                                        placeholder={'Privileges'}
+                                        placeholder={type == "privileges"?'Privileges':'Roles'}
                                         clearable={false}
                                         className="insideFont"
                                     />

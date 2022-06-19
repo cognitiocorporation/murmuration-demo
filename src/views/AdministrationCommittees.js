@@ -40,7 +40,7 @@ function AdministrationCommittees(smallStats) {
   const [canSubmit, setCanSubmit] = useState(false)
   const [finishedSaving, setFinishedSaving] = useState(false)
   const [categoryIsOpen, setCategoryIsOpen] = useState(false)
-  const [categories, setCategories] = useState([])
+  const [committees, setCommittees] = useState([])
   const [newCategory, setNewCategory] = useState('')
   let currUser = Parse.User.current();
   // this.getUserName()
@@ -60,11 +60,11 @@ function AdministrationCommittees(smallStats) {
   }, []);
 
   const getCategories = async() => {
-    const Category = Parse.Object.extend("IdeaCategory");
+    const Category = Parse.Object.extend("EvaluationCommittee");
     const query = new Parse.Query(Category);
     const results = await query.find();
     
-    setCategories(results)
+    setCommittees(results)
   }
 
   const changeIdeaStage = () => {
@@ -104,21 +104,23 @@ function AdministrationCommittees(smallStats) {
 
   const updateCategories = () => {
     // alert('Update Categories') 
-    alert('Your category was updated succesfully!')
+    alert('Your committee was updated succesfully!')
     setNewCategory('')
     getCategories()
   }
 
   const createCategory = () => {
-    const IdeaCategory = Parse.Object.extend("IdeaCategory");
-    const ideaCategory = new IdeaCategory();
+    const EvalCommittee = Parse.Object.extend("EvaluationCommittee");
+    const ideaCategory = new EvalCommittee();
 
-    ideaCategory.set("itemNameTrans", {en: "", es: ""});
-    ideaCategory.set("extra", true);
-    ideaCategory.set("icon", "");
-    ideaCategory.set("show", false);
-    ideaCategory.set("itemName", 'newCategory'+Math.random())
-    ideaCategory.set("categoryDescription", {en: "",es: ""})
+    ideaCategory.set("name",'');
+    ideaCategory.set("value", '');
+    ideaCategory.set("evaluationType", '');
+    ideaCategory.set("members", '');
+    ideaCategory.set("type", '');
+    ideaCategory.set("canDelete", true);
+    ideaCategory.set("category", '');
+    ideaCategory.set("department", '');
     setNewCategory(ideaCategory)
     // ideaCategory.save()
     // .then((ideaCategory) => {
@@ -198,15 +200,15 @@ function AdministrationCommittees(smallStats) {
       </Row>
     }
 
-    {/* { categories && categories.map((category, i) => {
+    { committees && committees.map((committee, i) => {
       return (
         <Row className="mt-2 ">
           <Col md="12" lg="12">
-            <CategoryItem key={i+Math.random()} id={i+Math.random()} category={category} updateCategories={updateCategories}></CategoryItem>
+            <CommitteeItem key={i+Math.random()} id={i+Math.random()} category={committee} updateCategories={updateCategories}></CommitteeItem>
           </Col>
         </Row>
       )
-    })} */}
+    })}
 
     
 

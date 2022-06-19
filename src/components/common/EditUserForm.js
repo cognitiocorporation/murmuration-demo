@@ -215,7 +215,8 @@ class EditUserForm extends React.Component {
           email: '',
           password: '',
           privileges: [],
-          userData: ''
+          userData: '',
+          canEdit: ''
         }
 
         this.change = this.change.bind(this);
@@ -247,8 +248,8 @@ class EditUserForm extends React.Component {
     }
 
     componentDidMount() {
-      // Category
 
+      // Category
       this.loadInitialSettings()
 
       let currUser = Parse.User.current();
@@ -260,7 +261,7 @@ class EditUserForm extends React.Component {
     }
 
     loadInitialSettings() {
-      const { userData } = this.props;
+      const { userData, canEdit } = this.props;
       console.log(userData)
       if (userData) {
         const firstName = userData.get("firstName")
@@ -271,12 +272,45 @@ class EditUserForm extends React.Component {
         const isCoach = userData.get("coach")
         const isSupervisor = userData.get("isSupervisor")
 
-        
+        const isPmo = userData.get("pmo")
+        const isVerification = userData.get("verification")
+        const isReward = userData.get("reward")
+
+        const roles = []
+        const privileges = []
+
+        // Roles
+
+        if (isSuperUser) {
+          roles.push({value:"super_user", label:'Super User'})
+        }
+
+        if (isCoach) {
+          roles.push({value:"coach", label: 'Coach'})
+        }
+
+        if (isSupervisor) {
+          roles.push({value:"supervisor", label: 'Supervisor'})
+        }
+
+        // Privileged
+
+        if (isPmo) {
+          privileges.push({value:"pmo", label:'PMO'})
+        }
+
+        if (isVerification) {
+          privileges.push({value:"verification", label: 'Verification'})
+        }
+
+        if (isReward) {
+          privileges.push({value:"reward", label: 'Reward & Recognitio'})
+        }
         
         const department = userData.get("department")
         const selectedDepartment = {value: "", label: department}
 
-        this.setState({firstName: firstName, lastName: lastName, email: email, department: selectedDepartment})
+        this.setState({firstName: firstName, lastName: lastName, email: email, department: selectedDepartment, roles: roles, privileges: privileges, canEdit: true, userData: userData})
       }
 
 
@@ -1015,7 +1049,18 @@ class EditUserForm extends React.Component {
 
       changePrivileges(res, idx) {
         this.setState({
-          privileges: res,
+          privileges: res?res:[],
+        });
+        console.log(res)
+        // if (res) {
+        //   this.props.changeStatus(true)
+        // }
+        // console.log(res);
+      }
+
+      changeRoles(res, idx) {
+        this.setState({
+          roles: res?res:[],
         });
         console.log(res)
         // if (res) {
@@ -1095,22 +1140,22 @@ class EditUserForm extends React.Component {
     }
 
     async editUser() {
-      const { userData, firstName, lastName, email, password, privileges, department, supervisor} = this.state;
+      const { roles, userData, firstName, lastName, email, password, privileges, department, supervisor} = this.state;
 
       var sessionToken = Parse.User.current().getSessionToken();
       var user = userData;
-      alert('Edit user')
+      
       if (firstName == '' || lastName == '' || email == '' || department == '' ) {
         alert('Please enter all required information.');
       } else {
 
-        if (privileges.length > 0) {
+        if (roles.length > 0) {
           // Check if super-user
-          const isSuperUser = privileges.some(e => e.label === 'Super User')
+          const isSuperUser = roles.some(e => e.label === 'Super User')
           // Check if Coach
-          const isCoach = privileges.some(e => e.label === 'Coach')
+          const isCoach = roles.some(e => e.label === 'Coach')
           // Check if Supervisor
-          const isSupervisor = privileges.some(e => e.label === 'Supervisor')
+          const isSupervisor = roles.some(e => e.label === 'Supervisor')
 
           // User type
           const userType = isSuperUser? 'super_user':'user'
@@ -1118,8 +1163,27 @@ class EditUserForm extends React.Component {
           user.set("isSupervisor", isSupervisor)
           user.set("role", userType)
 
+        } else {
+          user.set("role", 'user')
         }
         
+        if (privileges.length > 0 ) {
+          // Check if super-user
+          const isPmo = privileges.some(e => e.label === 'PMO')
+          
+          // Check if Coach
+          const isVerification = privileges.some(e => e.label === 'Verification')
+          // Check if Supervisor
+          const isReward = privileges.some(e => e.label === 'Reward & Recognition')
+
+          user.set("pmo", isPmo)
+          user.set("verification", isVerification)
+          user.set("reward", isReward)
+        } else {
+          user.set("pmo", false)
+          user.set("verification", false)
+          user.set("reward", false)
+        }
         // Supervisor email
         // const supervisorData = supervisor.value
         // const supervisorEmail = supervisorData.get("username")
@@ -1128,10 +1192,19 @@ class EditUserForm extends React.Component {
           user.set("firstName", firstName)
           user.set("lastName", lastName)
           user.set("email", email);
+          user.set("username", email)
           user.set("department", department.label)
+          if (password) {
+            alert('Password changed!')
+            user.set("password", password)
+          }
 
-          user.save().then(() => {
+          // Parse.Object.saveAll([user], {useMasterKey: true})
+          Parse.Object.saveAll([user], {useMasterKey: true}).then(() => {
+            alert('You user was edited successfully.')
             this.props.refreshUsers()
+          }).catch((error) => {
+            alert(error.message)
           })
 
           // try {
@@ -1180,7 +1253,7 @@ class EditUserForm extends React.Component {
     }
 
     render() {
-        const {firstName, lastName, email, supervisor, privileges, selectedLanguage, categoryTitle, categoryInformation, language, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
+        const {canEdit, firstName, lastName, email, supervisor, privileges, roles, selectedLanguage, categoryTitle, categoryInformation, language, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
         const {ideaStage, evaluationData, categoryData} = this.props;
         const formVisibilityState = visible? 'block' : 'none';
         const filterVisibilityState = filterVisible? 'block' : 'none';
@@ -1214,7 +1287,6 @@ class EditUserForm extends React.Component {
 
         const hasEnglish = true
         const hasSpanish = true
-        const canEditUser = false
 
         return(
 
@@ -1265,8 +1337,8 @@ class EditUserForm extends React.Component {
                                 </Row>
                                 <Row className="mt-4">
                                     <Col>
-                                        <label htmlFor="firstName" className="georgia">Additional Privileges: </label>
-                                        <SelectPrivileges className="insideFont" evalType={'execution'} setResponsible={(res, idx) => this.changePrivileges(res, idx)} selectedVal={privileges}/>
+                                        <label htmlFor="firstName" className="georgia">Roles: </label>
+                                        <SelectPrivileges className="insideFont" evalType={'execution'} setResponsible={(res, idx) => this.changeRoles(res, idx)} selectedVal={roles}/>
                                     </Col>
                                 </Row>
                               </Col>
@@ -1285,7 +1357,7 @@ class EditUserForm extends React.Component {
 
                           {ideaStage == 1 && 
                             <Col lg="3" className="mx-auto">
-                              <Row form className="mt-2">
+                              <Row form>
                                 <Col md="12" className="form-group">
                                     <Row className="mt-2">
                                         <Col>
@@ -1305,6 +1377,12 @@ class EditUserForm extends React.Component {
                                             <SupervisorSelect className="insideFont" evalType={'execution'} setResponsible={(res, idx) => this.changeSupervisor(res, idx)} selectedVal={supervisor}/>
                                         </Col>
                                     </Row>
+                                    <Row className="mt-4">
+                                      <Col>
+                                          <label htmlFor="firstName" className="georgia">Additional Privileges: </label>
+                                          <SelectPrivileges className="insideFont" evalType={'execution'} type={'privileges'} setResponsible={(res, idx) => this.changePrivileges(res, idx)} selectedVal={privileges}/>
+                                      </Col>
+                                  </Row>
                                 </Col>
                               </Row>
                             </Col>
@@ -1318,7 +1396,7 @@ class EditUserForm extends React.Component {
 
                           {ideaStage == 1 && 
                             <Col lg="3" className="mx-auto">
-                              <Row form className="mt-2">
+                              <Row form>
                                 <Col md="12" className="form-group">
                                     <Row className="mt-2">
                                         <Col>
@@ -1341,6 +1419,7 @@ class EditUserForm extends React.Component {
                                             className="insideFont"
                                             placeholder="Password"
                                             type="password"
+                                            autoComplete="new-password"
                                             onChange={(event) => this.changePassword(event)}
                                             required>
                                             </FormInput>
@@ -1473,7 +1552,7 @@ class EditUserForm extends React.Component {
                             <Col md="2" className="ml-auto">
                                 <Row>
                                     <Col md="3" className="ml-auto">
-                                        { !canEditUser && <AcceptIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => canEditUser?this.editUser():this.saveUser()}></AcceptIcon>}
+                                        { <AcceptIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => canEdit?this.editUser():this.saveUser()}></AcceptIcon>}
                                     </Col>
                                     <Col md="3" className="mr-auto">
                                         <CancelIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.deleteUser()}></CancelIcon>

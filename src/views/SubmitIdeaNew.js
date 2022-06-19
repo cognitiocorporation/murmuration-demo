@@ -18,13 +18,17 @@ import { ReactComponent as DivisorBarIcon } from "../images/edited_divisor.svg"
 import { ReactComponent as HomeIcon } from "../images/home.svg"
 import { ReactComponent as PreviousIcon } from "../images/PreviousIcon.svg"
 
+import { withTranslation } from 'react-i18next';
+
 import OldIdeas from "../assets/baxter_idea_data.json"
 
 
 import { useTranslation, initReactI18next } from "react-i18next";
 
 
-function SubmitIdeaNew(smallStats) {
+function SubmitIdeaNew() {
+
+  // t is used to translate i18 variables to text strings
   const { t } = useTranslation();
   const [username, setUsername] = useState('')
   const [title, setTitle] = useState('')
@@ -47,10 +51,24 @@ function SubmitIdeaNew(smallStats) {
     const email = results[0].get("username")
     console.log(email)
     
-    // return firstName
+
     setUsername(firstName)
+
+
+    // Update welcome title
+    // 
     if (ideaStage == 0) {
-      setTitle('Welcome back, ' + username+ '!')
+
+      // We want to use t(VARIABLE) so that we can get the correct string
+      // Replace 'VARIABLE' with t('VARIABLE_NAME')
+      // VARIABLE_NAME being the corresponding variable in our new json file.
+
+      // Uncomment the following line to create a message string
+      // const welcomeMsg = 'VARIABLE' + username + '!'
+
+      
+      // Replace the contents of setTitle with our new welcomeMsg variable.
+      setTitle('Welcome back, ' + username+ '!') // Here we are setting our title to what we want
     }
   }
 
@@ -155,19 +173,10 @@ function SubmitIdeaNew(smallStats) {
     <Row>
       {/* Page Header :: Title */}
       <Col md="10" lg="10" className="mt-4 mx-auto">
-        {/* <PageTitle title={t('Welcome back, Angel')} subtitle=" " className="text-sm-left" /> */}
         <Row>
           <Col md="12" lg="12">
             <h3 className="m-auto" style={{fontWeight: 600, color: '#303030'}}>{title}</h3>
           </Col>
-          
-          {/* <Col xs="12" md="2" lg="2" className="col d-flex align-items-center ml-auto">
-           
-            <div>
-              <h6 className="m-0" style={{color: '#303030'}}>Idea # </h6>
-            </div>
-            <h4 className="m-0" style={{fontWeight: 600, color: '#303030'}}>{uuidv4().substring(0,4)}</h4>
-          </Col> */}
         </Row>
         <Row>
           <Col>
@@ -180,10 +189,7 @@ function SubmitIdeaNew(smallStats) {
     </Row>
     
     {/* Divider */}
-    {/* <Col xs="12" md="12" style={{height: 1, width: '100%', backgroundColor: 'black', opacity: 0.2}} className="col d-flex align-items-center"></Col> */}
-
     <Row>
-      {/* Latest Orders */}
       <Col lg="10" className="m-auto">
         <SubmitIdeaForm canSubmit={canSubmit} setFinishedSaving={() => setFinished()} finishedSaving={finishedSaving} currentStage={ideaStage} changeStatus={(status) => changeBtnStatus(status)} changeContinueStatus={(status) => changeContinueBtnStatus(status)} changeIdeaStage={() => changeIdeaStage()}/>     
       </Col>
@@ -273,4 +279,4 @@ SubmitIdeaNew.defaultProps = {
   ]
 };
 
-export default SubmitIdeaNew;
+export default withTranslation()(SubmitIdeaNew);

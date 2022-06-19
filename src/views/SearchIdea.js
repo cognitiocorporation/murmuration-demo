@@ -23,6 +23,8 @@ class SearchIdea extends React.Component {
     this.state = {
       open: false,
       currIdea: '',
+      canGoNext: false,
+      canSubmit: false,
     }
 
     this.openEvalForm = this.openEvalForm.bind(this);
@@ -31,12 +33,18 @@ class SearchIdea extends React.Component {
   openEvalForm(item) {
     this.setState({
       currIdea: item,
-      open: true
+      open: true,
     });
   }
 
+  changeBtnStatus(status) {
+    this.setState({
+      canGoNext: status
+    })
+  }
+
   render() {
-    const {open} = this.state;
+    const {open, canGoNext, canSubmit} = this.state;
     const {t} = this.props;
     return(
       !open?(
@@ -90,12 +98,13 @@ class SearchIdea extends React.Component {
     </Row>
     <Row>
         <Col lassName="mb-4">
-          <ManageIdeaForm idea={this.state.currIdea}/>
+          <ManageIdeaForm idea={this.state.currIdea} changeStatus={(status) => this.changeBtnStatus(status)} canSubmit={canSubmit} closeIdea={() => this.setState({open: false})}/>
         </Col>
     </Row>
     <Row>
       <PreviousIcon className="functionalButton mr-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => this.setState({open: false})}></PreviousIcon>
-      <SaveIconNosel className="functionalButton ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => console.log('Go Back')}></SaveIconNosel>
+      {!canGoNext && <SaveIconNosel className="functionalButton ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => console.log('Go Back')}></SaveIconNosel>}
+      {canGoNext && <SaveIcon className="functionalButton ml-auto d-block" style={{minWidth: 140, maxWidth:140}} onClick={() => this.setState({canSubmit: true})}></SaveIcon>}
     </Row>
   </Container>)
     )

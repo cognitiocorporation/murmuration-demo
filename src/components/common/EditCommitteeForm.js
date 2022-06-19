@@ -27,7 +27,9 @@ import moment from 'moment';
 
 import FormSectionTitle from "../edit-user-profile/FormSectionTitle";
 import CustomFileUpload from "../components-overview/CustomFileUpload";
-import CategorySelect from "./CategorySelect"
+import SimpleCategorySelect from "./SimpleCategorySelect"
+import DepartmentSelect from "./DepartmentSelect"
+import EmployeeSelect from "./EmployeeSelect"
 import IdeaFilterSelect from "./IdeaFilterSelect";
 import { all } from "q";
 import EvaluationSelect from "./EvaluationSelect";
@@ -215,6 +217,9 @@ class EditCommitteeForm extends React.Component {
           categoryInformationSpanish: '',
           hasEnglish: false,
           hasSpanish: false,
+          employees: [],
+          committeeTitle: '',
+          members: []
 
         }
 
@@ -251,8 +256,8 @@ class EditCommitteeForm extends React.Component {
       let currUser = Parse.User.current();
       this.getUserName(currUser);
       // this.fetchNewData();
-      this.fetchQuestions();
-      this.fetchFilterQuestions();
+      this.fetchCategories();
+      this.fetchDepartments();
       this.getDate();
     }
 
@@ -263,32 +268,16 @@ class EditCommitteeForm extends React.Component {
       // Language
 
       const languageSelector = selectedLanguage.label == "English"? "en":"es"
-      const categoryName = categoryData.get("itemNameTrans").en
-      const categoryNameSpanish = categoryData.get("itemNameTrans").es
-
-      const categoryInformation = categoryData.get("categoryDescription").en
-      const categoryInformationSpanish = categoryData.get("categoryDescription").es
-
+      const categoryName = categoryData.get("name")
+      const cMembers = categoryData.get("members")
+      const selectedDepartment = categoryData.get("department")?categoryData.get("department"):'All Departments'
+      const selectedCategory = categoryData.get("category")?categoryData.get("category"):'All Categories'
+     
       
-
-
-      // Status On/Off
-      const categoryStatus = categoryData.get('show')
-
-      // English / Spanish Setup
-      const hasEnglish = categoryData.get("itemNameTrans").en != ''
-      const hasSpanish = categoryData.get("itemNameTrans").es != ''
-
-      // Get Category Icon
-      var index = images.findIndex(function(image) {
-        return image.name == categoryData.get("icon")
-      });
-
-    //   this.galleryRef.current.slideToIndex(index)
-
-
-
-      this.setState({categoryOn: categoryStatus, categoryTitle: categoryName, categoryTitleSpanish: categoryNameSpanish, categoryInformationSpanish: categoryInformationSpanish, categoryInformation: categoryInformation, hasEnglish: hasEnglish, hasSpanish: hasSpanish})
+      const departmentVal = {}
+      
+      
+      this.setState({committeeTitle: categoryName, employees: cMembers, department:  {value: "", label: selectedDepartment}, category:  {value: "", label: selectedCategory}})
     }
 
     getDate() {
@@ -409,7 +398,7 @@ class EditCommitteeForm extends React.Component {
     }
 
 
-    fetchQuestions() {
+    fetchCategories() {
       const className = "IdeaCategory";
 
       var ItemClass = Parse.Object.extend(className);
@@ -430,8 +419,8 @@ class EditCommitteeForm extends React.Component {
       });
     }
 
-    fetchFilterQuestions() {
-      const className = "FilterQuestion";
+    fetchDepartments() {
+      const className = "IdeaDepartment";
 
       var ItemClass = Parse.Object.extend(className);
       var query = new Parse.Query(ItemClass);
@@ -439,11 +428,11 @@ class EditCommitteeForm extends React.Component {
       .then((results) => {
         // console.log(results);
           this.setState({
-              filterQuestions: results
+              departments: results
           });
       }, (error) => {
           this.setState({
-              filterQuestions: []
+              departments: []
           });
         // The object was not retrieved successfully.
         // error is a Parse.Error with an error code and message.
@@ -971,11 +960,11 @@ class EditCommitteeForm extends React.Component {
       } else {
         if (this.state.selectedLanguage.value == "English") {
           this.setState({
-            categoryTitle: title,
+            committeeTitle: title,
           })
         } else {
           this.setState({
-            categoryTitleSpanish: title,
+            committeeTitle: title,
           })
         }
     
@@ -1036,35 +1025,40 @@ class EditCommitteeForm extends React.Component {
     }
 
     updateIdea() {
-      const { selectedLanguage, categoryTitle, categoryTitleSpanish, categoryInformationSpanish, categoryInformation } = this.state;
+       const { department, category, members, employees, selectedLanguage, committeeTitle, categoryTitleSpanish, categoryInformationSpanish, categoryInformation } = this.state;
       const {ideaStage, evaluationData, categoryData, refreshIdea} = this.props;
       
-      const languageSelector = selectedLanguage.label == "English"? "en":"es"
-      const titleTrans = categoryData.get("itemNameTrans")
-      titleTrans.en = categoryTitle
-      titleTrans.es = categoryTitleSpanish
+      categoryData.set("name", committeeTitle)
+      categoryData.set("members", employees)
+      categoryData.set("category", category.label)
+      categoryData.set("department", department.label)
+      categoryData.save().then(() => refreshIdea())
+      // const titleTrans = categoryData.get("itemNameTrans")
+      // titleTrans.en = categoryTitle
+      // titleTrans.es = categoryTitleSpanish
 
-      const description = categoryData.get("categoryDescription")
-      description.en = categoryInformation
-      description.es = categoryInformationSpanish
+      // const description = categoryData.get("categoryDescription")
+      // description.en = categoryInformation
+      // description.es = categoryInformationSpanish
 
-      const iconIndex = this.galleryRef.current.getCurrentIndex()
-      const iconName = images[iconIndex].name
-      console.log(iconIndex)
-      console.log(iconName)
-      const isIconRepeated = this.isIconRepeated(categoryTitle, iconName)
+      // const iconIndex = this.galleryRef.current.getCurrentIndex()
+      // const iconName = images[iconIndex].name
+      // console.log(iconIndex)
+      // console.log(iconName)
+      // const isIconRepeated = this.isIconRepeated(categoryTitle, iconName)
       
-      if (isIconRepeated) {
-        alert('This icon is already being used in another category. Please fix! ')
-      } else {
-        categoryData.set("itemName", categoryTitle)
-        categoryData.set("itemNameTrans", titleTrans)
-        categoryData.set("categoryDescription", description)
-        categoryData.set("icon", iconName)
+      // if (isIconRepeated) {
+      //   alert('This icon is already being used in another category. Please fix! ')
+      // } else {
+      //   categoryData.set("itemName", categoryTitle)
+      //   categoryData.set("itemNameTrans", titleTrans)
+      //   categoryData.set("categoryDescription", description)
+      //   categoryData.set("icon", iconName)
         
-        categoryData.save().then(() => refreshIdea())
-      }
-      
+      //   categoryData.save().then(() => refreshIdea())
+      // }
+
+      // alert('Update committee!')
     }
 
     isIconRepeated(categoryTitle, iconName) {
@@ -1086,7 +1080,7 @@ class EditCommitteeForm extends React.Component {
       const { selectedLanguage, categoryTitle, categoryInformation } = this.state;
       const {ideaStage, evaluationData, categoryData, refreshIdea} = this.props;
       
-      const canDelete = window.confirm('Are you sure you want to delete this category?');
+      const canDelete = window.confirm('Are you sure you want to delete this committee?');
       
       if (canDelete) {
         categoryData.destroy().then(() => {
@@ -1095,12 +1089,20 @@ class EditCommitteeForm extends React.Component {
       }
     }
 
-    createIdea() {
+    changeDepartment = (department, i) => {
+      this.setState({department: department})
+    }
 
+    changeCategory = (category, i) => {
+      this.setState({category: category})
+    }
+
+    changeEmployees = (employees, i) => {
+      this.setState({employees: employees})
     }
 
     render() {
-        const {categoryTitleSpanish, categoryInformationSpanish, selectedLanguage, categoryTitle, categoryInformation, language, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
+        const {employees, categoryTitleSpanish, categoryInformationSpanish, selectedLanguage, categoryTitle, categoryInformation, language, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
         const {ideaStage, evaluationData, categoryData} = this.props;
         const formVisibilityState = visible? 'block' : 'none';
         const filterVisibilityState = filterVisible? 'block' : 'none';
@@ -1159,7 +1161,7 @@ class EditCommitteeForm extends React.Component {
                                 <Row className="mt-2">
                                   <Col>
                                     <label htmlFor="firstName" className="georgia">Department: </label>
-                                    <Select
+                                    {/* <Select
                                         // value={selectedLanguage}
                                         className="insideFont"
                                         placeholder='All Departments'
@@ -1172,26 +1174,14 @@ class EditCommitteeForm extends React.Component {
                                           }, 
                                           
                                         ]}z
-                                      />
+                                      /> */}
+                                      <DepartmentSelect className="insideFont" evalType={'execution'} type="Committee" setResponsible={(res, idx) => this.changeDepartment(res, idx)} selectedVal={department}/>
                                   </Col>
                                 </Row>
                                 <Row className="mt-4">
                                     <Col>
                                         <label htmlFor="firstName" className="georgia">Category: </label>
-                                        <Select
-                                            // value={selectedLanguage}
-                                            className="insideFont"
-                                            placeholder='All Categories'
-                                            styles={customStyles}
-                                            onChange={this.setLanguage}
-                                            options={[
-                                            {
-                                                value:'All Categories',
-                                                label:'All Categories'
-                                            }, 
-                                            
-                                            ]}z
-                                        />
+                                        <SimpleCategorySelect className="insideFont" evalType={'execution'} type="Committee" setResponsible={(res, idx) => this.changeCategory(res, idx)} selectedVal={category}/>
                                     </Col>
                                 </Row>
                                 
@@ -1201,54 +1191,20 @@ class EditCommitteeForm extends React.Component {
                             </Row>
                           </Col>
 
-                          {/* Middle Part */}
-
-                          <Col lg="4" className="mx-auto">
-                            <Row form>
-                              {/* Proponent */}
-                              <Col md="12" className="form-group">
-                                <Row className="mt-2">
-                                  <Col>
-                                    <label htmlFor="firstName" className="georgia">Committee Members: </label>
-                                    <Select
-                                        // value={selectedLanguage}
-                                        className="insideFont"
-                                        placeholder='[FirstName] [LastName]'
-                                        styles={customStyles}
-                                        onChange={this.setLanguage}
-                                        options={[
-                                          {
-                                            value:'All Users',
-                                            label:'All Users'
-                                          }, 
-                                          
-                                        ]}z
-                                      />
-                                  </Col>
-                                </Row>
-                                
-                                
-                                
-                              </Col>
-    
-                            </Row>
-                          </Col>
-                          
-
                           {/* Right Part */}
                           
 
-                          {ideaStage == 1 && 
-                            <Col lg="4" className="mx-auto">
+                          
+                          <Col lg="4" className="mx-auto">
                               <Row form className="mt-2">
-                                <Col md="6" className="form-group">
+                                <Col md="12" className="form-group">
                                 <label htmlFor="firstName" className="georgia">Committee Name: </label>
                                   {/* <IdeaStatusSelect setEvalStatus={this.setEvalStatus}></IdeaStatusSelect> */}
                                   {/* <ImageGallery ref={this.galleryRef} originalHeight={100} originalWidth={100} showThumbnails={false} showFullscreenButton={false} showPlayButton={false} items={images} /> */}
                                   <FormInput
                                             id="categoryName"
                                             placeholder={'Committee Name'}
-                                            // value={this.state.selectedLanguage.value == "English"?'':'Committee Name'}
+                                            value={this.state.committeeTitle}
                                             onChange={this.setCategoryTitle}
                                             className="insideFont"
                                         />
@@ -1266,142 +1222,59 @@ class EditCommitteeForm extends React.Component {
                                 </Col> */}
                               </Row>
                              
-                              <Row form >
-                                
-                                <Col md="4" className="mt-auto">
-                                <Row>
-                                  <Col md="4" className="ml-auto">
-                                   
-                                  </Col>
-                                  <Col md="8">
-                                    <Row>
-                                      <Col md="5">
-                                        <AcceptIcon  className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.updateIdea()}></AcceptIcon>
-                                        
-                                      </Col>
-                                      <Col md="5">
-                                        <CancelIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.deleteIdea()}></CancelIcon>
-                                      </Col>
-                                    </Row>
+                            </Col>
+
+                          {/* Middle Part */}
+
+                          <Col lg="3" className="mx-auto">
+                            <Row form>
+                              {/* Proponent */}
+                              <Col md="12" className="form-group">
+                                <Row className="mt-2">
+                                  <Col>
+                                    <label htmlFor="firstName" className="georgia">Committee Members: </label>
+                                    {/* <Select
+                                        // value={selectedLanguage}
+                                        className="insideFont"
+                                        placeholder='[FirstName] [LastName]'
+                                        styles={customStyles}
+                                        onChange={this.setLanguage}
+                                        options={[
+                                          {
+                                            value:'All Users',
+                                            label:'All Users'
+                                          }, 
+                                          
+                                        ]}z
+                                      /> */}
+                                      <EmployeeSelect className="insideFont" evalType={'execution'} type="Committee" setResponsible={(res, idx) => this.changeEmployees(res, idx)} selectedVal={employees}/>
                                   </Col>
                                 </Row>
-                                </Col>
-                              </Row>
-                            </Col>
-                          }
+                                
+                                
+                                
+                              </Col>
+    
+                            </Row>
+                          </Col>
                           
 
-                          {ideaStage == 2 && 
-                            <Col lg="6">
-                              <Row className="mt-4">
-                                  <Col md="6">
-                                    <label htmlFor="firstName" className="georgia">Choose how to proceed: </label>
-                                    <Row>
-                                      <Col>
-                                      {this.getIcon(this.state.selectedStatus, 'Black')}
-                                          <div className="mr-auto" style={{width: '100%', backgrounColor: 'black'}}>
-                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{this.state.selectedStatus}</h6>
-                                          </div>
-                                      </Col>
-                                    </Row>
-                                  </Col>
-                                  <Col md="6">
-                                    <Row className="mt-2">
-                                      <Col>
-                                        <label htmlFor="firstName" className="georgia">Employee Response Date</label>
-                                        <h6 style={{fontWeight: 500,  color: '#303030'}}>{nowDate}</h6>
-                                      </Col>
-                                    </Row>
-                                    <Row className="mt-2">
-                                    <Col>
-                                        <label htmlFor="firstName" className="georgia">Idea Status</label>
-                                        <Row>
-                                          <Col md="7">
-                                            <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Pending'}</h6>
-                                          </Col>
-                                          <Col className="mb-auto" md="1">
-                                            {/* <div className="my-auto" style={{backgroundColor: '#1DE334', height: 16, width: 16, borderRadius: 8}}></div> */}
-                                            {/* { timingWording == "On-Time"? 
-                                            <GreenIcon style={{height: 16, width: 16}}></GreenIcon>
-                                            : */}
-                                            <RedIcon style={{height: 16, width: 16}}></RedIcon>
-                                            {/* } */}
-                                          </Col>
-                                          <Col md="1" className="mb-auto">
-                                            <a id={"TooltipResponseInfo2"} className="text-right" style={{ color: 'inherit'}} onClick={() => {
-                                                const myCopy = this.state.responseInfo2
-                                                myCopy = !myCopy
-                                                this.setState({responseInfo2: myCopy})
-                                            }}>
-                                                
-                                                <InfoIcon style={{height: 16, width: 16}}></InfoIcon>
-                                                
-                                            </a>
-                                          </Col>
-                                         
-                                          <Tooltip
-                                            open={this.state.responseInfo2}
-                                            target={"#TooltipResponseInfo2"}
-                                            id={"TooltipResponseInfo2"}
-                                            toggle={() => {this.toggle()}}
-                                            >
-                                            Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
-                                          </Tooltip>
-                                      </Row>
-
-                                      </Col>
-                                    </Row>
-                                    
-                                  </Col>
-                              </Row>
-
-                              {/* Subject Matter Comments */}
-                              <Row form className="mt-4">
-                                <Col md="12" className="form-group">
-                                  <label htmlFor="firstName" className="georgia">Subject-Matter Expert Comments:</label>
-                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{this.state.comment}</h6>
-                                </Col>
-                              </Row>
-
-                              <Row form className="mt-4">
-                                <Col md="12" className="form-group">
-                                  <label className="georgia">{'Estimate economic/output impact'}</label>
-                                  <Row>
-                                    <Col>
-                                      <h6 style={{fontWeight: 500,  color: '#303030'}}>{'$'+this.state.expectedReturn}</h6>
-                                    </Col>
-                                    <Col md="4">
-                                      <h6 style={{fontWeight: 500,  color: '#303030'}}>{this.state.timeUnit}</h6>
-                                    </Col>
-                                    <Col md="4">
-                                      <Switch 
-                                        isOn={this.state.recurringImpact}
-                                        disabled
-                                        // handleToggle={() => this.setState({hasTeam: !hasTeam})}
-                                        onColor="#633FDA"
-                                        title="Recurring Impact"
-                                      />
-                                    </Col>
-                                  </Row>
-                                </Col>
-                              </Row>
-
-                              { this.state.selectedStatus !== "Do not Pursue" &&
-                              <Row form className="mt-4">
-                                <Col md="12" className="form-group">
-                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Choose an Idea Owner *'}</h6>
-                                    <ExecutionSelectNew className="insideFont" evalType={'execution'} setResponsible={(res, idx) => this.changeResponsible(res, idx)} selectedVal={executionRes}/>
-                                  <br/>
-                                  <h6 style={{fontWeight: 500,  color: '#303030'}}>{'Choose an Idea Coach'}</h6>
-                                    <ExecutionSelectNew className="insideFont" evalType={'coach'} setResponsible={(res, idx) => this.changeCoach(res, idx)} selectedVal={coachRes}/>
-                                </Col>
-                              </Row>
-                              }
-                            </Col>
-                          }
+                          
                         </Row>
                         
-                        
+                        <Row className="mt-2">
+                            <Col md="2" className="ml-auto">
+                                <Row>
+                                    <Col md="3" className="ml-auto">
+                                      <AcceptIcon  className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.updateIdea()}></AcceptIcon>
+                                    </Col>
+                                    <Col md="3" className="mr-auto">
+                                      <CancelIcon className="functionalButton" style={{height: 34, width: 34}} onClick={() => this.deleteIdea()}></CancelIcon>
+                                    </Col>
+                                </Row>
+                            </Col>
+                        </Row>
+    
     
                        
                        

@@ -581,7 +581,8 @@ i18next.init({
           "OEE_INCREASE_MUCH":"By how much did OEE increase in %...",
           "LEAD_TIME":"Lead Time (HRS)",
           "LEAD_TIME_HOURS":"Lead Time in hours...",
-        }
+        },
+        
 
         //
     

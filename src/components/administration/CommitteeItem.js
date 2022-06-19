@@ -96,17 +96,20 @@ function CommitteeItem({category, updateCategories}) {
     // updateCategories()
   }
 
-  const categoryNameEnglish = category.get("itemNameTrans").en
-  const categoryNameSpanish = category.get("itemNameTrans").es
-  const categoryStatus = category.get("show")
+  const deptName = category.get("department")?category.get("department"):"All Categories"
+
+  const committeePre = category.get("name")?category.get("name"):'New Committee'
+  const committeeName = committeePre + " - ["+deptName+"]"
+  // const categoryNameSpanish = category.get("itemNameTrans").es
+  // const categoryStatus = category.get("show")
   
 
-  useEffect(() => {
-    // Run! Like go get some data from an API.
-    if (categoryNameEnglish == '') {
-      setCategoryIsOpen(true)
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Run! Like go get some data from an API.
+  //   if (categoryNameEnglish == '') {
+  //     setCategoryIsOpen(true)
+  //   }
+  // }, []);
 
   return (
     <Row>
@@ -131,7 +134,7 @@ function CommitteeItem({category, updateCategories}) {
                 </div> */}
 
                 <div className="ml-4 my-auto" style={{height: '100%', display: 'inline-block'}}>
-                    <h6 className="my-auto" style={{fontWeight: 500,  color: '#303030',}}>{categoryNameEnglish?categoryNameEnglish:"New Committee"}</h6>
+                    <h6 className="my-auto" style={{fontWeight: 500,  color: '#303030',}}>{committeeName?committeeName:"New Committee"}</h6>
                 </div>
 
                 { categoryIsOpen && <ArrowUpIcon onClick={() => setCategoryIsOpen(false)} className="mr-2 ml-auto my-auto" style={{height: 16, width: 16, display: 'inline-block'}}></ArrowUpIcon> }
