@@ -1270,18 +1270,18 @@ export default function () {
       // },
       {
         title:  t("MENU_COMITES"), //'Comites',
-        to: '/administracion-comite',
-        roles:['super_user'],
-        htmlBefore: '<i class="material-icons">record_voice_over</i>',
-        htmlAfter: '',
-      },
-      {
-        title:  'Committees (2.0)', //'Comites',
         to: '/administration-committees',
         roles:['super_user'],
         htmlBefore: '<i class="material-icons">record_voice_over</i>',
         htmlAfter: '',
       },
+      // {
+      //   title:  'Committees (2.0)', //'Comites',
+      //   to: '/administration-committees',
+      //   roles:['super_user'],
+      //   htmlBefore: '<i class="material-icons">record_voice_over</i>',
+      //   htmlAfter: '',
+      // },
     // {
     //   title:  t("MENU_PREGUNTAS"), //'Preguntas',
     //   to: '/administracion-preguntas',
