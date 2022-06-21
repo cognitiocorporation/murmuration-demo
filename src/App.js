@@ -19,11 +19,11 @@ import { withTranslation } from 'react-i18next';
 // Parse.initialize("Murmuration"); //App ID, Javascript Key
 // Parse.masterKey = 'Murmuration2021' // Master Key
 
-Parse.serverURL = 'https://parseapi.back4app.com' //'https://mymurmuration.app/parse';
+Parse.serverURL = 'https://seriously-creative-server.murmuratto.com/parse' //'https://mymurmuration.app/parse';
 
 // App ID
-Parse.initialize("26I3tbyalisB50wd1YmkJh4sP7ZJRFUps38GCjw6", "tLBsUVLxjlCZqNQ9s8iHTa92RGjOciJJ3zppFg3A"); //App ID, Javascript Key
-Parse.masterKey = 'E9Jr21Fe2xdHHwnufVRMaC9tEwxxKGFU5lWdfGDH' // Master Key
+Parse.initialize("myappID"); //App ID, Javascript Key
+Parse.masterKey = 'RQOyN5x4uPJf' // Master Key
 
 var currentUser = Parse.User.current();
 

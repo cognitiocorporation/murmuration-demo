@@ -114,30 +114,30 @@ function AdministrationUsersNew(smallStats) {
     setUser('')
   }
 
-  const createUser = () => {
-    const IdeaCategory = Parse.Object.extend("IdeaCategory");
-    const ideaCategory = new IdeaCategory();
+  // const createUser = () => {
+  //   const IdeaCategory = Parse.Object.extend("IdeaCategory");
+  //   const ideaCategory = new IdeaCategory();
 
-    ideaCategory.set("itemNameTrans", {en: "New Category", es: "Nueva Categoria"});
-    ideaCategory.set("extra", true);
-    ideaCategory.set("icon", "");
-    ideaCategory.set("show", false);
-    ideaCategory.set("itemName", 'newCategory'+Math.random())
-    ideaCategory.set("categoryDescription", {"en": "Category 7 description goes here.","es": "Descripción 7 de categoria va aquí."})
+  //   ideaCategory.set("itemNameTrans", {en: "New Category", es: "Nueva Categoria"});
+  //   ideaCategory.set("extra", true);
+  //   ideaCategory.set("icon", "");
+  //   ideaCategory.set("show", false);
+  //   ideaCategory.set("itemName", 'newCategory'+Math.random())
+  //   ideaCategory.set("categoryDescription", {"en": "Category 7 description goes here.","es": "Descripción 7 de categoria va aquí."})
 
-    ideaCategory.save()
-    .then((ideaCategory) => {
-      // Execute any logic that should take place after the object is saved.
-      setNewCategory([ideaCategory])
-    }, (error) => {
-      // Execute any logic that should take place if the save fails.
-      // error is a Parse.Error with an error code and message.
-      console.log(error.message)
-      alert('Error creating new category.')
-    });
+  //   ideaCategory.save()
+  //   .then((ideaCategory) => {
+  //     // Execute any logic that should take place after the object is saved.
+  //     setNewCategory([ideaCategory])
+  //   }, (error) => {
+  //     // Execute any logic that should take place if the save fails.
+  //     // error is a Parse.Error with an error code and message.
+  //     console.log(error.message)
+  //     alert('Error creating new category.')
+  //   });
     
-    setCategories()
-  }
+  //   setCategories()
+  // }
 
   const createUser = () => {
     setShowUser(true)
