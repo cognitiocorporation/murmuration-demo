@@ -28,7 +28,7 @@ const MainNavbar = ({ layout, stickyTop }) => {
                   id="main-logo"
                   className="d-inline-block align-top mr-1 ml-3"
                   style={{ maxWidth: "25px" }}
-                  src= "http://mymurmuration.theswiftstudio.com/wp-content/uploads/2022/05/image001-2.png"//{require("../../../images/shards-dashboards-logo.svg")}
+                  src= "https://static.wixstatic.com/media/796938_f603d32f47a14be29562d01d4f3d8ee7~mv2.png/v1/fill/w_294,h_130,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/796938_f603d32f47a14be29562d01d4f3d8ee7~mv2.png"//{require("../../../images/shards-dashboards-logo.svg")}
                   alt="Shards Dashboard"
                 />
                 <span className="d-none d-md-inline ml-1">
