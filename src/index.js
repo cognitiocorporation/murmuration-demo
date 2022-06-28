@@ -581,6 +581,20 @@ i18next.init({
           "OEE_INCREASE_MUCH":"By how much did OEE increase in %...",
           "LEAD_TIME":"Lead Time (HRS)",
           "LEAD_TIME_HOURS":"Lead Time in hours...",
+
+          // New Translation
+          "WELCOME_BACK":"Welcome back, ",
+          "IDEA_SELECT_IDEA_TYPE":"'Idea > Select Idea Type",
+          "Choose how to contribute!":"Choose how to contribute!",
+          "Idea Title*":"Idea Title*",
+          "Idea Description*":"Idea Description*",
+          "Add team members and attachments":"Add team members and attachments",
+          "Add an attachment":"Add an attachment",
+          "Add a team":"Add a team",
+          "Click to share your idea":"Click to share your idea",
+          "Help us understand your idea and its benefits by describint it here!":"Help us understand your idea and its benefits by describint it here!",
+          "Type [First Name] [Last Name]":"Type [First Name] [Last Name]",
+          "Selected_Category:":"Selected Category:",
         },
         
 

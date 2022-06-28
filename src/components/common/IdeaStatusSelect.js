@@ -48,6 +48,23 @@ import { ReactComponent as DollarSignImageSelected } from "../../images/Icons_Se
 import { ReactComponent as NumberOneImageSelected } from "../../images/Icons_Selected_07_Number One.svg"
 
 
+// Updated Icons
+import { ReactComponent as CheckmarkNewImage} from '../../images/Icons_Idle_03_CheckmarkNew.svg';
+import { ReactComponent as DenyImage} from '../../images/Icons_Idle_08_Deny.svg';
+import { ReactComponent as SaveImage} from '../../images/Icons_Idle_09_Save.svg';
+import { ReactComponent as TransferImage} from '../../images/Icons_Idle_10_Transfer.svg';
+import { ReactComponent as ProjectImage} from '../../images/Icons_Idle_11_Project.svg';
+import { ReactComponent as QuestionImage} from '../../images/Icons_Idle_12_Question.svg';
+
+// Updated Icons Selected
+import { ReactComponent as CheckmarkNewImageSelected} from '../../images/Icons_Selected_03_CheckmarkNew.svg';
+import { ReactComponent as DenyImageSelected} from '../../images/Icons_Selected_08_Deny.svg';
+import { ReactComponent as SaveImageSelected} from '../../images/Icons_Selected_09_Save.svg';
+import { ReactComponent as TransferImageSelected} from '../../images/Icons_Selected_10_Transfer.svg';
+import { ReactComponent as ProjectImageSelected} from '../../images/Icons_Selected_11_Project.svg';
+import { ReactComponent as QuestionImageSelected} from '../../images/Icons_Selected_12_Question.svg';
+
+
 // fill="#157ffb"
 
 // Selected
@@ -285,23 +302,23 @@ class IdeaStatusSelect extends React.Component {
             {normal: <UrgentImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
              selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <ProductivityImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <ProductivityImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <DenyImage className="shakeButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <DenyImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <CheckmarkImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <TransferImage className="shakeButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <TransferImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <TrophyImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <TrophyImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <ProjectImage className="shakeButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <ProjectImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <Shield2Image className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <Shield2ImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <QuestionImage className="shakeButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <QuestionImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <DollarSignImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <DollarSignImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <SaveImage className="shakeButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <SaveImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <NumberOneImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <NumberOneImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <CheckmarkNewImage className="shakeButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <CheckmarkNewImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
         ]
 
@@ -321,17 +338,17 @@ class IdeaStatusSelect extends React.Component {
             //New Icons
             //["Approve", "Do not Pursue", "Save for Later", "Request information", "Project Idea", "Transfer Committee"],
             case 'Approve':
-                return newIcons[0];
+                return newIcons[6];
             case 'Do not Pursue':
                 return newIcons[1];
             case 'Save for Later':
-                return newIcons[2];
-            case 'Request\ninformation':
-                return newIcons[3];
-            case 'Project Idea':
-                return newIcons[4];
-            case 'Transfer\nCommittee':
                 return newIcons[5];
+            case 'Request\ninformation':
+                return newIcons[4];
+            case 'Project Idea':
+                return newIcons[3];
+            case 'Transfer\nCommittee':
+                return newIcons[2];
             case 'Number One':
                 return newIcons[6];
             default:
