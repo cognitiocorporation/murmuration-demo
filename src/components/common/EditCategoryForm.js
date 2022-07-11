@@ -1068,8 +1068,9 @@ class EditCategoryForm extends React.Component {
     }
 
     isIconRepeated(categoryTitle, iconName) {
+      const {ideaStage, evaluationData, categoryData, refreshIdea} = this.props;
       const {data} = this.state;
-      
+
       const someoneHasIcon = data.some(e => e.get("icon") === iconName)
       const haveIcon = data.filter(e => e.get("icon") === iconName)
       const iHaveIcon = haveIcon.some(e => e.get("itemName") === categoryTitle)
@@ -1078,7 +1079,11 @@ class EditCategoryForm extends React.Component {
         if (iHaveIcon) {
           return false
         } else {
-          return true
+          if (categoryData.get("itemName") == categoryTitle) {
+            return true
+          } else {
+            return false
+          }
         }
       } else {
         return false

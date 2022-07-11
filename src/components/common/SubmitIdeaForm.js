@@ -36,7 +36,8 @@ import SelectedCategoryDisplay from "./SelectedCategoryDisplay";
 import { ReactComponent as SubmitIcon } from "../../images/submit.svg"
 
 
-var storageLanguage = localStorage.getItem('language');
+// Check if storage language is null and set default to english
+var storageLanguage = localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
 
 class SubmitIdeaForm extends React.Component {
     constructor(props) {

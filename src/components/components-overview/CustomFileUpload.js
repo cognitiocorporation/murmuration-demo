@@ -34,7 +34,7 @@ class CustomFileUpload extends React.Component {
   render() {
     // Translation
     const { t, myFile } = this.props;
-    const storageLanguage = localStorage.getItem('language');
+    const storageLanguage =  localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
 
     const { fileName } = this.state;
     let file = null;

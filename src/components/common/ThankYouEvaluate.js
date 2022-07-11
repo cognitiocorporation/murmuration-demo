@@ -262,7 +262,7 @@ class ThankYouEvaluate extends React.Component {
     render() {
         const { allCats, bgColor, sq1Color, sq2Color, sq3Color, sq4Color, handIcon, shieldIcon, chartIcon, clockIcon, titleColor1, titleColor2, titleColor3, titleColor4, showAction, showProductivity, showQuality, showSecurity, showExtra, titleColor5, sq5Color, extraName, extraIcon } = this.state
         const { t, idea } = this.props;
-        const storageLanguage = localStorage.getItem('language');
+        const storageLanguage =  localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
         return(
             <div>
                 <Row className='pt-4'>

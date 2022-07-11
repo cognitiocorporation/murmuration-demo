@@ -42,7 +42,7 @@ const options = [
   { value: 'vanilla', label: 'Vanilla' },
 ];
 
-var storageLanguage = localStorage.getItem('language');
+var storageLanguage =  localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
 
 class SubmitIdeaForm extends React.Component {
     constructor(props) {
