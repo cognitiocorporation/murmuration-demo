@@ -61,7 +61,7 @@ export default [
     exact: true,
     layout: DefaultLayout,
     protected: true,
-    component: () => <Redirect to="/submit-idea-new" />
+    component: () => <Redirect to="/idea-management-2" />
   },//<Redirect to="/administration-questions" />
   {
     path: "/analytics",

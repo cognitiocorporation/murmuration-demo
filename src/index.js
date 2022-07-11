@@ -10,13 +10,13 @@ import i18next from 'i18next';
 import * as serviceWorker from './serviceWorker';
 
 const allowedLanguages = ['en', 'es'];
-const storageLanguage = localStorage.getItem('language');
+const storageLanguage = localStorage.getItem('language')
 
 if (!storageLanguage) {
-  localStorage.setItem('language', 'es');
+  localStorage.setItem('language', 'en');
 }
 
-const defaultLng = 'es';
+const defaultLng = 'en';
 let lng = defaultLng;
 
 if (storageLanguage && allowedLanguages.indexOf(storageLanguage) > -1) {
@@ -586,6 +586,7 @@ i18next.init({
           "WELCOME_BACK":"Welcome back, ",
           "IDEA_SELECT_IDEA_TYPE":"'Idea > Select Idea Type",
           "Choose how to contribute!":"Choose how to contribute!",
+          "Selected Category:":"Selected Category:",
           "Idea Title*":"Idea Title*",
           "Idea Description*":"Idea Description*",
           "Add team members and attachments":"Add team members and attachments",
@@ -594,12 +595,14 @@ i18next.init({
           "Click to share your idea":"Click to share your idea",
           "Help us understand your idea and its benefits by describint it here!":"Help us understand your idea and its benefits by describint it here!",
           "Type [First Name] [Last Name]":"Type [First Name] [Last Name]",
-          "Selected_Category:":"Selected Category:",
+          "APPROVE_MSG":"Choose this option to start implementing this idea right away.",
+          "DO_NOT_PURSUE_MSG":"Choose this option for ideas that are not aligned with business needs or idea approval criteria.",
+          "SAVE_FOR_LATER_MSG":"Choose this option for good ideas that should be implemented in the near future.",
+          "REQUEST_INFORMATION_MSG":"Choose this option if you need additional information to evaluate this idea. Type your questions in the comment section below. We’ll deliver it to the right person!",
+          "PROJECT_IDEA_MSG":"Choose this option for ideas that need additional budget and approvals. We’ll send this to the PMO team in your organization!",
+          "TRANSFER_COMMITTEE_MSG":"Not the right person to evaluate this? Let us help you by choosing this option and typing the right department in the comment section below.",
+          "RESPONSE_TIME_MSG":"People love speedy responses. Respond within 14 days to keep your team engaged.",
         },
-        
-
-        //
-    
       },
     
       es: {

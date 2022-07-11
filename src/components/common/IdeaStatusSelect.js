@@ -302,23 +302,23 @@ class IdeaStatusSelect extends React.Component {
             {normal: <UrgentImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
              selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <DenyImage className="shakeButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+            {normal: <DenyImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
              selected: <DenyImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <TransferImage className="shakeButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+            {normal: <TransferImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
              selected: <TransferImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <ProjectImage className="shakeButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+            {normal: <ProjectImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
              selected: <ProjectImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <QuestionImage className="shakeButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+            {normal: <QuestionImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
              selected: <QuestionImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <SaveImage className="shakeButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+            {normal: <SaveImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
              selected: <SaveImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <CheckmarkNewImage className="shakeButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <CheckmarkNewImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <CheckmarkImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
         ]
 
@@ -356,6 +356,31 @@ class IdeaStatusSelect extends React.Component {
           }
     }
 
+    getIconDescription(name) {
+        const {selectionValue, selectedCategoryName, page} = this.state;
+        const {t} = this.props;
+        switch(name) {
+            case 'Approve':
+                return t("APPROVE_MSG");
+            case 'Do not Pursue':
+                return t("DO_NOT_PURSUE_MSG");
+            case 'Save for Later':
+                return t("SAVE_FOR_LATER_MSG");
+            case 'Request information':
+                return t("REQUEST_INFORMATION_MSG");
+            case 'Request\ninformation':
+                return t("REQUEST_INFORMATION_MSG");
+            case 'Project Idea':
+                return t("PROJECT_IDEA_MSG");
+            case 'Transfer Committee':
+                return t("TRANSFER_COMMITTEE_MSG");
+            case 'Transfer\nCommittee':
+              return t("TRANSFER_COMMITTEE_MSG");
+            default:
+              return "No description available at the moment."//<SelectIdeaImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+          }
+      }
+
     getBgColor(index) {
         if (this.state.selectionValue == index) {
             return selectedColor
@@ -374,7 +399,7 @@ class IdeaStatusSelect extends React.Component {
     render() {
         const { iconNames, allCats, bgColor, sq1Color, sq2Color, sq3Color, sq4Color, handIcon, shieldIcon, chartIcon, clockIcon, titleColor1, titleColor2, titleColor3, titleColor4, showAction, showProductivity, showQuality, showSecurity, showExtra, titleColor5, sq5Color, extraName, extraIcon } = this.state
         const { t } = this.props;
-        const storageLanguage = localStorage.getItem('language');
+        const storageLanguage =  localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
         return(
             <div>
                 <Row className='pt-2'>
@@ -429,7 +454,8 @@ class IdeaStatusSelect extends React.Component {
                                         id={"TooltipExample1"+ index}
                                         toggle={() => {this.toggle(index)}}
                                         >
-                                        Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
+                                        {this.getIconDescription(iconNames[index])}
+                                        {/* Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-! */}
                                 </Tooltip>
                             </Row>
                                 
