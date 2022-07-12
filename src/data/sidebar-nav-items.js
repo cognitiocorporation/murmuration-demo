@@ -1,6 +1,6 @@
 import i18next from 'i18next';
 const allowedLanguages = ['en', 'es'];
-const storageLanguage = localStorage.getItem('language');
+const storageLanguage =  localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
 
 const defaultLng = 'en';
 let lng = defaultLng;

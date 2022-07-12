@@ -217,7 +217,7 @@ class IdeaFilterManager extends Component {
       render() {
           const { searchString, category, status, ideaType, ideaQuestions } = this.state;
           const { t } = this.props;
-          const storageLanguage = localStorage.getItem('language');
+          const storageLanguage =  localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
           return(
             <Card small className="mb-3">
                 <CardHeader className="border-bottom">

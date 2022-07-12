@@ -17,7 +17,7 @@ import {
 } from "shards-react";
 import Parse from 'parse';
 import { useTranslation, initReactI18next, withTranslation } from "react-i18next";
-import {users} from './UserList'
+import {users} from './UserListNew'
 
 class NewUser extends React.Component {
 
@@ -188,8 +188,12 @@ class NewUser extends React.Component {
       user.set("notificationCount", 0)
       user.set("notificationMessages", [])
 
-      await user.signUp();
-      Parse.User.become(sessionToken);
+      // await user.signUp();
+      user.signUp().then(() => {
+        Parse.User.become(sessionToken);
+      }).catch((error) => {
+        console.log(error)
+      })
     })
 
     // if (firstName == '' || lastName == '' || email == '' || role == '' || department == '') {

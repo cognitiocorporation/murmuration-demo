@@ -24,7 +24,7 @@ import SingleProgressChart from "../analytics/GoalsOverview/SingleProgressChart"
 import Parse from 'parse';
 
 import { useTranslation, initReactI18next, withTranslation } from "react-i18next";
-const storageLanguage = localStorage.getItem('language');
+const storageLanguage = localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
 
 class LatestOrders extends React.Component {
   constructor(props){

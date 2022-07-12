@@ -20,7 +20,8 @@ import { ReactComponent as ArrowUpIcon } from "../../images/arrow_up.svg"
 
 
 
-import { useTranslation, initReactI18next } from "react-i18next";
+import { useTranslation, initReactI18next, withTranslation } from "react-i18next";
+
 
 
 function CategoryItem({category, updateCategories}) {
@@ -51,13 +52,14 @@ function CategoryItem({category, updateCategories}) {
   });
 
   const changeIdeaStage = () => {
+    const { t } = this.props;
     const newStage = ideaStage + 1
     
     if (newStage == 0) {
-      setTitle('Welcome back, ' + username+ '!')
+      setTitle(t('WELCOME_BACK') + username+ '!')
       setIdeaStage(newStage)
     } else if (newStage == 1) {
-      setTitle('Idea > Select Idea Type')
+      setTitle(t('IDEA_SELECT_IDEA_TYPE'))
       setIdeaStage(newStage)
     } else if (newStage == 2) {
       setTitle('Idea > Innovation > Idea Details')
@@ -66,7 +68,7 @@ function CategoryItem({category, updateCategories}) {
       setTitle('Idea > Innovation > Idea Details > Done')
       setCanSubmit(true)
     } else {
-      setTitle('Welcome back, ' + username+ '!')
+      setTitle(t('WELCOME_BACK')  + username+ '!')
       setIdeaStage(0)
     }
   }
@@ -213,4 +215,4 @@ CategoryItem.defaultProps = {
   ]
 };
 
-export default CategoryItem;
+export default withTranslation()(CategoryItem);
