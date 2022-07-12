@@ -13,17 +13,17 @@ import "./assets/main.scss";
 import { withTranslation } from 'react-i18next';
 
 
-Parse.serverURL = 'https://baxter-server.murmuratto.com/parse' //'https://mymurmuration.app/parse';http://prgaapp808.global.baxter.com:3000
-
-// App ID
-Parse.initialize("myappID"); //App ID, Javascript Key
-Parse.masterKey = 'FerB90c4hukp' // Master Key
-
-// Parse.serverURL = 'https://parseapi.back4app.com' //'https://mymurmuration.app/parse';
+// Parse.serverURL = 'https://baxter-server.murmuratto.com/parse' //'https://mymurmuration.app/parse';http://prgaapp808.global.baxter.com:3000
 
 // // App ID
-// Parse.initialize("hndNL0ms3jnavO9ZzTDdRkJJq58nC1zT8UEqsZct", "rz3LgL9Ky6hc3iXI9AcTqYqKkCLkTZNcJX7E67FO"); //App ID, Javascript Key
-// Parse.masterKey = 'bu0ajHkgtZ9mRLRtPoqBz9WYOZy7YPB9MeNrz3bj' // Master Key
+// Parse.initialize("myappID"); //App ID, Javascript Key
+// Parse.masterKey = 'FerB90c4hukp' // Master Key
+
+Parse.serverURL = 'https://parseapi.back4app.com' //'https://mymurmuration.app/parse';
+
+// App ID
+Parse.initialize("26I3tbyalisB50wd1YmkJh4sP7ZJRFUps38GCjw6", "tLBsUVLxjlCZqNQ9s8iHTa92RGjOciJJ3zppFg3A"); //App ID, Javascript Key
+Parse.masterKey = 'E9Jr21Fe2xdHHwnufVRMaC9tEwxxKGFU5lWdfGDH' // Master Key
 
 var currentUser = Parse.User.current();
 

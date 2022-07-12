@@ -44,7 +44,7 @@ class Login extends Component {
                       id="main-logo"
                       className="d-inline-block align-top"
                       style={{ maxWidth: "90%", maxHeight: '90px', marginBottom: '20px', alignSelf: 'center', marginLeft: 'auto' }}
-                      src= {'https://goswiftmedia.com/wp-content/uploads/2021/04/BAXTER_LOGO_MURMURATION.001.jpeg'}
+                      src= {'http://mymurmuration.theswiftstudio.com/wp-content/uploads/2022/05/image001-1.png'}
                       alt="Murmuratto"
                   />
                 </div>
