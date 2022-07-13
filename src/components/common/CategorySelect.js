@@ -368,7 +368,7 @@ class CategorySelect extends React.Component {
                         const icon = this.getIcon(myCategory.get("icon"), myCategory.get("color"))
                         const myIcon = icon[type]
                         const description = myCategory.get('categoryDescription')
-                        const myDescription = description[storageLanguage]?description[storageLanguage]:' '
+                        const myDescription = description[storageLanguage]
                         console.log(t(myCategory.get("itemNameTrans")[storageLanguage]))
                         console.log(index)
                         return(
