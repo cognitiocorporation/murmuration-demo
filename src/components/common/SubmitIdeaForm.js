@@ -36,7 +36,8 @@ import SelectedCategoryDisplay from "./SelectedCategoryDisplay";
 import { ReactComponent as SubmitIcon } from "../../images/submit.svg"
 
 
-var storageLanguage = localStorage.getItem('language');
+// Check if storage language is null and set default to english
+var storageLanguage = localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
 
 class SubmitIdeaForm extends React.Component {
     constructor(props) {
@@ -823,7 +824,7 @@ class SubmitIdeaForm extends React.Component {
                         
                         {/* VISIBILITY */}
                         <div style={{display: formVisibilityState}}>
-                        <h6 style={{fontWeight: 500, color: '#303030'}}>Choose how to contribute! </h6>
+                        <h6 style={{fontWeight: 500, color: '#303030'}}>{t('Choose how to contribute!')}</h6>
                         {/* Categoria */}
                         <Col md="12" className="form-group">
                             <CategorySelect setCategory={this.setCategory}/>
@@ -832,7 +833,7 @@ class SubmitIdeaForm extends React.Component {
                         
                         <Row form>
                           <Col md="6">
-                          <h6 style={{fontWeight: 500, color: '#303030'}}>Selected Category: </h6>
+                          <h6 style={{fontWeight: 500, color: '#303030'}}>{t("Selected Category:")}</h6>
                             <SelectedCategoryDisplay categoryName={this.state.categoryIcon} categoryDescription={this.state.categoryDescription} setCategory={this.setCategory}></SelectedCategoryDisplay>
                           </Col>
                           
@@ -875,7 +876,7 @@ class SubmitIdeaForm extends React.Component {
                               isOn={hasTeam}
                               handleToggle={() => this.setState({hasTeam: !hasTeam})}
                               onColor="#633FDA"
-                              title="Add team members and attachments"
+                              title={t("Add team members and attachments")}
                              />
                           
                             

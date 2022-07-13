@@ -39,7 +39,15 @@ class Login extends Component {
               <CardBody>
                 {/* Logo */}
                 {/* <h3 className="text-center mb-4">Murmuration</h3> */}
-                
+                <div className="text-center" style={{alignContent: 'center', justifyContent: 'center', }}>
+                  <img
+                      id="main-logo"
+                      className="d-inline-block align-top"
+                      style={{ maxWidth: "90%", maxHeight: '90px', marginBottom: '20px', alignSelf: 'center', marginLeft: 'auto' }}
+                      src= {'http://mymurmuration.theswiftstudio.com/wp-content/uploads/2022/05/image001-1.png'}
+                      alt="Murmuratto"
+                  />
+                </div>
                 {/* Title */}
                 <h5 className="auth-form__title text-center mb-4">
                   Access Your Account

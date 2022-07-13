@@ -37,7 +37,7 @@ import {withTranslation} from 'react-i18next';
 import {ExportCSV} from '../components/components-overview/ExportCSV'
 
 
-const storageLanguage = localStorage.getItem('language');
+const storageLanguage = localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
 
 const blueColor = '#3A7BBB'
 const orangeColor = '#FD902c'
@@ -266,7 +266,9 @@ class Analytics extends React.Component {
 
   async getIdeas() {
     const IdeaObject = Parse.Object.extend("Idea");
+    const displayLimit = 1000;
     const query = new Parse.Query(IdeaObject);
+    query.limit(displayLimit)
     const results = await query.find();
     const completedIdeas = results.filter(idea => idea.get("progress")[0] == 100);
     const ideasInProgress = results.filter(idea => idea.get("progress")[0] > 0 && idea.get("progress")[0] < 100);
