@@ -32,7 +32,7 @@ const MainNavbar = ({ layout, stickyTop }) => {
                   alt="Shards Dashboard"
                 />
                 <span className="d-none d-md-inline ml-1">
-                  Murmuration
+                  Murmuratto
                 </span>
               </div>
             </NavbarBrand>

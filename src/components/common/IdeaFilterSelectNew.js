@@ -535,51 +535,51 @@ class IdeaFilterSelect extends React.Component {
         const {selectionValue, selectedCategoryName} = this.state;
 
         const newIcons = [
-            {normal: <UrgentImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            {normal: <UrgentImage className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
+             selected: <UrgentImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
-            {normal: <ProductivityImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <ProductivityImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            {normal: <ProductivityImage className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
+             selected: <ProductivityImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
-            {normal: <CheckmarkImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            {normal: <CheckmarkImage className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
+             selected: <CheckmarkImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
-            {normal: <TrophyImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <TrophyImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            {normal: <TrophyImage className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
+             selected: <TrophyImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
-            {normal: <Shield2Image className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <Shield2ImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            {normal: <Shield2Image className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
+             selected: <Shield2ImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
-            {normal: <DollarSignImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:8200}}/>,
-             selected: <DollarSignImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            {normal: <DollarSignImage className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:8200}}/>,
+             selected: <DollarSignImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
-            {normal: <NumberOneImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <NumberOneImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            {normal: <NumberOneImage className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
+             selected: <NumberOneImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
-            {normal: <ProblemSolvingImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <ProblemSolvingImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            {normal: <ProblemSolvingImage className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
+             selected: <ProblemSolvingImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
-            {normal: <InnovationImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:8200}}/>,
-             selected: <InnovationImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            {normal: <InnovationImage className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:8200}}/>,
+             selected: <InnovationImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
-            {normal: <ContinuousImprovementImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
-             selected: <ContinuousImprovementImageSelected className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+            {normal: <ContinuousImprovementImage className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>,
+             selected: <ContinuousImprovementImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
             },
         ]
 
         switch(name) {
             case 'HandImage':
-              return <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+              return <HandImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'ShieldImage':
-                return <ShieldImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <ShieldImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'ChartImage':
-                return <ChartImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <ChartImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'TeamImage':
-                return <TeamImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <TeamImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'DollarImage':
-                return <DollarImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <DollarImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'ClockImage':
-                return <TimeImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <TimeImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             //New Icons
             case 'Urgent':
                 return newIcons[0];
@@ -602,7 +602,7 @@ class IdeaFilterSelect extends React.Component {
             case 'Improvement':
                 return newIcons[9];
             default:
-              return <ExtraImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: fillColor}}/>;
+              return <ExtraImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: fillColor}}/>;
           }
     }
 
@@ -630,7 +630,7 @@ class IdeaFilterSelect extends React.Component {
     render() {
         const { allCats, bgColor, sq1Color, sq2Color, sq3Color, sq4Color, handIcon, shieldIcon, chartIcon, clockIcon, titleColor1, titleColor2, titleColor3, titleColor4, showAction, showProductivity, showQuality, showSecurity, showExtra, titleColor5, sq5Color, extraName, extraIcon } = this.state
         const { t } = this.props;
-        const storageLanguage = localStorage.getItem('language');
+        const storageLanguage =  localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
         return(
             <div>
                 <Row className='pt-2'>

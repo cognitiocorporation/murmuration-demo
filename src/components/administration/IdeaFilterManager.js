@@ -217,7 +217,7 @@ class IdeaFilterManager extends Component {
       render() {
           const { searchString, category, status, ideaType, ideaQuestions } = this.state;
           const { t } = this.props;
-          const storageLanguage = localStorage.getItem('language');
+          const storageLanguage =  localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
           return(
             <Card small className="mb-3">
                 <CardHeader className="border-bottom">
@@ -238,7 +238,7 @@ class IdeaFilterManager extends Component {
                                         // <FormCheckbox onChange={e => this.handleToggle(item)} className="mb-1" checked={item.get("show")} key={idx}> 
                                         //   {item.get("itemName")}
                                         // </FormCheckbox>
-                                        <option value={item.get("itemNameTrans")["es"]} key={idx}>{item.get("itemNameTrans")[storageLanguage]}</option>
+                                        <option value={item.get("itemNameTrans")["en"]} key={idx}>{item.get("itemNameTrans")[storageLanguage]}</option>
                                     //   <IndividualPropertyItem itemName={item.get("itemName")} itemID={item.get("objectId")} objectClass={this.className}/>
                                     ))}
                                 </FormSelect>

@@ -315,7 +315,7 @@ class CategorySelect extends React.Component {
                 return newIcons[2].selected;
             case 'Trophy':
                 return newIcons[3].selected;
-            case 'Shield':
+            case 'Shield Image':
                 return newIcons[4].selected;
             case 'Dollar':
                 return newIcons[5].selected;
@@ -338,8 +338,8 @@ class CategorySelect extends React.Component {
 
     render() {
         const { allCats, bgColor, sq1Color, sq2Color, sq3Color, sq4Color, handIcon, shieldIcon, chartIcon, clockIcon, titleColor1, titleColor2, titleColor3, titleColor4, showAction, showProductivity, showQuality, showSecurity, showExtra, titleColor5, sq5Color, extraName, extraIcon } = this.state
-        const { t, categoryName, categoryIcon, categoryDescription } = this.props;
-        const storageLanguage = localStorage.getItem('language');
+        const { t, categoryName, categoryIcon, categoryDescription, categoryItem } = this.props;
+        const storageLanguage =  localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
         const myDescription = categoryDescription[storageLanguage]
         return(
             <div className="container">
@@ -352,6 +352,12 @@ class CategorySelect extends React.Component {
                     {this.getIcon(categoryName, 'Black')}
                     <div className="mr-auto mt-4" style={{width: '70%', backgrounColor: 'black'}}>
                         {categoryName && <p style={{color: titleColor1, textAlign: 'left', fontSize: 12, fontWeight: 600}}>{myDescription}</p>}
+                    </div>
+                    <div className="mr-auto mt-4" style={{width: '70%', backgrounColor: 'black'}}>
+                        {categoryName && categoryItem.get('kpi') && categoryItem.get('kpi').map((kpi) => {
+                            return (<p>{kpi.en}</p>)
+                        })}
+                        {/* {categoryName && <p style={{color: titleColor1, textAlign: 'left', fontSize: 12, fontWeight: 600}}>{myDescription}</p>} */}
                     </div>
                 </div>
                 {/* </Col> */}

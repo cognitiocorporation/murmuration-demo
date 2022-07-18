@@ -48,6 +48,23 @@ import { ReactComponent as DollarSignImageSelected } from "../../images/Icons_Se
 import { ReactComponent as NumberOneImageSelected } from "../../images/Icons_Selected_07_Number One.svg"
 
 
+// Updated Icons
+import { ReactComponent as CheckmarkNewImage} from '../../images/Icons_Idle_03_CheckmarkNew.svg';
+import { ReactComponent as DenyImage} from '../../images/Icons_Idle_08_Deny.svg';
+import { ReactComponent as SaveImage} from '../../images/Icons_Idle_09_Save.svg';
+import { ReactComponent as TransferImage} from '../../images/Icons_Idle_10_Transfer.svg';
+import { ReactComponent as ProjectImage} from '../../images/Icons_Idle_11_Project.svg';
+import { ReactComponent as QuestionImage} from '../../images/Icons_Idle_12_Question.svg';
+
+// Updated Icons Selected
+import { ReactComponent as CheckmarkNewImageSelected} from '../../images/Icons_Selected_03_CheckmarkNew.svg';
+import { ReactComponent as DenyImageSelected} from '../../images/Icons_Selected_08_Deny.svg';
+import { ReactComponent as SaveImageSelected} from '../../images/Icons_Selected_09_Save.svg';
+import { ReactComponent as TransferImageSelected} from '../../images/Icons_Selected_10_Transfer.svg';
+import { ReactComponent as ProjectImageSelected} from '../../images/Icons_Selected_11_Project.svg';
+import { ReactComponent as QuestionImageSelected} from '../../images/Icons_Selected_12_Question.svg';
+
+
 // fill="#157ffb"
 
 // Selected
@@ -282,62 +299,87 @@ class IdeaStatusSelect extends React.Component {
         const {selectionValue, selectedCategoryName} = this.state;
 
         const newIcons = [
-            {normal: <UrgentImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <UrgentImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <UrgentImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <ProductivityImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <ProductivityImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <DenyImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <DenyImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <CheckmarkImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <TransferImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <TransferImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <TrophyImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <TrophyImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <ProjectImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <ProjectImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <Shield2Image className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <Shield2ImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <QuestionImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <QuestionImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <DollarSignImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <DollarSignImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <SaveImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <SaveImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <NumberOneImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <NumberOneImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <CheckmarkImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <CheckmarkImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
         ]
 
         switch(name) {
             case 'HandImage':
-              return <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+              return <HandImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'ShieldImage':
-                return <ShieldImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <ShieldImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'ChartImage':
-                return <ChartImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <ChartImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'TeamImage':
-                return <TeamImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <TeamImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'DollarImage':
-                return <DollarImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <DollarImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'ClockImage':
-                return <TimeImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <TimeImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             //New Icons
             //["Approve", "Do not Pursue", "Save for Later", "Request information", "Project Idea", "Transfer Committee"],
             case 'Approve':
-                return newIcons[0];
+                return newIcons[6];
             case 'Do not Pursue':
                 return newIcons[1];
             case 'Save for Later':
-                return newIcons[2];
-            case 'Request\ninformation':
-                return newIcons[3];
-            case 'Project Idea':
-                return newIcons[4];
-            case 'Transfer\nCommittee':
                 return newIcons[5];
+            case 'Request\ninformation':
+                return newIcons[4];
+            case 'Project Idea':
+                return newIcons[3];
+            case 'Transfer\nCommittee':
+                return newIcons[2];
             case 'Number One':
                 return newIcons[6];
             default:
-              return <ExtraImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: fillColor}}/>;
+              return <ExtraImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: fillColor}}/>;
           }
     }
+
+    getIconDescription(name) {
+        const {selectionValue, selectedCategoryName, page} = this.state;
+        const {t} = this.props;
+        switch(name) {
+            case 'Approve':
+                return t("APPROVE_MSG");
+            case 'Do not Pursue':
+                return t("DO_NOT_PURSUE_MSG");
+            case 'Save for Later':
+                return t("SAVE_FOR_LATER_MSG");
+            case 'Request information':
+                return t("REQUEST_INFORMATION_MSG");
+            case 'Request\ninformation':
+                return t("REQUEST_INFORMATION_MSG");
+            case 'Project Idea':
+                return t("PROJECT_IDEA_MSG");
+            case 'Transfer Committee':
+                return t("TRANSFER_COMMITTEE_MSG");
+            case 'Transfer\nCommittee':
+              return t("TRANSFER_COMMITTEE_MSG");
+            default:
+              return "No description available at the moment."//<SelectIdeaImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+          }
+      }
 
     getBgColor(index) {
         if (this.state.selectionValue == index) {
@@ -357,7 +399,7 @@ class IdeaStatusSelect extends React.Component {
     render() {
         const { iconNames, allCats, bgColor, sq1Color, sq2Color, sq3Color, sq4Color, handIcon, shieldIcon, chartIcon, clockIcon, titleColor1, titleColor2, titleColor3, titleColor4, showAction, showProductivity, showQuality, showSecurity, showExtra, titleColor5, sq5Color, extraName, extraIcon } = this.state
         const { t } = this.props;
-        const storageLanguage = localStorage.getItem('language');
+        const storageLanguage =  localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
         return(
             <div>
                 <Row className='pt-2'>
@@ -412,7 +454,8 @@ class IdeaStatusSelect extends React.Component {
                                         id={"TooltipExample1"+ index}
                                         toggle={() => {this.toggle(index)}}
                                         >
-                                        Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
+                                        {this.getIconDescription(iconNames[index])}
+                                        {/* Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-! */}
                                 </Tooltip>
                             </Row>
                                 

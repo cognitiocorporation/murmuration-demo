@@ -13,11 +13,11 @@ import "./assets/main.scss";
 import { withTranslation } from 'react-i18next';
 
 
-// Parse.serverURL = 'http://prgaapp808.global.baxter.com:1337/parse' //'https://mymurmuration.app/parse';http://prgaapp808.global.baxter.com:3000
-// 
+// Parse.serverURL = 'https://baxter-server.murmuratto.com/parse' //'https://mymurmuration.app/parse';http://prgaapp808.global.baxter.com:3000
+
 // // App ID
-// Parse.initialize("Murmuration"); //App ID, Javascript Key
-// Parse.masterKey = 'Murmuration2021' // Master Key
+// Parse.initialize("myappID"); //App ID, Javascript Key
+// Parse.masterKey = 'FerB90c4hukp' // Master Key
 
 Parse.serverURL = 'https://demo-server.murmuratto.com/parse' //https://parseapi.back4app.com' //'https://mymurmuration.app/parse';
 

@@ -19,6 +19,9 @@ import {
   InputGroupAddon,
   InputGroupText, 
   FormFeedback,
+  Modal,
+  ModalBody,
+  ModalHeader,
   Tooltip
 } from "shards-react";
 import Select from 'react-select';
@@ -74,6 +77,22 @@ import { ReactComponent as Shield2ImageSelected } from "../../images/Icons_Selec
 import { ReactComponent as DollarSignImageSelected } from "../../images/Icons_Selected_06_Dollar Sign.svg"
 import { ReactComponent as NumberOneImageSelected } from "../../images/Icons_Selected_07_Number One.svg"
 import Switch from "./Switch.js"
+
+// Updated Icons
+import { ReactComponent as CheckmarkNewImage} from '../../images/Icons_Idle_03_CheckmarkNew.svg';
+import { ReactComponent as DenyImage} from '../../images/Icons_Idle_08_Deny.svg';
+import { ReactComponent as SaveImage} from '../../images/Icons_Idle_09_Save.svg';
+import { ReactComponent as TransferImage} from '../../images/Icons_Idle_10_Transfer.svg';
+import { ReactComponent as ProjectImage} from '../../images/Icons_Idle_11_Project.svg';
+import { ReactComponent as QuestionImage} from '../../images/Icons_Idle_12_Question.svg';
+
+// Updated Icons Selected
+import { ReactComponent as CheckmarkNewImageSelected} from '../../images/Icons_Selected_03_CheckmarkNew.svg';
+import { ReactComponent as DenyImageSelected} from '../../images/Icons_Selected_08_Deny.svg';
+import { ReactComponent as SaveImageSelected} from '../../images/Icons_Selected_09_Save.svg';
+import { ReactComponent as TransferImageSelected} from '../../images/Icons_Selected_10_Transfer.svg';
+import { ReactComponent as ProjectImageSelected} from '../../images/Icons_Selected_11_Project.svg';
+import { ReactComponent as QuestionImageSelected} from '../../images/Icons_Selected_12_Question.svg';
 
 import IdeaStatusSelect  from "./IdeaStatusSelect"
 
@@ -135,6 +154,7 @@ class IdeaViewCardNew extends React.Component {
           recurringImpact: false,
           comment: '',
           needsEconomicImpact: false,
+          attachmentModalOpen: false,
         }
 
         this.change = this.change.bind(this);
@@ -170,6 +190,13 @@ class IdeaViewCardNew extends React.Component {
         }
       }
 
+      if (prevProps.ideaStage == 1 && this.props.ideaStage == 2) {
+        
+        if (this.state.selectedStatus == "Do not Pursue") {
+          this.props.changeStatus(true)
+        }
+      }
+
       if (prevProps.ideaStage ==2 && this.props.ideaStage==1) {
         if (this.state.expectedReturn && this.state.timeUnit) {
           this.props.changeStatus(true)
@@ -178,6 +205,7 @@ class IdeaViewCardNew extends React.Component {
         if (this.state.needsEconomicImpact == false) {
           this.props.changeStatus(true)
         }
+       
       }
     }
 
@@ -575,7 +603,7 @@ class IdeaViewCardNew extends React.Component {
     }
 
     submitEvaluation() {
-      const {status, ideaDescription, descriptionValid, userName, committeeResObj, executionRes} = this.state;
+      const {selectedStatus, status, ideaDescription, descriptionValid, userName, committeeResObj, executionRes} = this.state;
       const { setFinishedSaving } = this.props;
 
       var ideaItem = this.props.ideaItem;
@@ -585,39 +613,43 @@ class IdeaViewCardNew extends React.Component {
       var mayNeedEval = false 
       
       // Verify idea to check if it leaves the evaluation inbox or not
-      if (status == 'Proyecto' || status == 'Otro') {
+      if (selectedStatus == 'Project Idea' || status == 'Otro') {
         mayNeedEval = true
       }
       
-      console.log(status)
+      console.log(selectedStatus)
       console.log(mayNeedEval)
-
-      switch(status) {
-        case "Devuelta":
+      
+      switch(selectedStatus) {
+        case 'Request\ninformation':
           // code block
-          newStatus = 'Idea Devuelta - Mas Informacion';
+          percentage = [0,100];
+          newStatus = 'More Information Needed';
           break;
         case "Espera":
           // code block
           newStatus = 'Idea en Espera';
           break;
-        case "No Perseguido":
+        case "Do not Pursue":
           // code block
-          newStatus = 'No Perseguido';
+          newStatus = 'Do not Pursue';
           percentage = [0,100];
           break;
-        case "Ejecutar":
+        case "Approve":
           // code block
-          newStatus = 'Ejecutar - Just Do It';
+          newStatus = 'Approved';
           break;
-
+        case "Project Idea":
+          // code block
+          newStatus = 'Project Idea';
+          break;
         case "Ejecutar Proyecto":
           // code block
           newStatus = 'Ejecutar - Just Do It - Proyecto';
           break;
-        case "Proyecto":
+        case "Save for Later":
           // code block
-          newStatus = 'Idea Proyecto';
+          newStatus = 'Save for Later';
           percentage = [0,100];
           break;
         default:
@@ -664,6 +696,7 @@ class IdeaViewCardNew extends React.Component {
       ideaItem.set("responsible", resUser.value);
       ideaItem.set("edited", false);
       console.log(newStatus)
+
       if ( newStatus == 'No Perseguido') {
         if (window.confirm('Did you have a conversation with your employee? If you did, please click OK.')) this.saveIdeaItem(ideaItem) 
       } else {
@@ -826,30 +859,50 @@ class IdeaViewCardNew extends React.Component {
 
     getIcon(name, fillColor) {
       const {selectionValue, selectedCategoryName, page} = this.state;
-
       const newIcons = [
-          {normal: <UrgentImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-           selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
-          },
-          {normal: <ProductivityImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-           selected: <ProductivityImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
-          },
-          {normal: <CheckmarkImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-           selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
-          },
-          {normal: <TrophyImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-           selected: <TrophyImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
-          },
-          {normal: <Shield2Image className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-           selected: <Shield2ImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
-          },
-          {normal: <DollarSignImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-           selected: <DollarSignImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
-          },
-          {normal: <NumberOneImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-           selected: <NumberOneImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
-          },
-      ]
+        {normal: <UrgentImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+        selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+       },
+       {normal: <ProductivityImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+        selected: <ProductivityImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+       },
+       {normal: <CheckmarkImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+        selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+       },
+       {normal: <TrophyImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+        selected: <TrophyImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+       },
+       {normal: <Shield2Image className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+        selected: <Shield2ImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+       },
+       {normal: <DollarSignImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+        selected: <DollarSignImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+       },
+       {normal: <NumberOneImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+        selected: <NumberOneImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+       },
+        {normal: <UrgentImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+         selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+        },
+        {normal: <DenyImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+         selected: <DenyImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+        },
+        {normal: <TransferImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+         selected: <TransferImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+        },
+        {normal: <ProjectImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+         selected: <ProjectImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+        },
+        {normal: <QuestionImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+         selected: <QuestionImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+        },
+        {normal: <SaveImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+         selected: <SaveImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+        },
+        {normal: <CheckmarkImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+         selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+        },
+    ]
 
       switch(name) {
           case 'HandImage':
@@ -873,7 +926,7 @@ class IdeaViewCardNew extends React.Component {
               return newIcons[2].selected;
           case 'Trophy':
               return newIcons[3].selected;
-          case 'Shield':
+          case 'Shield Image':
               return newIcons[4].selected;
           case 'Dollar':
               return newIcons[5].selected;
@@ -882,21 +935,52 @@ class IdeaViewCardNew extends React.Component {
           case 'Number One':
               return newIcons[6].selected;
           case 'Approve':
-              return newIcons[0].selected;
+              return newIcons[13].selected;
           case 'Do not Pursue':
-              return newIcons[1].selected;
+              return newIcons[8].selected;
           case 'Save for Later':
-              return newIcons[2].selected;
+              return newIcons[12].selected;
           case 'Request information':
-              return newIcons[3].selected;
+              return newIcons[11].selected;
+          case 'Request\ninformation':
+            return newIcons[11].selected;
           case 'Project Idea':
-              return newIcons[4].selected;
+              return newIcons[10].selected;
           case 'Transfer Committee':
-              return newIcons[5].selected;
+              return newIcons[9].selected;
+          case 'Transfer\nCommittee':
+            return newIcons[9].selected;
           default:
             return <img src={selectIdeaImage} width="200" height="200" />//<SelectIdeaImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
         }
   }
+
+  getIconDescription(name) {
+    const {selectionValue, selectedCategoryName, page} = this.state;
+    const {t} = this.props;
+  
+    switch(name) {
+        case 'Approve':
+            return t("APPROVE_MSG");
+        case 'Do not Pursue':
+            return t("DO_NOT_PURSUE_MSG");
+        case 'Save for Later':
+            return t("SAVE_FOR_LATER_MSG");
+        case 'Request information':
+            return t("REQUEST_INFORMATION_MSG");
+        case 'Request\ninformation':
+            return t("REQUEST_INFORMATION_MSG");
+        case 'Project Idea':
+            return t("PROJECT_IDEA_MSG");
+        case 'Transfer Committee':
+            return t("TRANSFER_COMMITTEE_MSG");
+        case 'Transfer\nCommittee':
+          return t("TRANSFER_COMMITTEE_MSG");
+        default:
+          return "No description available at the moment."//<SelectIdeaImage className="mr-auto d-block" style={{minWidth: 200, maxWidth:200}}/>
+      }
+  }
+
     toggle() {
       // alert('hover')
       this.setState({
@@ -960,11 +1044,20 @@ class IdeaViewCardNew extends React.Component {
       })
     }
 
+    downloadFile(file) {
+      // console.log(file._url)
+      if (file != null) {
+          const newWindow = window.open(file._url, '_blank', 'noopener,noreferrer')
+          if (newWindow) newWindow.opener = null
+      } else {
+          alert('No file found...');
+      }
+  }
     
 
     render() {
         const {ideaCategory, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
-        const {ideaStage, evaluationData} = this.props;
+        const {ideaStage, evaluationData, t} = this.props;
         const formVisibilityState = visible? 'block' : 'none';
         const filterVisibilityState = filterVisible? 'block' : 'none';
         const filterQuestionVisibilityState = filterQuestionsVisible? 'block' : 'none';
@@ -982,7 +1075,7 @@ class IdeaViewCardNew extends React.Component {
         console.log(timeDiff)
         const parsedDate = this.getDate(ideaDate)
         const nowDate = this.getDate(Date())
-        const { t } = this.props;
+
 
         const customStyles = {
           control: base => ({
@@ -991,7 +1084,7 @@ class IdeaViewCardNew extends React.Component {
             minHeight: 35
           })
         };
-        const storageLanguage = localStorage.getItem('language');
+        const storageLanguage =  localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
         const myIcon = ideaCategory && ideaCategory.get("icon")
         const categoryTitle = ideaCategory && ideaCategory.get("itemNameTrans")[storageLanguage]
 
@@ -1076,7 +1169,7 @@ class IdeaViewCardNew extends React.Component {
                                             id={"TooltipResponseInfo1"}
                                             toggle={() => {this.toggle()}}
                                             >
-                                            Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
+                                              {t("RESPONSE_TIME_MSG")}
                                           </Tooltip>
                                       </Row>
 
@@ -1106,6 +1199,16 @@ class IdeaViewCardNew extends React.Component {
                                     <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("description")}</h6>
                                   </Col>
                                 </Row>
+                                {ideaItem.get("file") && 
+                                <Row className="mt-4">
+                                  <Col>
+                                    <label htmlFor="firstName" className="georgia">Attachments</label>
+                                    {/* <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("description")}</h6> */}
+                                    {/* <Button >Download Attachment</Button> */}
+                                    <Button onClick={() => this.setState({attachmentModalOpen: true})} style={{display: 'flex'}} >{t('VIEW_FILE')}</Button>
+                                  </Col>
+                                </Row>
+                                }
                               </Col>
     
                             </Row>
@@ -1295,7 +1398,8 @@ class IdeaViewCardNew extends React.Component {
                                             id={"TooltipResponseInfo2"}
                                             toggle={() => {this.toggle()}}
                                             >
-                                            Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-!
+                                              {this.getIconDescription(this.state.selectedStatus)}
+                                            {/* Type Category Description. Lorem ipsum dolor sit amet, consectetuer adipi- scing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volut-! */}
                                           </Tooltip>
                                       </Row>
 
@@ -1348,7 +1452,7 @@ class IdeaViewCardNew extends React.Component {
                                     <ExecutionSelectNew className="insideFont" evalType={'coach'} setResponsible={(res, idx) => this.changeCoach(res, idx)} selectedVal={coachRes}/>
                                 </Col>
                               </Row>
-                              }
+                              } 
                             </Col>
                           }
                         </Row>
@@ -1370,6 +1474,14 @@ class IdeaViewCardNew extends React.Component {
                         <Button theme="accent" onClick={() => this.props.onViewIdeaPress()} style={{display: nextButtonVisibilityState}} >{t('BACK')}</Button>
                       </ButtonGroup>
                     </CardFooter> */}
+                    <Modal open={this.state.attachmentModalOpen} toggle={() => this.setState({attachmentModalOpen: false})}>
+                      <ModalHeader>Idea Attachment</ModalHeader>
+                      <ModalBody>
+                        {ideaItem.get("file") && <img style={{height: 400, width: '100%', objectFit: 'contain'}} src={ideaItem.get("file").url()}></img>}
+                      </ModalBody>
+                      {/* Use this code to download file */}
+                      {/* this.downloadFile(ideaItem.get("file")) */}
+                    </Modal>
                   </div>
           );
     }
