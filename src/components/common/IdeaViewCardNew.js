@@ -19,6 +19,9 @@ import {
   InputGroupAddon,
   InputGroupText, 
   FormFeedback,
+  Modal,
+  ModalBody,
+  ModalHeader,
   Tooltip
 } from "shards-react";
 import Select from 'react-select';
@@ -151,6 +154,7 @@ class IdeaViewCardNew extends React.Component {
           recurringImpact: false,
           comment: '',
           needsEconomicImpact: false,
+          attachmentModalOpen: false,
         }
 
         this.change = this.change.bind(this);
@@ -1201,7 +1205,7 @@ class IdeaViewCardNew extends React.Component {
                                     <label htmlFor="firstName" className="georgia">Attachments</label>
                                     {/* <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("description")}</h6> */}
                                     {/* <Button >Download Attachment</Button> */}
-                                    <Button onClick={() => this.downloadFile(ideaItem.get("file"))} style={{display: 'flex'}} >{t('VIEW_FILE')}</Button>
+                                    <Button onClick={() => this.setState({attachmentModalOpen: true})} style={{display: 'flex'}} >{t('VIEW_FILE')}</Button>
                                   </Col>
                                 </Row>
                                 }
@@ -1470,6 +1474,14 @@ class IdeaViewCardNew extends React.Component {
                         <Button theme="accent" onClick={() => this.props.onViewIdeaPress()} style={{display: nextButtonVisibilityState}} >{t('BACK')}</Button>
                       </ButtonGroup>
                     </CardFooter> */}
+                    <Modal open={this.state.attachmentModalOpen} toggle={() => this.setState({attachmentModalOpen: false})}>
+                      <ModalHeader>Idea Attachment</ModalHeader>
+                      <ModalBody>
+                        {ideaItem.get("file") && <img style={{height: 400, width: '100%', objectFit: 'contain'}} src={ideaItem.get("file").url()}></img>}
+                      </ModalBody>
+                      {/* Use this code to download file */}
+                      {/* this.downloadFile(ideaItem.get("file")) */}
+                    </Modal>
                   </div>
           );
     }

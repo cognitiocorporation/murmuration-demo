@@ -21,6 +21,7 @@ import { ReactComponent as PreviousIcon } from "../images/PreviousIcon.svg"
 import { withTranslation } from 'react-i18next';
 
 import OldIdeas from "../assets/baxter_idea_data.json"
+import ReactLoading from 'react-loading';
 
 
 import { useTranslation, initReactI18next } from "react-i18next";

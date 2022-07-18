@@ -299,42 +299,42 @@ class IdeaStatusSelect extends React.Component {
         const {selectionValue, selectedCategoryName} = this.state;
 
         const newIcons = [
-            {normal: <UrgentImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <UrgentImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <UrgentImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <UrgentImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <DenyImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <DenyImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <DenyImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <DenyImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <TransferImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <TransferImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <TransferImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <TransferImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <ProjectImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <ProjectImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <ProjectImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <ProjectImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <QuestionImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <QuestionImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <QuestionImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <QuestionImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <SaveImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <SaveImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <SaveImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <SaveImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
-            {normal: <CheckmarkImage className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
-             selected: <CheckmarkImageSelected className="mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
+            {normal: <CheckmarkImage className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>,
+             selected: <CheckmarkImageSelected className="functionalButton mr-auto d-block" style={{minWidth: 80, maxWidth:80}}/>
             },
         ]
 
         switch(name) {
             case 'HandImage':
-              return <HandImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+              return <HandImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'ShieldImage':
-                return <ShieldImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <ShieldImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'ChartImage':
-                return <ChartImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <ChartImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'TeamImage':
-                return <TeamImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <TeamImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'DollarImage':
-                return <DollarImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <DollarImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             case 'ClockImage':
-                return <TimeImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
+                return <TimeImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80, fill: fillColor}}/>;
             //New Icons
             //["Approve", "Do not Pursue", "Save for Later", "Request information", "Project Idea", "Transfer Committee"],
             case 'Approve':
@@ -352,7 +352,7 @@ class IdeaStatusSelect extends React.Component {
             case 'Number One':
                 return newIcons[6];
             default:
-              return <ExtraImage className="mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: fillColor}}/>;
+              return <ExtraImage className="functionalButton mx-auto d-block" style={{minWidth: 80, maxWidth:80,fill: fillColor}}/>;
           }
     }
 

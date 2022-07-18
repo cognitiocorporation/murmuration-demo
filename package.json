@@ -45,6 +45,7 @@
     "react-ga": "^2.5.6",
     "react-i18next": "^11.4.0",
     "react-image-gallery": "^1.2.7",
+    "react-loading": "^2.0.3",
     "react-minimal-pie-chart": "^6.0.1",
     "react-native-radio-form": "^1.1.0",
     "react-native-simple-radio-button": "^2.7.4",
