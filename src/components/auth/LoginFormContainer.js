@@ -56,17 +56,37 @@ class LoginFormContainer extends Component {
     // Form submission logic
     try {
       const user = await Parse.User.logIn(String(this.state.email), String(this.state.password));
+      const accountDisabled =  await this.getUserStatus(user.id)
       // Hooray! Lets use the app now.
       
-      this.redToReffer = true;
-      this.setState(() => ({
-        redirectToReffer: this.redToReffer
-      }))
+      if (accountDisabled == false) {
+        this.redToReffer = true;
+        this.setState(() => ({
+          redirectToReffer: this.redToReffer
+        }))
+      } else {
+        alert('You account has been disabled due to inactivity. Please reach out to a super user.')
+      }
+      // this.redToReffer = true;
+      // this.setState(() => ({
+      //   redirectToReffer: this.redToReffer
+      // }))
       
     } catch (error) {
       // Show the error message somewhere and let the user try again.
       alert("Error: " + error.code + " " + error.message);
     }
+  }
+
+  async getUserStatus(userId) {
+    var query = new Parse.Query(Parse.User);
+    query.equalTo("objectId", userId);
+    const results = await query.find();
+    const myUser = results[0]
+
+    console.log(results);
+    // console.log(myUser.get("accountDisabled"))
+    return myUser.get("accountDisabled")
   }
 
   onKeyDown(e) {
