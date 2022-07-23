@@ -603,9 +603,9 @@ class IdeaViewCardNew extends React.Component {
     }
 
     submitEvaluation() {
-      const {selectedStatus, status, ideaDescription, descriptionValid, userName, committeeResObj, executionRes} = this.state;
+      const {expectedReturn, selectedStatus, status, ideaDescription, descriptionValid, userName, committeeResObj, executionRes} = this.state;
       const { setFinishedSaving } = this.props;
-
+  
       var ideaItem = this.props.ideaItem;
       var comments = ideaItem.get("comments");
       var newStatus = '';
@@ -685,6 +685,9 @@ class IdeaViewCardNew extends React.Component {
       ideaItem.set("comments", comments);
       ideaItem.set("needsEvaluation", mayNeedEval);
       ideaItem.set("progress", percentage);
+      ideaItem.set("expectedReturn", parseInt(expectedReturn));
+      ideaItem.set("recurring", this.state.recurringImpact)
+      ideaItem.set("timeUnit", this.state.timeUnitVal.value)
 
       if (status == 'Otro') {
         var otherCom = committeeResObj.get('value');
@@ -998,10 +1001,11 @@ class IdeaViewCardNew extends React.Component {
 
     setExpectedReturn(event) {
       const amount = event.target.value;
+      const correctAmount =  amount.replace(/\D/g, "");
   
       // console.log(isValid);
       this.setState({
-        expectedReturn: amount,
+        expectedReturn: correctAmount,
       })
 
       if (amount && this.state.timeUnit) {
@@ -1432,7 +1436,7 @@ class IdeaViewCardNew extends React.Component {
                                       <Switch 
                                         isOn={this.state.recurringImpact}
                                         disabled
-                                        // handleToggle={() => this.setState({hasTeam: !hasTeam})}
+                                        handleToggle={() => this.setState({recurringImpact: !this.state.recurringImpact})}
                                         onColor="#633FDA"
                                         title="Recurring Impact"
                                       />

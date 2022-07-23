@@ -32,7 +32,8 @@ import { ReactComponent as DollarImage } from "../../images/dollar-symbol.svg"
 // New
 import { ReactComponent as UrgentImage} from '../../images/Icons_Idle_01_Urgent.svg';
 import { ReactComponent as ProductivityImage } from "../../images/Icons_Idle_02_Productivity.svg"
-import { ReactComponent as CheckmarkImage} from "../../images/check1.svg"
+import { ReactComponent as CheckmarkImage} from "../../images/Icons_Idle_03_Checkmark.svg"
+import { ReactComponent as NewCheckmarkImage} from "../../images/CheckmarkDavid.svg"
 import { ReactComponent as TrophyImage } from "../../images/Icons_Idle_04_Trophy.svg"
 import { ReactComponent as Shield2Image } from "../../images/Icons_Idle_05_Shield.svg"
 import { ReactComponent as DollarSignImage } from "../../images/Icons_Idle_06_Dollar Sign.svg"
@@ -41,7 +42,8 @@ import { ReactComponent as NumberOneImage } from "../../images/Icons_Idle_07_Num
 // New Selected
 import { ReactComponent as UrgentImageSelected} from '../../images/Icons_Selected_01_Urgent.svg';
 import { ReactComponent as ProductivityImageSelected } from "../../images/Icons_Selected_02_Productivity.svg"
-import { ReactComponent as CheckmarkImageSelected } from "../../images/check1_selected.svg"
+import { ReactComponent as CheckmarkImageSelected } from "../../images/Icons_Selected_03_Checkmark.svg"
+import { ReactComponent as NewCheckmarkImageSelected } from "../../images/CheckmarkDavidSelected.svg"
 import { ReactComponent as TrophyImageSelected } from "../../images/Icons_Selected_04_Trophy.svg"
 import { ReactComponent as Shield2ImageSelected } from "../../images/Icons_Selected_05_Shield.svg"
 import { ReactComponent as DollarSignImageSelected } from "../../images/Icons_Selected_06_Dollar Sign.svg"
@@ -118,7 +120,7 @@ class IdeaStatusSelect extends React.Component {
             allCats: [],
             bgColor: '',
             right: [],
-            iconNames: ["Approve", "Do not Pursue", "Save for Later", "Request\ninformation", "Project Idea", "Transfer\nCommittee"],
+            iconNames: ["Approve", "Do not Pursue"],//, "Save for Later", "Request\ninformation", "Project Idea", "Transfer\nCommittee"],
             selectedCategoryName: ''
           }
           this.fetchCategoryData = this.fetchCategoryData.bind(this);
