@@ -18,7 +18,7 @@ import {
 import Parse from 'parse';
 import { withTranslation } from "react-i18next";
 
-const storageLanguage = localStorage.getItem('language');
+const storageLanguage =  localStorage.getItem('language') != null?localStorage.getItem('language'):'en';
 
 class PropertyManager extends Component {
     

@@ -260,6 +260,7 @@ class EvaluateIdea extends React.Component {
         // if (!evaluationResponse.ideaOwner) {
         //   changeBtnStatus(false)
         // }
+       
       } else {
         // setTitle('Welcome back, ' + username+ '!')
         this.setState({title: 'Evaluate', ideaStage: 0})

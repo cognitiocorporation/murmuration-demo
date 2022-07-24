@@ -44,6 +44,7 @@ function AdministrationUsersNew(smallStats) {
   const [categories, setCategories] = useState([])
   const [newCategory, setNewCategory] = useState([])
   const [showUser, setShowUser] = useState(false)
+  const [reset, setReset] = useState(false)
   const [shouldUpdateUsers, setShouldUpdateUsers] = useState(false)
   const [user, setUser] = useState('')
   const [canEdit, setCanEdit] = useState(false)
@@ -140,6 +141,7 @@ function AdministrationUsersNew(smallStats) {
   // }
 
   const createUser = () => {
+    setUser('')
     setShowUser(true)
   }
 
@@ -212,7 +214,7 @@ function AdministrationUsersNew(smallStats) {
 
     <Row className="mt-2">
         <Col md="12" lg="12">
-          <NewUserItem key={Math.random()} id={Math.random()}  open={showUser} updateUsers={updateCategories} user={user} canEdit={canEdit}></NewUserItem>
+          <NewUserItem key={Math.random()} id={Math.random()}  open={showUser} shouldReset={reset} updateUsers={updateCategories} user={user}></NewUserItem>
         </Col>
     </Row>
 
