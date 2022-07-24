@@ -32,6 +32,7 @@ import IdeaFilterSelectNew from "./IdeaFilterSelectNew";
 import ThankYou from "./ThankYou";
 import { useTranslation, initReactI18next, withTranslation } from "react-i18next";
 import SelectedCategoryDisplay from "./SelectedCategoryDisplay";
+import ReactLoading from 'react-loading';
 
 import { ReactComponent as SubmitIcon } from "../../images/submit.svg"
 
@@ -126,14 +127,16 @@ class SubmitIdeaForm extends React.Component {
         hasATeam: false,
         categoryDescription: '',
         canReset: false,
-        categoryId: ''
+        categoryId: '',
+        categoryItem: '',
+        showLoading: false
       }
     }
 
     resetState = () => {
       const { setFinishedSaving } = this.props
       const newState = this.getInitialState()
-      this.setState(newState, () => setFinishedSaving())
+      this.setState({newState, showLoading: false}, () => setFinishedSaving())
    }
 
     checkFormStatus() {
@@ -457,6 +460,10 @@ class SubmitIdeaForm extends React.Component {
 
     async saveIdea() {
       const {deptName, department, category, date, ideaDescription, file, answers, filterQAnswers, ideaTitle, userName} = this.state;
+
+      // Show loading indicator
+      this.setState({showLoading: true})
+
       // Simple syntax to create a new subclass of Parse.Object.
       var Idea = Parse.Object.extend("Idea");
       // Create a new instance of that class.
@@ -553,12 +560,13 @@ class SubmitIdeaForm extends React.Component {
       // console.log(event.target.value);
     }
 
-    setCategory(categoryName, categoryIcon, description, categoryId) {
+    setCategory(categoryName, categoryIcon, description, categoryId, categoryItem) {
       this.setState({
         category: categoryName,
         categoryIcon: categoryIcon,
         categoryDescription: description,
-        categoryId: categoryId
+        categoryId: categoryId,
+        categoryItem: categoryItem
       })
 
       this.handleCategoryChange(categoryId)
@@ -782,14 +790,15 @@ class SubmitIdeaForm extends React.Component {
     };
 
     render() {
-        const {hasTeam, category, hasAttachment, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, filterQuestions, selectedFilterQ, categoryQuestions, hideNextButton, date, remainingCharacters, descriptionValid,ideaDescription, userName, ideaTitle, titleValid, remainingTitleCharacters, expectedReturn, options } = this.state
+        const {showLoading, hasTeam, category, hasAttachment, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, filterQuestions, selectedFilterQ, categoryQuestions, hideNextButton, date, remainingCharacters, descriptionValid,ideaDescription, userName, ideaTitle, titleValid, remainingTitleCharacters, expectedReturn, options } = this.state
         const { currentStage, changeStatus, changeIdeaStage } = this.props;
 
         const formVisibilityState = currentStage == 0? 'block' : 'none';
         const filterVisibilityState = currentStage == 1? 'block' : 'none';
         // const formVisibilityState = 'none';
         // const filterVisibilityState = 'none';
-        const filterQuestionVisibilityState = currentStage == 2? 'block' : 'none';
+        const filterQuestionVisibilityState = currentStage == 2 && showLoading == false? 'block' : 'none';
+        const loadingVisibilityState = currentStage == 2 && showLoading? 'block' : 'none';
         // const filterQuestionVisibilityState = 'block';
         const questionVisibilityState = ideaQuestionsVisible? 'block' : 'none';
 
@@ -833,8 +842,8 @@ class SubmitIdeaForm extends React.Component {
                         
                         <Row form>
                           <Col md="6">
-                          <h6 style={{fontWeight: 500, color: '#303030'}}>{t("Selected Category:")}</h6>
-                            <SelectedCategoryDisplay categoryName={this.state.categoryIcon} categoryDescription={this.state.categoryDescription} setCategory={this.setCategory}></SelectedCategoryDisplay>
+                          <h6 style={{fontWeight: 500, color: '#303030'}}>Selected Category:</h6>
+                            <SelectedCategoryDisplay categoryItem={this.state.categoryItem} categoryName={this.state.categoryIcon} categoryDescription={this.state.categoryDescription} setCategory={this.setCategory}></SelectedCategoryDisplay>
                           </Col>
                           
                           {/* Idea Description */}
@@ -1015,11 +1024,7 @@ class SubmitIdeaForm extends React.Component {
                               </Row>
                             </Col>
                             </Row>
-                        </div>
-
-                        {/* Question Visibility State */}
-                        <div style={{display: filterQuestionVisibilityState}}>
-                          <Row form>
+                            <Row form>
                             <Col lg="12">
                               <Row form>
                                 {categoryQuestions.map((item,idx) =>
@@ -1062,6 +1067,19 @@ class SubmitIdeaForm extends React.Component {
                                     }
                                   </Col>
                                 )}
+                              </Row>
+                            </Col>
+                          </Row>
+                        </div>
+
+                        {/* Question Visibility State */}
+                        <div style={{display: loadingVisibilityState}}>
+                          <Row form>
+                            <Col lg="12">
+                              <Row form>
+                                <div style={{flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                                 <ReactLoading type={'spokes'} color={'#633FDA'} width={80} height={80}/>
+                                </div>
                               </Row>
                             </Col>
                           </Row>

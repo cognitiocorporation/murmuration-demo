@@ -215,11 +215,16 @@ class EditCategoryForm extends React.Component {
           categoryInformationSpanish: '',
           hasEnglish: false,
           hasSpanish: false,
+          kpi1:'',
+          kpi2:'',
+          kpi3:'',
+          kpi:[],
 
         }
 
         this.change = this.change.bind(this);
         this.setCategory = this.setCategory.bind(this);
+        this.setKpi = this.setKpi.bind(this);
         this.setDate = this.setDate.bind(this);
         this.setIdeaDescription = this.setIdeaDescription.bind(this);
         this.selectFile = this.selectFile.bind(this);
@@ -268,9 +273,23 @@ class EditCategoryForm extends React.Component {
 
       const categoryInformation = categoryData.get("categoryDescription").en
       const categoryInformationSpanish = categoryData.get("categoryDescription").es
-
-      
-
+      var kpi = []
+      if (categoryData.get("kpi").length > 0) {
+        kpi = categoryData.get("kpi")
+      } else {
+        kpi = [{
+          en:'',
+          es:''
+        },
+        {
+          en:'',
+          es:''
+        },{
+          en:'',
+          es:''
+        }]
+      }
+    
 
       // Status On/Off
       const categoryStatus = categoryData.get('show')
@@ -288,7 +307,7 @@ class EditCategoryForm extends React.Component {
 
 
 
-      this.setState({categoryOn: categoryStatus, categoryTitle: categoryName, categoryTitleSpanish: categoryNameSpanish, categoryInformationSpanish: categoryInformationSpanish, categoryInformation: categoryInformation, hasEnglish: hasEnglish, hasSpanish: hasSpanish})
+      this.setState({categoryOn: categoryStatus, categoryTitle: categoryName, categoryTitleSpanish: categoryNameSpanish, categoryInformationSpanish: categoryInformationSpanish, categoryInformation: categoryInformation, hasEnglish: hasEnglish, hasSpanish: hasSpanish, kpi: kpi})
     }
 
     getDate() {
@@ -1036,7 +1055,7 @@ class EditCategoryForm extends React.Component {
     }
 
     updateIdea() {
-      const { selectedLanguage, categoryTitle, categoryTitleSpanish, categoryInformationSpanish, categoryInformation } = this.state;
+      const { kpi, kpi1, kpi2, kpi3, selectedLanguage, categoryTitle, categoryTitleSpanish, categoryInformationSpanish, categoryInformation } = this.state;
       const {ideaStage, evaluationData, categoryData, refreshIdea} = this.props;
       
       const languageSelector = selectedLanguage.label == "English"? "en":"es"
@@ -1061,6 +1080,7 @@ class EditCategoryForm extends React.Component {
         categoryData.set("itemNameTrans", titleTrans)
         categoryData.set("categoryDescription", description)
         categoryData.set("icon", iconName)
+        categoryData.set("kpi",kpi)
         
         categoryData.save().then(() => refreshIdea())
       }
@@ -1108,8 +1128,35 @@ class EditCategoryForm extends React.Component {
 
     }
 
+    setKpi(event, index) {
+      const { kpi1, kpi2, kpi3, kpi } = this.state;
+      const kpiData = event.target.value;
+      
+      const kpiCopy = [...kpi]
+      const selectedKpi = {...kpi[index]}
+
+     
+      
+      // Confirm Length
+      if (kpiData.length >= 30) {
+        alert('Kpi should contain less than 30 characters.')
+      } else {
+        if (this.state.selectedLanguage.value == "English") {
+          const selectedKpiCopy = {...selectedKpi, en: kpiData}
+          kpiCopy[index] = selectedKpiCopy
+        } else {
+          const selectedKpiCopy = {...selectedKpi, es: kpiData}
+          kpiCopy[index] = selectedKpiCopy
+        }
+
+        this.setState({
+          kpi: kpiCopy
+        })
+      }
+    }
+
     render() {
-        const {categoryTitleSpanish, categoryInformationSpanish, selectedLanguage, categoryTitle, categoryInformation, language, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
+        const {kpi, kpi1, kpi2, kpi3, categoryTitleSpanish, categoryInformationSpanish, selectedLanguage, categoryTitle, categoryInformation, language, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
         const {ideaStage, evaluationData, categoryData} = this.props;
         const formVisibilityState = visible? 'block' : 'none';
         const filterVisibilityState = filterVisible? 'block' : 'none';
@@ -1228,22 +1275,22 @@ class EditCategoryForm extends React.Component {
                                                 <FormInput
                                                     id="kpi1"
                                                     placeholder={'KPI 1'}
-                                                    // value={kpi1}
-                                                    // onChange={this.setExpectedReturn}
+                                                    value={this.state.selectedLanguage.value == "English"?kpi[0]["en"]:kpi[0]["es"]}
+                                                    onChange={(event) => this.setKpi(event, 0)}
                                                     className="insideFont mb-2"
                                                 />
                                                  <FormInput
                                                     id="kpi2"
                                                     placeholder={'KPI 2'}
-                                                    // value={kpi2}
-                                                    // onChange={this.setExpectedReturn}
+                                                    value={this.state.selectedLanguage.value == "English"?kpi[1]["en"]:kpi[1]["es"]}
+                                                    onChange={(event) => this.setKpi(event, 1)}
                                                     className="insideFont mb-2"
                                                 />
                                                  <FormInput
                                                     id="kpi3"
                                                     placeholder={'KPI 3'}
-                                                    // value={expectedReturn}
-                                                    // onChange={this.setExpectedReturn}
+                                                    value={this.state.selectedLanguage.value == "English"?kpi[2]["en"]:kpi[2]["es"]}
+                                                    onChange={(event) => this.setKpi(event, 2)}
                                                     className="insideFont"
                                                 />
                                          </div>

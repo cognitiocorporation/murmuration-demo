@@ -19,6 +19,9 @@ import {
   InputGroupAddon,
   InputGroupText, 
   FormFeedback,
+  Modal,
+  ModalBody,
+  ModalHeader,
   Tooltip
 } from "shards-react";
 import Select from 'react-select';
@@ -151,6 +154,7 @@ class IdeaViewCardNew extends React.Component {
           recurringImpact: false,
           comment: '',
           needsEconomicImpact: false,
+          attachmentModalOpen: false,
         }
 
         this.change = this.change.bind(this);
@@ -599,9 +603,9 @@ class IdeaViewCardNew extends React.Component {
     }
 
     submitEvaluation() {
-      const {selectedStatus, status, ideaDescription, descriptionValid, userName, committeeResObj, executionRes} = this.state;
+      const {expectedReturn, selectedStatus, status, ideaDescription, descriptionValid, userName, committeeResObj, executionRes} = this.state;
       const { setFinishedSaving } = this.props;
-
+  
       var ideaItem = this.props.ideaItem;
       var comments = ideaItem.get("comments");
       var newStatus = '';
@@ -681,6 +685,9 @@ class IdeaViewCardNew extends React.Component {
       ideaItem.set("comments", comments);
       ideaItem.set("needsEvaluation", mayNeedEval);
       ideaItem.set("progress", percentage);
+      ideaItem.set("expectedReturn", parseInt(expectedReturn));
+      ideaItem.set("recurring", this.state.recurringImpact)
+      ideaItem.set("timeUnit", this.state.timeUnitVal.value)
 
       if (status == 'Otro') {
         var otherCom = committeeResObj.get('value');
@@ -994,10 +1001,11 @@ class IdeaViewCardNew extends React.Component {
 
     setExpectedReturn(event) {
       const amount = event.target.value;
+      const correctAmount =  amount.replace(/\D/g, "");
   
       // console.log(isValid);
       this.setState({
-        expectedReturn: amount,
+        expectedReturn: correctAmount,
       })
 
       if (amount && this.state.timeUnit) {
@@ -1201,7 +1209,7 @@ class IdeaViewCardNew extends React.Component {
                                     <label htmlFor="firstName" className="georgia">Attachments</label>
                                     {/* <h6 style={{fontWeight: 500,  color: '#303030'}}>{ideaItem.get("description")}</h6> */}
                                     {/* <Button >Download Attachment</Button> */}
-                                    <Button onClick={() => this.downloadFile(ideaItem.get("file"))} style={{display: 'flex'}} >{t('VIEW_FILE')}</Button>
+                                    <Button onClick={() => this.setState({attachmentModalOpen: true})} style={{display: 'flex'}} >{t('VIEW_FILE')}</Button>
                                   </Col>
                                 </Row>
                                 }
@@ -1448,7 +1456,7 @@ class IdeaViewCardNew extends React.Component {
                                       <Switch 
                                         isOn={this.state.recurringImpact}
                                         disabled
-                                        // handleToggle={() => this.setState({hasTeam: !hasTeam})}
+                                        handleToggle={() => this.setState({recurringImpact: !this.state.recurringImpact})}
                                         onColor="#633FDA"
                                         title="Recurring Impact"
                                       />
@@ -1490,6 +1498,14 @@ class IdeaViewCardNew extends React.Component {
                         <Button theme="accent" onClick={() => this.props.onViewIdeaPress()} style={{display: nextButtonVisibilityState}} >{t('BACK')}</Button>
                       </ButtonGroup>
                     </CardFooter> */}
+                    <Modal open={this.state.attachmentModalOpen} toggle={() => this.setState({attachmentModalOpen: false})}>
+                      <ModalHeader>Idea Attachment</ModalHeader>
+                      <ModalBody>
+                        {ideaItem.get("file") && <img style={{height: 400, width: '100%', objectFit: 'contain'}} src={ideaItem.get("file").url()}></img>}
+                      </ModalBody>
+                      {/* Use this code to download file */}
+                      {/* this.downloadFile(ideaItem.get("file")) */}
+                    </Modal>
                   </div>
           );
     }

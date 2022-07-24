@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from "prop-types";
-import { Container, Row, Col, Button, ButtonGroup } from "shards-react";
+import { Container, Row, Col, Button, ButtonGroup, Modal, ModalBody, ModalHeader } from "shards-react";
 import { NavLink } from "react-router-dom";
 import Parse from 'parse';
 
@@ -21,6 +21,7 @@ import { ReactComponent as PreviousIcon } from "../images/PreviousIcon.svg"
 import { withTranslation } from 'react-i18next';
 
 import OldIdeas from "../assets/baxter_idea_data.json"
+import ReactLoading from 'react-loading';
 
 
 import { useTranslation, initReactI18next } from "react-i18next";
@@ -38,6 +39,7 @@ function SubmitIdeaNew() {
   const [canContinue, setCanContinue] = useState(false)
   const [canSubmit, setCanSubmit] = useState(false)
   const [finishedSaving, setFinishedSaving] = useState(false)
+  const [surveyModalShow, setSurveyModalShow] = useState(false)
   let currUser = Parse.User.current();
   // this.getUserName()
 
@@ -208,6 +210,16 @@ function SubmitIdeaNew() {
         {ideaStage == 3  && <HomeIcon className="functionalButton ml-auto d-block mb-4" style={{minWidth: 90, maxWidth:90}} onClick={() => changeIdeaStage()}></HomeIcon>}
       </Col>
     </Row>
+    <Modal size={'lg'} open={surveyModalShow} toggle={() => setSurveyModalShow(false)}>
+      <ModalBody>
+      <iframe id="inlineFrameExample"
+          title="Inline Frame Example"
+          width="100%"
+          height="500"
+          src="https://form.jotform.com/222003769301850">
+      </iframe>
+      </ModalBody>
+    </Modal>
     
   </Container>
   )}

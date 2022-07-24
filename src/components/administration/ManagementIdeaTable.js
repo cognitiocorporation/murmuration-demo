@@ -224,7 +224,7 @@ class ManagementIdeaTable extends React.Component {
                   {/* <th className="text-center">Categoria</th> */}
                   <th className="text-center">{t("IDEA_MANAGE_TITLE")}</th>
                   <th className="text-center">{t("IDEA_MANAGE_CATEGORY")}</th>
-                  <th className="text-center">{t("IDEA_MANAGE_PROP")}</th>
+                  {/* <th className="text-center">{t("IDEA_MANAGE_PROP")}</th> */}
                   <th className="text-center">{t("IDEA_MANAGE_STATUS")}</th>
                   <th className="text-right">{t("IDEA_MANAGE_EVALUATE")}</th>
                 </tr>
@@ -241,7 +241,7 @@ class ManagementIdeaTable extends React.Component {
                     <td className="lo-stats__total text-center text-success">
                     {item.get("category")}
                     </td>
-                    <td className="lo-stats__items text-center">{item.get("proponentName")}</td>
+                    {/* <td className="lo-stats__items text-center">{item.get("proponentName")}</td> */}
                     <td className="lo-stats__status">
                       <div className="d-table mx-auto">
                         <Badge pill theme={getBadgeType(item.get("status"))}>

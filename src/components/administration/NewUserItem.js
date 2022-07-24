@@ -25,7 +25,7 @@ import { ReactComponent as ArrowUpIcon } from "../../images/arrow_up.svg"
 import { useTranslation, initReactI18next } from "react-i18next";
 
 
-function NewUserItem({user, updateUsers, open, canEdit}) {
+function NewUserItem({user, updateUsers, open, canEdit, shouldReset}) {
   const { t } = useTranslation();
   const [username, setUsername] = useState('')
   const [title, setTitle] = useState('')

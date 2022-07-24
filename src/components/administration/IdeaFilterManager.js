@@ -246,7 +246,7 @@ class IdeaFilterManager extends Component {
                             </Row>
                         </Form>
                     </Col>
-                    <Col>
+                    {/* <Col>
                         <Form>
                         <Row form>
                                 <Col md="12" className="form-group">
@@ -259,7 +259,7 @@ class IdeaFilterManager extends Component {
                                 </Col>
                             </Row>
                         </Form>
-                    </Col>
+                    </Col> */}
                     <Col>
                         <Form>
                         <label htmlFor="feInputState">{t("IDEA_MANAGE_TYPES")}</label>
