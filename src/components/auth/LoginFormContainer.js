@@ -65,7 +65,11 @@ class LoginFormContainer extends Component {
           redirectToReffer: this.redToReffer
         }))
       } else {
-        alert('You account has been disabled due to inactivity. Please reach out to a super user.')
+        Parse.User.logOut().then(() => {
+          alert('You account has been disabled due to inactivity. Please reach out to a super user.')
+        }).catch((error) => {
+          alert(error)
+        })
       }
       // this.redToReffer = true;
       // this.setState(() => ({
@@ -142,6 +146,9 @@ class LoginFormContainer extends Component {
           type="button">
           Access Account
         </Button>
+        <div className="mx-auto auth-form__meta mt-4" style={{textAlign: 'center'}}>
+              <Link to="/forgot-password">Forgot your password?</Link>
+        </div>
       </Form>
     );
   }

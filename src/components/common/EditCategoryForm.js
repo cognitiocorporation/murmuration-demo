@@ -274,8 +274,23 @@ class EditCategoryForm extends React.Component {
       const categoryInformation = categoryData.get("categoryDescription").en
       const categoryInformationSpanish = categoryData.get("categoryDescription").es
       var kpi = []
-      if (categoryData.get("kpi").length > 0) {
-        kpi = categoryData.get("kpi")
+
+      if (categoryData.get("kpi")) {
+        if (categoryData.get("kpi").length > 0) {
+          kpi = categoryData.get("kpi")
+        } else {
+          kpi = [{
+            en:'',
+            es:''
+          },
+          {
+            en:'',
+            es:''
+          },{
+            en:'',
+            es:''
+          }]
+        }
       } else {
         kpi = [{
           en:'',
@@ -289,6 +304,7 @@ class EditCategoryForm extends React.Component {
           es:''
         }]
       }
+      
     
 
       // Status On/Off

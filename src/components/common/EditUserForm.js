@@ -216,7 +216,8 @@ class EditUserForm extends React.Component {
           password: '',
           privileges: [],
           userData: '',
-          canEdit: ''
+          canEdit: '',
+          accountDisabled: false,
         }
 
         this.change = this.change.bind(this);
@@ -267,6 +268,7 @@ class EditUserForm extends React.Component {
         const firstName = userData.get("firstName")
         const lastName = userData.get("lastName")
         const email = userData.get("username")
+        const accountDisabled = userData.get("accountDisabled")
 
         const isSuperUser = userData.get("role") == 'super_user'
         const isCoach = userData.get("coach")
@@ -310,7 +312,7 @@ class EditUserForm extends React.Component {
         const department = userData.get("department")
         const selectedDepartment = {value: "", label: department}
 
-        this.setState({firstName: firstName, lastName: lastName, email: email, department: selectedDepartment, roles: roles, privileges: privileges, canEdit: true, userData: userData})
+        this.setState({firstName: firstName, lastName: lastName, email: email, department: selectedDepartment, roles: roles, privileges: privileges, canEdit: true, userData: userData, accountDisabled: accountDisabled})
       }
 
 
@@ -1252,6 +1254,29 @@ class EditUserForm extends React.Component {
 
     }
 
+    sendResetEmail() {
+      const {userData} = this.props;
+      const user = userData
+      const userEmail = user.get("email")
+      Parse.User.requestPasswordReset(userEmail, {}).then(() => {
+        alert('An email has been sent with further instructions.')
+      }).catch((error) => {
+        alert(error)
+      })
+    }
+
+    reactivateAccount() {
+      const {userData} = this.props;
+      const user = userData
+      user.set("accountDisabled", false);
+      Parse.Object.saveAll([user], {useMasterKey: true}).then(() => {
+        alert('The user was reactivated successfully.')
+        this.props.refreshUsers()
+      }).catch((error) => {
+        alert(error.message)
+      })
+    }
+
     render() {
         const {canEdit, firstName, lastName, email, supervisor, privileges, roles, selectedLanguage, categoryTitle, categoryInformation, language, coachRes, expectedReturn, page, visible, filterVisible, filterQuestionsVisible, ideaQuestionsVisible, selectedFilterQ, categoryQuestions, category, answers, buttonState, hideNextButton, date, remainingCharacters, descriptionValid, department, ideaDescription, userName, sectionTitle, executionRes } = this.state
         const {ideaStage, evaluationData, categoryData} = this.props;
@@ -1412,7 +1437,7 @@ class EditUserForm extends React.Component {
                                     </Row>
                                     <Row className="mt-2">
                                         <Col>
-                                            <FormInput
+                                            {/* <FormInput
                                             // value={categoryInformation}
                                             // style={{ minHeight: "80px" }}
                                             id="ideaQuestion"
@@ -1422,10 +1447,28 @@ class EditUserForm extends React.Component {
                                             autoComplete="new-password"
                                             onChange={(event) => this.changePassword(event)}
                                             required>
-                                            </FormInput>
+                                            </FormInput> */}
+                                            <Button>Reset Password</Button>
                                         </Col>
                                     </Row>
-                                    
+                                    { this.state.accountDisabled && 
+                                    <Row className="mt-2">
+                                        <Col>
+                                            {/* <FormInput
+                                            // value={categoryInformation}
+                                            // style={{ minHeight: "80px" }}
+                                            id="ideaQuestion"
+                                            className="insideFont"
+                                            placeholder="Password"
+                                            type="password"
+                                            autoComplete="new-password"
+                                            onChange={(event) => this.changePassword(event)}
+                                            required>
+                                            </FormInput> */}
+                                            <Button onClick={() => this.reactivateAccount()}>Reactivate Account</Button>
+                                        </Col>
+                                    </Row>
+                                    }
                                 </Col>
                               </Row>
                             </Col>

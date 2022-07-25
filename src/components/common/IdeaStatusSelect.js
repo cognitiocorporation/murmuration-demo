@@ -120,7 +120,7 @@ class IdeaStatusSelect extends React.Component {
             allCats: [],
             bgColor: '',
             right: [],
-            iconNames: ["Approve", "Do not Pursue"],//, "Save for Later", "Request\ninformation", "Project Idea", "Transfer\nCommittee"],
+            iconNames: ["Approve", "Do not Pursue","Save for Later", "Request\ninformation", "Project Idea", "Transfer\nCommittee"],//, "Save for Later", "Request\ninformation", "Project Idea", "Transfer\nCommittee"],
             selectedCategoryName: ''
           }
           this.fetchCategoryData = this.fetchCategoryData.bind(this);
