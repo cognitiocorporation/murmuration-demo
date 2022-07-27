@@ -52,33 +52,48 @@ class LoginFormContainer extends Component {
     });
   }
 
+  needsPasswordChange() {
+    const { password } = this.state;
+    const validation = password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{16}/)
+    
+    return validation ? false:true
+  }
+
   async handleFormSubmit() {
     // Form submission logic
-    try {
-      const user = await Parse.User.logIn(String(this.state.email), String(this.state.password));
-      const accountDisabled =  await this.getUserStatus(user.id)
-      // Hooray! Lets use the app now.
+    const needsPasswordChange = this.needsPasswordChange()
+    
+    if (needsPasswordChange) {
+      alert("Please reset your password by pressing the 'Forgot your password?' button down below.")
+    } else {
+      try {
+        const user = await Parse.User.logIn(String(this.state.email), String(this.state.password));
+        const accountDisabled =  await this.getUserStatus(user.id)
+        // Hooray! Lets use the app now.
+        
       
-      if (accountDisabled == false) {
-        this.redToReffer = true;
-        this.setState(() => ({
-          redirectToReffer: this.redToReffer
-        }))
-      } else {
-        Parse.User.logOut().then(() => {
-          alert('You account has been disabled due to inactivity. Please reach out to a super user.')
-        }).catch((error) => {
-          alert(error)
-        })
+
+        if (accountDisabled == false) {
+          this.redToReffer = true;
+          this.setState(() => ({
+            redirectToReffer: this.redToReffer
+          }))
+        } else {
+          Parse.User.logOut().then(() => {
+            alert('You account has been disabled due to inactivity. Please reach out to a super user.')
+          }).catch((error) => {
+            alert(error)
+          })
+        }
+        // this.redToReffer = true;
+        // this.setState(() => ({
+        //   redirectToReffer: this.redToReffer
+        // }))
+        
+      } catch (error) {
+        // Show the error message somewhere and let the user try again.
+        alert("Error: " + error.code + " " + error.message);
       }
-      // this.redToReffer = true;
-      // this.setState(() => ({
-      //   redirectToReffer: this.redToReffer
-      // }))
-      
-    } catch (error) {
-      // Show the error message somewhere and let the user try again.
-      alert("Error: " + error.code + " " + error.message);
     }
   }
 
