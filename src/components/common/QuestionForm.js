@@ -1121,35 +1121,6 @@ class QuestionForm extends React.Component {
         alert('Please enter all required information.');
       } else {
 
-        // // Check if super-user
-        // const isSuperUser = privileges.some(e => e.label === 'Super User')
-        // // Check if Coach
-        // const isCoach = privileges.some(e => e.label === 'Coach')
-        // // Check if Supervisor
-        // const isSupervisor = privileges.some(e => e.label === 'Supervisor')
-
-        // // User type
-        // const userType = isSuperUser? 'super_user':'user'
-
-        // // Supervisor email
-        // const supervisorData = supervisor.value
-        // const supervisorEmail = supervisorData.get("username")
-        // console.log(supervisorEmail)
-
-        //   user.set("username", email)
-        //   user.set("password", password)
-        //   user.set("firstName", firstName)
-        //   user.set("coach", isCoach)
-        //   user.set("isSupervisor", isSupervisor)
-        //   user.set("supervisorEmail", supervisorEmail)
-        //   user.set("lastName", lastName)
-        //   user.set("evaluationCriteria", [])
-        //   user.set("email", email);
-        //   user.set("role", userType)
-        //   user.set("department", department.label)
-        //   user.set("notificationCount", 0)
-        //   user.set("notificationMessages", [])
-
         const isField = questionType.label == 'Comment Box'
         const questionTrans = {
             en: question,

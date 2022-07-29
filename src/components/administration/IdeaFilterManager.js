@@ -267,6 +267,7 @@ class IdeaFilterManager extends Component {
                                     <option>{t('FILTER_ALL')}</option>
                                     <option>{t('FILTER_INNOVATION')}</option>
                                     <option>{t('FILTER_PROBLEM_F')}</option>
+                                    <option>{t('FILTER_IMPROVEMENT')}</option>
                                 </FormSelect>
                         </Form>
                     </Col>

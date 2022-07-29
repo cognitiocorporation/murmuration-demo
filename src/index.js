@@ -558,6 +558,7 @@ i18next.init({
           // Filters
           "FILTER_INNOVATION": "Innovation",
           "FILTER_PROBLEM_F": "Problem",
+          "FILTER_IMPROVEMENT": "Continuous Improvement",
           "FILTER_ALL": "All",
           "FILTER_SUBMITTED": "Submitted",
           "FILTER_DONE": "Done",
@@ -1130,6 +1131,7 @@ i18next.init({
           // Filters
           "FILTER_INNOVATION": "Innovación",
           "FILTER_PROBLEM_F": "Problema",
+          "FILTER_IMPROVEMENT": "Mejoras",
           "FILTER_ALL": "Todas",
           "FILTER_SUBMITTED": "Sometidas",
           "FILTER_DONE": "Completadas",

@@ -1,15 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Container, Row, Col, Button, ButtonGroup } from "shards-react";
-import { NavLink } from "react-router-dom";
-
-import PageTitle from "../components/common/PageTitle";
-import RangeDatePicker from "../components/common/RangeDatePicker";
-import SmallStats from "../components/common/SmallStats";
-import IdeasTable from "../components/common/IdeasTable";
-import GoalsOverview from "../components/analytics/GoalsOverview/GoalsOverview";
-import UserPerformance from "./../components/user-profile/UserPerformance";
-import { CSVLink, CSVDownload } from "react-csv";
+import { ReactComponent as DivisorBarIcon } from "../images/edited_divisor.svg"
 import { Chart } from 'react-charts'
 import { Pie } from 'react-chartjs-2'
 // import ReactMinimalPieChart from 'react-minimal-pie-chart';
@@ -222,7 +214,7 @@ function IdeasPendingEvaluationPerDeptChart() {
   return barChart
 }
 
-class Analytics extends React.Component { 
+class EmployeeActivityDashboard extends React.Component { 
 
   constructor(props) {
     super(props)
@@ -249,7 +241,14 @@ class Analytics extends React.Component {
       showProgressByCatChart: false,
       showEarningsByCatChart: false,
       exportData:{},
-      ideaDataCsv: []
+      ideaDataCsv: [],
+      myIdeas: [],
+      myApprovedIdeas: [],
+      myTeamContributions: [],
+      myApprovedTeamIdeas: [],
+      basicIdeaByDepartment:[],
+      orderedDepartments: [],
+      ideasByType: []
     }
     
     this.getIdeas = this.getIdeas.bind(this);
@@ -270,6 +269,14 @@ class Analytics extends React.Component {
     const query = new Parse.Query(IdeaObject);
     query.limit(displayLimit)
     const results = await query.find();
+
+    const myUser = Parse.User.current()
+
+    const myIdeas = results.filter(idea => idea.get("proponentObj").id == myUser.id)
+    const myApprovedIdeas = myIdeas.filter(idea => idea.get("status") == 'Approved')
+    const myTeamContributions = results.filter(idea => idea.get("department") == myUser.get("department"))
+    const myApprovedTeamIdeas = results.filter(idea => idea.get("status") == 'Approved')
+    
     const completedIdeas = results.filter(idea => idea.get("progress")[0] == 100);
     const ideasInProgress = results.filter(idea => idea.get("progress")[0] > 0 && idea.get("progress")[0] < 100);
     const ideasPendingEval = results.filter(idea => idea.get("needsEvaluation") == true);
@@ -278,7 +285,12 @@ class Analytics extends React.Component {
     // query.equalTo("completed", false);
     // query.descending("createdAt");
 
-    this.setState({ideas: results,
+    this.setState({
+        myIdeas: myIdeas,
+        myApprovedIdeas: myApprovedIdeas,
+        myTeamContributions: myTeamContributions,
+        myApprovedTeamIdeas: myApprovedTeamIdeas,
+        ideas: results,
       completedIdeas: completedIdeas, 
       ideasInProgress: ideasInProgress, 
       numCompleted: String(completedIdeas.length),
@@ -315,11 +327,29 @@ class Analytics extends React.Component {
   setupIdeaByDepartmentData() {
     const {ideas, categories, completedIdeas, ideasInProgress, departments, numCompleted, numSubmitted, numInProgress} = this.state;
     var inProgressData = [];
+    var basicIdeaByDepartment = []
+    var orderedDepartments = []
+
+    const innovation = ideas.filter(idea => idea.get("ideaType") == "innovacion")
+    const improvement = ideas.filter(idea => idea.get("ideaType") == "improvement")
+    const problemSolving = ideas.filter(idea => idea.get("ideaType") == "problema")
+
+    const innovationPercentage = parseInt((innovation.length / ideas.length) * 100)
+    const improvementPercentage = parseInt((improvement.length / ideas.length) * 100)
+    const problemSolvingPercentage = parseInt((problemSolving.length / ideas.length) * 100)
+
+    const ideasByType = [innovationPercentage, improvementPercentage, problemSolvingPercentage]
+
     // var completedData = [];
     for (var i in departments) {
       const deptName = departments[i].get("itemName");
       const filteredDataCount = ideasInProgress.filter(idea => idea.get("department") == deptName)
+      const realFilteredDataCount = ideas.filter(idea => idea.get("department") == deptName)
       const newNum = filteredDataCount.length;
+      const filteredNewNum = realFilteredDataCount.length
+      const percentage = parseInt((filteredNewNum / ideas.length) * 100)
+      basicIdeaByDepartment.push(percentage)
+      orderedDepartments.push(deptName)
       inProgressData.push([deptName, newNum])
     }
 
@@ -373,7 +403,7 @@ class Analytics extends React.Component {
     }, []];
 
     console.log(results);
-    this.setState({ideaByDepartmentData: results, exportData: ideas, completeIdeas: completedIdeas1, ideasPerCats: ideasPerCategory, showIdeasByDeptChart: true});
+    this.setState({ideasByType: ideasByType, orderedDepartments: orderedDepartments,basicIdeaByDepartment: basicIdeaByDepartment,ideaByDepartmentData: results, exportData: ideas, completeIdeas: completedIdeas1, ideasPerCats: ideasPerCategory, showIdeasByDeptChart: true});
   }
 
   setupProgressByCategoryData() {
@@ -509,17 +539,23 @@ class Analytics extends React.Component {
       const {t} = this.props;
       const { numCompleted, numInProgress, numPendingEval} = this.state;
       console.log(Number.parseInt(numCompleted))
-      const labels = ['Completed Ideas', 'Ideas on Progress', 'Pending for Evaluation']
+      const labels = this.state.orderedDepartments
+      const backgroundColors = ['#79de75', '#f56bd6', '#99c2fd', '#633fda', '#2a2a2a', '#6912', '#e149', '#ed714d', '#529e80', '#b5d8b3']
+      const otherLabels = ['Innovation', 'Continuous Improvement', 'Problem Solving']
       const datasets = [{
-        data: [Number.parseInt(numCompleted), Number.parseInt(numInProgress), Number.parseInt(numPendingEval)],
-        backgroundColor: ['blue', 'green', 'red']
+        data: this.state.basicIdeaByDepartment,
+        backgroundColor: backgroundColors
       }]
-      const isSuperUser = Parse.User.current().get("role") == 'super_user'
+
+      const datasetsByType = [{
+        data: this.state.ideasByType,
+        backgroundColor: backgroundColors
+      }]
 
       var smallStats = [
         {
-          label: t('SUBMITTED_IDEAS'),
-          value: this.state.numSubmitted,
+          label: t('Your Contributions'),
+          value: this.state.myIdeas.length,
           percentage: "12.4%",
           increase: true,
           chartLabels: [null, null, null, null, null],
@@ -536,8 +572,8 @@ class Analytics extends React.Component {
           ]
         },
         {
-          label: t('COMPLETED_IDEAS'),
-          value: this.state.numCompleted,
+          label: t('Your Approved Contributions'),
+          value: this.state.myApprovedIdeas.length,
           percentage: "7.21%",
           increase: false,
           chartLabels: [null, null, null, null, null],
@@ -554,8 +590,8 @@ class Analytics extends React.Component {
           ]
         },
         {
-          label: t('IDEAS_ON_PROGRESS'),
-          value: this.state.numInProgress,
+          label: t("Your Team's Contributions"),
+          value: this.state.myTeamContributions.length,
           percentage: "3.71%",
           increase: true,
           chartLabels: [null, null, null, null, null],
@@ -572,8 +608,8 @@ class Analytics extends React.Component {
           ]
         },
         {
-          label: t('PENDING_FOR_EVALUATION'),
-          value: this.state.numPendingEval,
+          label: t('Contributions in Progress'),
+          value: this.state.myApprovedTeamIdeas.length,
           percentage: "3.71%",
           increase: true,
           chartLabels: [null, null, null, null, null],
@@ -591,185 +627,104 @@ class Analytics extends React.Component {
         },
       ];
 
+     
+      
+
       return (
-        <Container fluid className="main-content-container px-4">
-    <Row noGutters className="page-header py-4">
-      {/* Page Header :: Title */}
-      <PageTitle title={t('VIEW_REPORTS')} subtitle={t('REPORTS')} className="text-sm-left mb-3" />
-
-      {/* Page Header :: Actions */}
-      <Col xs="12" sm="4" className="col d-flex align-items-center">
-        <ButtonGroup size="sm" className="d-inline-flex mb-3 mb-sm-0 mx-auto">
-          <Button theme="white">
-          {isSuperUser && <CSVLink filename={"murmuration_idea_report.csv"} data={this.state.ideaDataCsv}>Download Data</CSVLink>}
-          </Button>
-          
-        </ButtonGroup>
-      </Col>
-
-      {/* Page Header :: Datepicker */}
-      {/* <Col sm="4" className="d-flex">
-        <RangeDatePicker className="justify-content-end" />
-      </Col> */}
-    </Row>
+       <div>
 
     {/* Small Stats Blocks */}
+    
     <Row>
-      {smallStats.map((stats, idx) => (
+      <Col lg="12" className="m-auto">
+        <Row className="mt-4">
+        {smallStats.map((stats, idx) => (
         <Col key={idx} md="6" lg="3" className="mb-4">
           <Card>
             <CardBody>
-              <CardSubtitle>{stats.label}</CardSubtitle>
-                <h3>{stats.value}</h3>
+              <CardSubtitle style={{textAlign: 'center'}} >{stats.label}</CardSubtitle>
+                <h3 className="mt-2" style={{textAlign: 'center'}}>{stats.value}</h3>
             </CardBody>
           </Card>
         </Col>
         ))}
-
-      <Col lg="6" sm="12" className="mb-4">
-        <Card>
-        <CardBody>
-          <CardTitle>{t('IDEAS_BY_PROGRESS')}</CardTitle>
-          <div
-            style={{
-              width: '400px',
-              height: '300px'
-            }}
-          >
-             <Pie data={{labels: labels, datasets: datasets}}  options={{ maintainAspectRatio: true }} />
-          </div>
-         
-        </CardBody>
-        <CardFooter>
-          {/* <Button>{t('DOWNLOAD_DATA')} &rarr;</Button> */}
-          </CardFooter>
-      </Card>
-          {/* <Chart data={data} axes={axes} /> */}
-      </Col>
-        
-       <Col lg="6" sm="12" className="mb-4">
-       <Card>
-      <CardBody>
-        <CardTitle>{t('IDEAS_BY_DEPARTMENT')}</CardTitle>
-        {this.state.showIdeasByDeptChart &&<MyChart height={80} width={80} initialWidth={80} data={this.state.ideaByDepartmentData}></MyChart>}
-      </CardBody>
-      <CardFooter>
-        </CardFooter>
-    </Card>
-        
-      </Col>
-
-      <Col lg="6" sm="12" className="mb-4">
-       <Card>
-      <CardBody>
-        <CardTitle>{t('PROGRESS_BY_CATEGORY')}</CardTitle>
-        {this.state.showProgressByCatChart &&<ProgressPerCategoryChart data={this.state.progressByCategoryData}></ProgressPerCategoryChart>}
-      </CardBody>
-      <CardFooter>
-        
-        </CardFooter>
-    </Card>
-        
-      </Col>
-
-      {/* Earnings */}
-      <Col lg="6" sm="12" className="mb-4">
-       <Card>
-      <CardBody>
-        <CardTitle>{t('EXPECTED_EARNINGS_BY_CATEGORY')}</CardTitle>
-        {this.state.showChart && <ProgressPerCategoryChart data={this.state.returnsByCategoryData}></ProgressPerCategoryChart>}
-      </CardBody>
-      <CardFooter>
-       
-        </CardFooter>
-    </Card>
-       
-      </Col>
-
-      {/* Actual Earnings */}
-      <Col lg="6" sm="12" className="mb-4">
-       <Card>
-      <CardBody>
-        <CardTitle>{t('ACTUAL_EARNINGS_BY_CATEGORY')}</CardTitle>
-        <ProgressPerCategoryChart style={{height: "30px"}} data={this.state.actualReturnsByCategoryData}></ProgressPerCategoryChart>
-      </CardBody>
-      <CardFooter>
-       
-        </CardFooter>
-    </Card>
-        
+        </Row>
       </Col>
     </Row>
     
-  </Container>
+    <Row>
+        <Col lg="12" className="m-auto">
+            <Row>
+                <Col lg="6" sm="12" className="mb-4">
+                    <Card>
+                    <CardBody>
+                    <CardTitle>{t('Ideas by Department (%)')}</CardTitle>
+                    {/* <div
+                        style={{
+                        width: '400px',
+                        height: '300px'
+                        }}
+                    > */}
+                        <Pie data={{labels: labels, datasets: datasets}}  
+                            options={{ 
+                                maintainAspectRatio: true,
+                                responsive: true,
+                                legend: {
+                                    display: true,
+                                    position: "bottom"
+                                  },
+                            }} />
+                    {/* </div> */}
+                    
+                    </CardBody>
+                    <CardFooter>
+                    {/* <Button>{t('DOWNLOAD_DATA')} &rarr;</Button> */}
+                    </CardFooter>
+                    </Card>
+                </Col>
+                <Col lg="6" sm="12" className="mb-4">
+                    <Card>
+                    <CardBody>
+                    <CardTitle>{t('Ideas by Type (%)')}</CardTitle>
+                    {/* <div
+                        style={{
+                        width: '400px',
+                        height: '300px'
+                        }}
+                    > */}
+                        <Pie data={{labels: otherLabels, datasets: datasetsByType}}  options={{
+                             maintainAspectRatio: true,
+                            responsive: true,
+                             legend: {
+                                display: true,
+                                position: "bottom"
+                              },
+                        }} />
+                    {/* </div> */}
+                    
+                    </CardBody>
+                    <CardFooter>
+                    {/* <Button>{t('DOWNLOAD_DATA')} &rarr;</Button> */}
+                    </CardFooter>
+                    </Card>
+                </Col>
+            </Row>
+         </Col>
+      </Row>
+      </div>
       )
     }
   }
-// const Analytics = ({ smallStats }) => (
-//   <Container fluid className="main-content-container px-4">
-//     <Row noGutters className="page-header py-4">
-//       {/* Page Header :: Title */}
-//       <PageTitle title="Ver Reportes" subtitle="Reportes" className="text-sm-left mb-3" />
 
-//       {/* Page Header :: Actions */}
-//       {/* <Col xs="12" sm="4" className="col d-flex align-items-center">
-//         <ButtonGroup size="sm" className="d-inline-flex mb-3 mb-sm-0 mx-auto">
-//           <Button theme="white" tag={NavLink} to="/analytics">
-//             Personal
-//           </Button>
-//           <Button theme="white" tag={NavLink} to="/ecommerce">
-//             Admin
-//           </Button>
-//         </ButtonGroup>
-//       </Col> */}
 
-//       {/* Page Header :: Datepicker */}
-//       {/* <Col sm="4" className="d-flex"> */}
-//         {/* <RangeDatePicker className="justify-content-end" /> */}
-//       {/* </Col> */}
-//     </Row>
-
-//     {/* Small Stats Blocks */}
-//     <Row>
-//       {smallStats.map((stats, idx) => (
-//         <Col key={idx} md="6" lg="4" className="mb-4">
-//           <SmallStats
-//             id={`small-stats-${idx}`}
-//             chartData={stats.datasets}
-//             chartLabels={stats.chartLabels}
-//             label={stats.label}
-//             value={stats.value}
-//             percentage={stats.percentage}
-//             increase={stats.increase}
-//             decrease={stats.decrease}
-//           />
-//         </Col>
-//       ))}
-//     </Row>
-
-//     <Row>
-//       {/* Top Referrals */}
-//       <Col lg="6" sm="6" className="mb-4">
-//         <IdeasTable/>
-//         {/* <UserPerformance/> */}
-//       </Col>
-
-//       {/* Goals Overview */}
-//       <Col lg="6" className="mb-4">
-//         <GoalsOverview title="Idea Progress"/>
-//       </Col>
-//     </Row>
-//   </Container>
-// );
-
-Analytics.propTypes = {
+EmployeeActivityDashboard.propTypes = {
   /**
    * The small stats data.
    */
   smallStats: PropTypes.array
 };
 
-Analytics.defaultProps = {
+EmployeeActivityDashboard.defaultProps = {
   smallStats: [
     {
       label: "Ideas Submitted",
@@ -828,4 +783,4 @@ Analytics.defaultProps = {
   ]
 };
 
-export default withTranslation()(Analytics);
+export default withTranslation()(EmployeeActivityDashboard);

@@ -1122,7 +1122,7 @@ i18next.init({
 export default function () {
   const t = i18next.t.bind(i18next);
   return [{
-    title: 'Dashboards',
+    title: 'Workflow Steps',
     items: [{
       title: t('MENU_IDEA'),
       to: '/submit-idea',
@@ -1136,7 +1136,7 @@ export default function () {
         htmlBefore: '<i class="material-icons">record_voice_over</i>',
         htmlAfter: '',
       },{
-      title: t("MENU_SEARCH_IDEA"),
+      title: t("Your Ideas"),
       to: '/search-idea',
       roles:['user', 'evaluation', 'verification', 'recognition', 'super_user'],
       htmlBefore: '<i class="material-icons">record_voice_over</i>',
@@ -1203,6 +1203,13 @@ export default function () {
       htmlBefore: '<i class="material-icons">record_voice_over</i>',
       htmlAfter: '',
     }]
+    },
+    {
+      title: t("Activity Dashboard"),
+      to: '/activity-dashboard',
+      roles:['user', 'evaluation', 'verification', 'recognition', 'super_user'],
+      htmlBefore: '<i class="material-icons">bar_chart</i>',
+      htmlAfter: '',
     },
     {
       title: t("MENU_REPORTS"),

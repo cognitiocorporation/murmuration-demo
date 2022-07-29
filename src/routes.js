@@ -44,6 +44,8 @@ import AdministrationDepartments from "./views/AdministrationDepartments";
 import AdministrationPreguntas from "./views/AdministrationPreguntas";
 import RecognitionInbox from "./views/RecognitionInbox";
 import EvaluateIdea from "./views/EvaluateIdea";
+import IdeaHistory from "./components/common/IdeaHistory";
+import EmployeeActivityDashboard from "./views/EmployeeActivityDashboard";
 
 const BlankIconSidebarLayout = ({ children }) => (
   <IconSidebar noNavbar noFooter>
@@ -68,6 +70,12 @@ export default [
     layout: DefaultLayout,
     protected: true,
     component: Analytics
+  },
+  {
+    path: "/activity-dashboard",
+    layout: DefaultLayout,
+    protected: true,
+    component: EmployeeActivityDashboard
   },
   {
     path: "/administracion",

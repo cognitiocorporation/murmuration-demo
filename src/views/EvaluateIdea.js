@@ -95,6 +95,8 @@ class EvaluateIdea extends React.Component {
       selectedIdeaType = "innovacion"
     } else if (ideaType == "problem" || ideaType == 'problema') {
       selectedIdeaType = "problema"
+    } else if (ideaType == "improvement" || ideaType == 'mejoras') {
+      selectedIdeaType = "improvement"
     }
 
     this.setState({
@@ -283,7 +285,7 @@ class EvaluateIdea extends React.Component {
         <PageTitle title={t("TRANSACTION_MANAGE")} subtitle="IDEA" className="text-sm-left mb-3" />
 
         {/* Page Header :: Actions */}
-        <Col xs="12" sm="8" className="col d-flex align-items-center">
+        {/* <Col xs="12" sm="8" className="col d-flex align-items-center">
             <ButtonGroup size="sm" className="d-inline-flex mb-3 mb-sm-0 mx-auto">
             <Button theme="white" tag={NavLink} to="/idea-management">
                 {t('ENTRIES')}
@@ -292,7 +294,7 @@ class EvaluateIdea extends React.Component {
                 {t('HISTORY')}
             </Button>
             </ButtonGroup>
-        </Col>
+        </Col> */}
         </Row>
 
         {/* Small Stats Blocks */}

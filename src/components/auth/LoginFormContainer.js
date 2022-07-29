@@ -61,7 +61,8 @@ class LoginFormContainer extends Component {
 
   async handleFormSubmit() {
     // Form submission logic
-    const needsPasswordChange = this.needsPasswordChange()
+    // Changes only for baxter
+    const needsPasswordChange = false //this.needsPasswordChange()
     
     if (needsPasswordChange) {
       alert("Please reset your password by pressing the 'Forgot your password?' button down below.")

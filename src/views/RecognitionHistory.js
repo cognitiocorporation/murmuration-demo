@@ -252,7 +252,7 @@ class RecognitionHistory extends React.Component {
       <Container fluid className="main-content-container px-4 pb-4">
         <Row noGutters className="page-header py-4">
           <PageTitle title={t("TRANSACTION_VIEWRECOGNITION")} subtitle={t("TRANSACTION_RECOGNITION")} className="text-sm-left mb-3" />
-          <Col xs="12" sm="8" className="col d-flex align-items-center">
+          {/* <Col xs="12" sm="8" className="col d-flex align-items-center">
             <ButtonGroup size="sm" className="d-inline-flex mb-3 mb-sm-0 mx-auto">
               <Button theme="white" tag={NavLink} to="/entradas-reconocimiento">
               {t("ENTRIES")}
@@ -261,7 +261,7 @@ class RecognitionHistory extends React.Component {
               {t("HISTORY")}
               </Button>
             </ButtonGroup>
-      </Col>
+           </Col> */}
         </Row>
         <Card className="p-0">
           <CardHeader className="p-0">

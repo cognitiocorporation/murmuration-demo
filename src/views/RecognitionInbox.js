@@ -146,7 +146,7 @@ class RecognitionInbox extends React.Component {
       <PageTitle title={t("RECOG_IDEA_TITLE")} subtitle={t("RECOGNITION")}className="text-sm-left mb-3" />
 
       {/* Page Header :: Actions */}
-      <Col xs="12" sm="8" className="col d-flex align-items-center">
+      {/* <Col xs="12" sm="8" className="col d-flex align-items-center">
         <ButtonGroup size="sm" className="d-inline-flex mb-3 mb-sm-0 mx-auto">
           <Button theme="white" tag={NavLink} to="/entradas-reconocimiento">
             Entries
@@ -155,7 +155,7 @@ class RecognitionInbox extends React.Component {
             History
           </Button>
         </ButtonGroup>
-      </Col>
+      </Col> */}
     </Row>
 
     {/* Small Stats Blocks */}

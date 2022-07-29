@@ -40,7 +40,7 @@ const remCharStyle = {
   color: 'green'
 };
 
-class ManageIdeaForm extends React.Component {
+class IdeaChangeHistory extends React.Component {
     constructor(props) {
         super(props);
         const {t} = this.props
@@ -97,16 +97,38 @@ class ManageIdeaForm extends React.Component {
 
     componentDidMount() {
       let currUser = Parse.User.current();
+      this.getIdeaHistory()
       this.showCorrectScreen();
       this.getUserName(currUser);
       this.getDate();
       this.setPercentage();
     }
 
-    componentDidUpdate(prevProps) {
-      if (prevProps.canSubmit !== this.props.canSubmit) {
-        this.submitEvaluation()
-      }
+    getIdeaHistory() {
+        const idea = this.props.idea;
+        const ideaReference = idea.id
+
+        var ItemClass = Parse.Object.extend("IdeaHistory");
+        var query = new Parse.Query(ItemClass);
+        query.descending("createdAt");
+        query.equalTo("ideaReference", ideaReference);
+        
+
+        query.find()
+        .then((results) => {
+          console.log('RESULTS: ' + results);
+            this.setState({
+                data: results
+            });
+        }, (error) => {
+            this.setState({
+                data: []
+            });
+            console.log(error)
+          // The object was not retrieved successfully.
+          // error is a Parse.Error with an error code and message.
+        });
+
     }
 
     showCorrectScreen() {
@@ -180,8 +202,6 @@ class ManageIdeaForm extends React.Component {
       const firstName = results[0].get('firstName');
       const lastName = results[0].get('lastName');
       const fullName = firstName + ' ' + lastName;
-      const canEdit = ((fullName == this.props.idea.get("responsibleName"))?true:false);
-      this.props.setCanEdit(canEdit)
       this.setState({
         userName: fullName
       });
@@ -665,10 +685,15 @@ class ManageIdeaForm extends React.Component {
       this.setState({showCompleted: true});
     }
 
+    getDate(date) {
+        // console.log(date);
+        return moment(date).format('DD/MM/YYYY');
+      }
+
     render() {
-        const {visible, filterVisible, hideNextButton, ideaDescription, userName, 
+        const {data, visible, filterVisible, hideNextButton, ideaDescription, userName, 
           firstActive, secondActive, thirdActive, fourthActive, progress, commentTitle, submitBtnTitle, showCompleted } = this.state
-        const {idea, setCanEdit} = this.props;
+        const {idea} = this.props;
         const formVisibilityState = visible? 'block' : 'none';
         const filterVisibilityState = filterVisible? 'block' : 'none';
         const nextButtonVisibilityState = !hideNextButton? 'inline' : 'none';
@@ -694,209 +719,62 @@ class ManageIdeaForm extends React.Component {
           }
         }
 
-        const finalPermission = true
-        
+        const finalPermission = canEdit && canBeUpdated;
 
         const holdOrCancelled = idea.get("status") == "No Perseguido" || idea.get("status") == "Idea en Espera"
         const {t} = this.props
     
         return(
                 !showCompleted?
-                  <Card small className="edit-user-details mb-4">
+                  <Card small className="edit-user-details pt-4">
                     {/* <ProfileBackgroundPhoto /> */}
     
                     <CardBody className="p-0">
     
                       {/* Form Section Title :: General */}
-                      <Form className="py-4"
+                      <Form className="my-auto"
                       onSubmit={this.onSubmit}
                       noValidate
                       >
-                        <FormSectionTitle
-                          title={t("IDEA_MANAGE_OVERVIEW")}
-                          description=""
-                        />
+                        {data.length == 0 && 
+                        <Row form className="mx-4 mt-2">
+                                    <Col md="12" className="form-group my-auto">
+                                        {/* <EvaluationSelect setCategory={(selection) => console.log(selection)}/> */}
+                                        {/* <h6 style={{fontWeight: 500, color: '#303030', marginBottom: 0}}>{'No activity has been logged...'}</h6> */}
+                                <p>{'No activity has been logged...'}</p>
+                            </Col>
+                        </Row>}
                         {/* VISIBILITY */}
-                        <div style={{display: formVisibilityState}}>
-                        <Row form className="mx-4">
-                          <Col lg="12">
-                            <Row form>
-                              {/* Proponent */}
-                              <Col md="3" className="form-group">
-                                <label htmlFor="firstName">{t("IDEA_MANAGE_PROPONENT")}</label>
-                                <FormInput
-                                  id="firstName"
-                                  value={idea.get("proponentName")}
-                                  onChange={() => {}}
-                                  required
-                                  disabled
-                                />
-                              </Col>
-    
-                              {/* Date */}
-                              <Col md="3" className="form-group">
-                              <label htmlFor="lastName">{t("IDEA_MANAGE_SUBMITTED")}</label>
-                              <InputGroup>
-                                  <InputGroupAddon type="append">
-                                    <InputGroupText>
-                                      <i className="material-icons">&#xE916;</i>
-                                    </InputGroupText>
-                                  </InputGroupAddon>
-                                  <DatePicker
-                                    placeholderText={idea.get("date")}
-                                    dropdownMode="select"
-                                    className="text-center"
-                                    readOnly = "true"
-                                    onChange={this.setDate} 
-                                    selected={idea.get("date")}
-                                    required
-                                  />
-                                </InputGroup>
-                              </Col>
-                              {/* Department */}
-                              <Col md="3" className="form-group">
-                                <label htmlFor="userLocation">{t("IDEA_MANAGE_DEPARTMENT")}</label>
-                                <FormInput
-                                  id="firstName"
-                                  value={idea.get("department")}
-                                  onChange={() => {}}
-                                  required
-                                  disabled
-                                />
-                              </Col>
-                              {/* Department */}
-                              <Col md="3" className="form-group">
-                                <label htmlFor="userLocation">{t("IDEA_MANAGE_CATEGORY")}</label>
-                                <FormInput
-                                  id="firstName"
-                                  value={idea.get("category")}
-                                  onChange={() => {}}
-                                  required
-                                  disabled
-                                />
-                              </Col>
-
-                              <Col md="3" className="form-group">
-                                <label htmlFor="firstName">{t("IDEA_MANAGE_ASSIGNED")}</label>
-                                <Alert theme="primary">
-                                  <strong>{idea.get("responsibleName")}</strong>
-                                </Alert>
-                              </Col>
-
-                              <Col md="3" className="form-group">
-                                <label htmlFor="firstName">{t("IDEA_MANAGE_COACH")}</label>
-                                <Alert theme="primary">
-                                  <strong>{idea.get("coachName")?idea.get("coachName"):"No Coach"}</strong>
-                                </Alert>
-                              </Col>
-
-                              <Col md="3" className="form-group">
-                                <label htmlFor="firstName">{t("IDEA_MANAGE_STATUS")}</label>
-                                <Alert theme="primary">
-                                  <strong>{idea.get("status")}</strong>
-                                </Alert>
-                              </Col>
-
-                              <Col md="3" className="form-group">
-                                <label htmlFor="firstName">{t("IDEA_MANAGE_PROGRESS")}</label>
-                                <Alert theme="primary">
-                                  <strong>{idea.get("progress")[0] + '%'}</strong>
-                                </Alert>
-                              </Col>
-                            </Row>
-                          </Col>
-                        </Row>
-    
-                        <br/>
-
-                        <FormSectionTitle
-                          title={t("IDEA_MANAGE_ADD_PROGRESS")}
-                          description=""
-                        />
-                        <Row form className="mx-4">
-                        {/* Categoria */}
-                          <Col md="12" className="form-group">
-                            {/* <EvaluationSelect setCategory={(selection) => console.log(selection)}/> */}
-                            <Row md="12">
-                              <Col md="3">
-                                <Button outline={!firstActive?true:false}  block value='25' onClick={this.progressBtnPress}>25%</Button>
-                                <label htmlFor="firstName">{t('IDEA_EVALUATED_ASSIGNED')}</label>
-                              </Col>
-                              <Col md="3">
-                              <Button outline={!secondActive?true:false} block value='50' onClick={this.progressBtnPress}>50%</Button>
-                              <label htmlFor="firstName">{t('IDEA_EXECUTION_STARTED')}</label>
-                              </Col>
-                              <Col md="3">
-                              <Button outline={!thirdActive?true:false} block value='75' onClick={this.progressBtnPress}>75%</Button>
-                              <label htmlFor="firstName">{t('IDEA_IMPLEMENTED')}</label>
-                              </Col>
-                              <Col md="3">
-                              <Button outline={!fourthActive?true:false} block value='100'onClick={this.progressBtnPress}>100%</Button>
-                              <label htmlFor="firstName">{t('IDEA_IMPLEMENTED_BENEFITS')}</label>
-                              </Col>
-                            </Row>
-                          </Col>
-                        </Row>
-                        {/* <FormSectionTitle
-                          title="Comentarios"
-                          description=""
-                        /> */}
-                        {<FormSectionTitle
-                        title={t('COMMENTS_IDEA')}
-                        description=""
-                      />}
-                        {comments.map((comment, idx) =>
-                        comments[idx].progress[0] == progress[0] && 
-                        <Row form className="mx-4" hidden={ideaProgress < progress[0]}>
-                          {/* Idea Description */}
-                          <Col md="12" className="form-group">
-                              <strong className="text-muted d-block mb-2">
-                                {comments[idx].user} | {this.getDate(comments[idx].date)}
-                              </strong>
-                              <span>{comments[idx].comment}</span>
-                          </Col>
-                        </Row>
-                        )}
-
-                        {finalPermission && <FormSectionTitle
-                          display={!finalPermission}
-                          title={t('WRITE_NEW_COMMENT')}
-                          description=""
-                        />}
-                        <Row form className="mx-4">
-                          {/* Idea Description */}
-                          <Col md="12" className="form-group">
-                            <FormTextarea
-                              hidden={!finalPermission}
-                              style={{ minHeight: "100px" }}
-                              id="userBio"
-                              placeholder={t('WRITE_NEW_COMMENT_DESCRIPTION')}
-                              value={ideaDescription}
-                              onChange={this.setIdeaDescription}
-                            />
-                          </Col>
-                        </Row>
-
-                        {finalPermission && <FormSectionTitle
-                          hidden={!finalPermission}
-                          title={t('SUBMIT_IDEA_UploadArchive')}
-                          description=""
-                        />}
+                        {/* <div style={{display: formVisibilityState}}>
+                        { */}
+                        {data.map((historyItem, index) => {
+                            const itemDate = historyItem.get("createdAt")
+                            const dateString = this.getDate(itemDate)
+                            const percentage = historyItem.get("progress")
+                            const percentageString = percentage[0] + "%"
+                            const isNotLast = index != data.length - 1
+                            return(
+                                <div>
+                                <Row form className="mx-4 mt-2">
+                                    <Col md="12" className="form-group my-auto">
+                                        {/* <EvaluationSelect setCategory={(selection) => console.log(selection)}/> */}
+                                        <h6 style={{fontWeight: 500, color: '#303030', marginBottom: 0}}>{'Activity: Progress Update'}</h6>
+                                        <p style={{marginBottom: 0}}>{'Activity Details: Completion Percentage changed to ' + percentageString}</p>
+                                        <p>{dateString}</p>
+                                    </Col>
+                                </Row>
+                                <Row className="mx-0">
+                                <Col md="12" className="form-group">
+                                    {isNotLast && <div style={{height: 1, width: '100%', backgroundColor: 'black'}}></div>}
+                                </Col>
+                                </Row>
+                                </div>
+                            )
+                        })}
                         
-                        <Row form className="mx-4" hidden={!finalPermission}>
-                          {/* Idea Description */}
-                          <Col className="form-group">
-                            <CustomFileUpload onFileSelect={this.selectFile}/>
-                          </Col>
-                        </Row>
-                        </div>
-                          
-                        {/* Select IDEA Filter Visibility State */}
-                        <div style={{display: filterVisibilityState}}>
-                          <IdeaFilterSelect setFilter={(e) => {this.setFilter(e)}}/>
-                        </div>
-
-                        {/* Select IDEA Filter Visibility State */}
+                        
+                      
+                
                         </Form>
                     </CardBody>
                   
@@ -910,4 +788,4 @@ class ManageIdeaForm extends React.Component {
 
 
 
-export default withTranslation()(ManageIdeaForm);
+export default withTranslation()(IdeaChangeHistory);
